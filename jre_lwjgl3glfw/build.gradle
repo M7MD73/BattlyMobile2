@@ -30,7 +30,7 @@ jar {
     }
     if (gitUsed()){
       File versionFile = file("../app_pojavlauncher/src/main/assets/components/lwjgl3/version")
-      String lwjglPatchVersion = getGitHash(project.projectDir) + "-cacio-ctc-labymod-stable-fix18-solclient-real-ui-battly-r9"
+      String lwjglPatchVersion = getGitHash(project.projectDir) + "-cacio-ctc-labymod-stable-fix18-solclient-real-ui-battly-r19-audio-input-routing"
       versionFile.write(lwjglPatchVersion)
       file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.3.3/version").write(lwjglPatchVersion + "-3.3.3")
       file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.4.1/version").write(lwjglPatchVersion + "-3.4.1-native-r7-sdl3412")
@@ -55,48 +55,82 @@ tasks.register("patchMergedLwjglModules") {
     outputs.upToDateWhen { false }
 
     doLast {
-        ["3.3.3", "3.4.1", "3.4.2"].each { version ->
-            File mergedJar = file("../app_pojavlauncher/src/main/assets/components/lwjgl3/${version}/lwjgl-${version}-merged-modules.jar")
-            if (!mergedJar.exists()) {
-                throw new GradleException("Missing LWJGL merged module: ${mergedJar}")
-            }
-
-            File stagingDir = layout.buildDirectory.dir("patched-lwjgl/${version}").get().asFile
-            File inputJar = layout.buildDirectory.file("patched-lwjgl/${version}-input.jar").get().asFile
-            File outputJar = layout.buildDirectory.file("patched-lwjgl/${version}-output.jar").get().asFile
-            delete stagingDir
-            inputJar.parentFile.mkdirs()
-            java.nio.file.Files.copy(
-                    mergedJar.toPath(),
-                    inputJar.toPath(),
-                    java.nio.file.StandardCopyOption.REPLACE_EXISTING)
-            copy {
-                // Read a disposable copy so Windows does not keep the destination JAR mapped.
-                from(zipTree(inputJar))
-                into stagingDir
-            }
-
-            sourceSets.main.output.classesDirs.files.each { classesDir ->
-                fileTree(classesDir).matching {
-                    include "org/lwjgl/glfw/**"
-                }.files.each { compiledClass ->
-                    String relativePath = classesDir.toPath().relativize(compiledClass.toPath()).toString()
-                    delete new File(stagingDir, relativePath)
+        File lockFile = layout.buildDirectory.file("patched-lwjgl/modules.lock").get().asFile
+        lockFile.parentFile.mkdirs()
+        def lockChannel = java.nio.channels.FileChannel.open(
+                lockFile.toPath(),
+                java.nio.file.StandardOpenOption.CREATE,
+                java.nio.file.StandardOpenOption.WRITE)
+        def buildLock = lockChannel.lock()
+        try {
+            def requireValidJar = { File jarFile, String label ->
+                try (def zip = new java.util.zip.ZipFile(jarFile)) {
+                    if (!zip.entries().hasMoreElements()) {
+                        throw new GradleException("${label} is empty: ${jarFile}")
+                    }
+                } catch (java.io.IOException exception) {
+                    throw new GradleException("${label} is corrupt: ${jarFile}", exception)
                 }
             }
-            copy {
-                from(sourceSets.main.output.classesDirs) {
-                    include "org/lwjgl/glfw/**"
+
+            ["3.3.3", "3.4.1", "3.4.2"].each { version ->
+                File mergedJar = file("../app_pojavlauncher/src/main/assets/components/lwjgl3/${version}/lwjgl-${version}-merged-modules.jar")
+                if (!mergedJar.exists()) {
+                    throw new GradleException("Missing LWJGL merged module: ${mergedJar}")
                 }
-                into stagingDir
+                requireValidJar(mergedJar, "LWJGL merged module input")
+
+                File stagingDir = layout.buildDirectory.dir("patched-lwjgl/${version}").get().asFile
+                File inputJar = layout.buildDirectory.file("patched-lwjgl/${version}-input.jar").get().asFile
+                File outputJar = layout.buildDirectory.file("patched-lwjgl/${version}-output.jar").get().asFile
+                delete stagingDir
+                inputJar.parentFile.mkdirs()
+                java.nio.file.Files.copy(
+                        mergedJar.toPath(),
+                        inputJar.toPath(),
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                requireValidJar(inputJar, "LWJGL disposable module input")
+                copy {
+                    // Read a disposable copy so Windows does not keep the destination JAR mapped.
+                    from(zipTree(inputJar))
+                    into stagingDir
+                }
+
+                sourceSets.main.output.classesDirs.files.each { classesDir ->
+                    fileTree(classesDir).matching {
+                        include "org/lwjgl/glfw/**"
+                    }.files.each { compiledClass ->
+                        String relativePath = classesDir.toPath().relativize(compiledClass.toPath()).toString()
+                        delete new File(stagingDir, relativePath)
+                    }
+                }
+                copy {
+                    from(sourceSets.main.output.classesDirs) {
+                        include "org/lwjgl/glfw/**"
+                    }
+                    into stagingDir
+                }
+                delete outputJar
+                ant.zip(destfile: outputJar, basedir: stagingDir)
+                requireValidJar(outputJar, "LWJGL patched module output")
+                try {
+                    java.nio.file.Files.move(
+                            outputJar.toPath(),
+                            mergedJar.toPath(),
+                            java.nio.file.StandardCopyOption.ATOMIC_MOVE,
+                            java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                } catch (java.nio.file.AtomicMoveNotSupportedException ignored) {
+                    java.nio.file.Files.move(
+                            outputJar.toPath(),
+                            mergedJar.toPath(),
+                            java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                }
+                requireValidJar(mergedJar, "LWJGL installed patched module")
+                delete inputJar
             }
-            delete outputJar
-            ant.zip(destfile: outputJar, basedir: stagingDir)
-            java.nio.file.Files.move(
-                    outputJar.toPath(),
-                    mergedJar.toPath(),
-                    java.nio.file.StandardCopyOption.REPLACE_EXISTING)
-            delete inputJar
+        } finally {
+            buildLock.release()
+            lockChannel.close()
         }
     }
 }

@@ -149,7 +149,7 @@
     <string name="global_delete">Sil</string>
     <string name="arc_capes_desc">Cosmetica-dan (əvvəllər Arc) qapaqları işə salır. Əlavə məlumat üçün https://cosmetica.cc saytına daxil olun. OptiFine tələb edir.</string>
     <string name="notif_channel_name">Ümumi</string>
-    <string name="lazy_service_default_title">Battly Başlatıcı Ön Plan Xidməti</string>
+    <string name="lazy_service_default_title">Battly Launcher Ön Plan Xidməti</string>
     <string name="use_global_default">(Qlobal defoltdan istifadə edin)</string>
     <string name="default_control">Defolt controlmap</string>
     <string name="progresslayout_tasks_in_progress">%d tapşırıq davam edir</string>
@@ -406,7 +406,7 @@
     <string name="crash_no_findings">Ən son qeydlərdə məlum qəza nümunəsi tapılmadı.</string>
     <string name="crash_recovery_applied">Bərpa əməliyyatı tamamlandı</string>
     <string name="crash_recovery_manual">Bu problemin əl ilə dəyişdirilməsi lazımdır. Təfərrüatlar üçün jurnalı açın.</string>
-    <string name="credits_version">Versiya 2.2.3</string>
+    <string name="credits_version">Versiya 2.2.5</string>
     <string name="ctrl_like_btn">kimi</string>
     <string name="ctrl_liked_added">Bəyəndiyiniz idarəetmələrə əlavə edildi.</string>
     <string name="ctrl_liked_btn">Bəyəndim</string>
@@ -467,8 +467,8 @@
     <string name="java_runtime_download_progress">Endirilir Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java quraşdırılması 8</string>
     <string name="java_runtime_download_waiting">Java 8 endirilməsi hazırlanır...</string>
-    <string name="launcher_credits_title">Battly Başlatıcı 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_status_battly">Battly hesabı</string>
     <string name="launcher_status_battly_plus">Battly+ hesabı</string>
     <string name="library_analyze_mods">Təhlil edin</string>
@@ -671,8 +671,8 @@
 
     <string name="account_manager_subtitle">Battly istifadə etmək üçün necə daxil olmaq istədiyinizi seçin və yadda saxlanılan Java hesablarını idarə edin.</string>
     <string name="account_manager_title">Hesab meneceri</string>
-    <string name="app_name">Battly Başlatıcı</string>
-    <string name="app_short_name">Battly Başlatıcı</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly Hesabı</string>
     <string name="auth_method_local">Yerli hesab</string>
     <string name="auth_method_microsoft">Microsoft Hesabı</string>
@@ -938,7 +938,7 @@
     <string name="installer_internal_fallback">Dəstəklənməyən quraşdırıcı, köhnə Java UI-ni açır</string>
     <string name="installer_internal_running">Quraşdırıcı təhlil edilir...</string>
     <string name="installer_internal_success">%1$s birbaşa Battly daxilində quraşdırılmışdır</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Başlatıcı 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Başlatıcı PojavLauncher və Boardwalk əsasında.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditlər&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1378,20 +1378,4 @@
     <string name="search_world_download_error">Dünya metadatasını endirmək alınmadı</string>
     <string name="world_install_button">Dünyanı quraşdırın</string>
     <string name="world_install_success">%1$s bu instansiyaya quraşdırılmışdır</string>
-
-    <string name="battly_whats_new_action_start">2.2.3-ü araşdırın</string>
-    <string name="battly_whats_new_compatibility_desc">Açıq modpack hərəkəti indi yeni nümunəni seçir və hər quraşdırma və məzmun pəncərəsini düzgün bağlayır.</string>
-    <string name="battly_whats_new_compatibility_title">Quraşdırılmış modpaketləri birbaşa açın</string>
-    <string name="battly_whats_new_controllers_desc">Battly müştəri quraşdırıcısı indi kompakt ekranlar da daxil olmaqla düzgün sürüşdürülə bilən siyahıdan istifadə edir.</string>
-    <string name="battly_whats_new_controllers_title">Müştəri siyahısının sürüşdürülməsi düzəldildi</string>
-    <string name="battly_whats_new_desc">Battly Workspace üçün yeni təcrid olunmuş nümunələr, endirilə bilən dünyalar və mühüm düzəlişlər.</string>
-    <string name="battly_whats_new_instances_desc">Yeni Vanilla, yükləyici, müştəri və modpack nümunələri öz dünyalarını, modlarını, parametrlərini və resurs paketlərini müstəqil qovluqda saxlayır.</string>
-    <string name="battly_whats_new_instances_title">Hər yeni nümunə üçün ayrıca qovluq</string>
-    <string name="battly_whats_new_recovery_desc">Yeni nümunənin izolyasiyası, daha təhlükəsiz parametrlərin saxlanması və uzun sessiya diaqnostikası konfiqurasiyanın sıfırlanmasını azaldır və problemlərin müəyyən edilməsini asanlaşdırır.</string>
-    <string name="battly_whats_new_recovery_title">Təkmilləşdirilmiş sabitlik</string>
-    <string name="battly_whats_new_title">Battly Mobil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Mövcud nümunələr olduğu yerdə qalır. Qovluq izolyasiyası yalnız bu versiyadan sonra yaradılmış nümunələrə aiddir.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 hazırdır</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge-dən Minecraft dünyalarına göz atın və birbaşa seçdiyiniz nümunəyə quraşdırın.</string>
-    <string name="battly_whats_new_worlds_title">Workspace-dən dünyaları endirin</string>
 </resources>

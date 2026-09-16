@@ -21,13 +21,11 @@ import net.kdt.pojavlaunch.multirt.MultiRTUtils;
 import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.utils.JREUtils;
 import net.kdt.pojavlaunch.utils.AdaptiveDownloadPolicy;
+import net.kdt.pojavlaunch.utils.MobileGluesVersionPolicy;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LauncherPreferences {
     public static final String PREF_KEY_CURRENT_PROFILE = "currentProfile";
@@ -384,17 +382,6 @@ public class LauncherPreferences {
     }
 
     static boolean requiresMobileGluesShaderErrorWorkaround(String minecraftVersion) {
-        if (minecraftVersion == null) return false;
-        String normalized = minecraftVersion.toLowerCase(Locale.ROOT).trim();
-        Matcher release = Pattern.compile("^(\\d+)\\.(\\d+)").matcher(normalized);
-        if (!release.find()) return false;
-
-        int major = Integer.parseInt(release.group(1));
-        int minor = Integer.parseInt(release.group(2));
-        if (major > 26 || major == 26 && minor > 3) return true;
-        if (major != 26 || minor != 3) return false;
-
-        Matcher snapshot = Pattern.compile("snapshot[-_ ]?(\\d+)").matcher(normalized);
-        return !snapshot.find() || Integer.parseInt(snapshot.group(1)) >= 3;
+        return MobileGluesVersionPolicy.requiresShaderErrorWorkaround(minecraftVersion);
     }
 }

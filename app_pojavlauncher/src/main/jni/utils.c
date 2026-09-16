@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#define VK_NO_PROTOTYPES
+#include <vulkan/vulkan.h>
 
 #include "log.h"
 
@@ -10,6 +12,68 @@
 
 typedef int (*Main_Function_t)(int, char**);
 typedef void (*android_update_LD_LIBRARY_PATH_t)(char*);
+
+JNIEXPORT jboolean JNICALL Java_net_kdt_pojavlaunch_utils_JREUtils_probeSystemVulkan(
+        JNIEnv *env, jclass clazz) {
+    void *vulkan = dlopen("libvulkan.so", RTLD_NOW | RTLD_LOCAL);
+    if (vulkan == NULL) {
+        LOGW("Vulkan probe: libvulkan.so could not be loaded: %s", dlerror());
+        return JNI_FALSE;
+    }
+
+    PFN_vkGetInstanceProcAddr get_instance_proc_addr =
+            (PFN_vkGetInstanceProcAddr) dlsym(vulkan, "vkGetInstanceProcAddr");
+    PFN_vkCreateInstance create_instance = get_instance_proc_addr == NULL ? NULL :
+            (PFN_vkCreateInstance) get_instance_proc_addr(NULL, "vkCreateInstance");
+    if (create_instance == NULL) {
+        create_instance = (PFN_vkCreateInstance) dlsym(vulkan, "vkCreateInstance");
+    }
+    if (create_instance == NULL) {
+        LOGW("Vulkan probe: vkCreateInstance is unavailable");
+        dlclose(vulkan);
+        return JNI_FALSE;
+    }
+
+    VkApplicationInfo app_info = {
+            .sType = VK_STRUCTURE_TYPE_APPLICATION_INFO,
+            .pApplicationName = "Battly Vulkan probe",
+            .applicationVersion = 1,
+            .pEngineName = "Battly",
+            .engineVersion = 1,
+            .apiVersion = VK_API_VERSION_1_0
+    };
+    VkInstanceCreateInfo create_info = {
+            .sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+            .pApplicationInfo = &app_info
+    };
+    VkInstance instance = VK_NULL_HANDLE;
+    VkResult result = create_instance(&create_info, NULL, &instance);
+    if (result != VK_SUCCESS || instance == VK_NULL_HANDLE) {
+        LOGW("Vulkan probe: vkCreateInstance failed with %d", result);
+        dlclose(vulkan);
+        return JNI_FALSE;
+    }
+
+    PFN_vkEnumeratePhysicalDevices enumerate_devices =
+            (PFN_vkEnumeratePhysicalDevices) get_instance_proc_addr(
+                    instance, "vkEnumeratePhysicalDevices");
+    PFN_vkDestroyInstance destroy_instance =
+            (PFN_vkDestroyInstance) get_instance_proc_addr(instance, "vkDestroyInstance");
+    uint32_t device_count = 0;
+    result = enumerate_devices == NULL
+            ? VK_ERROR_INITIALIZATION_FAILED
+            : enumerate_devices(instance, &device_count, NULL);
+    if (destroy_instance != NULL) destroy_instance(instance, NULL);
+    dlclose(vulkan);
+
+    if (result != VK_SUCCESS || device_count == 0) {
+        LOGW("Vulkan probe: no usable physical device (result=%d, count=%u)",
+             result, device_count);
+        return JNI_FALSE;
+    }
+    LOGI("Vulkan probe: %u physical device(s) available", device_count);
+    return JNI_TRUE;
+}
 
 long shared_awt_surface;
 

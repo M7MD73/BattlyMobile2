@@ -224,11 +224,18 @@ public class ControlButton extends TextView implements ControlInterface {
 
     public void sendKeyPresses(boolean isDown){
         setActivated(isDown);
+        boolean appMenuHandled = false;
         for(int keycode : mProperties.keycodes){
             if(keycode >= GLFW_KEY_UNKNOWN){
                 sendKeyPress(keycode, EfficientAndroidLWJGLKeycode.getLwjglChar(keycode), CallbackBridge.getCurrentMods(), isDown);
                 CallbackBridge.setModifiers(keycode, isDown);
             }else{
+                // Imported layouts sometimes contain the menu action in every keycode slot.
+                // It is a UI command, not a repeatable game input, so dispatch it only once.
+                if (keycode == ControlData.SPECIALBTN_MENU) {
+                    if (appMenuHandled) continue;
+                    appMenuHandled = true;
+                }
                 Log.i("punjabilauncher", "sendSpecialKey("+keycode+","+isDown+")");
                 sendSpecialKey(keycode, isDown);
             }
@@ -273,7 +280,7 @@ public class ControlButton extends TextView implements ControlInterface {
                 if (!isDown) CallbackBridge.sendScroll(0, -1d);
                 break;
             case ControlData.SPECIALBTN_MENU:
-                mControlLayout.notifyAppMenu();
+                if (isDown) mControlLayout.notifyAppMenu();
                 break;
         }
     }

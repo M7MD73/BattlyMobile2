@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Trình khởi chạy Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Chọn một trình cài đặt mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Trình khởi chạy Battly bị lỗi bất ngờ</string>
+    <string name="error_fatal">Battly Launcher bị lỗi bất ngờ</string>
     <string name="error_no_version">Không có phiên bản nào!</string>
     <string name="error_show_more">Hiện thêm</string>
     <string name="error_show_less">Thu gọn</string>
@@ -210,7 +210,7 @@
     <string name="arc_capes_title">Áo choàng Cosmetica</string>
     <string name="arc_capes_desc">Sử dụng áo choàng từ Cosmetica (trước đây gọi là Arc). Để biết thêm thông tin, hãy truy cập https://cosmetica.cc. Yêu cầu sử dụng OptiFine.</string>
     <string name="notif_channel_name">Chung</string>
-    <string name="lazy_service_default_title">Dịch vụ tiền cảnh của trình khởi chạy Battly</string>
+    <string name="lazy_service_default_title">Dịch vụ tiền cảnh của Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Đã cài đặt</string>
     <string name="use_global_default">(Sử dụng mặc định chung)</string>
     <string name="default_control">Bố cục điều khiển mặc định</string>
@@ -240,7 +240,7 @@
     <string name="preference_gyro_sample_rate_title">Tốc độ lấy mẫu con quay hồi chuyển</string>
     <string name="preference_gyro_sample_rate_description">Nếu bạn gặp vấn đề hiệu suất khi sử dụng tính năng điều khiển con quay hồi chuyển, hãy tăng giá trị này.</string>
     <string name="microsoft_login_retry_later">Đã gửi quá nhiều yêu cầu, vui lòng thử lại sau.</string>
-    <string name="storage_required">Trình khởi chạy Battly yêu cầu phải gắn bộ nhớ ngoài. Vui lòng kết nối lại và khởi động lại ứng dụng.</string>
+    <string name="storage_required">Battly Launcher yêu cầu phải gắn bộ nhớ ngoài. Vui lòng kết nối lại và khởi động lại ứng dụng.</string>
     <string name="mcl_setting_title_buttonallcaps">Chỉ dùng chữ in hoa trên nút điều khiển</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Tắt tùy chọn này nếu bạn muốn sử dụng chữ in thường trên nút điều khiển.</string>
     <string name="create_profile">Tạo hồ sơ mới</string>
@@ -408,7 +408,7 @@
     <string name="mg_renderer_summary_computeShaderext">Có thể giúp giảm hiện tượng lỗi trên các gói shader. Tính năng cũng có thể gây thoát đột ngột, hãy tắt nếu không cần thiết.</string>
     <string name="mg_renderer_title_multidrawCompute">Mô phỏng tính toán Multidraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Dùng shader tính toán để mô phỏng Multidraw</string>
-    <string name="app_short_name">Trình khởi chạy Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Tài khoản chơi thử chỉ hỗ trợ chạy phiên bản từ 1.3.1 trở lên</string>
     <string name="demo_unsupported">Không hỗ trợ chế độ chơi thử</string>
     <string name="change_account">Vui lòng thay đổi tài khoản để sử dụng chức năng này</string>
@@ -565,7 +565,7 @@
     <string name="crash_no_findings">Không tìm thấy mẫu sự cố nào trong các nhật ký mới nhất.</string>
     <string name="crash_recovery_applied">Hành động khôi phục đã hoàn tất</string>
     <string name="crash_recovery_manual">Vấn đề này cần phải thay đổi thủ công. Mở nhật ký để biết chi tiết.</string>
-    <string name="credits_version">Phiên bản 2.2.3</string>
+    <string name="credits_version">Phiên bản 2.2.5</string>
     <string name="ctrl_like_btn">Thích</string>
     <string name="ctrl_liked_added">Đã thêm vào các điều khiển đã thích.</string>
     <string name="ctrl_liked_btn">Đã thích</string>
@@ -626,8 +626,8 @@
     <string name="java_runtime_download_progress">Đang tải xuống Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Cài đặt Java 8</string>
     <string name="java_runtime_download_waiting">Đang chuẩn bị tải xuống Java 8...</string>
-    <string name="launcher_credits_title">Trình khởi chạy Battly 2.2.3</string>
-    <string name="launcher_mobile_badge">Di động 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Di động 2.2.5</string>
     <string name="launcher_status_battly">Tài khoản Battly</string>
     <string name="launcher_status_battly_plus">Tài khoản Battly+</string>
     <string name="library_analyze_mods">Phân tích</string>
@@ -679,7 +679,7 @@
     <string name="sdl_library_error_title">Lỗi thư viện khởi chạy</string>
     <string name="skip">Bỏ qua</string>
     <string name="sodium_confirm_accept">Tôi chấp nhận các rủi ro</string>
-    <string name="sodium_confirm_message">Sodium không được Trình khởi chạy Battly hỗ trợ chính thức.\n\nViệc kích hoạt nó có thể gây ra lỗi đồ họa, trục trặc và treo máy. Máy chủ Discord sẽ không cung cấp hỗ trợ cho bất kỳ vấn đề nào liên quan đến Sodium và sẽ không có trợ giúp nào nếu bạn mất thế giới hoặc lưu dữ liệu.\n\nKhi chấp nhận, bạn thừa nhận rằng bạn tự chịu rủi ro khi bật tính năng này.</string>
+    <string name="sodium_confirm_message">Sodium không được Battly Launcher hỗ trợ chính thức.\n\nViệc kích hoạt nó có thể gây ra lỗi đồ họa, trục trặc và treo máy. Máy chủ Discord sẽ không cung cấp hỗ trợ cho bất kỳ vấn đề nào liên quan đến Sodium và sẽ không có trợ giúp nào nếu bạn mất thế giới hoặc lưu dữ liệu.\n\nKhi chấp nhận, bạn thừa nhận rằng bạn tự chịu rủi ro khi bật tính năng này.</string>
     <string name="sodium_confirm_title">Kích hoạt Sodium?</string>
     <string name="sodium_launch_anyway">Khởi chạy bất chấp</string>
     <string name="world_deleted">Thế giới đã bị xóa</string>
@@ -1097,7 +1097,7 @@
     <string name="installer_internal_fallback">Trình cài đặt không được hỗ trợ, mở giao diện người dùng Java cũ</string>
     <string name="installer_internal_running">Đang phân tích trình cài đặt…</string>
     <string name="installer_internal_success">%1$s được cài đặt trực tiếp bên trong Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Trình khởi chạy Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Trình khởi chạy dựa trên PojavLauncher và Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Tín dụng&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1506,20 +1506,4 @@
     <string name="search_world_download_error">Không thể tải xuống siêu dữ liệu thế giới</string>
     <string name="world_install_button">Thế giới cài đặt</string>
     <string name="world_install_success">%1$s được cài đặt vào phiên bản này</string>
-
-    <string name="battly_whats_new_action_start">Khám phá 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Hành động Open modpack hiện chọn phiên bản mới và đóng mọi cửa sổ cài đặt và nội dung một cách chính xác.</string>
-    <string name="battly_whats_new_compatibility_title">Mở trực tiếp các modpack đã cài đặt</string>
-    <string name="battly_whats_new_controllers_desc">Trình cài đặt máy khách Battly hiện sử dụng danh sách có thể cuộn thích hợp, kể cả trên màn hình nhỏ gọn.</string>
-    <string name="battly_whats_new_controllers_title">Đã sửa lỗi cuộn danh sách khách hàng</string>
-    <string name="battly_whats_new_desc">Các phiên bản biệt lập mới, thế giới có thể tải xuống và các bản sửa lỗi quan trọng cho Không gian làm việc Battly.</string>
-    <string name="battly_whats_new_instances_desc">Các phiên bản Vanilla, trình tải, máy khách và modpack mới giữ thế giới, mod, cài đặt và gói tài nguyên của chúng trong một thư mục độc lập.</string>
-    <string name="battly_whats_new_instances_title">Một thư mục riêng cho mỗi phiên bản mới</string>
-    <string name="battly_whats_new_recovery_desc">Cách ly phiên bản mới, lưu trữ cài đặt an toàn hơn và chẩn đoán phiên dài giúp giảm thiểu việc đặt lại cấu hình và giúp xác định sự cố dễ dàng hơn.</string>
-    <string name="battly_whats_new_recovery_title">Cải thiện sự ổn định</string>
-    <string name="battly_whats_new_title">Battly Di Động 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Các phiên bản hiện tại vẫn giữ nguyên vị trí của chúng. Việc cách ly thư mục chỉ áp dụng cho các phiên bản được tạo từ phiên bản này trở đi.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 đã sẵn sàng</string>
-    <string name="battly_whats_new_worlds_desc">Duyệt và cài đặt trực tiếp thế giới Minecraft từ CurseForge vào phiên bản bạn chọn.</string>
-    <string name="battly_whats_new_worlds_title">Tải xuống thế giới từ Workspace</string>
 </resources>

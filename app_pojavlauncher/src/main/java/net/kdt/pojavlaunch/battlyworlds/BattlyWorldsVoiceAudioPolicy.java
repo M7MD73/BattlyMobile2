@@ -1,6 +1,7 @@
 package net.kdt.pojavlaunch.battlyworlds;
 
 import android.media.MediaRecorder;
+import android.media.audiofx.AcousticEchoCanceler;
 
 final class BattlyWorldsVoiceAudioPolicy {
     final int audioSource;
@@ -16,13 +17,27 @@ final class BattlyWorldsVoiceAudioPolicy {
     }
 
     static BattlyWorldsVoiceAudioPolicy forInput(boolean externalInput) {
+        boolean echoCancelerAvailable;
+        try {
+            echoCancelerAvailable = AcousticEchoCanceler.isAvailable();
+        } catch (Throwable ignored) {
+            echoCancelerAvailable = false;
+        }
+        return forInput(externalInput, echoCancelerAvailable);
+    }
+
+    static BattlyWorldsVoiceAudioPolicy forInput(boolean externalInput,
+                                                 boolean echoCancelerAvailable) {
         if (externalInput) {
             return new BattlyWorldsVoiceAudioPolicy(
-                    MediaRecorder.AudioSource.VOICE_COMMUNICATION, true, true);
+                    MediaRecorder.AudioSource.VOICE_COMMUNICATION,
+                    echoCancelerAvailable, true);
         }
 
-        // Some vendor VOICE_COMMUNICATION implementations capture a secondary
-        // cancellation microphone and suppress nearby speech as if it were echo.
-        return new BattlyWorldsVoiceAudioPolicy(MediaRecorder.AudioSource.MIC, false, false);
+        // Keep MIC because some vendor VOICE_COMMUNICATION implementations pick
+        // a secondary microphone. Hardware AEC still receives Android's complete
+        // playback reference, including Minecraft, and prevents speaker bleed.
+        return new BattlyWorldsVoiceAudioPolicy(
+                MediaRecorder.AudioSource.MIC, echoCancelerAvailable, false);
     }
 }

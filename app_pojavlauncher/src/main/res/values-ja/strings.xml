@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly ランチャー</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Mod インストーラーを選択</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly ランチャーが予期せずクラッシュしました</string>
+    <string name="error_fatal">Battly Launcherが予期せずクラッシュしました</string>
     <string name="error_no_version">バージョンがありません</string>
     <string name="error_show_more">詳細を表示</string>
     <string name="error_show_less">詳細を閉じる</string>
@@ -184,7 +184,7 @@
     <string name="arc_capes_title">コスメチカ・ケープズ</string>
     <string name="arc_capes_desc">Cosmetica（以前のArc）のケープを有効にします。詳細については、https：//cosmetica.ccをご覧ください。 OptiFineが必要です。</string>
     <string name="notif_channel_name">一般</string>
-    <string name="lazy_service_default_title">Battly ランチャー フォアグラウンド サービス</string>
+    <string name="lazy_service_default_title">Battly Launcher フォアグラウンド サービス</string>
     <string name="mcl_setting_veroption_installed">インストール済み</string>
     <string name="use_global_default">(グローバル既定値を使用する)</string>
     <string name="progresslayout_tasks_in_progress">%d タスクが進行中</string>
@@ -212,7 +212,7 @@
     <string name="preference_gyro_sample_rate_title">ジャイロコントロールサンプリングの速度</string>
     <string name="preference_gyro_sample_rate_description">ジャイロコントロールでパフォーマンス上の問題がある場合はこの値を増やしてください。</string>
     <string name="microsoft_login_retry_later">リクエストが多すぎるため、後でもう一度お試しください。</string>
-    <string name="storage_required">Battly ランチャーには外部ストレージを接続する必要があります。再接続してアプリを再起動してください。</string>
+    <string name="storage_required">Battly Launcherには外部ストレージを接続する必要があります。再接続してアプリを再起動してください。</string>
     <string name="preference_shader_dump_title">シェーダーダンプをオンにする</string>
     <string name="preference_shader_dump_description">変換されたシェーダーをログファイルに記録します。</string>
     <string name="customctrl_editor_exit_title">終了しますか？</string>
@@ -282,7 +282,7 @@
     <string name="controller_button_select">選択...</string>
     <string name="customctrl_visibility_title">コントロールの可視性</string>
     <string name="preference_experimental_title">実験的なもの</string>
-    <string name="app_short_name">Battly ランチャー</string>
+    <string name="app_short_name">Battly Launcher</string>
     <!-- Battly Mobile additions -->
     <string name="mcl_setting_renderer_freedreno">Freedreno (Adreno デスクトップ GL) - Adreno 5xx+</string>
     <string name="renderer_status_available">このデバイスで利用可能です。 %1$s</string>
@@ -623,7 +623,7 @@
     <string name="credits_primary_development">主な開発</string>
     <string name="credits_section_title">クレジット</string>
     <string name="credits_unaffiliated">このアプリはMinecraft、Mojang、またはMicrosoftとは提携していません。</string>
-    <string name="credits_version">バージョン2.2.3</string>
+    <string name="credits_version">バージョン2.2.5</string>
     <string name="ctrl_applied_success">コントロール「%1$s」が正常に適用されました。</string>
     <string name="ctrl_apply_btn">コントロールを適用する</string>
     <string name="ctrl_apply_msg">「%1$s」をダウンロードしてコントロール レイアウトとして適用しますか?</string>
@@ -810,7 +810,7 @@
     <string name="instance_storage_calculating">ストレージを計算しています…</string>
     <string name="instance_use">使用する</string>
     <string name="java_runtime_download_message">Battly は、アプリ内で配布するのではなく、最初のセットアップ後に Java 8 をダウンロードします。これにより、アプリのサイズが削減され、古い Minecraft バージョンが準備されます。</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly ランチャー 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher と Boardwalk に基づくランチャー。&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;クレジット&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -821,11 +821,11 @@
         • プロジェクトに含まれる GNU GPLv3 およびサードパーティ コンポーネント。&lt;br/&gt;
         • オリジナルのライセンスに基づく OpenJDK、LWJGL、GL4ES、LTW、Apache Commons、exp4j など。&lt;br/&gt;&lt;br/&gt;
         このアプリはMinecraft、Mojang、またはMicrosoftとは提携していません。</string>
-    <string name="launcher_credits_title">Battly ランチャー 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">ダウンロード</string>
     <string name="launcher_download_modpack">MODパックをインポートする</string>
     <string name="launcher_execute">遊ぶ</string>
-    <string name="launcher_mobile_badge">モバイル 2.2.3</string>
+    <string name="launcher_mobile_badge">モバイル 2.2.5</string>
     <string name="launcher_nav_back">戻る</string>
     <string name="launcher_nav_home">家に戻る</string>
     <string name="launcher_nav_workspace">Battly ワークスペース</string>
@@ -1069,7 +1069,7 @@
     <string name="newdl_downloading_game_files_size">ゲームをダウンロード中… (%1$.2f/%2$.2f MB、%3$.2f MB/秒)</string>
     <string name="newdl_extracting_native_libraries">ネイティブ ライブラリの抽出 (%1$d/%2$d)</string>
     <string name="sodium_confirm_accept">私はリスクを受け入れます</string>
-    <string name="sodium_confirm_message">Sodium は、Battly ランチャーでは正式にサポートされていません。\n\nこれを有効にすると、グラフィックのバグ、不具合、クラッシュが発生する可能性があります。 Sodium 関連の問題については、Discord サーバーではサポートは提供されません。また、ワールドやセーブ データを失った場合でもサポートは提供されません。\n\n同意することにより、ご自身の責任でこれを有効にすることを承認したことになります。</string>
+    <string name="sodium_confirm_message">Sodium は、Battly Launcherでは正式にサポートされていません。\n\nこれを有効にすると、グラフィックのバグ、不具合、クラッシュが発生する可能性があります。 Sodium 関連の問題については、Discord サーバーではサポートは提供されません。また、ワールドやセーブ データを失った場合でもサポートは提供されません。\n\n同意することにより、ご自身の責任でこれを有効にすることを承認したことになります。</string>
     <string name="sodium_confirm_title">Sodiumを有効にしますか?</string>
     <string name="sodium_launch_anyway">とにかく起動する</string>
 
@@ -1398,19 +1398,19 @@
     <string name="world_install_button">ワールドをインストールする</string>
     <string name="world_install_success">%1$s がこのインスタンスにインストールされました</string>
 
-    <string name="battly_whats_new_action_start">2.2.3 を探索する</string>
-    <string name="battly_whats_new_compatibility_desc">「modpack を開く」アクションで新しいインスタンスが選択され、すべてのインストール ウィンドウとコンテンツ ウィンドウが正しく閉じられるようになりました。</string>
-    <string name="battly_whats_new_compatibility_title">インストールされている Modpack を直接開く</string>
-    <string name="battly_whats_new_controllers_desc">Battly クライアント インストーラーは、コンパクトな画面を含め、適切なスクロール可能なリストを使用するようになりました。</string>
-    <string name="battly_whats_new_controllers_title">クライアントリストのスクロールを修正</string>
-    <string name="battly_whats_new_desc">新しい分離インスタンス、ダウンロード可能なワールド、Battly ワークスペースの重要な修正。</string>
-    <string name="battly_whats_new_instances_desc">新しいバニラ、ローダー、クライアント、MODパックのインスタンスは、ワールド、MOD、設定、リソース パックを独立したフォルダーに保存します。</string>
-    <string name="battly_whats_new_instances_title">新しいインスタンスごとに個別のフォルダー</string>
-    <string name="battly_whats_new_recovery_desc">新しいインスタンスの分離、より安全な設定ストレージ、長時間のセッション診断により、構成のリセットが減り、問題の特定が容易になります。</string>
-    <string name="battly_whats_new_recovery_title">安定性の向上</string>
-    <string name="battly_whats_new_title">Battly モバイル 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">既存のインスタンスはそのまま残ります。フォルダーの分離は、このバージョン以降に作成されたインスタンスにのみ適用されます。</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 の準備が完了しました</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge から Minecraft ワールドを参照し、選択したインスタンスに直接インストールします。</string>
-    <string name="battly_whats_new_worlds_title">ワークスペースからワールドをダウンロードする</string>
+    <string name="battly_whats_new_action_start">2.2.5 を発見する</string>
+    <string name="battly_whats_new_compatibility_desc">Battly はネイティブライブラリのプラグインを認識し、必要なプラグインがインストールされていると Distant Horizons のような互換性のあるモッドを起動できます。</string>
+    <string name="battly_whats_new_compatibility_title">ネイティブプラグインとディスタントホライゾンズ</string>
+    <string name="battly_whats_new_controllers_desc">Battlyはデバイスの言語でAPIに問い合わせ、サーバーの内容が変更されたときにキャッシュを更新します。</string>
+    <string name="battly_whats_new_controllers_title">常に更新されるニュース</string>
+    <string name="battly_whats_new_desc">Minecraft 26.3との互換性の向上、モッズ向けネイティブオーディオ、翻訳された新機能と画面の修正。</string>
+    <string name="battly_whats_new_instances_desc">Vanilla の Minecraft 26.3、Fabric およびカスタムバージョンで、起動、テクスチャ、およびレンダリングを修正しました。</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 修正済み</string>
+    <string name="battly_whats_new_recovery_desc">Vulkanと方向性、Minecraftのウィンドウサイズ、JVMの引数、正常な終了の検出が改善されました。</string>
+    <string name="battly_whats_new_recovery_title">より正確な開始と終了</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">あなたの既存のインスタンスと設定は変更されずに維持されます。</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 は準備ができています</string>
+    <string name="battly_whats_new_worlds_desc">モッズはAndroidのマイクを検出し、利用可能な入力から選択し、ゲームの音声を送信せずに音声をキャプチャできます。</string>
+    <string name="battly_whats_new_worlds_title">モッズ用にマイクが利用可能</string>
 </resources>

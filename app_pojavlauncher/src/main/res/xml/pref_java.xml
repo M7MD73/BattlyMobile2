@@ -11,6 +11,12 @@
             android:summary="@string/multirt_subtitle"
             android:title="@string/multirt_title"/>
 
+        <Preference
+            android:key="native_library_plugins"
+            android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceNativePluginsFragment"
+            android:title="@string/native_plugins_title"
+            android:summary="@string/native_plugins_summary" />
+
         <androidx.preference.EditTextPreference
             android:dialogTitle="@string/mcl_setting_title_javaargs"
 

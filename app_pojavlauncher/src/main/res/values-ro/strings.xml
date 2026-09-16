@@ -11,7 +11,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Selectează un instalator de mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Lansatorul Battly s-a prăbușit în mod neașteptat</string>
+    <string name="error_fatal">Battly Launcher s-a prăbușit în mod neașteptat</string>
     <string name="error_no_version">Fără versiune!</string>
     <string name="error_show_more">Arată mai mult</string>
     <string name="error_show_less">Arată mai puțin</string>
@@ -134,7 +134,7 @@
     <string name="pedit_renderer">Randator</string>
     <string name="arc_capes_title">Pelerine Cosmetica</string>
     <string name="arc_capes_desc">Activează pelerinele de la Cosmetica (anterior Arc). Pentru mai multe informații, vizitează https://cosmetica.cc. Necesită OptiFine.</string>
-    <string name="lazy_service_default_title">Battly Serviciul de lansare din prim-plan</string>
+    <string name="lazy_service_default_title">Battly Launcher din prim-plan</string>
     <string name="mcl_setting_veroption_installed">Instalat</string>
     <string name="use_global_default">(Utilizare implicită globală)</string>
     <string name="progresslayout_tasks_in_progress">%d sarcini în curs</string>
@@ -310,7 +310,7 @@
     <string name="crash_no_findings">Nu a fost găsit niciun model de blocare cunoscut în cele mai recente jurnale.</string>
     <string name="crash_recovery_applied">Acțiune de recuperare finalizată</string>
     <string name="crash_recovery_manual">Această problemă necesită o modificare manuală. Deschideți jurnalul pentru detalii.</string>
-    <string name="credits_version">Versiunea 2.2.3</string>
+    <string name="credits_version">Versiunea 2.2.5</string>
     <string name="ctrl_like_btn">Ca</string>
     <string name="ctrl_liked_added">Adăugat la comenzile apreciate.</string>
     <string name="ctrl_liked_btn">Mi-a plăcut</string>
@@ -371,8 +371,8 @@
     <string name="java_runtime_download_progress">Se descarcă Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instalarea Java 8</string>
     <string name="java_runtime_download_waiting">Se pregătește descărcarea Java 8...</string>
-    <string name="launcher_credits_title">Lansatorul Battly 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_status_battly">cont Battly</string>
     <string name="launcher_status_battly_plus">Cont Battly+</string>
     <string name="library_analyze_mods">Analizează</string>
@@ -598,8 +598,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Pentru a utiliza Battly, alegeți cum doriți să vă conectați și să gestionați conturile Java salvate.</string>
     <string name="account_manager_title">Manager de cont</string>
-    <string name="app_name">Lansatorul Battly</string>
-    <string name="app_short_name">Lansatorul Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Cont Battly</string>
     <string name="auth_method_local">Cont local</string>
     <string name="auth_method_microsoft">Cont Microsoft</string>
@@ -854,7 +854,7 @@
     <string name="installer_internal_fallback">Program de instalare neacceptat, deschiderea vechii interfețe de utilizare Java</string>
     <string name="installer_internal_running">Se analizează programul de instalare...</string>
     <string name="installer_internal_success">%1$s instalat direct în interiorul Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Lansatorul 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Lansator bazat pe PojavLauncher și Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Credite&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1122,7 +1122,7 @@
     <string name="settings_panel_title">Setările lansatorului</string>
     <string name="shader_install_button">Instalați shader</string>
     <string name="shader_install_success">%1$s instalat în pachete de umbrire</string>
-    <string name="storage_required">Lansatorul Battly necesită atașarea unui spațiu de stocare extern. Reconectați-l și reporniți aplicația.</string>
+    <string name="storage_required">Battly Launcher necesită atașarea unui spațiu de stocare extern. Reconectați-l și reporniți aplicația.</string>
     <string name="vanilla_install_create">Creați un profil</string>
     <string name="vanilla_install_created">Profil creat</string>
     <string name="vanilla_install_downloading">Se descarcă Minecraft...</string>
@@ -1291,20 +1291,4 @@
     <string name="search_world_download_error">Nu s-au descărcat metadatele mondiale</string>
     <string name="world_install_button">Instalați lumea</string>
     <string name="world_install_success">%1$s instalat în această instanță</string>
-
-    <string name="battly_whats_new_action_start">Explorați 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Acțiunea Open modpack selectează acum noua instanță și închide corect fiecare fereastră de instalare și conținut.</string>
-    <string name="battly_whats_new_compatibility_title">Deschideți direct modpack-urile instalate</string>
-    <string name="battly_whats_new_controllers_desc">Programul de instalare client Battly utilizează acum o listă derulabilă adecvată, inclusiv pe ecrane compacte.</string>
-    <string name="battly_whats_new_controllers_title">Defilarea listei de clienți a fost remediată</string>
-    <string name="battly_whats_new_desc">Noi instanțe izolate, lumi descărcabile și remedieri importante pentru Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Noile instanțe Vanilla, loader, client și modpack își păstrează lumile, modurile, setările și pachetele de resurse într-un folder independent.</string>
-    <string name="battly_whats_new_instances_title">Un folder separat pentru fiecare instanță nouă</string>
-    <string name="battly_whats_new_recovery_desc">Noua izolare a instanțelor, stocarea mai sigură a setărilor și diagnosticarea de sesiune lungă reduc resetările configurației și fac problemele mai ușor de identificat.</string>
-    <string name="battly_whats_new_recovery_title">Stabilitate îmbunătățită</string>
-    <string name="battly_whats_new_title">Battly Mobil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Instanțele existente rămân acolo unde sunt. Izolarea folderului se aplică numai instanțelor create de la această versiune încolo.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 este gata</string>
-    <string name="battly_whats_new_worlds_desc">Răsfoiți și instalați lumi Minecraft de la CurseForge direct în instanța pe care o alegeți.</string>
-    <string name="battly_whats_new_worlds_title">Descărcați lumi din Workspace</string>
 </resources>

@@ -448,7 +448,7 @@
     <string name="crash_no_findings">ไม่พบรูปแบบการชนที่ทราบในบันทึกล่าสุด</string>
     <string name="crash_recovery_applied">การดำเนินการกู้คืนเสร็จสมบูรณ์</string>
     <string name="crash_recovery_manual">ปัญหานี้ต้องการการเปลี่ยนแปลงด้วยตนเอง เปิดบันทึกเพื่อดูรายละเอียด</string>
-    <string name="credits_version">เวอร์ชัน 2.2.3</string>
+    <string name="credits_version">เวอร์ชัน 2.2.5</string>
     <string name="ctrl_like_btn">ถูกใจ</string>
     <string name="ctrl_liked_added">เพิ่มไปยังการควบคุมที่ถูกใจแล้ว</string>
     <string name="ctrl_liked_btn">ถูกใจแล้ว</string>
@@ -509,8 +509,8 @@
     <string name="java_runtime_download_progress">กำลังดาวน์โหลด Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">การติดตั้ง Java 8</string>
     <string name="java_runtime_download_waiting">กำลังเตรียมดาวน์โหลด Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">มือถือ 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">มือถือ 2.2.5</string>
     <string name="launcher_status_battly">บัญชี Battly</string>
     <string name="launcher_status_battly_plus">บัญชี Battly+</string>
     <string name="library_analyze_mods">วิเคราะห์</string>
@@ -732,8 +732,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">หากต้องการใช้ Battly ให้เลือกวิธีที่คุณต้องการลงชื่อเข้าใช้และจัดการบัญชี Java ที่บันทึกไว้</string>
     <string name="account_manager_title">ผู้จัดการฝ่ายบัญชี</string>
-    <string name="app_name">ตัวเรียกใช้งาน Battly</string>
-    <string name="app_short_name">ตัวเรียกใช้งาน Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">บัญชี Battly</string>
     <string name="auth_method_local">บัญชีท้องถิ่น</string>
     <string name="auth_method_microsoft">บัญชี Microsoft</string>
@@ -986,7 +986,7 @@
     <string name="installer_internal_fallback">โปรแกรมติดตั้งที่ไม่รองรับ กำลังเปิด Java UI ดั้งเดิม</string>
     <string name="installer_internal_running">กำลังวิเคราะห์ตัวติดตั้ง...</string>
     <string name="installer_internal_success">%1$s ติดตั้งโดยตรงภายใน Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         ตัวเรียกใช้งานขึ้นอยู่กับ PojavLauncher และ Boardwalk&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;เครดิต&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1030,7 +1030,7 @@
     <string name="launcher_version_format">เวอร์ชัน %1$s</string>
     <string name="launcher_version_unknown">ไม่ทราบ</string>
     <string name="launcher_versions_button">รุ่นต่างๆ</string>
-    <string name="lazy_service_default_title">บริการเบื้องหน้าของตัวเรียกใช้งาน Battly</string>
+    <string name="lazy_service_default_title">บริการเบื้องหน้าของBattly Launcher</string>
     <string name="legacy_mixin_missing_message">ม็อด Forge 1.7.10 ตัวใดตัวหนึ่งของคุณขอ Sponge Mixin แต่ไม่มีผู้ให้บริการ Mixin หรือ UniMixins ติดตั้งอยู่ ติดตั้ง UniMixins/Mixin สำหรับ 1.7.10 หรือลบ mod นั้นก่อนที่จะเริ่ม Minecraft</string>
     <string name="legacy_mixin_missing_title">การพึ่งพา Mixin แบบดั้งเดิมหายไป</string>
     <string name="library_button_desc">เปิดห้องสมุด</string>
@@ -1419,20 +1419,4 @@
     <string name="search_world_download_error">ดาวน์โหลดข้อมูลเมตาของโลกไม่สำเร็จ</string>
     <string name="world_install_button">ติดตั้งโลก</string>
     <string name="world_install_success">ติดตั้ง %1$s ในอินสแตนซ์นี้แล้ว</string>
-
-    <string name="battly_whats_new_action_start">สำรวจ 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">การดำเนินการ Open modpack จะเลือกอินสแตนซ์ใหม่และปิดทุกหน้าต่างการติดตั้งและเนื้อหาอย่างถูกต้อง</string>
-    <string name="battly_whats_new_compatibility_title">เปิด modpacks ที่ติดตั้งไว้โดยตรง</string>
-    <string name="battly_whats_new_controllers_desc">ขณะนี้ตัวติดตั้งไคลเอ็นต์ Battly ใช้รายการที่เลื่อนได้อย่างเหมาะสม รวมถึงบนหน้าจอขนาดเล็กด้วย</string>
-    <string name="battly_whats_new_controllers_title">แก้ไขการเลื่อนรายชื่อลูกค้าแล้ว</string>
-    <string name="battly_whats_new_desc">อินสแตนซ์แบบแยกใหม่ โลกที่ดาวน์โหลดได้ และการแก้ไขที่สำคัญสำหรับ Battly Workspace</string>
-    <string name="battly_whats_new_instances_desc">อินสแตนซ์ Vanilla ตัวโหลด ไคลเอนต์ และ modpack ใหม่จะเก็บโลก ม็อด การตั้งค่า และชุดทรัพยากรไว้ในโฟลเดอร์อิสระ</string>
-    <string name="battly_whats_new_instances_title">โฟลเดอร์แยกต่างหากสำหรับอินสแตนซ์ใหม่ทุกรายการ</string>
-    <string name="battly_whats_new_recovery_desc">การแยกอินสแตนซ์ใหม่ พื้นที่จัดเก็บการตั้งค่าที่ปลอดภัยยิ่งขึ้น และการวินิจฉัยเซสชันยาว ช่วยลดการรีเซ็ตการกำหนดค่า และทำให้ระบุปัญหาได้ง่ายขึ้น</string>
-    <string name="battly_whats_new_recovery_title">ปรับปรุงเสถียรภาพ</string>
-    <string name="battly_whats_new_title">Battly มือถือ 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">อินสแตนซ์ที่มีอยู่จะยังคงอยู่ที่เดิม การแยกโฟลเดอร์มีผลกับอินสแตนซ์ที่สร้างจากเวอร์ชันนี้เป็นต้นไปเท่านั้น</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 พร้อมแล้ว</string>
-    <string name="battly_whats_new_worlds_desc">เรียกดูและติดตั้งโลก Minecraft จาก CurseForge ลงในอินสแตนซ์ที่คุณเลือกโดยตรง</string>
-    <string name="battly_whats_new_worlds_title">ดาวน์โหลดโลกจาก Workspace</string>
 </resources>

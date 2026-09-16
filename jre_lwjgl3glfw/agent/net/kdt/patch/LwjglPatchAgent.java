@@ -4,6 +4,12 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.Mixer;
+import javax.sound.sampled.TargetDataLine;
+
 import net.kdt.patch.asm.ClassReader;
 import net.kdt.patch.asm.ClassVisitor;
 import net.kdt.patch.asm.ClassWriter;
@@ -28,12 +34,21 @@ public class LwjglPatchAgent {
             "net/labymod/core/client/gui/navigation/DefaultNavigationRegistry";
 
     public static void premain(String agentArgs, Instrumentation inst) {
+        initializeAndroidAudioProvider();
         inst.addTransformer(new ClassFileTransformer() {
             @Override
             public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                                     ProtectionDomain protectionDomain, byte[] classfileBuffer) {
                 if (className == null) return null;
                 try {
+                    if (!className.startsWith("net/kdt/patch/")
+                            && containsAscii(classfileBuffer, "javax/sound/sampled/AudioSystem")) {
+                        byte[] patchedAudio = patchJavaSoundDiscovery(className, classfileBuffer);
+                        if (patchedAudio != null) return patchedAudio;
+                    }
+                    if ("org/lwjgl/system/MemoryUtil".equals(className) && is32BitProcess()) {
+                        return patchArm32UnalignedFloatWrites(classfileBuffer);
+                    }
                     if ("org/lwjgl/opengl/GL".equals(className)) {
                         return patchGlClass(classfileBuffer);
                     }
@@ -67,7 +82,147 @@ public class LwjglPatchAgent {
                 return null;
             }
         }, false);
-        System.out.println("[LwjglPatchAgent] Registered GL + MixinEnvironment + LabyMod LWJGL + LabyMod visual + LabyMod screen patchers.");
+        System.out.println("[LwjglPatchAgent] Registered ARM32 memory + GL + MixinEnvironment + LabyMod LWJGL + LabyMod visual + LabyMod screen patchers.");
+    }
+
+    static byte[] patchJavaSoundDiscovery(String className, byte[] classfileBuffer) {
+        ClassReader reader = new ClassReader(classfileBuffer);
+        ClassWriter writer = new ClassWriter(reader, 0);
+        final boolean[] patched = {false};
+        reader.accept(new ClassVisitor(Opcodes.ASM9, writer) {
+            @Override
+            public MethodVisitor visitMethod(int access, String name, String descriptor,
+                                             String signature, String[] exceptions) {
+                MethodVisitor delegate = super.visitMethod(access, name, descriptor, signature, exceptions);
+                return new MethodVisitor(Opcodes.ASM9, delegate) {
+                    @Override
+                    public void visitMethodInsn(int opcode, String owner, String calledName,
+                                                String calledDescriptor, boolean isInterface) {
+                        if (opcode == Opcodes.INVOKESTATIC
+                                && "javax/sound/sampled/AudioSystem".equals(owner)
+                                && (("getMixerInfo".equals(calledName)
+                                        && "()[Ljavax/sound/sampled/Mixer$Info;".equals(calledDescriptor))
+                                    || ("getMixer".equals(calledName)
+                                        && "(Ljavax/sound/sampled/Mixer$Info;)Ljavax/sound/sampled/Mixer;"
+                                                .equals(calledDescriptor)))) {
+                            owner = "net/kdt/patch/audio/AndroidAudioSystemBridge";
+                            patched[0] = true;
+                        }
+                        super.visitMethodInsn(opcode, owner, calledName, calledDescriptor, isInterface);
+                    }
+                };
+            }
+        }, 0);
+        if (patched[0]) {
+            System.out.println("[BattlyAudio] Patched JavaSound discovery in " + className);
+            return writer.toByteArray();
+        }
+        return null;
+    }
+
+    private static void initializeAndroidAudioProvider() {
+        try {
+            AudioFormat format = new AudioFormat(16000.0f, 16, 1, true, false);
+            DataLine.Info requestedLine = new DataLine.Info(TargetDataLine.class, format);
+            for (Mixer.Info info : AudioSystem.getMixerInfo()) {
+                if ("Battly".equals(info.getVendor())
+                        && info.getDescription().startsWith("Android microphone capture")) {
+                    Mixer mixer = AudioSystem.getMixer(info);
+                    System.out.println("[BattlyAudio] JavaSound microphone mixer available before mod loading; "
+                            + "pcm16k=" + mixer.isLineSupported(requestedLine));
+                    return;
+                }
+            }
+            System.err.println("[BattlyAudio] JavaSound microphone mixer was not registered");
+        } catch (Throwable error) {
+            System.err.println("[BattlyAudio] Failed to initialize JavaSound microphone provider: " + error);
+        }
+    }
+
+    static boolean is32BitProcess() {
+        String dataModel = System.getProperty("sun.arch.data.model", "").trim();
+        if ("32".equals(dataModel)) return true;
+        if ("64".equals(dataModel)) return false;
+
+        String architecture = System.getProperty("os.arch", "").toLowerCase(java.util.Locale.ROOT);
+        return "arm".equals(architecture)
+                || "aarch32".equals(architecture)
+                || "x86".equals(architecture)
+                || architecture.matches("i[3-6]86");
+    }
+
+    /**
+     * LWJGL 3.3.x writes floats with Unsafe.putFloat. ARM32 faults when a vertex
+     * format places a float at an unaligned offset, as Minecraft's line format
+     * does. Keep the fast aligned write and serialize only unaligned floats.
+     */
+    static byte[] patchArm32UnalignedFloatWrites(byte[] classfileBuffer) {
+        if (!containsAscii(classfileBuffer, "UNSAFE")) return null;
+
+        ClassReader reader = new ClassReader(classfileBuffer);
+        ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+        final boolean[] patched = {false};
+
+        reader.accept(new ClassVisitor(Opcodes.ASM9, writer) {
+            @Override
+            public MethodVisitor visitMethod(int access, String name, String descriptor,
+                                             String signature, String[] exceptions) {
+                if ("memPutFloat".equals(name) && "(JF)V".equals(descriptor)) {
+                    MethodVisitor mv = cv.visitMethod(access, name, descriptor, signature, exceptions);
+                    writeArm32SafeMemPutFloat(mv);
+                    patched[0] = true;
+                    return null;
+                }
+                return super.visitMethod(access, name, descriptor, signature, exceptions);
+            }
+        }, ClassReader.EXPAND_FRAMES);
+
+        if (patched[0]) {
+            System.out.println("[LwjglPatchAgent] Patched MemoryUtil.memPutFloat for unaligned ARM32 vertex data");
+        }
+        return patched[0] ? writer.toByteArray() : null;
+    }
+
+    private static void writeArm32SafeMemPutFloat(MethodVisitor mv) {
+        Label unaligned = new Label();
+        mv.visitCode();
+        mv.visitVarInsn(Opcodes.LLOAD, 0);
+        mv.visitLdcInsn(3L);
+        mv.visitInsn(Opcodes.LAND);
+        mv.visitInsn(Opcodes.LCONST_0);
+        mv.visitInsn(Opcodes.LCMP);
+        mv.visitJumpInsn(Opcodes.IFNE, unaligned);
+
+        mv.visitFieldInsn(Opcodes.GETSTATIC, "org/lwjgl/system/MemoryUtil", "UNSAFE", "Lsun/misc/Unsafe;");
+        mv.visitInsn(Opcodes.ACONST_NULL);
+        mv.visitVarInsn(Opcodes.LLOAD, 0);
+        mv.visitVarInsn(Opcodes.FLOAD, 2);
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "sun/misc/Unsafe", "putFloat", "(Ljava/lang/Object;JF)V", false);
+        mv.visitInsn(Opcodes.RETURN);
+
+        mv.visitLabel(unaligned);
+        mv.visitVarInsn(Opcodes.FLOAD, 2);
+        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "floatToRawIntBits", "(F)I", false);
+        mv.visitVarInsn(Opcodes.ISTORE, 3);
+        for (int byteIndex = 0; byteIndex < 4; byteIndex++) {
+            mv.visitFieldInsn(Opcodes.GETSTATIC, "org/lwjgl/system/MemoryUtil", "UNSAFE", "Lsun/misc/Unsafe;");
+            mv.visitInsn(Opcodes.ACONST_NULL);
+            mv.visitVarInsn(Opcodes.LLOAD, 0);
+            if (byteIndex > 0) {
+                mv.visitLdcInsn((long) byteIndex);
+                mv.visitInsn(Opcodes.LADD);
+            }
+            mv.visitVarInsn(Opcodes.ILOAD, 3);
+            if (byteIndex > 0) {
+                mv.visitIntInsn(Opcodes.BIPUSH, byteIndex * 8);
+                mv.visitInsn(Opcodes.IUSHR);
+            }
+            mv.visitInsn(Opcodes.I2B);
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "sun/misc/Unsafe", "putByte", "(Ljava/lang/Object;JB)V", false);
+        }
+        mv.visitInsn(Opcodes.RETURN);
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();
     }
 
     static byte[] patchGlClass(byte[] classfileBuffer) {

@@ -397,6 +397,13 @@ public class mcAccountSpinner extends AppCompatSpinner implements AdapterView.On
 
         mSelectecAccount = selectedAccount;
         setImageFromSelectedAccount();
+        BattlyPlusManager.refreshAsync(getContext(), isPlus -> {
+            if (getAdapter() instanceof AccountAdapter) {
+                ((AccountAdapter) getAdapter()).notifyDataSetChanged();
+            }
+            setImageFromSelectedAccount();
+            invalidate();
+        });
     }
 
     @Deprecated()

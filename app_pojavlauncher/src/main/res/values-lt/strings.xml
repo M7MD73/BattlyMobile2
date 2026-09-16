@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly paleidimo priemonė</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -12,7 +12,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Pasirinkite modifikacijų įdiegimui</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly paleidimo priemonė netikėtai sugedo</string>
+    <string name="error_fatal">Battly Launcher netikėtai sugedo</string>
     <string name="error_no_version">Nėra versijos!</string>
     <string name="error_show_more">Rodyti daugiau</string>
     <string name="error_show_less">Rodyti mažiau</string>
@@ -162,7 +162,7 @@
     <string name="arc_capes_title">\"Cosmetica\" apvalkalai</string>
     <string name="arc_capes_desc">Įjungia apvalkalus iš \"Cosmetica\" (anksčiau \"Arc\"). Daugiau informacijos rasite https://cosmetica.cc. Reikalingas OptiFine.</string>
     <string name="notif_channel_name">Pagrindinis</string>
-    <string name="lazy_service_default_title">Battly paleidimo priemonės priekinio plano paslauga</string>
+    <string name="lazy_service_default_title">Battly Launcher priekinio plano paslauga</string>
     <string name="notification_terminate">Nutraukti</string>
     <string name="notification_game_runs">Žaidimas bėga!</string>
     <string name="folder_dialog_create">Sukurti</string>
@@ -243,7 +243,7 @@
     <string name="controller_button_select">Pasirinkti</string>
     <string name="customctrl_visibility_title">Matomumas</string>
     <string name="preference_experimental_title">Eksperimentiniai dalykai</string>
-    <string name="app_short_name">Battly paleidimo priemonė</string>
+    <string name="app_short_name">Battly Launcher</string>
     <!-- Battly Mobile synchronized strings -->
     <string name="address_memory_warning_msg">Dabartinis laisvos adresuojamos RAM kiekis (%1$d) yra mažesnis nei skirta RAM (%2$d), todėl gali įvykti gedimai. Pakeiskite paskirstymą, jei žaidimas sugenda.</string>
     <string name="android_incompatible_mods_disable">Išjungti ir paleisti</string>
@@ -384,7 +384,7 @@
     <string name="crash_no_findings">Naujausiuose žurnaluose nerasta jokio žinomo strigčių modelio.</string>
     <string name="crash_recovery_applied">Atkūrimo veiksmas baigtas</string>
     <string name="crash_recovery_manual">Šią problemą reikia pakeisti rankiniu būdu. Norėdami gauti daugiau informacijos, atidarykite žurnalą.</string>
-    <string name="credits_version">2.2.3 versija</string>
+    <string name="credits_version">2.2.5 versija</string>
     <string name="ctrl_like_btn">Patinka</string>
     <string name="ctrl_liked_added">Pridėta prie patikusių valdiklių.</string>
     <string name="ctrl_liked_btn">Patiko</string>
@@ -445,8 +445,8 @@
     <string name="java_runtime_download_progress">Atsisiunčiamas Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8 diegimas</string>
     <string name="java_runtime_download_waiting">Ruošiamas Java 8 atsisiuntimas...</string>
-    <string name="launcher_credits_title">Battly paleidimo priemonė 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobilusis 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobilusis 2.2.5</string>
     <string name="launcher_status_battly">Battly sąskaitą</string>
     <string name="launcher_status_battly_plus">Battly+ paskyra</string>
     <string name="library_analyze_mods">Analizuoti</string>
@@ -503,7 +503,7 @@
     <string name="sdl_library_error_title">Paleidimo programos bibliotekos klaida</string>
     <string name="skip">Praleisti</string>
     <string name="sodium_confirm_accept">Priimu riziką</string>
-    <string name="sodium_confirm_message">Sodium Battly paleidimo priemonė oficialiai nepalaiko.\n\nJą įjungus gali atsirasti grafinių klaidų, trikdžių ir strigčių. Serveryje Discord nebus teikiama jokios su Sodium susijusios problemos, taip pat nebus teikiama pagalba, jei prarasite pasaulius arba išsaugosite duomenis.\n\nSutikdami patvirtinate, kad tai įgalinate savo rizika.</string>
+    <string name="sodium_confirm_message">Sodium Battly Launcher oficialiai nepalaiko.\n\nJą įjungus gali atsirasti grafinių klaidų, trikdžių ir strigčių. Serveryje Discord nebus teikiama jokios su Sodium susijusios problemos, taip pat nebus teikiama pagalba, jei prarasite pasaulius arba išsaugosite duomenis.\n\nSutikdami patvirtinate, kad tai įgalinate savo rizika.</string>
     <string name="sodium_confirm_title">Įgalinti Sodium?</string>
     <string name="sodium_launch_anyway">Vis tiek paleisti</string>
     <string name="world_deleted">Pasaulis ištrintas</string>
@@ -923,7 +923,7 @@
     <string name="installer_internal_fallback">Nepalaikoma diegimo programa, atidaranti senąją Java vartotojo sąsają</string>
     <string name="installer_internal_running">Analizuojama diegimo programa…</string>
     <string name="installer_internal_success">%1$s sumontuotas tiesiai Battly viduje</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly paleidimo priemonė 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Paleidimo priemonė, pagrįsta „PojavLauncher“ ir „Boardwalk“.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditai&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1189,7 +1189,7 @@
     <string name="settings_panel_title">Paleidimo priemonės nustatymai</string>
     <string name="shader_install_button">Įdiekite šešėlį</string>
     <string name="shader_install_success">%1$s įdiegta į šešėlių paketus</string>
-    <string name="storage_required">Battly paleidimo priemonei reikia prijungti išorinę atmintinę. Iš naujo prijunkite ir paleiskite programą iš naujo.</string>
+    <string name="storage_required">Battly Launcher reikia prijungti išorinę atmintinę. Iš naujo prijunkite ir paleiskite programą iš naujo.</string>
     <string name="vanilla_install_create">Sukurti profilį</string>
     <string name="vanilla_install_created">Profilis sukurtas</string>
     <string name="vanilla_install_downloading">Atsisiunčiama Minecraft…</string>
@@ -1358,20 +1358,4 @@
     <string name="search_world_download_error">Nepavyko atsisiųsti pasaulio metaduomenų</string>
     <string name="world_install_button">Įdiegti pasaulį</string>
     <string name="world_install_success">Į šį egzempliorių įdiegtas %1$s</string>
-
-    <string name="battly_whats_new_action_start">Naršyti 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Veiksmas Atidaryti modpack dabar pasirenka naują egzempliorių ir tinkamai uždaro kiekvieną diegimo ir turinio langą.</string>
-    <string name="battly_whats_new_compatibility_title">Tiesiogiai atidarykite įdiegtus modifikacijų paketus</string>
-    <string name="battly_whats_new_controllers_desc">Battly kliento diegimo programa dabar naudoja tinkamą slenkamą sąrašą, įskaitant kompaktiškus ekranus.</string>
-    <string name="battly_whats_new_controllers_title">Klientų sąrašo slinkimas ištaisytas</string>
-    <string name="battly_whats_new_desc">Nauji atskiri egzemplioriai, atsisiunčiami pasauliai ir svarbūs Battly Workspace pataisymai.</string>
-    <string name="battly_whats_new_instances_desc">Nauji „Vanilla“, „loader“, „Client“ ir „Modpack“ egzemplioriai išsaugo savo pasaulius, modifikacijas, nustatymus ir išteklių paketus nepriklausomame aplanke.</string>
-    <string name="battly_whats_new_instances_title">Atskiras aplankas kiekvienam naujam egzemplioriui</string>
-    <string name="battly_whats_new_recovery_desc">Naujų egzempliorių izoliacija, saugesnė nustatymų saugykla ir ilgos seanso diagnostika sumažina konfigūracijos atstatymą ir palengvina problemų nustatymą.</string>
-    <string name="battly_whats_new_recovery_title">Pagerintas stabilumas</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Esami atvejai lieka ten, kur yra. Aplanko išskyrimas taikomas tik egzemplioriams, sukurtiems nuo šios versijos.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 paruoštas</string>
-    <string name="battly_whats_new_worlds_desc">Naršykite ir įdiekite Minecraft pasaulius iš CurseForge tiesiai į pasirinktą egzempliorių.</string>
-    <string name="battly_whats_new_worlds_title">Atsisiųskite pasaulius iš Workspace</string>
 </resources>

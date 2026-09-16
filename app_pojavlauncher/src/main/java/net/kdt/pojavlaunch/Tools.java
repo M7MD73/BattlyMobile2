@@ -34,6 +34,7 @@ import android.os.Looper;
 import android.provider.DocumentsContract;
 import android.provider.OpenableColumns;
 import android.util.ArrayMap;
+import android.util.AtomicFile;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DisplayCutout;
@@ -76,6 +77,8 @@ import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.utils.GLInfoUtils;
 import net.kdt.pojavlaunch.utils.FragmentNavigationPolicy;
 import net.kdt.pojavlaunch.utils.JREUtils;
+import net.kdt.pojavlaunch.utils.AndroidNativeModDetector;
+import net.kdt.pojavlaunch.utils.JavaAgentValidator;
 import net.kdt.pojavlaunch.utils.JSONUtils;
 import net.kdt.pojavlaunch.utils.LegacyShaderpackCompat;
 import net.kdt.pojavlaunch.utils.MCOptionUtils;
@@ -86,6 +89,7 @@ import net.kdt.pojavlaunch.utils.BattlyOfflineMode;
 import net.kdt.pojavlaunch.utils.OldVersionsUtils;
 import net.kdt.pojavlaunch.utils.BattlyNotify;
 import net.kdt.pojavlaunch.utils.RendererPluginRegistry;
+import net.kdt.pojavlaunch.utils.NativeLibraryPluginManager;
 import net.kdt.pojavlaunch.value.DependentLibrary;
 import net.kdt.pojavlaunch.value.MinecraftAccount;
 import net.kdt.pojavlaunch.value.MinecraftLibraryArtifact;
@@ -105,7 +109,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.ref.WeakReference;
@@ -174,6 +177,7 @@ public final class Tools {
     public static String CTRLMAP_PATH;
     public static String CTRLDEF_FILE;
     private static RenderersList sCompatibleRenderers;
+    private static Boolean sSystemVulkanUsable;
     public static int iLwjglVersion = 0;
     public static String sLwjglVersion = null;
     public static String lwjglNativesDir = null;
@@ -330,15 +334,21 @@ public final class Tools {
     }
 
     public static List<File> getAndroidIncompatibleNativeMods() {
+        return getAndroidIncompatibleNativeMods(null, null);
+    }
+
+    public static List<File> getAndroidIncompatibleNativeMods(@Nullable Context context,
+                                                               @Nullable String minecraftVersion) {
         File modsDir = new File(getGameDir(), "mods");
         File[] mods = modsDir.listFiles(file -> file.isFile() && file.getName().toLowerCase(Locale.ROOT).endsWith(".jar"));
         List<File> incompatibleMods = new ArrayList<>();
         if (mods == null) {
             return incompatibleMods;
         }
+        boolean distantHorizonsNativeSupport = context != null
+                && NativeLibraryPluginManager.supportsDistantHorizons(context, minecraftVersion);
         for (File file : mods) {
-            String name = file.getName().toLowerCase(Locale.ROOT);
-            if (name.contains("axiom")) {
+            if (AndroidNativeModDetector.isIncompatible(file, distantHorizonsNativeSupport)) {
                 incompatibleMods.add(file);
             }
         }
@@ -346,7 +356,12 @@ public final class Tools {
     }
 
     public static void disableAndroidIncompatibleNativeMods() {
-        for (File file : getAndroidIncompatibleNativeMods()) {
+        disableAndroidIncompatibleNativeMods(null, null);
+    }
+
+    public static void disableAndroidIncompatibleNativeMods(@Nullable Context context,
+                                                             @Nullable String minecraftVersion) {
+        for (File file : getAndroidIncompatibleNativeMods(context, minecraftVersion)) {
             File disabledFile = new File(file.getParentFile(), file.getName() + ".disabled");
             if (disabledFile.exists() && !disabledFile.delete()) {
                 throw new RuntimeException("Failed to replace disabled mod: " + file.getName());
@@ -500,6 +515,10 @@ public final class Tools {
 
         Runtime runtime = MultiRTUtils.forceReread(Tools.pickRuntime(minecraftProfile, versionJavaRequirement));
         JMinecraftVersionList.Version versionInfo = Tools.getVersionInfo(versionId);
+        String pluginMinecraftVersion = versionInfo != null && isValidString(versionInfo.inheritsFrom)
+                ? versionInfo.inheritsFrom
+                : versionInfo != null && isValidString(versionInfo.id) ? versionInfo.id : versionId;
+        NativeLibraryPluginManager.prepareForLaunch(activity, pluginMinecraftVersion);
 
 
         // Pre-process specific files
@@ -554,9 +573,13 @@ public final class Tools {
         // Attach the LWJGL patch agent so GL.initCapabilities() is injected into
         // org.lwjgl.opengl.GL at class-load time, regardless of which JAR LabyMod
         // (or any other mod loader) loads GL from.
-        File lwjglPatchAgent = new File(Tools.DIR_GAME_HOME, "lwjgl3/lwjgl-patch-agent.jar");
-        if (runtime.javaVersion >= 17 && canAttachJavaAgentForRuntime(
-                runtime, lwjglPatchAgent, "net/kdt/patch/LwjglPatchAgent.class")) {
+        File lwjglPatchAgent = runtime.javaVersion >= 17
+                ? preparePackagedJavaAgent(activity, runtime,
+                        "components/lwjgl3/lwjgl-patch-agent.jar",
+                        "lwjgl-patch-agent.jar",
+                        "net/kdt/patch/LwjglPatchAgent.class")
+                : null;
+        if (lwjglPatchAgent != null) {
             javaArgList.add("-javaagent:" + lwjglPatchAgent.getAbsolutePath());
         }
 
@@ -571,12 +594,19 @@ public final class Tools {
             minecraftJvmArgs = stripMojangTextToSpeechFromJvmArgs(minecraftJvmArgs);
         }
         javaArgList.addAll(minecraftJvmArgs);
+        javaArgList.addAll(NativeLibraryPluginManager.activeJvmArguments());
         if (!supportsGlobalUrlAgents(versionInfo)) {
             javaArgList.removeIf(argument -> argument.startsWith("-javaagent:")
                     && argument.contains("arc_dns_injector"));
         }
         String lwjglClassPath = getLWJGL3ClassPath(
                 activity, launchClassPath, useAndroidNarratorAdapter);
+        // JavaSound discovers MixerProvider implementations from the initial
+        // application classpath. Pojav's embedded JVM executes javaagents but
+        // does not expose their service resources to Forge's class loader.
+        if (lwjglPatchAgent != null) {
+            lwjglClassPath = lwjglPatchAgent.getAbsolutePath() + ":" + lwjglClassPath;
+        }
         // Resolving the classpath also selects the exact bundled native directory.
         addNativeLibraryPathOverrides(javaArgList, versionId);
         javaArgList.add("-cp");
@@ -776,46 +806,32 @@ public final class Tools {
     }
 
     private static boolean canAttachJavaAgentForRuntime(net.kdt.pojavlaunch.multirt.Runtime runtime, File agentFile, String classEntry) {
-        if (!agentFile.exists()) {
-            return false;
-        }
-        int maxClassMajor = getMaxClassMajorForJava(runtime.javaVersion);
-        int agentClassMajor = readJarClassMajor(agentFile, classEntry);
-        if (agentClassMajor < 0) {
-            Log.w("JavaAgent", "Skipping " + agentFile.getName() + ": could not read " + classEntry);
-            return false;
-        }
-        if (agentClassMajor > maxClassMajor) {
-            Log.w("JavaAgent", "Skipping " + agentFile.getName() + ": class version " + agentClassMajor
-                    + " is newer than Java " + runtime.javaVersion + " supports (" + maxClassMajor + ")");
-            return false;
-        }
-        return true;
+        return runtime != null && JavaAgentValidator.isUsable(agentFile, runtime.javaVersion, classEntry);
     }
 
-    private static int getMaxClassMajorForJava(int javaVersion) {
-        if (javaVersion <= 8) return 52;
-        if (javaVersion <= 11) return 55;
-        if (javaVersion <= 17) return 61;
-        if (javaVersion <= 21) return 65;
-        if (javaVersion <= 25) return 69;
-        return javaVersion + 44;
-    }
-
-    private static int readJarClassMajor(File jarFile, String classEntry) {
-        try (java.util.jar.JarFile jar = new java.util.jar.JarFile(jarFile)) {
-            java.util.jar.JarEntry entry = jar.getJarEntry(classEntry);
-            if (entry == null) return -1;
-            try (java.io.InputStream inputStream = jar.getInputStream(entry)) {
-                byte[] header = new byte[8];
-                int read = inputStream.read(header);
-                if (read != header.length) return -1;
-                return ((header[6] & 0xff) << 8) | (header[7] & 0xff);
-            }
-        } catch (IOException e) {
-            Log.w("JavaAgent", "Could not inspect " + jarFile.getAbsolutePath(), e);
-            return -1;
+    private static File preparePackagedJavaAgent(Activity activity,
+                                                 net.kdt.pojavlaunch.multirt.Runtime runtime,
+                                                 String assetPath,
+                                                 String outputName,
+                                                 String classEntry) {
+        File processDirectory = new File(Tools.DIR_CACHE,
+                "javaagents/" + android.os.Process.myPid());
+        File agentFile = new File(processDirectory, outputName);
+        try {
+            Tools.copyAssetFile(activity, assetPath, processDirectory.getAbsolutePath(), outputName, true);
+        } catch (IOException | RuntimeException exception) {
+            Log.w("JavaAgent", "Could not create the private Java agent snapshot", exception);
+            Logger.appendToLog("Warning: LWJGL compatibility agent could not be prepared; continuing without it");
+            return null;
         }
+        if (!canAttachJavaAgentForRuntime(runtime, agentFile, classEntry)) {
+            Log.w("JavaAgent", "Private Java agent snapshot failed validation: " + agentFile);
+            //noinspection ResultOfMethodCallIgnored
+            agentFile.delete();
+            Logger.appendToLog("Warning: Invalid LWJGL compatibility agent skipped");
+            return null;
+        }
+        return agentFile;
     }
 
     public static void buildNotificationChannel(Context context){
@@ -923,6 +939,9 @@ public final class Tools {
         javaLibraryPath.append(lwjglDir).append(":").append(Tools.NATIVE_LIB_DIR);
         if (versionSpecificNativesDir.exists()) {
             javaLibraryPath.append(":").append(versionSpecificNativesDir.getAbsolutePath());
+        }
+        for (String pluginPath : NativeLibraryPluginManager.activeNativePaths()) {
+            javaLibraryPath.append(":").append(pluginPath);
         }
 
         javaArgList.add("-Djava.library.path=" + javaLibraryPath);
@@ -1400,7 +1419,7 @@ public final class Tools {
         String internalLwjglVersion = getInternalLwjglVersion(iLwjglVersion);
         sLwjglVersion = internalLwjglVersion;
         lwjglNativesDir = resolveLwjglNativesDir(sLwjglVersion);
-        if (!"3.3.3".equals(sLwjglVersion) && NATIVE_LIB_DIR.equals(lwjglNativesDir)) {
+        if (NATIVE_LIB_DIR.equals(lwjglNativesDir)) {
             try {
                 AsyncAssetManager.unpackLwjglNatives(activity);
             } catch (IOException exception) {
@@ -1409,7 +1428,7 @@ public final class Tools {
             }
             lwjglNativesDir = resolveLwjglNativesDir(sLwjglVersion);
         }
-        if (!"3.3.3".equals(sLwjglVersion) && NATIVE_LIB_DIR.equals(lwjglNativesDir)) {
+        if (NATIVE_LIB_DIR.equals(lwjglNativesDir)) {
             throw new IllegalStateException("LWJGL " + sLwjglVersion
                     + " native component is unavailable for "
                     + archAsStringAndroid(getDeviceArchitecture()));
@@ -1659,15 +1678,24 @@ public final class Tools {
         copyAssetFile(ctx, fileName, output, new File(fileName).getName(), overwrite);
     }
 
-    public static void copyAssetFile(Context ctx, String fileName, String output, String outputName, boolean overwrite) throws IOException {
+    public static synchronized void copyAssetFile(Context ctx, String fileName, String output, String outputName, boolean overwrite) throws IOException {
         File parentFolder = new File(output);
         FileUtils.ensureDirectory(parentFolder);
         File destinationFile = new File(output, outputName);
         if(!destinationFile.exists() || overwrite){
+            AtomicFile atomicFile = new AtomicFile(destinationFile);
+            FileOutputStream outputStream = null;
             try(InputStream inputStream = ctx.getAssets().open(fileName)) {
-                try (OutputStream outputStream = new FileOutputStream(destinationFile)){
-                    IOUtils.copy(inputStream, outputStream);
+                outputStream = atomicFile.startWrite();
+                IOUtils.copy(inputStream, outputStream);
+                outputStream.flush();
+                atomicFile.finishWrite(outputStream);
+                outputStream = null;
+            } catch (IOException | RuntimeException exception) {
+                if (outputStream != null) {
+                    atomicFile.failWrite(outputStream);
                 }
+                throw exception;
             }
         }
     }
@@ -1925,12 +1953,6 @@ public final class Tools {
     }
 
     private static String resolveLwjglNativesDir(String lwjglVersion) {
-        // LWJGL 3.3.3 uses the JNI libraries packaged in the APK. Older Battly
-        // releases extracted a separate directory with a different build, which
-        // can survive an app update and cause Java/native version mismatches.
-        if ("3.3.3".equals(lwjglVersion)) {
-            return NATIVE_LIB_DIR;
-        }
         File versionedDir = new File(DIR_DATA, "lwjgl-" + lwjglVersion + "-natives/"
                 + archAsStringAndroid(getDeviceArchitecture()));
         File versionMarker = new File(versionedDir, ".version");
@@ -1948,7 +1970,9 @@ public final class Tools {
                 "liblwjgl_opengl.so",
                 "liblwjgl_stb.so",
                 "liblwjgl_nanovg.so",
-                "liblwjgl_tinyfd.so"
+                "liblwjgl_tinyfd.so",
+                "liblwjgl_vma.so",
+                "libshaderc.so"
         };
         for (String fileName : required) {
             File file = new File(directory, fileName);
@@ -2549,11 +2573,21 @@ public final class Tools {
     }
 
     public static boolean checkVulkanSupport(PackageManager packageManager) {
-        if(SDK_INT >= Build.VERSION_CODES.N) {
-            return packageManager.hasSystemFeature(PackageManager.FEATURE_VULKAN_HARDWARE_LEVEL) &&
-                    packageManager.hasSystemFeature(PackageManager.FEATURE_VULKAN_HARDWARE_VERSION);
+        return SDK_INT >= Build.VERSION_CODES.N
+                && packageManager.hasSystemFeature(PackageManager.FEATURE_VULKAN_HARDWARE_LEVEL)
+                && packageManager.hasSystemFeature(PackageManager.FEATURE_VULKAN_HARDWARE_VERSION);
+    }
+
+    private static boolean checkUsableSystemVulkan(PackageManager packageManager) {
+        if (!checkVulkanSupport(packageManager)) return false;
+        if (sSystemVulkanUsable != null) return sSystemVulkanUsable;
+        try {
+            sSystemVulkanUsable = JREUtils.probeSystemVulkan();
+        } catch (LinkageError | RuntimeException exception) {
+            Log.w("VulkanProbe", "Unable to probe the system Vulkan driver", exception);
+            sSystemVulkanUsable = false;
         }
-        return false;
+        return sSystemVulkanUsable;
     }
 
     public static <T> T getWeakReference(WeakReference<T> weakReference) {
@@ -2630,12 +2664,19 @@ public final class Tools {
 
     /** Checks if the renderer Id is compatible with the current device */
     public static boolean checkRendererCompatible(Context context, String rendererName) {
-         return getCompatibleRenderers(context).rendererIds.contains(rendererName);
+        if (!getCompatibleRenderers(context).rendererIds.contains(rendererName)) return false;
+        String normalizedRenderer = RendererPluginRegistry.runtimeRendererFor(context, rendererName);
+        if ("vulkan_zink".equals(normalizedRenderer)
+                || "opengles3_desktopgl_zink_kopper".equals(normalizedRenderer)) {
+            return checkUsableSystemVulkan(context.getPackageManager());
+        }
+        return true;
     }
 
     /** Releases the cache of compatible renderers. */
     public static void releaseRenderersCache() {
         sCompatibleRenderers = null;
+        sSystemVulkanUsable = null;
         System.gc();
     }
 

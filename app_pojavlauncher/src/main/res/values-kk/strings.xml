@@ -226,7 +226,7 @@
     <string name="crash_no_findings">Соңғы журналдарда белгілі бұзылу үлгісі табылмады.</string>
     <string name="crash_recovery_applied">Қалпына келтіру әрекеті аяқталды</string>
     <string name="crash_recovery_manual">Бұл мәселе қолмен өзгертуді қажет етеді. Мәліметтер алу үшін журналды ашыңыз.</string>
-    <string name="credits_version">2.2.3 нұсқасы</string>
+    <string name="credits_version">2.2.5 нұсқасы</string>
     <string name="ctrl_like_btn">Ұнайды</string>
     <string name="ctrl_liked_added">Ұнаған басқару элементтеріне қосылды.</string>
     <string name="ctrl_liked_btn">Ұнады</string>
@@ -287,8 +287,8 @@
     <string name="java_runtime_download_progress">Жүктеп алынуда Java %1$d (%2$.1f МБ / %3$.1f МБ)</string>
     <string name="java_runtime_download_title">Java орнату 8</string>
     <string name="java_runtime_download_waiting">Java 8 жүктеп алу дайындалуда...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Ұялы телефон 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Ұялы телефон 2.2.5</string>
     <string name="launcher_status_battly">Battly тіркелгісі</string>
     <string name="launcher_status_battly_plus">Battly+ тіркелгісі</string>
     <string name="library_analyze_mods">Талдау</string>
@@ -515,8 +515,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Battly пайдалану үшін жүйеге кіру және сақталған Java тіркелгілерін басқару әдісін таңдаңыз.</string>
     <string name="account_manager_title">Есептік жазба менеджері</string>
-    <string name="app_name">Battly іске қосу құралы</string>
-    <string name="app_short_name">Battly іске қосу құралы</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly тіркелгісі</string>
     <string name="auth_method_local">Жергілікті есептік жазба</string>
     <string name="auth_method_microsoft">Microsoft тіркелгісі</string>
@@ -771,7 +771,7 @@
     <string name="installer_internal_fallback">Қолдау көрсетілмейтін орнатушы, ескі Java UI ашады</string>
     <string name="installer_internal_running">Орнатушы талдауда…</string>
     <string name="installer_internal_success">%1$s тікелей Battly ішінде орнатылған</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher және Boardwalk негізіндегі қосқыш.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Несиелер&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1210,20 +1210,4 @@
     <string name="search_world_download_error">Әлемдік метадеректер жүктеп алынбады</string>
     <string name="world_install_button">Әлемді орнату</string>
     <string name="world_install_success">%1$s осы данаға орнатылған</string>
-
-    <string name="battly_whats_new_action_start">2.2.3 зерттеңіз</string>
-    <string name="battly_whats_new_compatibility_desc">Modpack ашу әрекеті енді жаңа дананы таңдайды және әрбір орнату мен мазмұн терезесін дұрыс жабады.</string>
-    <string name="battly_whats_new_compatibility_title">Орнатылған модпакеттерді тікелей ашыңыз</string>
-    <string name="battly_whats_new_controllers_desc">Battly клиенттік орнатушысы енді ықшам экрандарды қоса алғанда, тиісті жылжымалы тізімді пайдаланады.</string>
-    <string name="battly_whats_new_controllers_title">Клиенттер тізімін жылжыту түзетілді</string>
-    <string name="battly_whats_new_desc">Battly Workspace үшін жаңа оқшауланған даналар, жүктеп алынатын дүниелер және маңызды түзетулер.</string>
-    <string name="battly_whats_new_instances_desc">Жаңа Vanilla, жүктеуші, клиент және modpack даналары өздерінің әлемдерін, модтарын, параметрлерін және ресурс бумаларын тәуелсіз қалтада сақтайды.</string>
-    <string name="battly_whats_new_instances_title">Әрбір жаңа дана үшін бөлек қалта</string>
-    <string name="battly_whats_new_recovery_desc">Жаңа дананы оқшаулау, қауіпсіз параметрлерді сақтау және ұзақ сеанс диагностикасы конфигурацияны қалпына келтіруді азайтады және мәселелерді анықтауды жеңілдетеді.</string>
-    <string name="battly_whats_new_recovery_title">Жақсартылған тұрақтылық</string>
-    <string name="battly_whats_new_title">Battly мобильді 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Қолданыстағы үлгілер сол жерде қалады. Қалтаны оқшаулау тек осы нұсқадан кейін жасалған даналарға қолданылады.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 дайын</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge ішінен Minecraft әлемдерін тікелей өзіңіз таңдаған данаға шолыңыз және орнатыңыз.</string>
-    <string name="battly_whats_new_worlds_title">Workspace қолданбасынан әлемдерді жүктеп алыңыз</string>
 </resources>

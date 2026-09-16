@@ -11,7 +11,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Επιλέξτε ένα πρόγραμμα εγκατάστασης mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Το πρόγραμμα εκκίνησης Battly συνετρίβη απροσδόκητα</string>
+    <string name="error_fatal">Το Battly Launcher συνετρίβη απροσδόκητα</string>
     <string name="error_no_version">Καμία έκδοση!</string>
     <string name="error_show_more">Εμφάνιση περισσότερων</string>
     <string name="error_show_less">Εμφάνιση λιγότερων</string>
@@ -180,7 +180,7 @@
     <string name="arc_capes_desc">Ενεργοποιεί κάπες από τη Cosmetica (προηγουμένως Arc). Για περισσότερες πληροφορίες, παρακαλώ επισκεφθείτε την ιστοσελίδα https://cosmetica.cc. Απαιτείται 
 το OptiFine.</string>
     <string name="notif_channel_name">Γενικά</string>
-    <string name="lazy_service_default_title">Υπηρεσία προσκηνίου εκκίνησης Battly</string>
+    <string name="lazy_service_default_title">Υπηρεσία προσκηνίου Battly Launcher</string>
     <string name="use_global_default">(Χρήση της γενικής προεπιλογής)</string>
     <string name="default_control">Προεπιλεγμένος χάρτης ελέγχου</string>
     <string name="progresslayout_tasks_in_progress">%d εργασίες σε εξέλιξη</string>
@@ -438,7 +438,7 @@
     <string name="crash_no_findings">Δεν βρέθηκε γνωστό μοτίβο σύγκρουσης στα πιο πρόσφατα αρχεία καταγραφής.</string>
     <string name="crash_recovery_applied">Η ενέργεια ανάκτησης ολοκληρώθηκε</string>
     <string name="crash_recovery_manual">Αυτό το ζήτημα χρειάζεται χειροκίνητη αλλαγή. Ανοίξτε το αρχείο καταγραφής για λεπτομέρειες.</string>
-    <string name="credits_version">Έκδοση 2.2.3</string>
+    <string name="credits_version">Έκδοση 2.2.5</string>
     <string name="ctrl_like_btn">Όπως</string>
     <string name="ctrl_liked_added">Προστέθηκε στα στοιχεία ελέγχου που σας αρέσουν.</string>
     <string name="ctrl_liked_btn">Άρεσε</string>
@@ -499,8 +499,8 @@
     <string name="java_runtime_download_progress">Λήψη του Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Εγκατάσταση του Java 8</string>
     <string name="java_runtime_download_waiting">Προετοιμασία λήψης Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Κινητό 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Κινητό 2.2.5</string>
     <string name="launcher_status_battly">Λογαριασμός Battly</string>
     <string name="launcher_status_battly_plus">Λογαριασμός Battly+</string>
     <string name="library_analyze_mods">Αναλύστε</string>
@@ -722,8 +722,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Για να χρησιμοποιήσετε το Battly, επιλέξτε πώς θέλετε να συνδεθείτε και να διαχειριστείτε τους αποθηκευμένους λογαριασμούς Java.</string>
     <string name="account_manager_title">Διαχειριστής λογαριασμού</string>
-    <string name="app_name">Εκτοξευτής Battly</string>
-    <string name="app_short_name">Εκτοξευτής Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Λογαριασμός Battly</string>
     <string name="auth_method_local">Τοπικός λογαριασμός</string>
     <string name="auth_method_microsoft">Λογαριασμός Microsoft</string>
@@ -976,7 +976,7 @@
     <string name="installer_internal_fallback">Μη υποστηριζόμενο πρόγραμμα εγκατάστασης, ανοίγοντας την παλαιού τύπου διεπαφή χρήστη Java</string>
     <string name="installer_internal_running">Ανάλυση προγράμματος εγκατάστασης…</string>
     <string name="installer_internal_success">Το %1$s εγκαθίσταται απευθείας στο Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Εκκίνηση που βασίζεται στο PojavLauncher και στο Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Πιστώσεις&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1410,20 +1410,4 @@
     <string name="search_world_download_error">Αποτυχία λήψης παγκόσμιων μεταδεδομένων</string>
     <string name="world_install_button">Κόσμος εγκατάστασης</string>
     <string name="world_install_success">Το %1$s είναι εγκατεστημένο σε αυτήν την παρουσία</string>
-
-    <string name="battly_whats_new_action_start">Εξερεύνηση 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Η ενέργεια Open modpack επιλέγει τώρα τη νέα παρουσία και κλείνει σωστά κάθε παράθυρο εγκατάστασης και περιεχομένου.</string>
-    <string name="battly_whats_new_compatibility_title">Ανοίξτε απευθείας τα εγκατεστημένα modpacks</string>
-    <string name="battly_whats_new_controllers_desc">Το πρόγραμμα εγκατάστασης πελάτη Battly χρησιμοποιεί τώρα μια σωστή λίστα με δυνατότητα κύλισης, συμπεριλαμβανομένων των συμπαγών οθονών.</string>
-    <string name="battly_whats_new_controllers_title">Διορθώθηκε η κύλιση λίστας πελατών</string>
-    <string name="battly_whats_new_desc">Νέες μεμονωμένες περιπτώσεις, κόσμοι με δυνατότητα λήψης και σημαντικές επιδιορθώσεις για το Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Οι νέες παρουσίες Vanilla, loader, client και modpack διατηρούν τους κόσμους, τα mod, τις ρυθμίσεις και τα πακέτα πόρων τους σε έναν ανεξάρτητο φάκελο.</string>
-    <string name="battly_whats_new_instances_title">Ένας ξεχωριστός φάκελος για κάθε νέα εμφάνιση</string>
-    <string name="battly_whats_new_recovery_desc">Η απομόνωση νέων περιπτώσεων, η ασφαλέστερη αποθήκευση ρυθμίσεων και τα διαγνωστικά μακράς περιόδου λειτουργίας μειώνουν τις επαναφορές διαμόρφωσης και διευκολύνουν τον εντοπισμό προβλημάτων.</string>
-    <string name="battly_whats_new_recovery_title">Βελτιωμένη σταθερότητα</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Οι υπάρχουσες περιπτώσεις παραμένουν εκεί που είναι. Η απομόνωση φακέλων ισχύει μόνο για περιπτώσεις που δημιουργούνται από αυτήν την έκδοση και μετά.</string>
-    <string name="battly_whats_new_transition_title">Το Battly 2.2.3 είναι έτοιμο</string>
-    <string name="battly_whats_new_worlds_desc">Περιηγηθείτε και εγκαταστήστε τους κόσμους Minecraft από το CurseForge απευθείας στην παρουσία που θα επιλέξετε.</string>
-    <string name="battly_whats_new_worlds_title">Λήψη κόσμους από το Workspace</string>
 </resources>

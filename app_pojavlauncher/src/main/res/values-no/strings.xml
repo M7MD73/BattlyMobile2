@@ -236,7 +236,7 @@
     <string name="crash_no_findings">Det ble ikke funnet noe kjent krasjmønster i de siste loggene.</string>
     <string name="crash_recovery_applied">Gjenopprettingshandling fullført</string>
     <string name="crash_recovery_manual">Dette problemet må endres manuelt. Åpne loggen for detaljer.</string>
-    <string name="credits_version">Versjon 2.2.3</string>
+    <string name="credits_version">Versjon 2.2.5</string>
     <string name="ctrl_like_btn">Liker</string>
     <string name="ctrl_liked_added">Lagt til likte kontroller.</string>
     <string name="ctrl_liked_btn">Likte</string>
@@ -297,8 +297,8 @@
     <string name="java_runtime_download_progress">Laster ned Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installere Java 8</string>
     <string name="java_runtime_download_waiting">Forbereder Java 8-nedlasting...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_status_battly">Battly-konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analyser</string>
@@ -780,7 +780,7 @@
     <string name="installer_internal_fallback">Installasjonsprogram som ikke støttes, åpner det eldre brukergrensesnittet for Java</string>
     <string name="installer_internal_running">Analyserer installasjonsprogrammet …</string>
     <string name="installer_internal_success">%1$s installert direkte inne i Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher basert på PojavLauncher og Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditt&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1219,20 +1219,4 @@
     <string name="search_world_download_error">Kunne ikke laste ned verdensmetadata</string>
     <string name="world_install_button">Installer verden</string>
     <string name="world_install_success">%1$s installert i denne forekomsten</string>
-
-    <string name="battly_whats_new_action_start">Utforsk 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Åpne modpack-handlingen velger nå den nye forekomsten og lukker hvert installasjons- og innholdsvindu på riktig måte.</string>
-    <string name="battly_whats_new_compatibility_title">Åpne installerte modpacks direkte</string>
-    <string name="battly_whats_new_controllers_desc">Battly-klientinstallasjonsprogrammet bruker nå en skikkelig rullbar liste, inkludert på kompakte skjermer.</string>
-    <string name="battly_whats_new_controllers_title">Klientlisterulling fikset</string>
-    <string name="battly_whats_new_desc">Nye isolerte forekomster, nedlastbare verdener og viktige rettelser for Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nye Vanilla-, loader-, klient- og modpack-forekomster holder sine verdener, mods, innstillinger og ressurspakker i en uavhengig mappe.</string>
-    <string name="battly_whats_new_instances_title">En egen mappe for hver ny forekomst</string>
-    <string name="battly_whats_new_recovery_desc">Ny forekomstisolering, sikrere lagring av innstillinger og diagnostikk med lang økt reduserer konfigurasjonstilbakestillinger og gjør problemer lettere å identifisere.</string>
-    <string name="battly_whats_new_recovery_title">Forbedret stabilitet</string>
-    <string name="battly_whats_new_title">Battly Mobil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Eksisterende forekomster blir der de er. Mappeisolering gjelder bare for forekomster opprettet fra denne versjonen og fremover.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 er klar</string>
-    <string name="battly_whats_new_worlds_desc">Bla gjennom og installer Minecraft-verdener fra CurseForge direkte i forekomsten du velger.</string>
-    <string name="battly_whats_new_worlds_title">Last ned verdener fra Workspace</string>
 </resources>

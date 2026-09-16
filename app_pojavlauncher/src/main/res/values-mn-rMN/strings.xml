@@ -208,7 +208,7 @@
     <string name="crash_no_findings">Сүүлийн логуудаас ямар ч мэдэгдэж буй гэмтлийн загвар олдсонгүй.</string>
     <string name="crash_recovery_applied">Сэргээх үйлдэл дууссан</string>
     <string name="crash_recovery_manual">Энэ асуудлыг гараар өөрчлөх шаардлагатай. Бүртгэлийг нээнэ үү.</string>
-    <string name="credits_version">Хувилбар 2.2.3</string>
+    <string name="credits_version">Хувилбар 2.2.5</string>
     <string name="ctrl_like_btn">Дуртай</string>
     <string name="ctrl_liked_added">Таалагдсан удирдлагад нэмсэн.</string>
     <string name="ctrl_liked_btn">Таалагдсан</string>
@@ -269,8 +269,8 @@
     <string name="java_runtime_download_progress">Татаж авч байна Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8 суулгаж байна</string>
     <string name="java_runtime_download_waiting">Java 8 татаж авахыг бэлтгэж байна...</string>
-    <string name="launcher_credits_title">Battly Эхлүүлэгч 2.2.3</string>
-    <string name="launcher_mobile_badge">Гар утас 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Гар утас 2.2.5</string>
     <string name="launcher_status_battly">Battly данс</string>
     <string name="launcher_status_battly_plus">Battly+ бүртгэл</string>
     <string name="library_analyze_mods">Шинжилгээ хийх</string>
@@ -497,8 +497,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Battly-г ашиглахын тулд хэрхэн нэвтэрч, хадгалсан Java бүртгэлээ удирдахаа сонгоно уу.</string>
     <string name="account_manager_title">Бүртгэлийн менежер</string>
-    <string name="app_name">Battly эхлүүлэгч</string>
-    <string name="app_short_name">Battly эхлүүлэгч</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly данс</string>
     <string name="auth_method_local">Орон нутгийн данс</string>
     <string name="auth_method_microsoft">Microsoft данс</string>
@@ -754,7 +754,7 @@
     <string name="installer_internal_fallback">Дэмжигдээгүй суулгагч, хуучин Java UI-г нээж байна</string>
     <string name="installer_internal_running">Суулгагчийг шинжилж байна...</string>
     <string name="installer_internal_success">%1$s шууд Battly дотор суулгасан</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Эхлүүлэгч 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher болон Boardwalk дээр суурилсан эхлүүлэгч.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Зээл&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1193,20 +1193,4 @@
     <string name="search_world_download_error">Дэлхийн мета өгөгдлийг татаж авч чадсангүй</string>
     <string name="world_install_button">Дэлхийг суулгах</string>
     <string name="world_install_success">Энэ жишээнд %1$s суулгасан</string>
-
-    <string name="battly_whats_new_action_start">2.2.3-ыг судлах</string>
-    <string name="battly_whats_new_compatibility_desc">Нээлттэй modpack үйлдэл нь одоо шинэ жишээг сонгож, суулгац болон агуулгын цонх бүрийг зөв хаадаг.</string>
-    <string name="battly_whats_new_compatibility_title">Суулгасан modpack-уудыг шууд нээнэ үү</string>
-    <string name="battly_whats_new_controllers_desc">Battly клиент суулгагч нь одоо авсаархан дэлгэцийг оруулаад зохих гүйлгэх жагсаалтыг ашигладаг.</string>
-    <string name="battly_whats_new_controllers_title">Үйлчлүүлэгчийн жагсаалтыг гүйлгэхийг зассан</string>
-    <string name="battly_whats_new_desc">Battly Workspace-д зориулсан шинэ тусгаарлагдсан тохиолдлууд, татаж авах боломжтой ертөнц болон чухал засварууд.</string>
-    <string name="battly_whats_new_instances_desc">Шинэ Vanilla, loader, client болон modpack instances нь ертөнц, мод, тохиргоо, нөөцийн багцаа бие даасан хавтсанд хадгалдаг.</string>
-    <string name="battly_whats_new_instances_title">Шинэ тохиолдол бүрт тусдаа хавтас</string>
-    <string name="battly_whats_new_recovery_desc">Шинэ инстанцийн тусгаарлалт, илүү аюулгүй тохиргооны хадгалалт, урт хугацааны оношлогоо нь тохиргоог дахин тохируулахыг багасгаж, асуудлыг тодорхойлоход хялбар болгодог.</string>
-    <string name="battly_whats_new_recovery_title">Тогтвортой байдал сайжирсан</string>
-    <string name="battly_whats_new_title">Battly гар утас 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Одоо байгаа тохиолдлууд байгаа газартаа үлддэг. Фолдер тусгаарлалт нь зөвхөн энэ хувилбараас хойш үүсгэсэн тохиолдлуудад хамаарна.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 бэлэн боллоо</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge-аас Minecraft ертөнцийг хайж, сонгосон инстанц руугаа шууд суулгаарай.</string>
-    <string name="battly_whats_new_worlds_title">Workspace-с ертөнцийг татаж аваарай</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly indító</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -403,7 +403,7 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="mg_renderer_summary_gl43exts">Ez segíthet a modok összeomlásai ellen. Kikapcsolható, ha nem szükséges.</string>
     <string name="mg_renderer_title_computeShaderext">Kísérleti Compute Shader bővítmény reklámozása</string>
     <string name="mg_renderer_summary_computeShaderext">Ez segíthet a shaderpackok összeomlásain ellen. Kikapcsolható, ha nem szükséges.</string>
-    <string name="app_short_name">Battly indító</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="no_minecraft_account_found">Egy Minecraft fiók sem található</string>
     <string name="login_again">Kérlek, jelentkezz be újra</string>
     <string name="modloader_dl_install_neoforge">Neoforge profil létrehozása</string>
@@ -550,7 +550,7 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="crash_no_findings">A legújabb naplókban nem található ismert összeomlási minta.</string>
     <string name="crash_recovery_applied">A helyreállítási művelet befejeződött</string>
     <string name="crash_recovery_manual">Ez a probléma manuális módosítást igényel. Nyissa meg a naplót a részletekért.</string>
-    <string name="credits_version">2.2.3-es verzió</string>
+    <string name="credits_version">2.2.5-es verzió</string>
     <string name="ctrl_like_btn">tetszik</string>
     <string name="ctrl_liked_added">Hozzáadva a kedvelt vezérlőkhöz.</string>
     <string name="ctrl_liked_btn">Tetszett</string>
@@ -611,8 +611,8 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="java_runtime_download_progress">A Java %1$d (%2$.1f MB / %3$.1f MB) letöltése</string>
     <string name="java_runtime_download_title">A Java 8 telepítése</string>
     <string name="java_runtime_download_waiting">A Java 8 letöltésének előkészítése...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_status_battly">Battly fiók</string>
     <string name="launcher_status_battly_plus">Battly+ fiók</string>
     <string name="library_analyze_mods">Elemezze</string>
@@ -1082,7 +1082,7 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="installer_internal_fallback">Nem támogatott telepítő, amely megnyitja a régi Java felhasználói felületet</string>
     <string name="installer_internal_running">Telepítő elemzése…</string>
     <string name="installer_internal_success">A %1$s közvetlenül a Battly belsejébe telepítve</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Indító a PojavLauncher és a Boardwalk alapján.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Jóváírások&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1491,20 +1491,4 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="search_world_download_error">Nem sikerült letölteni a világ metaadatait</string>
     <string name="world_install_button">Telepítse a világot</string>
     <string name="world_install_success">%1$s ebbe a példányba telepítve</string>
-
-    <string name="battly_whats_new_action_start">Fedezze fel a 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">A Modpack megnyitása művelet most kiválasztja az új példányt, és megfelelően bezár minden telepítési és tartalomablakot.</string>
-    <string name="battly_whats_new_compatibility_title">Nyissa meg közvetlenül a telepített modpackokat</string>
-    <string name="battly_whats_new_controllers_desc">A Battly kliens telepítő mostantól megfelelő görgethető listát használ, beleértve a kompakt képernyőket is.</string>
-    <string name="battly_whats_new_controllers_title">Az ügyféllista görgetése javítva</string>
-    <string name="battly_whats_new_desc">Új elszigetelt példányok, letölthető világok és fontos javítások a Battly Workspace számára.</string>
-    <string name="battly_whats_new_instances_desc">Az új Vanilla, betöltő, kliens és modpack példányok világaikat, modjaikat, beállításaikat és erőforráscsomagjaikat egy független mappában tárolják.</string>
-    <string name="battly_whats_new_instances_title">Minden új példányhoz külön mappa</string>
-    <string name="battly_whats_new_recovery_desc">Az új példányok elkülönítése, a beállítások biztonságosabb tárolása és a hosszú munkamenet-diagnosztika csökkenti a konfigurációs alaphelyzetbe állítások számát, és megkönnyíti a problémák azonosítását.</string>
-    <string name="battly_whats_new_recovery_title">Javított stabilitás</string>
-    <string name="battly_whats_new_title">Battly Mobil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">A meglévő példányok ott maradnak, ahol vannak. A mappa elkülönítése csak az ettől a verziótól kezdve létrehozott példányokra vonatkozik.</string>
-    <string name="battly_whats_new_transition_title">A Battly 2.2.3 készen áll</string>
-    <string name="battly_whats_new_worlds_desc">Böngésszen és telepítse a Minecraft világokat a CurseForge-ből közvetlenül a választott példányba.</string>
-    <string name="battly_whats_new_worlds_title">Töltse le a világokat a Workspace-ről</string>
 </resources>

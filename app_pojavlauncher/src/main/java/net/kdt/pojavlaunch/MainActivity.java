@@ -93,6 +93,7 @@ import net.kdt.pojavlaunch.utils.AdaptiveGraphicsPolicy;
 import net.kdt.pojavlaunch.utils.GLInfoUtils;
 import net.kdt.pojavlaunch.utils.MinecraftCompatibilityEngine;
 import net.kdt.pojavlaunch.utils.MinecraftGraphicsBackendPolicy;
+import net.kdt.pojavlaunch.utils.MobileGluesVersionPolicy;
 import net.kdt.pojavlaunch.utils.RendererPluginRegistry;
 import net.kdt.pojavlaunch.utils.ControllerProfileManager;
 import net.kdt.pojavlaunch.utils.MCOptionUtils;
@@ -125,6 +126,9 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     public static final String TAG = "MainActivity";
     public static final String INTENT_MINECRAFT_VERSION = "intent_version";
     private static final int REQUEST_CONTROL_DEVICE_IMAGE = 6204;
+    private static final int REQUEST_GAME_MICROPHONE_PERMISSION = 7291;
+    private static final String PREF_GAME_MICROPHONE_PERMISSION_ASKED =
+            "game_microphone_permission_asked";
 
     volatile public static boolean isInputStackCall;
     protected static View.OnGenericMotionListener motionListener = (v, event) -> false;
@@ -140,6 +144,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     private ProgressBar mGameStartingProgress;
     private FrameLayout mGameStartingAdContainer;
     private NativeAd mGameStartingNativeAd;
+    private Runnable mPendingGameLaunch;
     private boolean mGameStartingAdLoadComplete;
     private boolean mGameStartingFirstFrameReady;
     private long mGameStartingShownAt;
@@ -186,6 +191,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CallbackBridge.setAndroidAudioContext(this);
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -331,7 +337,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             drawerLayout.closeDrawers();
 
             final String finalVersion = version;
-            minecraftGLView.setSurfaceReadyListener(() -> {
+            minecraftGLView.setSurfaceReadyListener(() -> continueAfterGameMicrophonePermission(() -> {
                 try {
                     updateGameStartingStage(R.string.launcher_starting_stage_profile, 28);
                     // Setup virtual mouse right before launching
@@ -343,7 +349,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                 }catch (Throwable e){
                     returnToLauncherAfterGameFailure(e);
                 }
-            });
+            }));
         } catch (Throwable e) {
             Tools.showError(this, e, true);
         }
@@ -802,11 +808,50 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_GAME_MICROPHONE_PERMISSION) {
+            runPendingGameLaunch();
+            return;
+        }
         if (BattlyWorldsManager.handlesMicrophonePermission(requestCode)) {
             boolean granted = grantResults.length > 0
                     && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
             BattlyWorldsManager.onMicrophonePermissionResult(this, granted);
         }
+    }
+
+    private void continueAfterGameMicrophonePermission(Runnable launchAction) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                || ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO)
+                == android.content.pm.PackageManager.PERMISSION_GRANTED
+                || LauncherPreferences.DEFAULT_PREF.getBoolean(
+                PREF_GAME_MICROPHONE_PERMISSION_ASKED, false)) {
+            launchAction.run();
+            return;
+        }
+
+        mPendingGameLaunch = launchAction;
+        LauncherPreferences.DEFAULT_PREF.edit()
+                .putBoolean(PREF_GAME_MICROPHONE_PERMISSION_ASKED, true)
+                .apply();
+        androidx.appcompat.app.AlertDialog dialog = Tools.createStyledDialogBuilder(this)
+                .setTitle(R.string.preference_ask_for_microphone_title)
+                .setMessage(R.string.preference_ask_for_microphone_description)
+                .setNegativeButton(R.string.battlyworlds_microphone_not_now,
+                        (ignored, which) -> runPendingGameLaunch())
+                .setPositiveButton(R.string.battlyworlds_microphone_continue,
+                        (ignored, which) -> requestPermissions(
+                                new String[]{android.Manifest.permission.RECORD_AUDIO},
+                                REQUEST_GAME_MICROPHONE_PERMISSION))
+                .setOnCancelListener(ignored -> runPendingGameLaunch())
+                .create();
+        Tools.styleDialog(dialog);
+        dialog.show();
+    }
+
+    private void runPendingGameLaunch() {
+        Runnable launchAction = mPendingGameLaunch;
+        mPendingGameLaunch = null;
+        if (launchAction != null && !isFinishing() && !isDestroyed()) launchAction.run();
     }
 
     @Override
@@ -936,7 +981,9 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                     + ", effectiveRenderer=" + Tools.LOCAL_RENDERER);
         }
         if(Tools.LOCAL_RENDERER.equals("opengles_mobileglues")) {
-            LauncherPreferences.writeMGRendererSettings(isBattlyClient, versionId);
+            String rendererMinecraftVersion = MobileGluesVersionPolicy.resolveMinecraftVersion(
+                    versionId, version.inheritsFrom);
+            LauncherPreferences.writeMGRendererSettings(isBattlyClient, rendererMinecraftVersion);
         }
         updateGameStartingStage(R.string.launcher_starting_stage_jre, 64);
         JREUtils.redirectAndPrintJRELog();

@@ -175,7 +175,7 @@
     <string name="crash_no_findings">Uusimmista lokeista ei löytynyt tunnettua törmäyskuviota.</string>
     <string name="crash_recovery_applied">Palautustoimenpide suoritettu</string>
     <string name="crash_recovery_manual">Tämä ongelma vaatii manuaalisen muutoksen. Avaa loki lisätietoja varten.</string>
-    <string name="credits_version">Versio 2.2.3</string>
+    <string name="credits_version">Versio 2.2.5</string>
     <string name="ctrl_like_btn">Kuten</string>
     <string name="ctrl_liked_added">Lisätty tykättyihin säätimiin.</string>
     <string name="ctrl_liked_btn">Pidin</string>
@@ -236,8 +236,8 @@
     <string name="java_runtime_download_progress">Ladataan Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8:n asentaminen</string>
     <string name="java_runtime_download_waiting">Valmistellaan Java 8 latausta...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobiili 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobiili 2.2.5</string>
     <string name="launcher_status_battly">Battly-tili</string>
     <string name="launcher_status_battly_plus">Battly+ tili</string>
     <string name="library_analyze_mods">Analysoi</string>
@@ -465,8 +465,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Jos haluat käyttää Battly:tä, valitse, kuinka haluat kirjautua sisään ja hallita tallennettuja Java-tilejä.</string>
     <string name="account_manager_title">Tilivastaava</string>
-    <string name="app_name">Kantoraketti Battly</string>
-    <string name="app_short_name">Kantoraketti Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly tili</string>
     <string name="auth_method_local">Paikallinen tili</string>
     <string name="auth_method_microsoft">Microsoft tili</string>
@@ -722,7 +722,7 @@
     <string name="installer_internal_fallback">Asennusohjelma, jota ei tueta, avaa vanhan Java-käyttöliittymän</string>
     <string name="installer_internal_running">Analysoidaan asennusohjelmaa…</string>
     <string name="installer_internal_success">%1$s asennettu suoraan Battly:n sisään</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher perustuu PojavLauncheriin ja Boardwalkiin.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krevitykset&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1161,20 +1161,4 @@
     <string name="search_world_download_error">Maailman metatietojen lataaminen epäonnistui</string>
     <string name="world_install_button">Asenna maailma</string>
     <string name="world_install_success">%1$s asennettu tähän ilmentymään</string>
-
-    <string name="battly_whats_new_action_start">Tutustu 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Avaa modpack -toiminto valitsee nyt uuden ilmentymän ja sulkee kaikki asennus- ja sisältöikkunat oikein.</string>
-    <string name="battly_whats_new_compatibility_title">Avaa asennetut modpackit suoraan</string>
-    <string name="battly_whats_new_controllers_desc">Battly-asiakasasennusohjelma käyttää nyt kunnollista vieritettävää luetteloa, myös pienikokoisilla näytöillä.</string>
-    <string name="battly_whats_new_controllers_title">Asiakasluettelon vieritys korjattu</string>
-    <string name="battly_whats_new_desc">Uusia yksittäisiä esiintymiä, ladattavia maailmoja ja tärkeitä korjauksia Battly Workspaceen.</string>
-    <string name="battly_whats_new_instances_desc">Uudet Vanilla-, loader-, asiakas- ja modpack-instanssit pitävät maailmansa, modit, asetukset ja resurssipaketit erillisessä kansiossa.</string>
-    <string name="battly_whats_new_instances_title">Jokaiselle uudelle esiintymälle oma kansio</string>
-    <string name="battly_whats_new_recovery_desc">Uusi ilmentymien eristäminen, turvallisempi asetusten tallennus ja pitkän istunnon diagnostiikka vähentävät kokoonpanon nollauksia ja helpottavat ongelmien tunnistamista.</string>
-    <string name="battly_whats_new_recovery_title">Parempi vakaus</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Olemassa olevat tapaukset pysyvät siellä, missä ne ovat. Kansion eristäminen koskee vain esiintymiä, jotka on luotu tästä versiosta eteenpäin.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 on valmis</string>
-    <string name="battly_whats_new_worlds_desc">Selaa ja asenna Minecraft-maailmoja CurseForge:stä suoraan valitsemaasi ilmentymään.</string>
-    <string name="battly_whats_new_worlds_title">Lataa maailmoja Workspacesta</string>
 </resources>

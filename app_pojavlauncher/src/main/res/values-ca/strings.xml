@@ -94,7 +94,7 @@
     <string name="pedit_java_runtime">Runtime de Java</string>
     <string name="pedit_renderer">Renderitzador</string>
     <string name="arc_capes_desc">Activa les capes de Cosmetica (anteriorment Arc). Per a més informació visiteu https://cosmetica.cc. Requereix l\'OptiFine.</string>
-    <string name="lazy_service_default_title">Servei de primer pla del llançador Battly</string>
+    <string name="lazy_service_default_title">Servei de primer pla del Battly Launcher</string>
     <string name="use_global_default">(Usa el valor global per defecte)</string>
     <string name="default_control">Mapa de control per defecte</string>
     <string name="progresslayout_tasks_in_progress">%d tasques en procés</string>
@@ -277,7 +277,7 @@
     <string name="crash_no_findings">No s\'ha trobat cap patró d\'error conegut als darrers registres.</string>
     <string name="crash_recovery_applied">Acció de recuperació completada</string>
     <string name="crash_recovery_manual">Aquest problema necessita un canvi manual. Obriu el registre per obtenir més informació.</string>
-    <string name="credits_version">Versió 2.2.3</string>
+    <string name="credits_version">Versió 2.2.5</string>
     <string name="ctrl_like_btn">M\'agrada</string>
     <string name="ctrl_liked_added">S\'ha afegit als controls que m\'agraden.</string>
     <string name="ctrl_liked_btn">M\'ha agradat</string>
@@ -338,8 +338,8 @@
     <string name="java_runtime_download_progress">S\'està baixant Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instal·lació de Java 8</string>
     <string name="java_runtime_download_waiting">S\'està preparant la baixada de Java 8...</string>
-    <string name="launcher_credits_title">Battly Llançador 2.2.3</string>
-    <string name="launcher_mobile_badge">Mòbil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mòbil 2.2.5</string>
     <string name="launcher_status_battly">Compte Battly</string>
     <string name="launcher_status_battly_plus">Compte Battly+</string>
     <string name="library_analyze_mods">Analitzar</string>
@@ -564,8 +564,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Per utilitzar Battly, trieu com voleu iniciar la sessió i gestionar els comptes Java desats.</string>
     <string name="account_manager_title">Gestor de comptes</string>
-    <string name="app_name">Llançador Battly</string>
-    <string name="app_short_name">Llançador Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Compte Battly</string>
     <string name="auth_method_local">Compte local</string>
     <string name="auth_method_microsoft">Compte Microsoft</string>
@@ -820,7 +820,7 @@
     <string name="installer_internal_fallback">Instal·lador no compatible, que obre la interfície d\'usuari Java heretada</string>
     <string name="installer_internal_running">S\'està analitzant l\'instal·lador...</string>
     <string name="installer_internal_success">%1$s instal·lat directament dins de Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Llançador basat en PojavLauncher i Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Crèdits&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1256,20 +1256,4 @@
     <string name="search_world_download_error">No s\'han pogut baixar les metadades mundials</string>
     <string name="world_install_button">Instal·leu el món</string>
     <string name="world_install_success">%1$s instal·lat en aquesta instància</string>
-
-    <string name="battly_whats_new_action_start">Exploreu 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">L\'acció Obrir modpack ara selecciona la nova instància i tanca correctament totes les finestres d\'instal·lació i contingut.</string>
-    <string name="battly_whats_new_compatibility_title">Obriu els modpacks instal·lats directament</string>
-    <string name="battly_whats_new_controllers_desc">L\'instal·lador del client Battly ara utilitza una llista de desplaçament adequada, incloses les pantalles compactes.</string>
-    <string name="battly_whats_new_controllers_title">S\'ha corregit el desplaçament de la llista de clients</string>
-    <string name="battly_whats_new_desc">Noves instàncies aïllades, mons descarregables i correccions importants per a l\'espai de treball Battly.</string>
-    <string name="battly_whats_new_instances_desc">Les noves instàncies de Vanilla, loader, client i modpack mantenen els seus mons, modificacions, configuracions i paquets de recursos en una carpeta independent.</string>
-    <string name="battly_whats_new_instances_title">Una carpeta separada per a cada instància nova</string>
-    <string name="battly_whats_new_recovery_desc">El nou aïllament d\'instàncies, l\'emmagatzematge més segur de la configuració i els diagnòstics de sessió llarga redueixen els restabliments de configuració i faciliten la identificació dels problemes.</string>
-    <string name="battly_whats_new_recovery_title">Millora de l\'estabilitat</string>
-    <string name="battly_whats_new_title">Battly mòbil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Els casos existents es queden on són. L\'aïllament de carpetes només s\'aplica a les instàncies creades a partir d\'aquesta versió.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 està llest</string>
-    <string name="battly_whats_new_worlds_desc">Navegueu i instal·leu els mons Minecraft de CurseForge directament a la instància que trieu.</string>
-    <string name="battly_whats_new_worlds_title">Baixeu mons des de Workspace</string>
 </resources>

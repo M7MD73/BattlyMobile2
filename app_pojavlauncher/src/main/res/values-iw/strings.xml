@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">משגר Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">בחר מתקין mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">משגר Battly קרס באופן בלתי צפוי</string>
+    <string name="error_fatal">Battly Launcher קרס באופן בלתי צפוי</string>
     <string name="error_no_version">אין גרסה!</string>
     <string name="error_show_more">הצג עוד</string>
     <string name="error_show_less">הצג פחות</string>
@@ -201,7 +201,7 @@
     <string name="pedit_renderer">רינדור</string>
     <string name="arc_capes_desc">מאפשר שכמיות מאת Cosmetica (לשעבר Arc). לקבלת מידע נוסף, בקרו ב- https://cosmetica.cc. דורש OptiFine.</string>
     <string name="notif_channel_name">כללי</string>
-    <string name="lazy_service_default_title">שירות החזית של משגר Battly</string>
+    <string name="lazy_service_default_title">שירות החזית של Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">מותקן</string>
     <string name="use_global_default">(השתמש בהגדרות ברירת המחדל הגלובליות)</string>
     <string name="default_control">מפת בקר ברירת מחדל</string>
@@ -229,7 +229,7 @@
     <string name="preference_gyro_sample_rate_title">קצב דגימת ג\'יירוסקופ</string>
     <string name="preference_gyro_sample_rate_description">אם את/ה נתקל/ת בבעיות ביצועים עם בקרי הג\'יירוסקופ, הגדל/י ערך זה.</string>
     <string name="microsoft_login_retry_later">יותר מדי בקשות, נסו שוב מאוחר יותר.</string>
-    <string name="storage_required">מפעיל Battly דורש חיבור אחסון חיצוני. אנא חבר אותו מחדש והפעל מחדש את האפליקציה.</string>
+    <string name="storage_required">Battly Launcher דורש חיבור אחסון חיצוני. אנא חבר אותו מחדש והפעל מחדש את האפליקציה.</string>
     <string name="mcl_setting_title_buttonallcaps">השתמש באותיות גדולות בלבד בתוויות הכפתורים.</string>
     <string name="mcl_setting_subtitle_buttonallcaps">השבת אפשרות זו אם ברצונך להשתמש באותיות קטנות בבקרים שלך.</string>
     <string name="preference_shader_dump_title">אפשר השלכת הצללה</string>
@@ -382,7 +382,7 @@
     <string name="mg_renderer_summary_gl43exts">עשוי לעזור עם תקלות ב-shaderpack. השבת אם אין צורך בכך, עלול לגרום לקריסות.</string>
     <string name="mg_renderer_title_computeShaderext">פרסם את הרחבת Shader החישוב הניסיונית</string>
     <string name="mg_renderer_summary_computeShaderext">עשוי לעזור עם תקלות ב-shaderpack. השבת אם אין צורך בכך, עלול לגרום לקריסות.</string>
-    <string name="app_short_name">משגר Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">רק Vanilla 1.3.1 ומעלה נתמכים בחשבונות דמו.</string>
     <string name="demo_unsupported">פרופיל demo אינו נתמך</string>
     <string name="change_account">בבקשה תשנה או תשני חשבונות כדי להשתמש באפשרות זו</string>
@@ -717,7 +717,7 @@
     <string name="credits_primary_development">פיתוח עיקרי</string>
     <string name="credits_section_title">קרדיטים</string>
     <string name="credits_unaffiliated">אפליקציה זו אינה מזוהה עם Minecraft, Mojang או Microsoft.</string>
-    <string name="credits_version">גרסה 2.2.3</string>
+    <string name="credits_version">גרסה 2.2.5</string>
     <string name="ctrl_applied_success">הפקד "%1$s" הוחל בהצלחה.</string>
     <string name="ctrl_apply_btn">החל שליטה</string>
     <string name="ctrl_apply_msg">להוריד ולהחיל את "%1$s" בתור פריסת הבקרה שלך?</string>
@@ -911,7 +911,7 @@
     <string name="java_runtime_download_progress">הורדת Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">התקנת Java 8</string>
     <string name="java_runtime_download_waiting">מכין הורדה של Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         משגר מבוסס על PojavLauncher ו-Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;קרדיטים&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -922,11 +922,11 @@
         • GNU GPLv3 ורכיבי צד שלישי הכלולים בפרויקט.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j ועוד תחת הרישיונות המקוריים שלהם.&lt;br/&gt;&lt;br/&gt;
         אפליקציה זו אינה מזוהה עם Minecraft, Mojang או Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">הורד</string>
     <string name="launcher_download_modpack">ייבוא modpack</string>
     <string name="launcher_execute">שחק</string>
-    <string name="launcher_mobile_badge">נייד 2.2.3</string>
+    <string name="launcher_mobile_badge">נייד 2.2.5</string>
     <string name="launcher_nav_back">תחזור אחורה</string>
     <string name="launcher_nav_home">תחזור הביתה</string>
     <string name="launcher_nav_workspace">Battly סביבת עבודה</string>
@@ -1167,7 +1167,7 @@
     <string name="launcher_status_battly">חשבון Battly</string>
     <string name="launcher_status_battly_plus">חשבון Battly+</string>
     <string name="sodium_confirm_accept">אני מקבל את הסיכונים</string>
-    <string name="sodium_confirm_message">Sodium אינו נתמך רשמית על ידי משגר Battly.\n\nהפעלתו עלולה לגרום לבאגים גרפיים, תקלות וקריסות. לא תינתן תמיכה בשרת Discord עבור בעיות הקשורות ל-Sodium, ולא תינתן עזרה אם תאבד עולמות או תשמור נתונים.\n\nבאישורך, אתה מאשר שאתה מפעיל זאת על אחריותך בלבד.</string>
+    <string name="sodium_confirm_message">Sodium אינו נתמך רשמית על ידי Battly Launcher.\n\nהפעלתו עלולה לגרום לבאגים גרפיים, תקלות וקריסות. לא תינתן תמיכה בשרת Discord עבור בעיות הקשורות ל-Sodium, ולא תינתן עזרה אם תאבד עולמות או תשמור נתונים.\n\nבאישורך, אתה מאשר שאתה מפעיל זאת על אחריותך בלבד.</string>
     <string name="sodium_confirm_title">להפעיל את Sodium?</string>
     <string name="sodium_launch_anyway">הפעל בכל מקרה</string>
 
@@ -1483,20 +1483,4 @@
     <string name="search_world_download_error">הורדת המטא נתונים של העולם נכשלה</string>
     <string name="world_install_button">התקן עולם</string>
     <string name="world_install_success">%1$s מותקן במופע זה</string>
-
-    <string name="battly_whats_new_action_start">חקור את 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">הפעולה Open modpack בוחרת כעת את המופע החדש וסוגרת כל חלון התקנה ותוכן בצורה נכונה.</string>
-    <string name="battly_whats_new_compatibility_title">פתח חבילות modpack מותקנות ישירות</string>
-    <string name="battly_whats_new_controllers_desc">מתקין הלקוח Battly משתמש כעת ברשימה מתאימה לגלילה, כולל במסכים קומפקטיים.</string>
-    <string name="battly_whats_new_controllers_title">גלילה ברשימת הלקוחות תוקנה</string>
-    <string name="battly_whats_new_desc">מופעים מבודדים חדשים, עולמות להורדה ותיקונים חשובים עבור Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">מופעים חדשים של Vanilla, loader, client ו-modpack שומרים את העולמות, המודים, ההגדרות וחבילות המשאבים שלהם בתיקייה עצמאית.</string>
-    <string name="battly_whats_new_instances_title">תיקיה נפרדת לכל מופע חדש</string>
-    <string name="battly_whats_new_recovery_desc">בידוד מופעים חדשים, אחסון הגדרות בטוח יותר ואבחון הפעלה ארוך מפחיתים את איפוסי התצורה ומקלים על זיהוי הבעיות.</string>
-    <string name="battly_whats_new_recovery_title">יציבות משופרת</string>
-    <string name="battly_whats_new_title">Battly נייד 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">המקרים הקיימים נשארים היכן שהם נמצאים. בידוד התיקיות חל רק על מופעים שנוצרו מגרסה זו ואילך.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 מוכן</string>
-    <string name="battly_whats_new_worlds_desc">עיין והתקן את עולמות Minecraft מ-CurseForge ישירות לתוך המופע שתבחר.</string>
-    <string name="battly_whats_new_worlds_title">הורד עולמות מ-Workspace</string>
 </resources>

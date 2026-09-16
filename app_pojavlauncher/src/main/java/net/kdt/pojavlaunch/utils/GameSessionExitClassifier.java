@@ -24,16 +24,23 @@ public final class GameSessionExitClassifier {
                 || lower.contains("---- minecraft crash report ----")
                 || lower.contains("exception in thread \"main\"")
                 || lower.contains("unable to launch")
-                || lower.contains("unsatisfiedlinkerror")
                 || lower.contains("fatal exception")
                 || lower.contains("error during pre-loading phase")
                 || lower.contains("modloadingexception")
                 || lower.contains("needs language provider javafml");
         if (fatal) return true;
 
-        if (lower.contains("stopping!") || lower.contains("shutting down") || lower.contains("fastquit. exiting")) {
+        // Optional native features (for example the Forge narrator) can fail to load and
+        // still let Minecraft run and shut down normally. A clean shutdown therefore wins
+        // over recoverable native-link errors, but never over the fatal markers above.
+        if (lower.contains("stopping!")
+                || lower.contains("shutting down")
+                || lower.contains("fastquit. exiting")
+                || lower.contains("eglbridge: terminating")) {
             return false;
         }
+        if (lower.contains("unsatisfiedlinkerror")) return true;
+
         Integer exitCode = lastExitCode(log);
         return exitCode != null && exitCode != 0;
     }

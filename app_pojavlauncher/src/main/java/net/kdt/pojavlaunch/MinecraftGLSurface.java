@@ -155,9 +155,14 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
         if(Tools.isAndroid8OrHigher()) setUpPointerCapture(touchpad);
         mInGUIProcessor.setAbstractTouchpad(touchpad);
         useSurfaceView = FramePacingPolicy.useSurfaceView(
-                LauncherPreferences.PREF_USE_ALTERNATE_SURFACE);
+                LauncherPreferences.PREF_USE_ALTERNATE_SURFACE, LOCAL_RENDERER);
         Log.i(TAG, "Minecraft surface backend: " + (useSurfaceView ? "SurfaceView" : "TextureView")
                 + ", renderer=" + LOCAL_RENDERER);
+        if (LauncherPreferences.PREF_USE_ALTERNATE_SURFACE && !useSurfaceView) {
+            Logger.appendToLog("Info: Alternate SurfaceView disabled automatically for "
+                    + Build.MANUFACTURER + " " + Build.MODEL + " on Android "
+                    + Build.VERSION.SDK_INT + " to prevent rotated game output");
+        }
         if(useSurfaceView){
             SurfaceView surfaceView = new SurfaceView(getContext());
             mSurface = surfaceView;

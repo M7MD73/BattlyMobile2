@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
     <string name="app_name">Battly Launcher</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.3</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
     <string name="launcher_mobile_badge_dynamic">Mobile %1$s</string>
     <string name="credits_version_dynamic">Version %1$s</string>
     <string name="launcher_versions_button">Versions</string>
@@ -41,7 +41,7 @@
     <string name="launcher_version_unknown">Unknown</string>
     <string name="launcher_version_fallback">Version 1.21.9</string>
     <string name="launcher_download_modpack">Import modpack</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_news_title">Latest Battly news</string>
     <string name="launcher_news_battly">Battly news</string>
     <string name="launcher_news_minecraft">Minecraft news</string>
@@ -226,7 +226,7 @@
     <string name="progresslayout_title">Downloads and installs</string>
     <string name="modloader_installing">Installing loader files...</string>
     <string name="launcher_credits_html"><![CDATA[
-        <b>Battly Launcher 2.2.3</b><br/><br/>
+        <b>Battly Launcher 2.2.5</b><br/><br/>
         Launcher based on PojavLauncher and Boardwalk.<br/><br/>
         <b>Credits</b><br/>
         &bull; Battly<br/>
@@ -238,7 +238,7 @@
         &bull; OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j and more under their original licenses.<br/><br/>
         This app is not affiliated with Minecraft, Mojang or Microsoft.
     ]]></string>
-    <string name="credits_version">Version 2.2.3</string>
+    <string name="credits_version">Version 2.2.5</string>
     <string name="credits_based_on">Based on PojavLauncher and Boardwalk</string>
     <string name="credits_section_title">Credits</string>
     <string name="credits_primary_development">Main development</string>
@@ -903,21 +903,21 @@
     <string name="onboarding_show_again">Show welcome again</string>
     <string name="onboarding_transition_title">Welcome to Battly</string>
     <string name="onboarding_transition_desc">Preparing your launcher...</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_desc">New isolated instances, downloadable worlds and important fixes for Battly Workspace.</string>
-    <string name="battly_whats_new_instances_title">A separate folder for every new instance</string>
-    <string name="battly_whats_new_instances_desc">New Vanilla, loader, client and modpack instances keep their worlds, mods, settings and resource packs in an independent folder.</string>
-    <string name="battly_whats_new_worlds_title">Download worlds from Workspace</string>
-    <string name="battly_whats_new_worlds_desc">Browse and install Minecraft worlds from CurseForge directly into the instance you choose.</string>
-    <string name="battly_whats_new_compatibility_title">Open installed modpacks directly</string>
-    <string name="battly_whats_new_compatibility_desc">The Open modpack action now selects the new instance and closes every installation and content window correctly.</string>
-    <string name="battly_whats_new_controllers_title">Client list scrolling fixed</string>
-    <string name="battly_whats_new_controllers_desc">The Battly client installer now uses a proper scrollable list, including on compact screens.</string>
-    <string name="battly_whats_new_recovery_title">Improved stability</string>
-    <string name="battly_whats_new_recovery_desc">New instance isolation, safer settings storage and long-session diagnostics reduce configuration resets and make problems easier to identify.</string>
-    <string name="battly_whats_new_action_start">Explore 2.2.3</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 is ready</string>
-    <string name="battly_whats_new_transition_desc">Existing instances stay where they are. Folder isolation applies only to instances created from this version onward.</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_desc">Better Minecraft 26.3 compatibility, native audio for mods, translated news and display fixes.</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 fixed</string>
+    <string name="battly_whats_new_instances_desc">Fixed startup, textures and rendering for Minecraft 26.3 across Vanilla, Fabric and custom versions.</string>
+    <string name="battly_whats_new_worlds_title">Microphone access for mods</string>
+    <string name="battly_whats_new_worlds_desc">Mods can detect the Android microphone, select an available input and capture voice without transmitting game audio.</string>
+    <string name="battly_whats_new_compatibility_title">Native plugins and Distant Horizons</string>
+    <string name="battly_whats_new_compatibility_desc">Battly detects native library plugins and starts compatible mods such as Distant Horizons when the required plugin is installed.</string>
+    <string name="battly_whats_new_controllers_title">News that stays up to date</string>
+    <string name="battly_whats_new_controllers_desc">Battly requests the API in the device language and updates its cache whenever the server content changes.</string>
+    <string name="battly_whats_new_recovery_title">More accurate startup and shutdown</string>
+    <string name="battly_whats_new_recovery_desc">Improved Vulkan and orientation handling, Minecraft window sizing, JVM arguments and detection of normal exits.</string>
+    <string name="battly_whats_new_action_start">Explore 2.2.5</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 is ready</string>
+    <string name="battly_whats_new_transition_desc">Your existing instances and settings remain unchanged.</string>
     <!-- Vanilla installer strings -->
     <string name="vanilla_install_version_label">Minecraft version</string>
     <string name="vanilla_install_tap_to_select">Tap to select a version…</string>
@@ -1007,7 +1007,7 @@
     <string name="preference_touchcontroller_vibrate_length_description">Set the length of the vibration when using TouchController.</string>
     <string name="error_vanilla_json_corrupt">Vanilla json seems to be corrupt. Please send a bug report on github or discord.</string>
     <string name="preference_ask_for_microphone_title">Allow microphone</string>
-    <string name="preference_ask_for_microphone_description">Click to re-request the notification permission, required for voice chat mods like Simple Voice Chat.</string>
+    <string name="preference_ask_for_microphone_description">Allow microphone access for Minecraft mods that react to your voice or use voice chat. Battly does not record it.</string>
     <string name="mcl_gamepad_forcedSDL_subtitle">Can allow old versions of Legacy4J to use SDL backend</string>
     <string name="mcl_gamepad_forcedSDL">Forcibly start SDL controller handling</string>
     <string name="preference_category_SDL_settings">SDL Settings</string>
@@ -1804,4 +1804,11 @@
     <string name="battlyworlds_microphone_not_now">Not now</string>
     <string name="battlyworlds_microphone_continue">Continue</string>
     <string name="battly_social_playing_worlds">Playing in Battly Worlds · Minecraft %1$s</string>
+    <string name="native_plugins_title">Native library plugins</string>
+    <string name="native_plugins_summary">Use installed Android native libraries required by mods such as Distant Horizons.</string>
+    <string name="native_plugins_category">Installed native library plugins</string>
+    <string name="native_plugins_empty_title">No native plugins detected</string>
+    <string name="native_plugins_empty_summary">Install an Android app compatible with the FCLNativePlugin format, then reopen this screen.</string>
+    <string name="native_plugins_version">Version %1$s</string>
+    <string name="native_plugins_minecraft_range">Minecraft %1$s to %2$s</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Peluncur Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Pilih sebuah instaler mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Peluncur Battly tiba-tiba mogok</string>
+    <string name="error_fatal">Battly Launcher tiba-tiba mogok</string>
     <string name="error_no_version">Tidak ada versi yang terdeteksi!</string>
     <string name="error_show_more">Selengkapnya</string>
     <string name="error_show_less">Tampilkan Sedikit</string>
@@ -210,7 +210,7 @@
     <string name="arc_capes_title">Capes Cosmetica</string>
     <string name="arc_capes_desc">Mengaktifkan capes dari Cosmetica (sebelumnya Arc). Untuk informasi lebih lanjut silahkan kunjungi https://cosmetica.cc. Membutuhkan OptiFine.</string>
     <string name="notif_channel_name">Umum</string>
-    <string name="lazy_service_default_title">Layanan Latar Depan Peluncur Battly</string>
+    <string name="lazy_service_default_title">Layanan Latar Depan Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Terpasang</string>
     <string name="use_global_default">(Gunakan global bawaan)</string>
     <string name="default_control">Kontrol bawaan</string>
@@ -240,7 +240,7 @@
     <string name="preference_gyro_sample_rate_title">Tingkat pengambilan sampel giroskop</string>
     <string name="preference_gyro_sample_rate_description">Jika anda memiliki masalah perfoma dengan kontrol giroskop, tingkatkan ini.</string>
     <string name="microsoft_login_retry_later">Terlalu banyak permintaan, coba lagi nanti.</string>
-    <string name="storage_required">Peluncur Battly memerlukan penyimpanan eksternal untuk dipasang. Silakan sambungkan kembali dan mulai ulang aplikasi.</string>
+    <string name="storage_required">Battly Launcher memerlukan penyimpanan eksternal untuk dipasang. Silakan sambungkan kembali dan mulai ulang aplikasi.</string>
     <string name="mcl_setting_title_buttonallcaps">Hanya gunakan huruf kapital di label tombol</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Matikan ini jika kamu ingin menggunakan huruf kecil di kontrol.</string>
     <string name="create_profile">Buat profil baru</string>
@@ -408,7 +408,7 @@
     <string name="mg_renderer_summary_computeShaderext">Mungkin membantu mengatasi glitch pada shaderpack. Nonaktifkan jika tidak diperlukan, karena bisa menyebabkan crash.</string>
     <string name="mg_renderer_title_multidrawCompute">Gunakan Emulasi Multidraw Compute</string>
     <string name="mg_renderer_summary_multidrawCompute">Menggunakan compute shaders untuk emulasi multidraw</string>
-    <string name="app_short_name">Peluncur Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Hanya Minecraft Vanilla versi 1.3.1 ke atas yang didukung untuk akun demo</string>
     <string name="demo_unsupported">Profil Demo tidak di dukung</string>
     <string name="change_account">Ganti akun terlebih dahulu untuk menggunakan fitur ini</string>
@@ -749,7 +749,7 @@
     <string name="credits_primary_development">Perkembangan utama</string>
     <string name="credits_section_title">Kredit</string>
     <string name="credits_unaffiliated">Aplikasi ini tidak berafiliasi dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="credits_version">Versi 2.2.3</string>
+    <string name="credits_version">Versi 2.2.5</string>
     <string name="ctrl_applied_success">Kontrol "%1$s" berhasil diterapkan.</string>
     <string name="ctrl_apply_btn">Terapkan kontrol</string>
     <string name="ctrl_apply_msg">Unduh dan terapkan "%1$s" sebagai tata letak kontrol Anda?</string>
@@ -943,7 +943,7 @@
     <string name="java_runtime_download_progress">Mengunduh Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Menginstal Java 8</string>
     <string name="java_runtime_download_waiting">Mempersiapkan unduhan Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Peluncur Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Peluncur berdasarkan PojavLauncher dan Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredit&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 dan komponen pihak ketiga disertakan dalam proyek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j, dan lainnya di bawah lisensi aslinya.&lt;br/&gt;&lt;br/&gt;
         Aplikasi ini tidak berafiliasi dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="launcher_credits_title">Peluncur Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Unduh</string>
     <string name="launcher_download_modpack">Impor modpack</string>
     <string name="launcher_execute">Mainkan</string>
-    <string name="launcher_mobile_badge">Seluler 2.2.3</string>
+    <string name="launcher_mobile_badge">Seluler 2.2.5</string>
     <string name="launcher_nav_back">Kembali</string>
     <string name="launcher_nav_home">Kembali ke rumah</string>
     <string name="launcher_nav_workspace">Ruang Kerja Battly</string>
@@ -1510,19 +1510,19 @@
     <string name="world_install_button">Instal dunia</string>
     <string name="world_install_success">%1$s diinstal ke dalam instance ini</string>
 
-    <string name="battly_whats_new_action_start">Jelajahi 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Tindakan Buka modpack sekarang memilih instance baru dan menutup setiap jendela instalasi dan konten dengan benar.</string>
-    <string name="battly_whats_new_compatibility_title">Buka modpack yang diinstal secara langsung</string>
-    <string name="battly_whats_new_controllers_desc">Penginstal klien Battly sekarang menggunakan daftar yang dapat digulir, termasuk pada layar ringkas.</string>
-    <string name="battly_whats_new_controllers_title">Pengguliran daftar klien diperbaiki</string>
-    <string name="battly_whats_new_desc">Instance baru yang terisolasi, dunia yang dapat diunduh, dan perbaikan penting untuk Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Instans Vanilla, loader, klien, dan modpack baru menyimpan dunia, mod, pengaturan, dan paket sumber dayanya dalam folder independen.</string>
-    <string name="battly_whats_new_instances_title">Folder terpisah untuk setiap instance baru</string>
-    <string name="battly_whats_new_recovery_desc">Isolasi instans baru, penyimpanan pengaturan yang lebih aman, dan diagnostik sesi panjang mengurangi pengaturan ulang konfigurasi dan membuat masalah lebih mudah diidentifikasi.</string>
-    <string name="battly_whats_new_recovery_title">Peningkatan stabilitas</string>
-    <string name="battly_whats_new_title">Battly Seluler 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Instansi yang ada tetap berada di tempatnya. Isolasi folder hanya berlaku untuk instance yang dibuat mulai versi ini dan seterusnya.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 sudah siap</string>
-    <string name="battly_whats_new_worlds_desc">Telusuri dan instal dunia Minecraft dari CurseForge langsung ke instans yang Anda pilih.</string>
-    <string name="battly_whats_new_worlds_title">Unduh dunia dari Workspace</string>
+    <string name="battly_whats_new_action_start">Menemukan 2.2.5</string>
+    <string name="battly_whats_new_compatibility_desc">Battly mengenali plugin dari perpustakaan asli dan memungkinkan memulai mod yang kompatibel seperti Distant Horizons ketika plugin yang diperlukan telah diinstal.</string>
+    <string name="battly_whats_new_compatibility_title">Plugin asli dan Distant Horizons</string>
+    <string name="battly_whats_new_controllers_desc">Battly memanggil API dalam bahasa perangkat dan memperbarui cache-nya ketika konten server berubah.</string>
+    <string name="battly_whats_new_controllers_title">Berita terbaru selalu diperbarui</string>
+    <string name="battly_whats_new_desc">Kompatibilitas lebih baik dengan Minecraft 26.3, audio asli untuk mod, pembaruan diterjemahkan dan perbaikan layar.</string>
+    <string name="battly_whats_new_instances_desc">Diperbaiki awal, tekstur, dan perenderan Minecraft 26.3 di Vanilla, Fabric, dan versi kustom.</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 diperbaiki</string>
+    <string name="battly_whats_new_recovery_desc">Ditingkatkan Vulkan dan orientasi, ukuran jendela Minecraft, argumen JVM dan deteksi penutupan normal.</string>
+    <string name="battly_whats_new_recovery_title">Mulai dan berhenti lebih tepat</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">Instansi dan pengaturan Anda yang ada tetap tidak berubah.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 siap</string>
+    <string name="battly_whats_new_worlds_desc">Mod dapat mendeteksi mikrofon Android, memilih dari input yang tersedia, dan menangkap suara tanpa mengirimkan audio permainan.</string>
+    <string name="battly_whats_new_worlds_title">Mikrofon tersedia untuk mod</string>
 </resources>

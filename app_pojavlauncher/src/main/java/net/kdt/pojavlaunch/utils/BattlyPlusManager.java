@@ -18,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public final class BattlyPlusManager {
@@ -45,6 +46,10 @@ public final class BattlyPlusManager {
             return false;
         }
         SharedPreferences preferences = accountPrefs(context);
+        String accountKey = premiumPreferenceKey(currentAccount.username);
+        if (preferences.contains(accountKey)) {
+            return preferences.getBoolean(accountKey, false);
+        }
         String premiumAccount = preferences.getString(PREF_PREMIUM_ACCOUNT, "");
         return preferences.getBoolean(PREF_IS_PREMIUM, false)
                 && sameAccount(currentAccount, premiumAccount);
@@ -59,6 +64,11 @@ public final class BattlyPlusManager {
                 && account.username != null
                 && !account.username.trim().isEmpty()
                 && account.username.equalsIgnoreCase(username == null ? "" : username.trim());
+    }
+
+    static String premiumPreferenceKey(String username) {
+        String normalized = username == null ? "" : username.trim().toLowerCase(Locale.ROOT);
+        return PREF_IS_PREMIUM + ":" + normalized;
     }
 
     public static String getToken(Context context) {
@@ -109,23 +119,28 @@ public final class BattlyPlusManager {
         if (context == null) {
             return;
         }
-        SharedPreferences.Editor editor = accountPrefs(context).edit()
-                .putBoolean(PREF_IS_PREMIUM, plus);
         MinecraftAccount currentAccount = PojavProfile.getCurrentProfileContent(
                 context.getApplicationContext(), null);
-        if (plus && isBattlyAccountEligible(currentAccount)
-                && Tools.isValidString(currentAccount.username)) {
-            editor.putString(PREF_PREMIUM_ACCOUNT, currentAccount.username);
-        } else {
-            editor.remove(PREF_PREMIUM_ACCOUNT);
+        if (isBattlyAccountEligible(currentAccount) && Tools.isValidString(currentAccount.username)) {
+            setPlusForAccount(context, currentAccount.username, plus);
+            return;
         }
-        editor.apply();
+        accountPrefs(context).edit()
+                .putBoolean(PREF_IS_PREMIUM, false)
+                .remove(PREF_PREMIUM_ACCOUNT)
+                .apply();
     }
 
     public static void updateFromLoginResponse(Context context, JSONObject response) {
+        MinecraftAccount currentAccount = context == null ? null
+                : PojavProfile.getCurrentProfileContent(context.getApplicationContext(), null);
+        updateFromLoginResponse(context, currentAccount == null ? null : currentAccount.username, response);
+    }
+
+    public static void updateFromLoginResponse(Context context, String username, JSONObject response) {
         Boolean premium = findPremiumFlag(response);
-        if (premium != null) {
-            setPlus(context, premium);
+        if (premium != null && Tools.isValidString(username)) {
+            setPlusForAccount(context, username, premium);
         }
     }
 
@@ -150,20 +165,21 @@ public final class BattlyPlusManager {
             return;
         }
         String activeToken = tokenFromAccount(currentAccount);
+        String accountUsername = currentAccount.username;
         List<String> tokens = new ArrayList<>();
         if (isUsableBattlyToken(activeToken)) {
             saveResolvedToken(appContext, currentAccount, activeToken);
             tokens.add(activeToken);
         }
         if (tokens.isEmpty()) {
-            setPlus(appContext, false);
+            setPlusForAccount(appContext, accountUsername, false);
             if (callback != null) {
                 callback.onResult(false);
             }
             return;
         }
         new Thread(() -> {
-            boolean current = isPlus(appContext);
+            boolean current = getCachedPlusForAccount(appContext, accountUsername);
             for (String token : tokens) {
                 try {
                     HttpURLConnection connection = (HttpURLConnection) new URL(ENTITLEMENTS_URL).openConnection();
@@ -183,7 +199,7 @@ public final class BattlyPlusManager {
                             Boolean premium = findPremiumFlag(response);
                             if (premium != null) {
                                 current = premium;
-                                setPlus(appContext, premium);
+                                setPlusForAccount(appContext, accountUsername, premium);
                                 accountPrefs(appContext).edit().putString(PREF_TOKEN, token).apply();
                                 matchedToken = true;
                             }
@@ -194,14 +210,48 @@ public final class BattlyPlusManager {
                         break;
                     }
                 } catch (Throwable ignored) {
-                    current = isPlus(appContext);
+                    current = getCachedPlusForAccount(appContext, accountUsername);
                 }
             }
-            boolean finalCurrent = current;
+            boolean finalCurrent = isCurrentAccount(appContext, accountUsername)
+                    ? current : isPlus(appContext);
             if (callback != null) {
                 Tools.runOnUiThread(() -> callback.onResult(finalCurrent));
             }
         }, "Battly+ Refresh").start();
+    }
+
+    private static void setPlusForAccount(Context context, String username, boolean plus) {
+        if (context == null || !Tools.isValidString(username)) {
+            return;
+        }
+        SharedPreferences.Editor editor = accountPrefs(context).edit()
+                .putBoolean(premiumPreferenceKey(username), plus);
+        if (isCurrentAccount(context.getApplicationContext(), username)) {
+            editor.putBoolean(PREF_IS_PREMIUM, plus);
+            if (plus) {
+                editor.putString(PREF_PREMIUM_ACCOUNT, username);
+            } else {
+                editor.remove(PREF_PREMIUM_ACCOUNT);
+            }
+        }
+        editor.apply();
+    }
+
+    private static boolean getCachedPlusForAccount(Context context, String username) {
+        SharedPreferences preferences = accountPrefs(context);
+        String accountKey = premiumPreferenceKey(username);
+        if (preferences.contains(accountKey)) {
+            return preferences.getBoolean(accountKey, false);
+        }
+        return preferences.getBoolean(PREF_IS_PREMIUM, false)
+                && username != null
+                && username.equalsIgnoreCase(preferences.getString(PREF_PREMIUM_ACCOUNT, ""));
+    }
+
+    private static boolean isCurrentAccount(Context context, String username) {
+        MinecraftAccount currentAccount = PojavProfile.getCurrentProfileContent(context, null);
+        return isBattlyAccountEligible(currentAccount) && sameAccount(currentAccount, username);
     }
 
     private static Boolean findPremiumFlag(JSONObject root) {

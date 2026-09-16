@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly Başlatıcı</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Bir mod yükleyicisi seç</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly Başlatıcı beklenmedik bir şekilde çöktü</string>
+    <string name="error_fatal">Battly Launcher beklenmedik bir şekilde çöktü</string>
     <string name="error_no_version">Sürüm yok!</string>
     <string name="error_show_more">Daha fazla göster</string>
     <string name="error_show_less">Daha az göster</string>
@@ -210,7 +210,7 @@
     <string name="arc_capes_title">Cosmetica Pelerinleri</string>
     <string name="arc_capes_desc">Cosmetica\'nın (eskiden Arc olarak biliniyordu) Pelerinlerini etkinleştirir. Daha fazla bilgi için lütfen https://cosmetica.cc\'u ziyaret edin. OptiFine gerektirir.</string>
     <string name="notif_channel_name">Genel</string>
-    <string name="lazy_service_default_title">Battly Başlatıcı Ön Plan Hizmeti</string>
+    <string name="lazy_service_default_title">Battly Launcher Ön Plan Hizmeti</string>
     <string name="mcl_setting_veroption_installed">Kuruldu</string>
     <string name="use_global_default">(Genel varsayılanı kullan)</string>
     <string name="default_control">Varsayılan kontroller</string>
@@ -240,7 +240,7 @@
     <string name="preference_gyro_sample_rate_title">Jiroskop örnekleme oranı</string>
     <string name="preference_gyro_sample_rate_description">Eğer jiroskop kontrolleriyle performans probleminiz varsa bunu arttırın.</string>
     <string name="microsoft_login_retry_later">Çok fazla istek, Lütfen daha sonra tekrar deneyin.</string>
-    <string name="storage_required">Battly Başlatıcı, harici depolamanın eklenmesini gerektirir. Lütfen yeniden bağlayın ve uygulamayı yeniden başlatın.</string>
+    <string name="storage_required">Battly Launcher, harici depolamanın eklenmesini gerektirir. Lütfen yeniden bağlayın ve uygulamayı yeniden başlatın.</string>
     <string name="mcl_setting_title_buttonallcaps">Düğme etiketlerinde yalnızca büyük harfler kullanın</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Kontrollerinizde küçük harfler kullanmak istiyorsanız bunu devre dışı bırakın.</string>
     <string name="create_profile">Yeni profil oluştur</string>
@@ -408,7 +408,7 @@
     <string name="mg_renderer_summary_computeShaderext">Shader paketi bozulmalarına yardımcı olabilir. Ihtiyaç yoksa devre dışı bırakın, çökmelere sebep olabilir.</string>
     <string name="mg_renderer_title_multidrawCompute">Hesaplama ile Çoklu Çizim Taklidi Kullan</string>
     <string name="mg_renderer_summary_multidrawCompute">Çoklu çizim emülasyonu için hesaplama shader’larını kullanır</string>
-    <string name="app_short_name">Battly Başlatıcı</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Sadece Vanilla 1.3.1 ve üzeri sürümler deneme hesaplarında desteklenmektedir</string>
     <string name="demo_unsupported">Deneme Profili desteklenmemektedir</string>
     <string name="change_account">Lütfen hesapları değiştirmek için bu fonksiyonu kullanınız</string>
@@ -766,7 +766,7 @@
     <string name="credits_primary_development">Ana geliştirme</string>
     <string name="credits_section_title">Kredi</string>
     <string name="credits_unaffiliated">Bu uygulama Minecraft, Mojang veya Microsoft ile bağlantılı değildir.</string>
-    <string name="credits_version">Sürüm 2.2.3</string>
+    <string name="credits_version">Sürüm 2.2.5</string>
     <string name="ctrl_applied_success">"%1$s" kontrolü başarıyla uygulandı.</string>
     <string name="ctrl_apply_btn">Kontrolü uygula</string>
     <string name="ctrl_apply_msg">Kontrol düzeniniz olarak "%1$s" indirip uygulamak ister misiniz?</string>
@@ -952,7 +952,7 @@
     <string name="instance_storage_calculating">Depolama alanı hesaplanıyor…</string>
     <string name="instance_use">Kullanım</string>
     <string name="java_runtime_download_message">Battly, uygulamanın içine göndermek yerine ilk kurulumdan sonra Java 8\'i indirir. Bu, uygulama boyutunu küçültür ve daha eski Minecraft sürümlerini hazırlar.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Başlatıcı 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher ve Boardwalk tabanlı başlatıcı.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediler&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -963,11 +963,11 @@
         • GNU GPLv3 ve üçüncü taraf bileşenler projeye dahil edilmiştir.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j ve daha fazlası orijinal lisansları altında.&lt;br/&gt;&lt;br/&gt;
         Bu uygulama Minecraft, Mojang veya Microsoft ile bağlantılı değildir.</string>
-    <string name="launcher_credits_title">Battly Başlatıcı 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">İndir</string>
     <string name="launcher_download_modpack">Mod paketini içe aktar</string>
     <string name="launcher_execute">Oyna</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_nav_back">Geri dön</string>
     <string name="launcher_nav_home">Eve dön</string>
     <string name="launcher_nav_workspace">Battly Çalışma Alanı</string>
@@ -1201,7 +1201,7 @@
     <string name="launcher_status_battly">Battly hesabı</string>
     <string name="launcher_status_battly_plus">Battly+ hesabı</string>
     <string name="sodium_confirm_accept">Riskleri kabul ediyorum</string>
-    <string name="sodium_confirm_message">Sodium, Battly Başlatıcı tarafından resmi olarak desteklenmemektedir.\n\nEtkinleştirilmesi grafiksel hatalara, aksaklıklara ve çökmelere neden olabilir. Sodium ile ilgili sorunlar için Discord sunucusunda hiçbir destek sağlanmayacak ve dünyaları kaybederseniz veya verileri kaydederseniz yardım verilmeyecektir.\n\nKabul ederek, bunu etkinleştirme riskinin size ait olduğunu kabul etmiş olursunuz.</string>
+    <string name="sodium_confirm_message">Sodium, Battly Launcher tarafından resmi olarak desteklenmemektedir.\n\nEtkinleştirilmesi grafiksel hatalara, aksaklıklara ve çökmelere neden olabilir. Sodium ile ilgili sorunlar için Discord sunucusunda hiçbir destek sağlanmayacak ve dünyaları kaybederseniz veya verileri kaydederseniz yardım verilmeyecektir.\n\nKabul ederek, bunu etkinleştirme riskinin size ait olduğunu kabul etmiş olursunuz.</string>
     <string name="sodium_confirm_title">Sodium etkinleştirilsin mi?</string>
     <string name="sodium_launch_anyway">Yine de başlat</string>
 
@@ -1511,20 +1511,4 @@
     <string name="search_world_download_error">Dünya meta verileri indirilemedi</string>
     <string name="world_install_button">Dünyayı yükle</string>
     <string name="world_install_success">Bu örneğe %1$s yüklendi</string>
-
-    <string name="battly_whats_new_action_start">2.2.3\'ü keşfedin</string>
-    <string name="battly_whats_new_compatibility_desc">Modpack\'i aç eylemi artık yeni örneği seçiyor ve her kurulum ve içerik penceresini doğru şekilde kapatıyor.</string>
-    <string name="battly_whats_new_compatibility_title">Yüklü mod paketlerini doğrudan açın</string>
-    <string name="battly_whats_new_controllers_desc">Battly istemci yükleyicisi artık kompakt ekranlar da dahil olmak üzere uygun bir kaydırılabilir liste kullanıyor.</string>
-    <string name="battly_whats_new_controllers_title">Müşteri listesinin kaydırılması düzeltildi</string>
-    <string name="battly_whats_new_desc">Battly Workspace için yeni yalıtılmış örnekler, indirilebilir dünyalar ve önemli düzeltmeler.</string>
-    <string name="battly_whats_new_instances_desc">Yeni Vanilla, yükleyici, istemci ve mod paketi örnekleri, dünyalarını, modlarını, ayarlarını ve kaynak paketlerini bağımsız bir klasörde tutar.</string>
-    <string name="battly_whats_new_instances_title">Her yeni örnek için ayrı bir klasör</string>
-    <string name="battly_whats_new_recovery_desc">Yeni örnek yalıtımı, daha güvenli ayar depolama ve uzun oturumlu tanılama, yapılandırma sıfırlamalarını azaltır ve sorunların tanımlanmasını kolaylaştırır.</string>
-    <string name="battly_whats_new_recovery_title">Geliştirilmiş kararlılık</string>
-    <string name="battly_whats_new_title">Battly Mobil 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Mevcut örnekler oldukları yerde kalır. Klasör yalıtımı yalnızca bu sürümden itibaren oluşturulan örnekler için geçerlidir.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 hazır</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge\'den Minecraft dünyalarına göz atın ve doğrudan seçtiğiniz bulut sunucusuna yükleyin.</string>
-    <string name="battly_whats_new_worlds_title">Workspace\'ten dünyaları indirin</string>
 </resources>

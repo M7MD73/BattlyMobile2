@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly 启动器</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">选择模组安装器</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly 启动器意外崩溃</string>
+    <string name="error_fatal">Battly Launcher意外崩溃</string>
     <string name="error_no_version">无可用版本！</string>
     <string name="error_show_more">显示详情</string>
     <string name="error_show_less">隐藏详情</string>
@@ -213,7 +213,7 @@
     <string name="arc_capes_title">Cosmetica 披风</string>
     <string name="arc_capes_desc">启用来自 Cosmetica（原 Arc）的披风。欲了解更多信息，请访问 https://cosmetica.cc。需要 OptiFine。</string>
     <string name="notif_channel_name">通用</string>
-    <string name="lazy_service_default_title">Battly启动器前台服务</string>
+    <string name="lazy_service_default_title">Battly Launcher前台服务</string>
     <string name="mcl_setting_veroption_installed">已安装</string>
     <string name="use_global_default">（使用全局默认设置）</string>
     <string name="default_control">默认控制键布局</string>
@@ -244,7 +244,7 @@
     <string name="preference_gyro_sample_rate_title">陀螺仪采样率</string>
     <string name="preference_gyro_sample_rate_description">如果您在陀螺仪控制上遇到性能问题，请调高此值。</string>
     <string name="microsoft_login_retry_later">您的操作过于频繁，请稍后重试。</string>
-    <string name="storage_required">Battly 启动器需要连接外部存储。请重新连接并重新启动应用程序。</string>
+    <string name="storage_required">Battly Launcher需要连接外部存储。请重新连接并重新启动应用程序。</string>
     <string name="mcl_setting_title_buttonallcaps">在标签按钮中仅使用大写字母</string>
     <string name="mcl_setting_subtitle_buttonallcaps">如果您想在按键中显示小写字母，请关闭此设置。</string>
     <string name="create_profile">创建新的配置</string>
@@ -417,7 +417,7 @@
     <string name="preference_touchcontroller_vibrate_length_description">设置使用 TouchController 时的震动长度。</string>
     <string name="mg_renderer_title_multidrawCompute">使用计算多重绘制模拟</string>
     <string name="mg_renderer_summary_multidrawCompute">使用计算着色器进行多重绘制模拟</string>
-    <string name="app_short_name">Battly 启动器</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">试玩账户仅支持原版 1.3.1 及以上版本</string>
     <string name="demo_unsupported">不支持试玩玩家档案</string>
     <string name="change_account">请更换账户以使用此功能</string>
@@ -777,7 +777,7 @@
     <string name="credits_primary_development">主要发展</string>
     <string name="credits_section_title">制作人员</string>
     <string name="credits_unaffiliated">此应用程序不隶属于 Minecraft、Mojang 或 Microsoft。</string>
-    <string name="credits_version">版本2.2.3</string>
+    <string name="credits_version">版本2.2.5</string>
     <string name="ctrl_applied_success">控制“%1$s”应用成功。</string>
     <string name="ctrl_apply_btn">应用控制</string>
     <string name="ctrl_apply_msg">下载并应用“%1$s”作为您的控件布局？</string>
@@ -963,7 +963,7 @@
     <string name="instance_storage_calculating">正在计算存储...</string>
     <string name="instance_use">使用</string>
     <string name="java_runtime_download_message">Battly 在首次设置后下载 Java 8，而不是将其发送到应用程序内。这会减少应用程序大小并准备较旧的 Minecraft 版本。</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly启动器2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         基于 PojavLauncher 和 Boardwalk 的启动器。&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;致谢&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -974,11 +974,11 @@
         • 项目中包含GNU GPLv3 和第三方组件。&lt;br/&gt;
         • OpenJDK、LWJGL、GL4ES、LTW、Apache Commons、exp4j 等均已获得原始许可。&lt;br/&gt;&lt;br/&gt;
         此应用程序不隶属于 Minecraft、Mojang 或 Microsoft。</string>
-    <string name="launcher_credits_title">Battly启动器2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">下载</string>
     <string name="launcher_download_modpack">导入模组包</string>
     <string name="launcher_execute">玩</string>
-    <string name="launcher_mobile_badge">移动版2.2.3</string>
+    <string name="launcher_mobile_badge">移动版2.2.5</string>
     <string name="launcher_nav_back">返回</string>
     <string name="launcher_nav_home">返回家中</string>
     <string name="launcher_nav_workspace">Battly 工作区</string>
@@ -1212,7 +1212,7 @@
     <string name="launcher_status_battly">Battly帐号</string>
     <string name="launcher_status_battly_plus">Battly+帐号</string>
     <string name="sodium_confirm_accept">我接受风险</string>
-    <string name="sodium_confirm_message">Sodium 不受 Battly 启动器正式支持。\n\n启用它可能会导致图形错误、故障和崩溃。 Discord 服务器不会为任何与 Sodium 相关的问题提供支持，如果您丢失世界或保存数据，也不会提供任何帮助。\n\n接受即表示您承认启用此功能需要您自担风险。</string>
+    <string name="sodium_confirm_message">Sodium 不受 Battly Launcher正式支持。\n\n启用它可能会导致图形错误、故障和崩溃。 Discord 服务器不会为任何与 Sodium 相关的问题提供支持，如果您丢失世界或保存数据，也不会提供任何帮助。\n\n接受即表示您承认启用此功能需要您自担风险。</string>
     <string name="sodium_confirm_title">启用Sodium吗？</string>
     <string name="sodium_launch_anyway">无论如何都要启动</string>
 
@@ -1523,19 +1523,19 @@
     <string name="world_install_button">安装世界</string>
     <string name="world_install_success">%1$s 安装到此实例中</string>
 
-    <string name="battly_whats_new_action_start">探索2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">打开 modpack 操作现在会选择新实例并正确关闭每个安装和内容窗口。</string>
-    <string name="battly_whats_new_compatibility_title">直接打开已安装的模组包</string>
-    <string name="battly_whats_new_controllers_desc">Battly 客户端安装程序现在使用正确的可滚动列表，包括在紧凑屏幕上。</string>
-    <string name="battly_whats_new_controllers_title">客户列表滚动固定</string>
-    <string name="battly_whats_new_desc">新的隔离实例、可下载的世界以及 Battly 工作区的重要修复。</string>
-    <string name="battly_whats_new_instances_desc">新的 Vanilla、加载程序、客户端和 modpack 实例将其世界、mod、设置和资源包保存在独立的文件夹中。</string>
-    <string name="battly_whats_new_instances_title">每个新实例都有一个单独的文件夹</string>
-    <string name="battly_whats_new_recovery_desc">新的实例隔离、更安全的设置存储和长会话诊断减少了配置重置并使问题更容易识别。</string>
-    <string name="battly_whats_new_recovery_title">提高稳定性</string>
-    <string name="battly_whats_new_title">Battly手机2.2.3</string>
-    <string name="battly_whats_new_transition_desc">现有实例保留在原处。文件夹隔离仅适用于从此版本开始创建的实例。</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 已准备就绪</string>
-    <string name="battly_whats_new_worlds_desc">从 CurseForge 浏览 Minecraft 世界并将其直接安装到您选择的实例中。</string>
-    <string name="battly_whats_new_worlds_title">从工作区下载世界</string>
+    <string name="battly_whats_new_action_start">发现 2.2.5</string>
+    <string name="battly_whats_new_compatibility_desc">Battly 识别本地库插件，并允许在安装了必要插件时启动兼容的模组，如 Distant Horizons。</string>
+    <string name="battly_whats_new_compatibility_title">本地插件与遥远地平线</string>
+    <string name="battly_whats_new_controllers_desc">Battly 会以设备的语言查询 API，并在服务器内容更改时更新其缓存。</string>
+    <string name="battly_whats_new_controllers_title">最新动态</string>
+    <string name="battly_whats_new_desc">与 Minecraft 26.3 的兼容性更好，mod 的原生音频，翻译的新功能和屏幕修正。</string>
+    <string name="battly_whats_new_instances_desc">已修正 Minecraft 26.3 在原版、Fabric 及自定义版本中的启动、纹理和渲染。</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 已更正</string>
+    <string name="battly_whats_new_recovery_desc">改进了 Vulkan 和方向，Minecraft 的窗口大小，JVM 参数以及正常关闭检测。</string>
+    <string name="battly_whats_new_recovery_title">更精确的启动和关闭</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">你现有的实例和设置保持不变。</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 已准备好</string>
+    <string name="battly_whats_new_worlds_desc">Mods 可以检测 Android 的麦克风，选择可用的输入并捕获语音，而不发送游戏音频。</string>
+    <string name="battly_whats_new_worlds_title">麦克风可供版主使用</string>
 </resources>

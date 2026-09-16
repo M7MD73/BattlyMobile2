@@ -166,7 +166,7 @@
     <string name="crash_no_findings">সাম্প্রতিক লগগুলিতে কোনো পরিচিত ক্র্যাশ প্যাটার্ন পাওয়া যায়নি।</string>
     <string name="crash_recovery_applied">পুনরুদ্ধারের কাজ সম্পন্ন হয়েছে</string>
     <string name="crash_recovery_manual">এই সমস্যা একটি ম্যানুয়াল পরিবর্তন প্রয়োজন. বিস্তারিত জানার জন্য লগ খুলুন.</string>
-    <string name="credits_version">সংস্করণ 2.2.3</string>
+    <string name="credits_version">সংস্করণ 2.2.5</string>
     <string name="ctrl_like_btn">লাইক</string>
     <string name="ctrl_liked_added">পছন্দ করা নিয়ন্ত্রণে যোগ করা হয়েছে।</string>
     <string name="ctrl_liked_btn">পছন্দ হয়েছে</string>
@@ -227,8 +227,8 @@
     <string name="java_runtime_download_progress">Java %1$d (%2$.1f MB / %3$.1f MB) ডাউনলোড হচ্ছে</string>
     <string name="java_runtime_download_title">Java 8 ইনস্টল করা হচ্ছে</string>
     <string name="java_runtime_download_waiting">Java 8 ডাউনলোডের প্রস্তুতি চলছে...</string>
-    <string name="launcher_credits_title">Battly লঞ্চার 2.2.3</string>
-    <string name="launcher_mobile_badge">মোবাইল 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">মোবাইল 2.2.5</string>
     <string name="launcher_status_battly">Battly অ্যাকাউন্ট</string>
     <string name="launcher_status_battly_plus">Battly+ অ্যাকাউন্ট</string>
     <string name="library_analyze_mods">বিশ্লেষণ করুন</string>
@@ -289,7 +289,7 @@
     <string name="sdl_library_error_title">লঞ্চার লাইব্রেরি ত্রুটি৷</string>
     <string name="skip">এড়িয়ে যান</string>
     <string name="sodium_confirm_accept">আমি ঝুঁকি গ্রহণ করি</string>
-    <string name="sodium_confirm_message">Sodiumআনুষ্ঠানিকভাবে দ্বারা সমর্থিত হয় নাBattlyলঞ্চার।\n\nএটি সক্ষম করলে গ্রাফিকাল বাগ, গ্লিচ এবং ক্র্যাশ হতে পারে। কোন সমর্থন প্রদান করা হবে নাDiscordযে কোনো জন্য সার্ভারSodium-সম্পর্কিত সমস্যা, এবং আপনি যদি বিশ্ব হারান বা ডেটা সংরক্ষণ করেন তবে কোনও সাহায্য দেওয়া হবে না৷\n\nগ্রহণ করার মাধ্যমে, আপনি স্বীকার করেছেন যে আপনি নিজের ঝুঁকিতে এটি সক্ষম করেছেন৷</string>
+    <string name="sodium_confirm_message">Sodium আনুষ্ঠানিকভাবে Battly Launcher দ্বারা সমর্থিত নয়।\n\nএটি সক্ষম করলে গ্রাফিকাল বাগ, গ্লিচ এবং ক্র্যাশ হতে পারে। কোন সমর্থন প্রদান করা হবে নাDiscordযে কোনো জন্য সার্ভারSodium-সম্পর্কিত সমস্যা, এবং আপনি যদি বিশ্ব হারান বা ডেটা সংরক্ষণ করেন তবে কোনও সাহায্য দেওয়া হবে না৷\n\nগ্রহণ করার মাধ্যমে, আপনি স্বীকার করেছেন যে আপনি নিজের ঝুঁকিতে এটি সক্ষম করেছেন৷</string>
     <string name="sodium_confirm_title">Sodium সক্ষম করবেন?</string>
     <string name="sodium_launch_anyway">যেভাবেই হোক লঞ্চ করুন</string>
     <string name="world_deleted">বিশ্ব মোছা</string>
@@ -313,7 +313,7 @@
     <string name="battly_login_missing_fields">অনুগ্রহ করে ব্যবহারকারীর নাম এবং পাসওয়ার্ড লিখুন।</string>
     <string name="battly_background_title">ব্যাকগ্রাউন্ড নির্বাচন করুন</string>
     <string name="battly_background_short">ব্যাকগ্রাউন্ড</string>
-    <string name="battly_background_subtitle">Battly লঞ্চার প্যানেলের পিছনে যে ছবিটি ব্যবহার করবে সেটি বেছে নিন।</string>
+    <string name="battly_background_subtitle">Battly Launcher প্যানেলের পিছনে যে ছবিটি ব্যবহার করবে সেটি বেছে নিন।</string>
     <string name="battly_background_default">ডিফল্ট পটভূমি</string>
     <string name="battly_background_custom">পটভূমি %1$d</string>
     <string name="battly_background_applied">পটভূমি প্রয়োগ করা হয়েছে।</string>
@@ -437,8 +437,8 @@
 
     <string name="account_manager_subtitle">Battly ব্যবহার করতে, আপনি কীভাবে সাইন ইন করতে চান এবং সংরক্ষিত Java অ্যাকাউন্টগুলি পরিচালনা করতে চান তা চয়ন করুন৷</string>
     <string name="account_manager_title">অ্যাকাউন্ট ম্যানেজার</string>
-    <string name="app_name">Battly লঞ্চার</string>
-    <string name="app_short_name">Battly লঞ্চার</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly অ্যাকাউন্ট</string>
     <string name="auth_method_local">স্থানীয় অ্যাকাউন্ট</string>
     <string name="auth_method_microsoft">Microsoft অ্যাকাউন্ট</string>
@@ -706,7 +706,7 @@
     <string name="installer_internal_fallback">অসমর্থিত ইনস্টলার, লিগ্যাসি Java UI খুলছে৷</string>
     <string name="installer_internal_running">ইনস্টলার বিশ্লেষণ করা হচ্ছে...</string>
     <string name="installer_internal_success">%1$s সরাসরি Battly এর ভিতরে ইনস্টল করা হয়েছে</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly লঞ্চার 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLuncher এবং Boardwalk ভিত্তিক লঞ্চার৷&lt;br/&gt;&lt;br/&gt;৷
         &lt;b&gt;ক্রেডিট&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -752,7 +752,7 @@
     <string name="launcher_version_format">সংস্করণ %1$s</string>
     <string name="launcher_version_unknown">অজানা</string>
     <string name="launcher_versions_button">সংস্করণ</string>
-    <string name="lazy_service_default_title">Battly লঞ্চার ফোরগ্রাউন্ড পরিষেবা</string>
+    <string name="lazy_service_default_title">Battly Launcher ফোরগ্রাউন্ড পরিষেবা</string>
     <string name="legacy_mixin_missing_message">আপনার Forge 1.7.10 মোডগুলির মধ্যে একটি স্পঞ্জ মিক্সিনকে অনুরোধ করে, কিন্তু কোনও মিক্সিন বা ইউনিমিক্সিন প্রদানকারী ইনস্টল করা নেই৷ 1.7.10 এর জন্য UniMixins/Mixin ইনস্টল করুন বা Minecraft শুরু করার আগে সেই মোডটি সরিয়ে দিন।</string>
     <string name="legacy_mixin_missing_title">লিগ্যাসি মিক্সিন নির্ভরতা অনুপস্থিত৷</string>
     <string name="library_button_desc">লাইব্রেরি খুলুন</string>
@@ -823,7 +823,7 @@
     <string name="onboarding_action_next">পরবর্তী</string>
     <string name="onboarding_action_skip">এড়িয়ে যান</string>
     <string name="onboarding_action_start">শুরু করুন</string>
-    <string name="onboarding_background_desc">Battly লঞ্চার প্যানেলের পিছনে যে ছবিটি ব্যবহার করবে সেটি বেছে নিন। আপনি সেটিংসে পরে এটি পরিবর্তন করতে পারেন।</string>
+    <string name="onboarding_background_desc">Battly Launcher প্যানেলের পিছনে যে ছবিটি ব্যবহার করবে সেটি বেছে নিন। আপনি সেটিংসে পরে এটি পরিবর্তন করতে পারেন।</string>
     <string name="onboarding_background_title">আপনার পটভূমি কাস্টমাইজ করুন</string>
     <string name="onboarding_controls_applied">নিয়ন্ত্রণ প্রয়োগ করা হয়েছে</string>
     <string name="onboarding_controls_classic_desc">কমপ্যাক্ট বোতাম এবং পরিচিত লেবেল সহ ঐতিহ্যগত বিন্যাস।</string>
@@ -980,7 +980,7 @@
     <string name="settings_panel_title">লঞ্চার সেটিংস</string>
     <string name="shader_install_button">শেডার ইনস্টল করুন</string>
     <string name="shader_install_success">%1$s shaderpacks এ ইনস্টল করা হয়েছে</string>
-    <string name="storage_required">Battly লঞ্চারের বাহ্যিক সঞ্চয়স্থান সংযুক্ত করা প্রয়োজন৷ অনুগ্রহ করে এটি পুনরায় সংযোগ করুন এবং অ্যাপটি পুনরায় চালু করুন।</string>
+    <string name="storage_required">Battly Launcherের বাহ্যিক সঞ্চয়স্থান সংযুক্ত করা প্রয়োজন৷ অনুগ্রহ করে এটি পুনরায় সংযোগ করুন এবং অ্যাপটি পুনরায় চালু করুন।</string>
     <string name="vanilla_install_create">প্রোফাইল তৈরি করুন</string>
     <string name="vanilla_install_created">প্রোফাইল তৈরি করা হয়েছে</string>
     <string name="vanilla_install_downloading">Minecraft ডাউনলোড হচ্ছে...</string>
@@ -990,7 +990,7 @@
     <string name="vanilla_install_tap_to_select">একটি সংস্করণ নির্বাচন করতে আলতো চাপুন...</string>
     <string name="vanilla_install_version_label">Minecraft সংস্করণ</string>
     <string name="version_not_installed_local">%1$s ইনস্টল করা নেই। প্রথমে ইন্সটল করতে ডাউনলোড এ যান।</string>
-    <string name="error_fatal">Battly লঞ্চার অপ্রত্যাশিতভাবে ক্র্যাশ হয়েছে৷</string>
+    <string name="error_fatal">Battly Launcher অপ্রত্যাশিতভাবে ক্র্যাশ হয়েছে৷</string>
 
     <string name="battlyworlds_auto_lan_summary">Battly ওয়ার্ল্ডের সাথে LAN-এ একটি বিশ্ব খোলার পরে হোস্টিংয়ের পরামর্শ দিন</string>
     <string name="battlyworlds_auto_lan_title">LAN বিশ্বগুলি স্বয়ংক্রিয়ভাবে সনাক্ত করুন৷</string>
@@ -1150,20 +1150,4 @@
     <string name="search_world_download_error">বিশ্ব মেটাডেটা ডাউনলোড করতে ব্যর্থ হয়েছে</string>
     <string name="world_install_button">বিশ্ব ইনস্টল করুন</string>
     <string name="world_install_success">%1$s এই উদাহরণে ইনস্টল করা হয়েছে৷</string>
-
-    <string name="battly_whats_new_action_start">2.2.3 এক্সপ্লোর করুন</string>
-    <string name="battly_whats_new_compatibility_desc">Open modpack অ্যাকশন এখন নতুন উদাহরণ নির্বাচন করে এবং প্রতিটি ইনস্টলেশন ও বিষয়বস্তু উইন্ডো সঠিকভাবে বন্ধ করে।</string>
-    <string name="battly_whats_new_compatibility_title">ইনস্টল করা মডপ্যাকগুলি সরাসরি খুলুন</string>
-    <string name="battly_whats_new_controllers_desc">Battly ক্লায়েন্ট ইনস্টলার এখন কমপ্যাক্ট স্ক্রীন সহ একটি সঠিক স্ক্রোলযোগ্য তালিকা ব্যবহার করে।</string>
-    <string name="battly_whats_new_controllers_title">ক্লায়েন্ট তালিকা স্ক্রোলিং সংশোধন করা হয়েছে</string>
-    <string name="battly_whats_new_desc">নতুন বিচ্ছিন্ন উদাহরণ, ডাউনলোডযোগ্য বিশ্ব এবং Battly ওয়ার্কস্পেসের জন্য গুরুত্বপূর্ণ সমাধান।</string>
-    <string name="battly_whats_new_instances_desc">নতুন ভ্যানিলা, লোডার, ক্লায়েন্ট এবং মডপ্যাক উদাহরণগুলি তাদের বিশ্ব, মোড, সেটিংস এবং রিসোর্স প্যাকগুলি একটি স্বাধীন ফোল্ডারে রাখে।</string>
-    <string name="battly_whats_new_instances_title">প্রতিটি নতুন উদাহরণের জন্য একটি পৃথক ফোল্ডার</string>
-    <string name="battly_whats_new_recovery_desc">নতুন উদাহরণ বিচ্ছিন্নতা, নিরাপদ সেটিংস স্টোরেজ এবং দীর্ঘ-সেশন ডায়াগনস্টিকগুলি কনফিগারেশন রিসেট হ্রাস করে এবং সমস্যাগুলি সনাক্ত করা সহজ করে তোলে।</string>
-    <string name="battly_whats_new_recovery_title">উন্নত স্থিতিশীলতা</string>
-    <string name="battly_whats_new_title">Battly মোবাইল 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">বিদ্যমান দৃষ্টান্ত যেখানে আছে সেখানেই থাকে। ফোল্ডার বিচ্ছিন্নতা শুধুমাত্র এই সংস্করণ থেকে তৈরি করা দৃষ্টান্তগুলিতে প্রযোজ্য।</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 প্রস্তুত</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge থেকে সরাসরি Minecraft বিশ্ব ব্রাউজ করুন এবং ইনস্টল করুন আপনার পছন্দের উদাহরণে।</string>
-    <string name="battly_whats_new_worlds_title">ওয়ার্কস্পেস থেকে বিশ্ব ডাউনলোড করুন</string>
 </resources>

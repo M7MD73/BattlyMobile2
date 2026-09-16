@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Avvio Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Seleziona un installer mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Il launcher Battly si è bloccato inaspettatamente</string>
+    <string name="error_fatal">Battly Launcher si è bloccato inaspettatamente</string>
     <string name="error_no_version">Nessuna versione!</string>
     <string name="error_show_more">Mostra altro</string>
     <string name="error_show_less">Mostra meno</string>
@@ -207,7 +207,7 @@
     <string name="arc_capes_title">Mantelli Cosmetica</string>
     <string name="arc_capes_desc">Abilità i mantelli di Cosmetica (precedentemente Arc). Per ulteriori informazioni visita https://cosmetica.cc. Necessita OptiFine.</string>
     <string name="notif_channel_name">Generale</string>
-    <string name="lazy_service_default_title">Battly Servizio in primo piano del launcher</string>
+    <string name="lazy_service_default_title">Servizio in primo piano di Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Installato</string>
     <string name="use_global_default">(Utilizza il predefinito globale)</string>
     <string name="default_control">Controlli default</string>
@@ -400,7 +400,7 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
     <string name="mg_renderer_summary_computeShaderext">Può aiutare con glich dei shaderpack. Disabilitare se non necessario, può causare crash.</string>
     <string name="mg_renderer_title_multidrawCompute">Utilizza Calcola Emulazione Multidraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Usa i compute shaders per l\'emulazione multidraw</string>
-    <string name="app_short_name">Avvio Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Solo Vanilla 1.3.1 e superiori sono supportati su account demo</string>
     <string name="demo_unsupported">Profilo demo non supportato</string>
     <string name="change_account">Si prega di cambiare account per utilizzare questa funzione</string>
@@ -757,7 +757,7 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
     <string name="credits_primary_development">Sviluppo principale</string>
     <string name="credits_section_title">Crediti</string>
     <string name="credits_unaffiliated">Questa app non è affiliata a Minecraft, Mojang o Microsoft.</string>
-    <string name="credits_version">Versione 2.2.3</string>
+    <string name="credits_version">Versione 2.2.5</string>
     <string name="ctrl_applied_success">Il controllo "%1$s" è stato applicato correttamente.</string>
     <string name="ctrl_apply_btn">Applicare il controllo</string>
     <string name="ctrl_apply_msg">Scaricare e applicare "%1$s" come layout di controllo?</string>
@@ -943,7 +943,7 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
     <string name="instance_storage_calculating">Calcolo dello spazio di archiviazione…</string>
     <string name="instance_use">Utilizzare</string>
     <string name="java_runtime_download_message">Battly scarica Java 8 dopo la prima configurazione invece di spedirlo all\'interno dell\'app. Ciò riduce le dimensioni dell\'app e prepara le versioni Minecraft precedenti.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher basato su PojavLauncher e Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Crediti&lt;/b&gt;&lt;br/&gt;
         •Battly&lt;br/&gt;
@@ -954,11 +954,11 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
         • GNU GPLv3 e componenti di terze parti inclusi nel progetto.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j e altri con le licenze originali.&lt;br/&gt;&lt;br/&gt;
         Questa app non è affiliata a Minecraft, Mojang o Microsoft.</string>
-    <string name="launcher_credits_title">Programma di avvio Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Scarica</string>
     <string name="launcher_download_modpack">Importa pacchetto mod</string>
     <string name="launcher_execute">Gioca</string>
-    <string name="launcher_mobile_badge">Cellulare 2.2.3</string>
+    <string name="launcher_mobile_badge">Cellulare 2.2.5</string>
     <string name="launcher_nav_back">Torna indietro</string>
     <string name="launcher_nav_home">Ritorno a casa</string>
     <string name="launcher_nav_workspace">Battly Spazio di lavoro</string>
@@ -1192,7 +1192,7 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
     <string name="launcher_status_battly">Conto Battly</string>
     <string name="launcher_status_battly_plus">Conto Battly+</string>
     <string name="sodium_confirm_accept">Accetto i rischi</string>
-    <string name="sodium_confirm_message">Sodium non è ufficialmente supportato dal launcher Battly.\n\nAbilitarlo potrebbe causare bug grafici, anomalie e arresti anomali. Non verrà fornito supporto nel server Discord per eventuali problemi relativi a Sodium e non verrà fornito alcun aiuto se perdi mondi o salvi dati.\n\nAccettando, riconosci di abilitare questa funzionalità a tuo rischio e pericolo.</string>
+    <string name="sodium_confirm_message">Sodium non è ufficialmente supportato da Battly Launcher.\n\nAbilitarlo potrebbe causare bug grafici, anomalie e arresti anomali. Non verrà fornito supporto nel server Discord per eventuali problemi relativi a Sodium e non verrà fornito alcun aiuto se perdi mondi o salvi dati.\n\nAccettando, riconosci di abilitare questa funzionalità a tuo rischio e pericolo.</string>
     <string name="sodium_confirm_title">Abilitare Sodium?</string>
     <string name="sodium_launch_anyway">Avvia comunque</string>
 
@@ -1507,20 +1507,4 @@ se vuoi scaricare dalla sorgente ufficiale premi \"Passa al sito ufficiale"\ e r
     <string name="search_world_download_error">Impossibile scaricare i metadati del mondo</string>
     <string name="world_install_button">Installa il mondo</string>
     <string name="world_install_success">%1$s installato in questa istanza</string>
-
-    <string name="battly_whats_new_action_start">Esplora 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">L\'azione Apri modpack ora seleziona la nuova istanza e chiude correttamente ogni finestra di installazione e contenuto.</string>
-    <string name="battly_whats_new_compatibility_title">Apri direttamente i modpack installati</string>
-    <string name="battly_whats_new_controllers_desc">Il programma di installazione del client Battly ora utilizza un elenco scorrevole corretto, anche su schermi compatti.</string>
-    <string name="battly_whats_new_controllers_title">Scorrimento dell\'elenco dei clienti risolto</string>
-    <string name="battly_whats_new_desc">Nuove istanze isolate, mondi scaricabili e correzioni importanti per Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Le nuove istanze Vanilla, loader, client e modpack mantengono i loro mondi, mod, impostazioni e pacchetti di risorse in una cartella indipendente.</string>
-    <string name="battly_whats_new_instances_title">Una cartella separata per ogni nuova istanza</string>
-    <string name="battly_whats_new_recovery_desc">Il nuovo isolamento delle istanze, l\'archiviazione più sicura delle impostazioni e la diagnostica a sessione lunga riducono i reimpostazioni della configurazione e semplificano l\'identificazione dei problemi.</string>
-    <string name="battly_whats_new_recovery_title">Stabilità migliorata</string>
-    <string name="battly_whats_new_title">Battly Cellulare 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Le istanze esistenti rimangono dove sono. L\'isolamento delle cartelle si applica solo alle istanze create da questa versione in poi.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 è pronto</string>
-    <string name="battly_whats_new_worlds_desc">Sfoglia e installa i mondi Minecraft da CurseForge direttamente nell\'istanza che scegli.</string>
-    <string name="battly_whats_new_worlds_title">Scarica mondi da Workspace</string>
 </resources>

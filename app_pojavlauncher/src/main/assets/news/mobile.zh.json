@@ -1,0 +1,156 @@
+[
+  {
+    "id": "22",
+    "title": "Battly Mobile 2.2.5 现已发布",
+    "content": "Battly Mobile 2.2.5 现已发布。此次更新提升了对最新版本Minecraft、模组音频以及 Battly 在每种语言中显示新功能的方式的支持。 \n\n**有什么新动态：** \n\n- 新增内容来自设备语言的API，包含10种最常用语言的完整翻译，并备份为英语。 \n- Battly 保留服务器最后一次有效响应，仅在 API 内容变更时更新缓存，因此新功能加载一次后仍可离线使用。 \n- 改进对**Minecraft 26.3**的支持，包括启动修复、渲染和纹理，适用于原版、Fabric和自定义版本。 \n- 增加了对原生库插件的支持，该插件由模组使用，如《Distant Horizons》。如果安装了兼容插件，Battly 不再通过检测该模组来阻止启动。 \n- Minecraft使用麦克风的模组现在可以检测Android音频输入。 \n- 增加了内部麦克风、耳机及其他音频输入的选择。 \n- 改进麦克风隔离，避免Battly Worlds发送游戏音频给其他玩家。 \n- 修复了Vulkan问题、替代表面和方向，这些问题可能导致部分设备上显示屏幕旋转或渲染错误。 \n- 修复了某些控制或客户端配置文件只能在使用Shift+W或Shift+右键组合时缩小Minecraft渲染窗口的问题，而控制键保持全屏。 \n- 自定义JVM参数正确替换等效默认值，包括代码缓存大小。 \n- 成功结束时Minecraft减少错误事故警告。 \n- 整体稳定性、兼容性和诊断改进。 \n\n感谢大家持续提交报告并帮助改进巴特利 ❤️\n\n@here与@everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-16 13:30:00"
+  },
+  {
+    "id": "21",
+    "title": "Battly Mobile 2.2.4 现已发布",
+    "content": "Battly Mobile 2.2.4 现已发布。本次更新主要集中在提升长时间游戏期间的稳定性，减少 FPS 急剧下降，并修复与 LWJGL、Java 以及 Minecraft 退出相关的多个问题。\n\n**更新内容:**\n\n- 提升了长时间游戏期间的 FPS 和内存稳定性。\n- 减少了因本地和图形内存压力导致的突然退出。\n- 调整了 Java 的初始内存使用，为 Android、渲染器和模组留出更多资源。\n- 修复了在多个进程同时准备 LWJGL 时出现的问题。\n- 提升了 **LWJGL 3.3.3、3.4.1 和 3.4.2** 与现代 Java 和 Minecraft 版本的兼容性。\n- 修复了在部分设备上使用替代表面渲染系统时屏幕旋转或重复的问题。\n- 改进了对包含与 Android 不兼容的桌面本地库的模组的检测。\n- 自定义的 JVM 参数现在可以正确替代启动器或版本中的等效参数，避免重复或不兼容的值。\n- Minecraft 的正常退出不应再因叙述器或其他可选组件的可恢复错误生成崩溃报告。\n- 改进了内存、渲染器和进程的诊断功能，以便更容易分析特定设备的问题。\n- **Battly Launcher** 的名称在所有语言中保持不变，不再被直接翻译。\n- 总体提升了稳定性、兼容性和性能。\n\n感谢大家继续发送报告并帮助改善 Battly ❤️\n\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-12 23:37:00"
+  },
+  {
+    "id": "20",
+    "title": "Battly Mobile 2.2.3 现已发布",
+    "content": "Battly Mobile 2.2.3 现已发布，带来了Battly Workspace、实例系统、着色器性能和整体稳定性的重大改进。 \n\n**有什么新动态：** \n\n- 新增了直接从Battly Workspace搜索、下载和安装世界的功能。 \n- 每个新实例现在使用自己的文件夹，以防止世界、模组、设置及其他文件在不同版本的 Minecraft 之间混合。 \n- 修复了一个在关闭和重新打开实例时可能重启Minecraft设置的问题。 \n- 在长时间游戏中提升稳定性，减少了部分明显的帧率下降。 \n- 使用着色器时性能大幅提升。 \n- 基于设备、Minecraft版本和已安装着色器，更佳地自动选择渲染器和图形设置。 \n- 与Adreno设备及新版本Minecraft的LTW兼容性更好。 \n- 修正了 **Open modpack** 按钮，使其正确选择实例，关闭之前的窗口，并启动Minecraft。 \n- 客户列表中的固定滚动。 \n- 修复了一个在游玩或关闭Minecraft后可能出现的Google Play Services bug。 \n- 更好的内存和映像管理，以减少崩溃。 \n- 整体稳定性、兼容性和性能提升。 \n\n感谢大家持续提交报告并帮助改进巴特利 ❤️\n\n@here与@everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-04 20:46:00"
+  },
+  {
+    "id": "19",
+    "title": "Battly Mobile 2.2.2 现已发布",
+    "content": "**更新内容**\n- 新的离线模式，可以在离线状态下使用 Battly 及已安装的版本。离线模式激活时，Battly 将停止更新、删除或重新下载文件。\n- 新的优化系统，会测试 MobileGlues 的不同配置，并为每个设备推荐最快的设置。\n- 改进了对兼容渲染器的检测。\n- 使用着色器时提升了性能和兼容性。\n- 新的图片库，可预览模组、模组包、着色器、资源包及其他内容。\n- 当两名用户连接到同一 Wi-Fi 网络时，Battly Worlds 运行更佳。\n- 改进了 Battly Worlds 房间、邀请和连接的稳定性。当路由器阻止设备间的直接通信时，增加了一种备用连接方式。\n- 改进了语音聊天、音频恢复和玩家覆盖显示。\n- 修复了实时邀请未送达的问题。\n- 公共房间信息更完善，包括已连接玩家和房主。\n- 一般稳定性、性能和兼容性提升。\n\n感谢大家继续发送反馈，帮助我们改进 Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-01 XX:XX:XX"
+  },
+  {
+    "id": "18",
+    "title": "Battly Mobile 2.2.1 现已发布",
+    "content": "此更新主要集中在改进Battly Worlds、新的语音聊天、Battly Social以及启动器的多个部分。\n\n**新功能**\n- 新的语音聊天直接集成在Battly Worlds中。\n- 进入房间时自动连接语音聊天。\n- 新增静音麦克风、屏蔽自己以及单独调节每个玩家音量的控制。\n- Minecraft中新增覆盖层，可以查看谁在讲话，位置和透明度可自定义。\n- 游戏内控制中新增语音聊天快捷方式。\n- 连接和断开语音聊天时新增声音，可选择关闭。\n- 新增音频设置，并更清楚地说明麦克风权限。\n- 语音聊天的状态和设置会在游戏和重启之间保留。\n- 提升Battly Worlds中房主与玩家之间连接的稳定性。\n- 改进Battly Social、房间、邀请和已连接玩家。\n- 临时断开连接时，音频恢复能力增强。\n- 修复音频过载、失真或可能停止播放的问题。\n- 提升整体稳定性、性能和兼容性。\n\n感谢大家继续测试Battly Mobile并提供反馈 ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-XX XX:XX:XX"
+  },
+  {
+    "id": "17",
+    "title": "Battly Mobile 2.2.0 现已发布",
+    "content": "Battly Mobile 2.2.0 已经推出，附带 Battly Worlds，这是一种可以让你和朋友随时随地一起玩的新方式，同时在 Battly Workspace、界面和稳定性方面也进行了重要改进。\n\n**Battly Worlds**\n- 新增 Battly Worlds，现在无需 VPNService 权限即可使用（谢谢你，Google）。\n- 创建私人房间并与朋友共享代码，或者将其设为公开，让其出现在 Battly Worlds 浏览器中。\n- 通过 Battly 好友直接邀请，并自动检测局域网内开放的世界。\n- 新的公共房间浏览器，支持按代码搜索和房间更新。\n- 房间在主持人继续游戏时保持活跃，退出 Minecraft 后可自动关闭。\n- 普通用户最多可以发送 5 个直接邀请。Battly+ 提供不限量邀请、更持久的房间、持久性以及优先访问权。\n- 新的 Battly Worlds 界面，更紧凑简洁，配有用于检查连接和延迟的工具。\n\n**其他新功能**\n- 主菜单新增访问 Battly Worlds 和 Battly 皮肤。\n- Battly Workspace 改进了内容选择：先选择加载器，再选择 Minecraft 版本，最后选择 mod 或内容的版本。\n- 新的搜索器、网格排列的版本及推荐兼容版本提示。\n- 为 mod、mod包、着色器、资源包和数据包提供更好的版本选择。\n- 整体设计更紧凑，更适合有缺口屏幕的设备。\n- Terracotta 的内部改进，包括连接、性能、稳定性和翻译。\n\nBattly Mobile 2.2.0 让随时随地与朋友一起玩变得更加简单，并改善了 Battly Mobile 中最常用的部分。\n\n感谢大家继续提供反馈并帮助改进 Battly Mobile。享受 Battly Worlds ❤️\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-20 22:11:00"
+  },
+  {
+    "id": "16",
+    "title": "猜猜什么几个小时后回来 👀",
+    "content": "¡BattlyWorlds将在几个小时后回来！🌍\n\n很快你们就可以在Battly Mobile中再次享受BattlyWorlds。\n\n![BattlyWorlds](https://pbs.twimg.com/media/HQF4V17XAAAYNhM?format=jpg&name=4096x4096)",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-19 16:20:00"
+  },
+  {
+    "id": "15",
+    "title": "Battly Mobile 2.1.1 现已发布",
+    "content": "Battly Mobile 2.1.1 已经可用。本次更新主要集中在修复在 2.1.0 版本发布后发现的问题，并提高 Battly 的整体稳定性。\n\n**更新内容：**\n\n- 修复了在不同版本和设备上检测到的 Minecraft 的多个意外关闭问题。\n- 提升了 Microsoft 会话的稳定性，减少了意外断开连接和可能显示为空白的配置文件。\n- Sodium 的提示现在仅为信息提示，更清楚地表明该 mod 仍然兼容。\n- 修复了即使 Minecraft 已正确关闭时仍可能出现的崩溃提示。Battly 更好地区分游戏的正常关闭和真实故障。\n- 修复了在安装完成后 \"打开 modpack\" 按钮的问题。新安装的实例会自动被选中并准备好进行游戏。\n- 安装新实例后，\"开始游戏\" 按钮现在可以正确显示版本。\n- Battly 的皮肤管理程序现在会指示所选皮肤使用的是 Slim 模型还是经典模型。\n- 在稳定性、会话、modpack、提示和错误检测方面进行了整体改进。\n\nBattly Mobile 2.1.1 旨在完善 2.1.0 所引入的更改，并解决自发布以来发现的主要问题，而不修改已经正常运行的功能。\n\n感谢所有报告错误和提供反馈的用户。这对继续改进 Battly Mobile 帮助很大 ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-18 23:06:00"
+  },
+  {
+    "id": "14",
+    "title": "Battly Mobile 2.1.0 现已发布",
+    "content": "Battly Mobile 2.1.0 已经发布，这是迄今为止最大的一次更新之一，重点在于提升游戏体验、实例管理、下载、性能和稳定性。\n\n**更新内容:**\n\n- 全新的 PlayStation、Xbox 和 Nintendo Switch 手柄配置系统，带有引导向导、3D 动画预览、动作映射、摄像机、点击、十字键和滚动功能、摇杆校准及为每个实例设置独立配置文件。\n- MobileGlues 更新到 2.0.0 版本，新增图形选项、性能提升，并增加与最新 Minecraft 版本的兼容性。\n- 全新下载系统，支持 HTTP/2、连接复用、断点续传以及最多 100 个文件同时下载。\n- 下载系统的改进极大提升了速度：之前下载 Minecraft 最新快照大约需要 2 分钟，现在大约 15 秒即可完成。\n- 游戏内新增手柄图像，可自定义并支持实时按键反馈。\n- 安装完成后，可直接打开模组包。\n- 改进了对不兼容模组的检测，提供更清晰的说明和解决方案。\n- Battly 更智能地选择不同版本的 Java、LWJGL 及最合适的渲染器用于每个 Minecraft 版本。\n- 新增图形选项，可更好地适应不同设备的性能。\n- 下载默认使用 64 条并发连接，可手动调整为 16 到 100 条。\n- 新增维护中心，可自动检测并修复多种问题。\n- FPS 计数器增强，并测量服务器实际延迟。\n- 修复了顶部按钮和 ESC 键的功能。\n- 改进了菜单中触控操作的响应。\n- 下载系统、内容管理和兼容性进行了内部改进。\n- 提高总体稳定性、性能、兼容性、翻译和界面设计。\n\nBattly Mobile 2.1.0 在应用的多部分进行了重大改动，尤其是下载系统，现在能够更好地利用可用连接，大幅减少安装新版本所需时间。\n\n此次更新的目标是为通过 Android 玩 Minecraft 提供更快速、完整、稳定和舒适的体验。\n\n感谢所有继续使用 Battly 并提供反馈的人 ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-18 01:09:00"
+  },
+  {
+    "id": "13",
+    "title": "Battly Mobile 2.0.9 现已发布",
+    "content": "很多人都在期待：Battly 的皮肤现在可以在所有兼容的 Minecraft 版本中使用，从 1.7.10 到 26.2，包括 Vanilla、Forge、Fabric 和 OptiFine。\n\n**新功能:**\n\n- 新增调整触控移动灵敏度的选项。\n- 侧边菜单可以放在左侧或右侧。\n- 新增忽略屏幕刘海的选项，充分利用 100% 的屏幕。\n- Battly Workspace 现在显示模组和已安装内容的图标。\n- 更好地支持自定义背景、GIF 和视频。\n\n**Minecraft 及兼容性:**\n\n- 改进了触控控制、镜头移动和游戏互动。\n- 修复了 ESC 等按键，并在现代版本中恢复了 FPS 计数器。\n- 更好地兼容 Forge、NeoForge 和 OptiFine。\n- 改进了 Java、LWJGL 和渲染器的自动选择。\n- 修复了安装卡在 95% 的问题。\n- 改进了不完整安装的检测和修复。\n- 下载更稳定，并且更好地兼容旧版本、现代版本和快照。\n\n**修复:**\n\n- 解决了下载、连接和 IPv6 问题。\n- 修复了视频背景、图标和刘海屏问题。\n- 改进了 Forge 和 OptiFine 的安装完成过程。\n- 减少意外关闭，提高稳定性，并提供更清晰的错误信息。\n\n感谢大家继续测试 Battly，报告错误并帮助我改进每次更新。尽情享受 Battly Mobile 2.0.9 吧！❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-11 19:25:00"
+  },
+  {
+    "id": "12",
+    "title": "Battly Mobile 2.0.8 现已发布",
+    "content": "此更新恢复了触控控制的稳定运行，并修复了最新版本中的多个重要问题。\n\n**更新内容:**\n\n- 恢复了触控控制的稳定运行。\n- 修复了上方按钮，包括 ESC 键。\n- 修复了在现代 Minecraft 版本中与菜单的交互问题。\n- 离线账户不再显示带有高级下载队列。\n- 通过重复使用已下载的安装程序，加快了 Forge 的安装速度。\n- 改进了 LWJGL 在 Minecraft 26.x 上的选择。\n- 一般兼容性和稳定性修复。\n\n感谢大家，并对之前的问题再次表示歉意。尽情享受 Battly Mobile 2.0.8 吧！❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-02 01:55:00"
+  },
+  {
+    "id": "11",
+    "title": "Battly Mobile 2.0.7 现已发布",
+    "content": "Battly Mobile 2.0.7 已经发布，带来了在控制、安装、错误记录以及整体兼容性方面的重要改进。\n\n**新功能:**\n\n- 针对最新版本和快照改进的触控控制。\n- 修正了顶部按钮、ESC键和摄像机移动。\n- 游戏颜色、分辨率和表面的更好呈现。\n- Forge 和 NeoForge 的安装更快、更可靠，并带有自动重试。\n- 安装过程中对损坏或不完整文件的检测更佳。\n- 模组包的安装和导入更稳定。\n- 新实例在安装或导入后立即显示。\n- 新的下载和安装界面，带有卡片、图标和详细进度。\n- 日志面板全面更新，增加搜索、筛选器、计数器及实时跟踪。\n- 查看大日志时性能更佳。\n- 更兼容的自定义背景和动画视频。\n- 改进 Minecraft 图形库的选择和修复功能。\n- 在 Fabric、Forge 和 Quilt 中更好地检测不兼容的模组。\n- 更清晰的错误信息，标明问题及可能的解决方案。\n- 修正 Quilt 版本的顺序。\n- 更好的 Microsoft 账户管理：不再创建错误的演示账户。\n- 没有 Minecraft 的 Microsoft 账户现在显示清晰提示。\n- 自动删除残留的旧演示账户。\n- 针对安装、版本和兼容性增加更多的自动测试。\n- 多项整体稳定性、设计和性能改进。\n\n感谢大家。尽情享受 Battly Mobile 2.0.7! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-01 00:08:00"
+  },
+  {
+    "id": "10",
+    "title": "Battly Client 用于更新版本吗？",
+    "content": "很多人请求我让 Battly Client 与更新版本的 Minecraft 兼容。\n\n我听到了你们的声音。👀\n\n我很快会分享更多关于 Battly Client 最新动态的信息。",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-31 00:12:00"
+  },
+  {
+    "id": "9",
+    "title": "Battly Mobile 2.0.6 现已发布",
+    "content": "此更新修复了在某些设备上自上一个版本以来发现的多个重要错误。\n\n**新功能:**\n\n- 修复了尝试登录 Battly 时的错误。\n- 修复了启动 Minecraft 时的意外关闭问题。\n- 解决了与 LWJGL 的兼容性问题。\n- 修正了为错误架构下载 Java 版本的问题。\n- 改进了对处理器和设备实际架构的检测。\n- 解决了在某些设备上从 Google Play 启动 Battly 时的错误。\n- 自动删除更新后可能引起冲突的旧文件。\n- 修复了启动 Battly 时与 SDL 相关的意外关闭。\n- 改善了与 Fabric 及使用 LWJGL 3 的版本的兼容性。\n- 改进了启动器和 Minecraft 启动的整体稳定性。\n\n如果你仍在使用旧版本，可以直接升级到 2.0.6，而无需安装中间版本。\n\n感谢你报告错误并帮助我改进 Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-28 21:56:00"
+  },
+  {
+    "id": "8",
+    "title": "紧急补丁：Battly Mobile 2.0.5",
+    "content": "Battly Mobile 2.0.5 已经可用，这是一个紧急补丁，修复了在某些设备上运行特定版本的 Minecraft 时意外关闭的问题，以及在 2.0.4 中发现的其他问题。\n\n如果你还没有更新到 2.0.4，可以直接安装 2.0.5 版本，从而避免这两个版本的跳跃。\n\n感谢大家报告问题并帮助我改进 Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-28 01:41:00"
+  },
+  {
+    "id": "7",
+    "title": "Battly Mobile 2.0.4 现已发布",
+    "content": "Battly Mobile 2.0.4 现已发布，带来了众多稳定性、性能和兼容性方面的改进。\n\n**更新内容：**\n\n- 新旧版本的 Minecraft 功能更好。\n- 修复了 Forge、mod、着色器和快照的多个问题。\n- 修正了触控控制和摄像机移动。\n- Minecraft 现在能够为每个设备更好地选择图形设置。\n- 新增屏幕，解释哪些 mod 不兼容及解决方法。\n- 错误信息更清晰易懂。\n- 可以通过链接共享错误日志的选项。\n- 下载更快，并可自动适配手机性能。\n- 减少意外关闭，在低配置设备上的性能更佳。\n- 老设备和新设备兼容性更好。\n- 恢复对 32 位设备的兼容性。\n- Minecraft 可以正确保持横屏位置。\n- BattlyWorlds 在收到 Google 授权前暂时停用。\n- 多项整体稳定性和兼容性修复。\n\n感谢大家。祝大家享受 Battly Mobile 2.0.4！❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-27 23:48:00"
+  },
+  {
+    "id": "6",
+    "title": "Battly Mobile 2.0.3 现已发布",
+    "content": "Battly Mobile 2.0.3 已经可用。\n\n这个版本修复了你们在 2.0.1 版本中遇到的许多错误，所以请更新，试用，并告诉我它的表现如何。😉\n\n我也想为你们在这个版本中遇到的问题道歉。目前我没有团队可以和我一起在发布每个更新前测试所有功能和设备，因此我无法保证一切都没有错误。\n\n我会继续努力，在你们的帮助下修复出现的问题并改进 Battly Mobile。\n\n感谢大家，再次道歉。请享用！❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-22 00:28:00"
+  },
+  {
+    "id": "5",
+    "title": "Battly Mobile 2.0.1 现已推出！",
+    "content": "Battly Mobile 2.0.1 已经推出，带来了大量新功能、性能改进和错误修复。\n\n**新功能：**\n\n- 全新的 Battly 皮肤管理器，支持上传、库管理、应用和删除皮肤，提供瘦身模式和 3D 预览。\n- 支持在离线账户中使用永久自定义皮肤。\n- 全新的 Battly Social 功能，可搜索好友、管理请求、查看谁在游戏、邀请和加入。\n- 全新的实例和世界管理器，支持复制、导入、导出、备份、恢复和诊断。\n- 全新的 Battly 文件管理器，提供列表和网格视图。\n- 新的渲染器系统，改进了检测、Battly 界面，并支持更多图形后端。\n- MobileGlues 更新，提升 Sodium、着色器、纹理和现代版本的性能。\n- Minecraft 版本改进，包括搜索功能、类型筛选，以及为 Vanilla 和加载器提供更实用的列表。\n- 改进了对 Forge、NeoForge、Fabric、Quilt、LegacyFabric、OptiFine 和客户端的支持。\n- 新增 ForgeOptiFine 选项，可自动安装 Forge 和 OptiFine。\n- 下载速度更快，支持并行、可续传，同时适配设备。\n- 改进了 Mod 安装功能，自动处理依赖，并修复 CurseForge 和 Modrinth 的问题。\n- 更好地管理已安装内容，可激活、停用、删除和移动 mods、资源包、着色器和数据包。\n- 改进的控制市场，支持搜索、预览、点赞、收藏、图标以及全新设计。\n- 新增可自定义 FPS 和延迟计数器，用于控制器。\n- 每个实例可独立设置控制和配置。\n- 实现了使用 Battly、Google 和 Discord 的登录功能。\n- Java 8 在初始设置完成后下载，以减小应用体积。\n- 全新的 Java 管理器，支持下载、导入、检测和修复损坏的运行时。\n- 改进了对快照、LWJGL、Battly Client、着色器、Forge 和旧版本的兼容性。\n- 改进了 Java、LWJGL 和渲染器的自动选择功能，根据版本和设备自动匹配。\n- 改进了意外关闭处理：Battly 会返回启动器，分析错误并显示有用信息。\n- 优化了新闻功能，支持缓存、多语言、图片和链接。\n- 改进了低性能设备的性能和内存使用。\n- 更多屏幕、对话框、菜单和确认窗口适配 Battly 设计。\n- 新增翻译、修订文本，并对所有可用语言进行错误修正。\n- 对依赖项、水平布局、渲染器、皮肤、运行时和旧界面元素进行了重要修正。\n\n感谢大家。享受 Battly Mobile 2.0.1 吧！❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-21 00:10:00"
+  },
+  {
+    "id": "4",
+    "title": "🏆 Battly Champions 到来了！",
+    "content": "Battly Launcher 和 MoonLightMC 联合举办 Battly Champions，这是一个特别锦标赛，包含连续的 12 个小游戏，并有惊人的奖品：5 个免费的 MINECRAFT 高级账户。\n\n要参加，只需填写报名表，使用你的真实信息并如实填写。我们将使用这些信息来分配你的组别、时间表，并更好地组织活动的所有细节。\n\n📝 **报名表:** [点击这里](https://battlylauncher.com/forms/pre-registro-battly-champions-battly-x-moonlightmc)\n\n加入 [Battly Launcher](https://discord.gg/8X5t58hW4E) 或 [MoonLightMC](https://discord.gg/aXqGdfv2ch) 的 Discord，以随时了解组别、时间表以及锦标赛的所有最新消息。\n\n准备好竞争、享受乐趣，并争夺其中一个 5 个高级账户吧！ 🚀",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-05 00:00:00"
+  },
+  {
+    "id": "3",
+    "title": "欢迎来到 Battly Mobile 2.0！",
+    "content": "Battly Mobile 以全新面貌回归，带来更现代、更稳定以及为 Android 设备精心打造的体验。\n\n在这个新版本中，你将会发现经过重新设计的界面、性能改进、更干净的基础并为未来更新做好准备，同时体验更加贴近今天的 Battly。\n\n这只是 Battly Mobile 新阶段的开始。我将继续致力于开发新功能、改进和优化，让每个版本都比前一个更好。\n\n感谢你继续成为 Battly 的一部分 ♥",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-05-18 00:00:00"
+  },
+  {
+    "id": "2",
+    "title": "Battly Mobile 有问题吗？",
+    "content": "你在打开某些版本时遇到问题吗？\n我检测到启动某些版本时会出现错误。所有高于1.18.2的版本启动时都会出错。\nForge也出现了故障。我正在调查这个问题，很快会解决。请不要批评，因为那会让情况更糟。\n感谢你对Battly的信任 ♥！",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2023-07-30 21:10:43"
+  },
+  {
+    "id": "1",
+    "title": "谢谢大家！",
+    "content": "大家好，游戏玩家们！Battly的手机版终于发布了，尽情享受吧！\n\n大家好，游戏玩家们！Battly的手机版终于发布了，享受它吧！\n\n大家好，玩家们！Battly的手机版终于发布了，好好享受！",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2023-07-30 21:10:43"
+  }
+]

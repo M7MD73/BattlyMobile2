@@ -1096,10 +1096,21 @@ public class GLFW
     }
 
     public static void glfwSetWindowSize(long window, int width, int height) {
-        internalGetWindow(window).width = width;
-        internalGetWindow(window).height = height;
+        GLFWWindowProperties properties = internalGetWindow(window);
 
-        System.out.println("GLFW: Set size for window " + window + ", width=" + width + ", height=" + height);
+        // Android exposes one fullscreen rendering surface. Minecraft and some clients still
+        // execute the desktop fullscreen toggle path and try to restore their last windowed
+        // size. Accepting that request makes only the OpenGL viewport smaller while the Android
+        // controls remain fullscreen. Keep the logical GLFW window synchronized with the actual
+        // surface dimensions once those dimensions are known.
+        int surfaceWidth = mGLFWWindowWidth > 0 ? mGLFWWindowWidth : width;
+        int surfaceHeight = mGLFWWindowHeight > 0 ? mGLFWWindowHeight : height;
+        properties.width = surfaceWidth;
+        properties.height = surfaceHeight;
+
+        System.out.println("GLFW: Set size for window " + window
+                + ", requested=" + width + "x" + height
+                + ", applied=" + surfaceWidth + "x" + surfaceHeight);
     }
 
     public static void glfwShowWindow(long window) {

@@ -44,6 +44,7 @@ import net.kdt.pojavlaunch.progresskeeper.ProgressKeeper;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.SearchFilters;
 import net.kdt.pojavlaunch.utils.DownloadUtils;
 import net.kdt.pojavlaunch.utils.LocaleUtils;
+import net.kdt.pojavlaunch.utils.NewsLocalePolicy;
 import net.kdt.pojavlaunch.utils.BattlyHomeHubDialog;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsDiscovery;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsInvites;
@@ -56,8 +57,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class MainMenuFragment extends Fragment {
@@ -159,7 +162,15 @@ public class MainMenuFragment extends Fragment {
                 conflictDialog.show();
                 return;
             }
-            List<File> incompatibleNativeMods = Tools.getAndroidIncompatibleNativeMods();
+            MinecraftProfile selectedProfile = LauncherProfiles.getCurrentProfile();
+            String selectedVersion = selectedProfile.lastVersionId;
+            net.kdt.pojavlaunch.JMinecraftVersionList.Version versionInfo =
+                    Tools.getVersionInfo(selectedVersion);
+            String pluginMinecraftVersion = versionInfo != null
+                    && Tools.isValidString(versionInfo.inheritsFrom)
+                    ? versionInfo.inheritsFrom : selectedVersion;
+            List<File> incompatibleNativeMods = Tools.getAndroidIncompatibleNativeMods(
+                    launchActivity, pluginMinecraftVersion);
             if (!incompatibleNativeMods.isEmpty()) {
                 StringBuilder modNames = new StringBuilder();
                 for (File file : incompatibleNativeMods) {
@@ -174,7 +185,8 @@ public class MainMenuFragment extends Fragment {
                         .setIcon(R.drawable.minecraft_tnt)
                         .setPositiveButton(R.string.android_incompatible_mods_disable, (d, w) -> {
                             try {
-                                Tools.disableAndroidIncompatibleNativeMods();
+                                Tools.disableAndroidIncompatibleNativeMods(
+                                        launchActivity, pluginMinecraftVersion);
                                 requestLaunch();
                             } catch (RuntimeException exception) {
                                 Tools.showError(launchActivity, exception);
@@ -231,10 +243,11 @@ public class MainMenuFragment extends Fragment {
         String newsLocale = getNewsLocale();
         String unavailableText = getString(R.string.launcher_news_unavailable);
         String loadingText = getString(R.string.launcher_news_loading);
+        boolean hasMemoryCache;
         synchronized (NEWS_LOCK) {
-            if (sCachedNewsCards != null && newsLocale.equals(sCachedNewsLocale)) {
+            hasMemoryCache = sCachedNewsCards != null && newsLocale.equals(sCachedNewsLocale);
+            if (hasMemoryCache) {
                 bindNewsCards(sCachedNewsCards);
-                return;
             }
             if (sNewsRequestInFlight) {
                 if (mNewsCardAdapter != null && mNewsCardAdapter.getItemCount() == 0) {
@@ -244,7 +257,7 @@ public class MainMenuFragment extends Fragment {
             }
             sNewsRequestInFlight = true;
         }
-        setNewsLoading(loadingText);
+        if (!hasMemoryCache) setNewsLoading(loadingText);
         PojavApplication.sExecutorService.execute(() -> {
             List<NewsCard> cards;
             try {
@@ -289,17 +302,17 @@ public class MainMenuFragment extends Fragment {
     }
 
     private List<NewsCard> loadBattlyNews(String newsLocale, String unavailableText) throws Exception {
-        String cacheName = "battly_mobile_news_" + newsLocale + ".json";
         DownloadUtils.ParseCallback<List<NewsCard>> parser = input -> {
                     try {
                         JsonArray newsArray = Tools.GLOBAL_GSON.fromJson(input, JsonArray.class);
                         if (newsArray == null || newsArray.size() == 0) {
-                            return NewsCard.error(unavailableText);
+                            throw new IOException("News payload is empty");
                         }
                         ArrayList<NewsCard> cards = new ArrayList<>();
                         for (int i = 0; i < newsArray.size(); i++) {
                             JsonObject object = newsArray.get(i).getAsJsonObject();
                             cards.add(new NewsCard(
+                                    getJsonString(object, "id", String.valueOf(i)),
                                     "",
                                     getJsonString(object, "title", getString(R.string.launcher_news_battly)),
                                     getJsonString(object, "content", ""),
@@ -311,6 +324,33 @@ public class MainMenuFragment extends Fragment {
                         throw new DownloadUtils.ParseException(e);
                     }
                 };
+
+        List<NewsCard> englishCards = new ArrayList<>();
+        try {
+            englishCards = loadRemoteNews("en", parser);
+        } catch (Exception englishError) {
+            Log.w(TAG, "Unable to load the server-backed English news cache", englishError);
+        }
+
+        if (NewsLocalePolicy.DEFAULT_LOCALE.equals(newsLocale)) {
+            if (!englishCards.isEmpty()) return englishCards;
+            return NewsCard.error(unavailableText);
+        }
+
+        List<NewsCard> localizedCards = new ArrayList<>();
+        try {
+            localizedCards = loadRemoteNews(newsLocale, parser);
+        } catch (Exception localizedError) {
+            Log.i(TAG, "Localized news unavailable for " + newsLocale + "; falling back per item to English");
+        }
+        List<NewsCard> mergedCards = mergeNewsCards(englishCards, localizedCards);
+        return mergedCards.isEmpty() ? NewsCard.error(unavailableText) : mergedCards;
+    }
+
+    private List<NewsCard> loadRemoteNews(String newsLocale,
+                                          DownloadUtils.ParseCallback<List<NewsCard>> parser)
+            throws Exception {
+        String cacheName = "battly_mobile_news_" + newsLocale + ".json";
         if (net.kdt.pojavlaunch.utils.BattlyOfflineMode.isOffline(PojavApplication.getAppContext())) {
             return DownloadUtils.readStringCache(cacheName, parser);
         }
@@ -318,9 +358,19 @@ public class MainMenuFragment extends Fragment {
                 BATLLY_NEWS_URL_BASE + newsLocale + ".json", cacheName, parser);
     }
 
+    private List<NewsCard> mergeNewsCards(List<NewsCard> baseCards, List<NewsCard> translatedCards) {
+        Map<String, NewsCard> cardsById = new LinkedHashMap<>();
+        if (baseCards != null) {
+            for (NewsCard card : baseCards) cardsById.put(card.id, card);
+        }
+        if (translatedCards != null) {
+            for (NewsCard card : translatedCards) cardsById.put(card.id, card);
+        }
+        return new ArrayList<>(cardsById.values());
+    }
+
     private String getNewsLocale() {
-        String language = LocaleUtils.getCurrentLocale(PojavApplication.getAppContext()).getLanguage();
-        return "es".equalsIgnoreCase(language) ? "es" : "en";
+        return NewsLocalePolicy.resolve(LocaleUtils.getCurrentLocale(PojavApplication.getAppContext()));
     }
 
     private String getJsonString(JsonObject object, String key, String fallback) {
@@ -474,13 +524,15 @@ public class MainMenuFragment extends Fragment {
     }
 
     private static class NewsCard {
+        final String id;
         final String source;
         final String title;
         final String content;
         final String author;
         final String dateText;
 
-        NewsCard(String source, String title, String content, String author, String dateText) {
+        NewsCard(String id, String source, String title, String content, String author, String dateText) {
+            this.id = id;
             this.source = source;
             this.title = title;
             this.content = content;
@@ -490,7 +542,7 @@ public class MainMenuFragment extends Fragment {
 
         static List<NewsCard> loading(String message) {
             ArrayList<NewsCard> cards = new ArrayList<>();
-            cards.add(new NewsCard("", "", message, "", ""));
+            cards.add(new NewsCard("status", "", "", message, "", ""));
             return cards;
         }
 

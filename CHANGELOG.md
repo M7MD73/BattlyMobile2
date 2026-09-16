@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.2.5 - 2026-09-16
+
+- Las noticias del launcher se obtienen en el idioma del dispositivo mediante feeds separados por idioma.
+- Añadido fallback completo al inglés cuando la API no dispone del idioma solicitado.
+- La última respuesta válida del servidor se conserva en caché y solo se reemplaza cuando cambia el contenido de la API, manteniendo las noticias disponibles sin conexión después de cargarlas una vez.
+- Mejorado el inicio y el renderizado de Minecraft 26.3, incluyendo la carga de texturas en Vanilla y Fabric.
+- Añadido soporte para plugins de librerías nativas y configuraciones compatibles con Distant Horizons.
+- Los mods de Minecraft pueden acceder al micrófono de Android y seleccionar entre las entradas disponibles.
+- El chat de voz de Battly Worlds evita capturar el audio del propio juego.
+- Corregidos problemas de Vulkan, superficie alternativa y orientación en dispositivos afectados.
+- Corregido un problema por el que algunas combinaciones de controles podían reducir únicamente la ventana renderizada de Minecraft.
+- Los argumentos JVM personalizados sustituyen correctamente los valores predeterminados equivalentes.
+- Reducidos los informes de crash incorrectos al cerrar Minecraft normalmente.
+
+## 2.2.4 - 2026-09-12
+
+- Mejorada la estabilidad de FPS y memoria durante partidas largas, reduciendo cierres repentinos bajo presión de memoria nativa y gráfica.
+- El tamaño inicial del heap de Java deja más memoria disponible para Android, los renderizadores y los mods nativos.
+- Corregida la preparación concurrente de LWJGL entre procesos mediante validación, bloqueo y escritura segura de sus componentes.
+- Mejorada la compatibilidad de LWJGL 3.3.3, 3.4.1 y 3.4.2 con Java moderno y versiones recientes de Minecraft.
+- Corregida la rotación duplicada de Minecraft en OnePlus 6/6T al utilizar la representación de superficie alternativa.
+- Mejor detección de mods con librerías nativas de escritorio incompatibles con Android.
+- Los argumentos JVM personalizados sustituyen correctamente al argumento equivalente incluido por la versión o el launcher.
+- Los cierres normales de Minecraft dejan de generar informes de crash por errores recuperables del narrador u otros componentes opcionales.
+- El nombre `Battly Launcher` se conserva sin traducir en todos los idiomas y queda protegido por una comprobación automática.
+- Mejorados los diagnósticos de memoria, renderer y proceso para facilitar el análisis de problemas dependientes del dispositivo.
+
 ## 2.1.1 - 2026-08-18
 
 - Corregido el flujo **Abrir modpack**: la instancia se selecciona, el modal se cierra y el inicio vuelve a mostrar la version correcta.

@@ -73,6 +73,7 @@ public final class GameHealthMonitor {
         long javaCommittedMb = bytesToMb(runtime.totalMemory());
         long javaMaxMb = bytesToMb(runtime.maxMemory());
         long nativeMb = bytesToMb(Debug.getNativeHeapAllocatedSize());
+        ProcStatusMemory processMemory = ProcStatusMemory.readSelf();
 
         int pssMb = -1;
         long availableMb = -1;
@@ -95,8 +96,9 @@ public final class GameHealthMonitor {
             if (power != null) thermal = power.getCurrentThermalStatus();
         }
         return String.format(Locale.ROOT,
-                "version=%s, renderer=%s, pss=%dMB, java=%d/%d/%dMB, native=%dMB, available=%dMB, lowMemory=%s, thermal=%d",
-                version, renderer, pssMb, javaUsedMb, javaCommittedMb, javaMaxMb,
+                "version=%s, renderer=%s, %s, pss=%dMB, java=%d/%d/%dMB, native=%dMB, available=%dMB, lowMemory=%s, thermal=%d",
+                version, renderer, processMemory.describe(), pssMb,
+                javaUsedMb, javaCommittedMb, javaMaxMb,
                 nativeMb, availableMb, lowMemory, thermal);
     }
 

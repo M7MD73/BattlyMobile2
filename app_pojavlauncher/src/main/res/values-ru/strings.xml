@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly Лаунчер</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -207,7 +207,7 @@
     <string name="arc_capes_title">Плащи Cosmetica</string>
     <string name="arc_capes_desc">Включает плащи от Cosmetica (ранее Arc). Для получения дополнительной информации посетите https://cosmetica.cc. Требуется OptiFine.</string>
     <string name="notif_channel_name">Общее</string>
-    <string name="lazy_service_default_title">Battly Служба переднего плана программы запуска</string>
+    <string name="lazy_service_default_title">Служба переднего плана Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Установлено</string>
     <string name="use_global_default">(Как везде)</string>
     <string name="default_control">Раскладка управления</string>
@@ -237,7 +237,7 @@
     <string name="preference_gyro_sample_rate_title">Интервал опроса гироскопа</string>
     <string name="preference_gyro_sample_rate_description">Увеличьте, если управление наклоном снижает производительность.</string>
     <string name="microsoft_login_retry_later">Слишком много запросов, попробуйте ещё раз позже.</string>
-    <string name="storage_required">Для запуска Battly требуется подключение внешнего накопителя. Пожалуйста, переподключите его и перезапустите приложение.</string>
+    <string name="storage_required">Battly Launcher требует подключения внешнего накопителя. Пожалуйста, переподключите его и перезапустите приложение.</string>
     <string name="mcl_setting_title_buttonallcaps">Заглавные буквы на кнопках</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Отключите, если хотите использовать строчные буквы в своей раскладке управления.</string>
     <string name="create_profile">Создать новый профиль</string>
@@ -405,7 +405,7 @@
     <string name="mg_renderer_summary_computeShaderext">Может помочь при сбоях набора шейдеров. Отключите, если не требуется, может привести к сбоям.</string>
     <string name="mg_renderer_title_multidrawCompute">Использовать вычислительную эмуляцию MultiDraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Использует вычислительные шейдеры для эмуляции MultiDraw</string>
-    <string name="app_short_name">Battly Лаунчер</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Только ванильные версии от 1.3.1 поддерживается для демонстрационных учётных записей</string>
     <string name="demo_unsupported">Демо-профиль не поддерживается</string>
     <string name="change_account">Пожалуйста, измените учётную запись для использования этой функции</string>
@@ -761,7 +761,7 @@
     <string name="credits_primary_development">Основное развитие</string>
     <string name="credits_section_title">Кредиты</string>
     <string name="credits_unaffiliated">Это приложение не связано с Minecraft, Mojang или Microsoft.</string>
-    <string name="credits_version">Версия 2.2.3</string>
+    <string name="credits_version">Версия 2.2.5</string>
     <string name="ctrl_applied_success">Элемент управления «%1$s» успешно применен.</string>
     <string name="ctrl_apply_btn">Применить контроль</string>
     <string name="ctrl_apply_msg">Загрузите и примените «%1$s» в качестве макета управления?</string>
@@ -947,7 +947,7 @@
     <string name="instance_storage_calculating">Расчет хранилища…</string>
     <string name="instance_use">Использование</string>
     <string name="java_runtime_download_message">Battly загружает Java 8 после первой установки вместо того, чтобы отправлять его внутри приложения. Это уменьшает размер приложения и подготавливает более старые версии Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Лаунчер на базе PojavLauncher и Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Кредиты&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -958,11 +958,11 @@
         • GNU GPLv3 и компоненты сторонних производителей, включенные в проект.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j и другие по оригинальным лицензиям.&lt;br/&gt;&lt;br/&gt;
         Это приложение не связано с Minecraft, Mojang или Microsoft.</string>
-    <string name="launcher_credits_title">Battly Лаунчер 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Скачать</string>
     <string name="launcher_download_modpack">Импортировать модпак</string>
     <string name="launcher_execute">Играть</string>
-    <string name="launcher_mobile_badge">Мобильная версия 2.2.3</string>
+    <string name="launcher_mobile_badge">Мобильная версия 2.2.5</string>
     <string name="launcher_nav_back">Вернуться назад</string>
     <string name="launcher_nav_home">Вернуться домой</string>
     <string name="launcher_nav_workspace">Battly Рабочая область</string>
@@ -1196,7 +1196,7 @@
     <string name="launcher_status_battly">Аккаунт Battly</string>
     <string name="launcher_status_battly_plus">Battly+ аккаунт</string>
     <string name="sodium_confirm_accept">Я принимаю риски</string>
-    <string name="sodium_confirm_message">Sodium официально не поддерживается программой запуска Battly.\n\nВключение этого параметра может привести к графическим ошибкам, сбоям и сбоям. На сервере Discord не будет предоставляться никакая поддержка по любым проблемам, связанным с Sodium, и не будет оказана помощь, если вы потеряете миры или сохраните данные.\n\nПринимая, вы подтверждаете, что включаете это на свой страх и риск.</string>
+    <string name="sodium_confirm_message">Sodium официально не поддерживается Battly Launcher.\n\nВключение этого параметра может привести к графическим ошибкам, сбоям и сбоям. На сервере Discord не будет предоставляться никакая поддержка по любым проблемам, связанным с Sodium, и не будет оказана помощь, если вы потеряете миры или сохраните данные.\n\nПринимая, вы подтверждаете, что включаете это на свой страх и риск.</string>
     <string name="sodium_confirm_title">Включить Sodium?</string>
     <string name="sodium_launch_anyway">Все равно запустить</string>
 
@@ -1507,19 +1507,19 @@
     <string name="world_install_button">Установить мир</string>
     <string name="world_install_success">%1$s установлен в этот экземпляр</string>
 
-    <string name="battly_whats_new_action_start">Исследуйте 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Действие «Открыть модпак» теперь выбирает новый экземпляр и корректно закрывает все окна установки и содержимого.</string>
-    <string name="battly_whats_new_compatibility_title">Открытие установленных модпаков напрямую</string>
-    <string name="battly_whats_new_controllers_desc">Установщик клиента Battly теперь использует правильный прокручиваемый список, в том числе на компактных экранах.</string>
-    <string name="battly_whats_new_controllers_title">Исправлена прокрутка списка клиентов</string>
-    <string name="battly_whats_new_desc">Новые изолированные экземпляры, загружаемые миры и важные исправления для Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Новые экземпляры Vanilla, загрузчика, клиента и модпаков хранят свои миры, моды, настройки и пакеты ресурсов в отдельной папке.</string>
-    <string name="battly_whats_new_instances_title">Отдельная папка для каждого нового экземпляра</string>
-    <string name="battly_whats_new_recovery_desc">Новая изоляция экземпляров, более безопасное хранение настроек и диагностика в течение длительного сеанса сокращают необходимость сброса конфигурации и упрощают выявление проблем.</string>
-    <string name="battly_whats_new_recovery_title">Улучшенная стабильность</string>
-    <string name="battly_whats_new_title">Battly Мобильная версия 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Существующие экземпляры остаются там, где они есть. Изоляция папок применяется только к экземплярам, ​​созданным начиная с этой версии.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 готов</string>
-    <string name="battly_whats_new_worlds_desc">Найдите и установите миры Minecraft из CurseForge непосредственно в выбранный вами экземпляр.</string>
-    <string name="battly_whats_new_worlds_title">Загрузка миров из Workspace</string>
+    <string name="battly_whats_new_action_start">Обнаружить 2.2.5</string>
+    <string name="battly_whats_new_compatibility_desc">Battly распознаёт плагины нативных библиотек и позволяет запускать совместимые моды, такие как Distant Horizons, когда необходимый плагин установлен.</string>
+    <string name="battly_whats_new_compatibility_title">Нативные плагины и Distant Horizons</string>
+    <string name="battly_whats_new_controllers_desc">Battly обращается к API на языке устройства и обновляет свой кэш, когда изменяется содержимое сервера.</string>
+    <string name="battly_whats_new_controllers_title">Всегда обновляемые новинки</string>
+    <string name="battly_whats_new_desc">Лучшая совместимость с Minecraft 26.3, нативное аудио для модов, переведенные новинки и исправления экрана.</string>
+    <string name="battly_whats_new_instances_desc">Исправлены запуск, текстуры и рендеринг Minecraft 26.3 в Vanilla, Fabric и кастомных версиях.</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 исправлено</string>
+    <string name="battly_whats_new_recovery_desc">Улучшены Vulkan и ориентация, размер окна Minecraft, аргументы JVM и обнаружение нормального завершения.</string>
+    <string name="battly_whats_new_recovery_title">Более точный запуск и завершение</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">Ваши существующие экземпляры и настройки остаются без изменений.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 готов</string>
+    <string name="battly_whats_new_worlds_desc">Моды могут обнаруживать микрофон Android, выбирать из доступных входов и записывать голос без отправки аудио игры.</string>
+    <string name="battly_whats_new_worlds_title">Микрофон доступен для модов</string>
 </resources>

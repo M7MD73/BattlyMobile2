@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Selecione um instalador de mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">O iniciador Battly travou inesperadamente</string>
+    <string name="error_fatal">O Battly Launcher travou inesperadamente</string>
     <string name="error_no_version">Nenhuma versão!</string>
     <string name="error_show_more">Mostrar mais</string>
     <string name="error_show_less">Mostrar menos</string>
@@ -380,8 +380,8 @@
     <string name="android_incompatible_mods_disable">Desativar e iniciar</string>
     <string name="android_incompatible_mods_message">Esses mods incluem bibliotecas nativas do Linux para desktop e não podem ser executados em Android:\n\n%1$s\n\nBattly pode desativá-los sem excluí-los.</string>
     <string name="android_incompatible_mods_title">Mod incompatível detectado</string>
-    <string name="app_name">Lançador Battly</string>
-    <string name="app_short_name">Lançador Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Conta Battly</string>
     <string name="auth_method_local">Conta local</string>
     <string name="auth_method_microsoft">Conta Microsoft</string>
@@ -687,7 +687,7 @@
     <string name="credits_primary_development">Desenvolvimento principal</string>
     <string name="credits_section_title">Créditos</string>
     <string name="credits_unaffiliated">Este aplicativo não é afiliado a Minecraft, Mojang ou Microsoft.</string>
-    <string name="credits_version">Versão 2.2.3</string>
+    <string name="credits_version">Versão 2.2.5</string>
     <string name="ctrl_applied_success">Controle "%1$s" aplicado com sucesso.</string>
     <string name="ctrl_apply_btn">Aplicar controle</string>
     <string name="ctrl_apply_msg">Baixar e aplicar "%1$s" como seu layout de controle?</string>
@@ -873,7 +873,7 @@
     <string name="instance_storage_calculating">Calculando armazenamento…</string>
     <string name="instance_use">Usar</string>
     <string name="java_runtime_download_message">Battly baixa Java 8 após a primeira configuração, em vez de enviá-lo dentro do aplicativo. Isso reduz o tamanho do aplicativo e prepara versões mais antigas do Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Lançador Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Lançador baseado em PojavLauncher e Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Créditos&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -884,11 +884,11 @@
         • GNU GPLv3 e componentes de terceiros incluídos no projeto.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j e mais sob suas licenças originais.&lt;br/&gt;&lt;br/&gt;
         Este aplicativo não é afiliado a Minecraft, Mojang ou Microsoft.</string>
-    <string name="launcher_credits_title">Lançador Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Baixar</string>
     <string name="launcher_download_modpack">Importar modpack</string>
     <string name="launcher_execute">Jogar</string>
-    <string name="launcher_mobile_badge">Móvel 2.2.3</string>
+    <string name="launcher_mobile_badge">Móvel 2.2.5</string>
     <string name="launcher_nav_back">Volte</string>
     <string name="launcher_nav_home">Voltar para casa</string>
     <string name="launcher_nav_workspace">Espaço de trabalho Battly</string>
@@ -921,7 +921,7 @@
     <string name="launcher_version_format">Versão %1$s</string>
     <string name="launcher_version_unknown">Desconhecido</string>
     <string name="launcher_versions_button">Versões</string>
-    <string name="lazy_service_default_title">Serviço de primeiro plano do iniciador Battly</string>
+    <string name="lazy_service_default_title">Serviço de primeiro plano do Battly Launcher</string>
     <string name="legacy_mixin_missing_message">Um de seus mods Forge 1.7.10 solicita Sponge Mixin, mas nenhum provedor Mixin ou UniMixins está instalado. Instale UniMixins/Mixin para 1.7.10 ou remova esse mod antes de iniciar Minecraft.</string>
     <string name="legacy_mixin_missing_title">Dependência do Mixin legado ausente</string>
     <string name="library_analyze_mods">Analisar</string>
@@ -1445,19 +1445,19 @@
     <string name="world_install_button">Instalar mundo</string>
     <string name="world_install_success">%1$s instalado nesta instância</string>
 
-    <string name="battly_whats_new_action_start">Explorar 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">A ação Abrir modpack agora seleciona a nova instância e fecha todas as janelas de instalação e conteúdo corretamente.</string>
-    <string name="battly_whats_new_compatibility_title">Abra modpacks instalados diretamente</string>
-    <string name="battly_whats_new_controllers_desc">O instalador do cliente Battly agora usa uma lista rolável adequada, inclusive em telas compactas.</string>
-    <string name="battly_whats_new_controllers_title">Rolagem da lista de clientes corrigida</string>
-    <string name="battly_whats_new_desc">Novas instâncias isoladas, mundos para download e correções importantes para o Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Novas instâncias Vanilla, loader, client e modpack mantêm seus mundos, mods, configurações e pacotes de recursos em uma pasta independente.</string>
-    <string name="battly_whats_new_instances_title">Uma pasta separada para cada nova instância</string>
-    <string name="battly_whats_new_recovery_desc">O isolamento de novas instâncias, o armazenamento mais seguro de configurações e o diagnóstico de sessões longas reduzem as redefinições de configuração e facilitam a identificação de problemas.</string>
-    <string name="battly_whats_new_recovery_title">Estabilidade melhorada</string>
-    <string name="battly_whats_new_title">Battly Móvel 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">As instâncias existentes permanecem onde estão. O isolamento de pasta se aplica somente a instâncias criadas a partir desta versão.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 está pronto</string>
-    <string name="battly_whats_new_worlds_desc">Navegue e instale mundos Minecraft de CurseForge diretamente na instância que você escolher.</string>
-    <string name="battly_whats_new_worlds_title">Baixe mundos do Workspace</string>
+    <string name="battly_whats_new_action_start">Descobrir a 2.2.5</string>
+    <string name="battly_whats_new_compatibility_desc">Battly reconhece plugins de bibliotecas nativas e permite iniciar mods compatíveis como Distant Horizons quando o plugin necessário está instalado.</string>
+    <string name="battly_whats_new_compatibility_title">Plugins nativos e Distant Horizons</string>
+    <string name="battly_whats_new_controllers_desc">Battly consulta a API no idioma do dispositivo e atualiza seu cache quando o conteúdo do servidor muda.</string>
+    <string name="battly_whats_new_controllers_title">Novidades sempre atualizadas</string>
+    <string name="battly_whats_new_desc">Melhor compatibilidade com Minecraft 26.3, áudio nativo para mods, novidades traduzidas e correções de tela.</string>
+    <string name="battly_whats_new_instances_desc">Corrigidos o início, as texturas e a renderização de Minecraft 26.3 no Vanilla, Fabric e versões personalizadas.</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 corrigido</string>
+    <string name="battly_whats_new_recovery_desc">Melhorados Vulkan e a orientação, o tamanho da janela de Minecraft, os argumentos JVM e a detecção de fechamentos normais.</string>
+    <string name="battly_whats_new_recovery_title">Início e fechamento mais precisos</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">Suas instâncias e configurações existentes permanecem sem alterações.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 está pronto</string>
+    <string name="battly_whats_new_worlds_desc">Os mods podem detectar o microfone do Android, escolher entre as entradas disponíveis e capturar voz sem enviar o áudio do jogo.</string>
+    <string name="battly_whats_new_worlds_title">Microfone disponível para os mods</string>
 </resources>

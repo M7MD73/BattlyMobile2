@@ -48,6 +48,12 @@ struct pojav_environ_s {
     jmethodID method_accessAndroidClipboard;
     jmethodID method_onGrabStateChanged;
     jmethodID method_onDirectInputEnable;
+    jmethodID method_listAndroidAudioInputs;
+    jmethodID method_openAndroidAudioInput;
+    jmethodID method_startAndroidAudioInput;
+    jmethodID method_readAndroidAudioInput;
+    jmethodID method_stopAndroidAudioInput;
+    jmethodID method_closeAndroidAudioInput;
     jmethodID method_glftSetWindowAttrib;
     jmethodID method_internalWindowSizeChanged;
     jmethodID method_internalChangeMonitorSize;

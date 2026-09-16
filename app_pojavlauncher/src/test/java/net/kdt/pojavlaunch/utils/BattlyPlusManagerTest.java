@@ -1,6 +1,7 @@
 package net.kdt.pojavlaunch.utils;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import net.kdt.pojavlaunch.value.MinecraftAccount;
@@ -45,5 +46,11 @@ public class BattlyPlusManagerTest {
 
         assertTrue(BattlyPlusManager.sameAccount(account, "premiumuser"));
         assertFalse(BattlyPlusManager.sameAccount(account, "AnotherUser"));
+    }
+
+    @Test
+    public void premiumCacheKeyIsStableAcrossUsernameCaseAndWhitespace() {
+        assertEquals(BattlyPlusManager.premiumPreferenceKey("Mykam"),
+                BattlyPlusManager.premiumPreferenceKey("  myKAM  "));
     }
 }

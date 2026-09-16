@@ -466,7 +466,7 @@
     <string name="credits_primary_development">Pangunahing pag-unlad</string>
     <string name="credits_section_title">Mga kredito</string>
     <string name="credits_unaffiliated">Ang app na ito ay hindi kaakibat sa Minecraft, Mojang o Microsoft.</string>
-    <string name="credits_version">Bersyon 2.2.3</string>
+    <string name="credits_version">Bersyon 2.2.5</string>
     <string name="ctrl_applied_success">Matagumpay na nailapat ang kontrol na "%1$s".</string>
     <string name="ctrl_apply_btn">Ilapat ang kontrol</string>
     <string name="ctrl_apply_msg">I-download at ilapat ang "%1$s" bilang iyong control layout?</string>
@@ -661,7 +661,7 @@
     <string name="java_runtime_download_progress">Dina-download ang Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Ini-install ang Java 8</string>
     <string name="java_runtime_download_waiting">Inihahanda ang pag-download ng Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher batay sa PojavLauncher at Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Mga Kredito&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -672,11 +672,11 @@
         • GNU GPLv3 at mga bahagi ng third-party na kasama sa proyekto.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j at higit pa sa ilalim ng kanilang mga orihinal na lisensya.&lt;br/&gt;&lt;br/&gt;
         Ang app na ito ay hindi kaakibat sa Minecraft, Mojang o Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">I-download</string>
     <string name="launcher_download_modpack">Mag-import ng modpack</string>
     <string name="launcher_execute">Maglaro</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.3</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
     <string name="launcher_nav_back">Bumalik ka</string>
     <string name="launcher_nav_home">Bumalik sa bahay</string>
     <string name="launcher_nav_workspace">Battly Workspace</string>
@@ -1263,20 +1263,4 @@
     <string name="search_world_download_error">Nabigong i-download ang metadata ng mundo</string>
     <string name="world_install_button">I-install ang mundo</string>
     <string name="world_install_success">%1$s na naka-install sa pagkakataong ito</string>
-
-    <string name="battly_whats_new_action_start">Galugarin ang 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Pinipili na ngayon ng Open modpack action ang bagong instance at isinasara nang tama ang bawat installation at content window.</string>
-    <string name="battly_whats_new_compatibility_title">Direktang buksan ang mga naka-install na modpack</string>
-    <string name="battly_whats_new_controllers_desc">Gumagamit na ngayon ang Battly client installer ng tamang scroll na listahan, kasama ang mga compact na screen.</string>
-    <string name="battly_whats_new_controllers_title">Naayos ang pag-scroll ng listahan ng kliyente</string>
-    <string name="battly_whats_new_desc">Mga bagong hiwalay na pagkakataon, nada-download na mundo at mahahalagang pag-aayos para sa Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Ang mga bagong Vanilla, loader, client at modpack instance ay nagpapanatili ng kanilang mga mundo, mod, setting at resource pack sa isang independiyenteng folder.</string>
-    <string name="battly_whats_new_instances_title">Isang hiwalay na folder para sa bawat bagong pagkakataon</string>
-    <string name="battly_whats_new_recovery_desc">Ang bagong instance isolation, mas ligtas na storage ng mga setting, at long-session diagnostics ay binabawasan ang mga pag-reset ng configuration at ginagawang mas madaling matukoy ang mga problema.</string>
-    <string name="battly_whats_new_recovery_title">Pinahusay na katatagan</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Ang mga kasalukuyang pagkakataon ay nananatili kung nasaan sila. Nalalapat lang ang paghihiwalay ng folder sa mga pagkakataong ginawa mula sa bersyong ito.</string>
-    <string name="battly_whats_new_transition_title">Handa na ang Battly 2.2.3</string>
-    <string name="battly_whats_new_worlds_desc">Mag-browse at mag-install ng Minecraft mundo mula sa CurseForge nang direkta sa pipiliin mong pagkakataon.</string>
-    <string name="battly_whats_new_worlds_title">Mag-download ng mga mundo mula sa Workspace</string>
 </resources>

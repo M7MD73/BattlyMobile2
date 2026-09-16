@@ -178,7 +178,7 @@
     <string name="toast_turn_on_gyro">enable gyroscopz controlz first to use dis!</string>
     <string name="preference_gyro_sample_rate_description">if yu hav purrformance issuez wid gyroscopz controlz, increase dis.</string>
     <string name="microsoft_login_retry_later">too many requestz, purrlease try again later.</string>
-    <string name="storage_required">battly requirez app storage to be available. purrlease restart da app.</string>
+    <string name="storage_required">Battly Launcher requirez app storage to be available. purrlease restart da app.</string>
     <string name="mcl_setting_title_buttonallcaps">only use capital letterz in button labelz</string>
     <string name="mcl_setting_subtitle_buttonallcaps">disable dis if yu want to use lowurcase letturz in yor controlz.</string>
     <string name="preference_shader_dump_description">log converted shaderz into da log file.</string>
@@ -371,7 +371,7 @@ if yu wanna use teh offishul download source, press "switch to offishul site" n 
     <string name="crash_no_findings">No known crash pattern was found in the latest logs.</string>
     <string name="crash_recovery_applied">Recovery action completed</string>
     <string name="crash_recovery_manual">This issue needs a manual change. Open the log for details.</string>
-    <string name="credits_version">Version 2.2.3</string>
+    <string name="credits_version">Version 2.2.5</string>
     <string name="ctrl_like_btn">Like</string>
     <string name="ctrl_liked_added">Added to liked controls.</string>
     <string name="ctrl_liked_btn">Liked</string>
@@ -432,8 +432,8 @@ if yu wanna use teh offishul download source, press "switch to offishul site" n 
     <string name="java_runtime_download_progress">Downloading Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installing Java 8</string>
     <string name="java_runtime_download_waiting">Preparing Java 8 download...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
     <string name="launcher_status_battly">Battly account</string>
     <string name="launcher_status_battly_plus">Battly+ account</string>
     <string name="library_analyze_mods">Analyze</string>

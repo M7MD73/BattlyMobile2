@@ -4,6 +4,12 @@ import net.kdt.pojavlaunch.*;
 import net.kdt.pojavlaunch.customcontrols.gamepad.direct.DirectGamepadEnableHandler;
 
 import android.content.*;
+import android.media.AudioDeviceInfo;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -13,14 +19,19 @@ import android.view.MotionEvent;
 
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import org.libsdl.app.SDLActivity;
+import org.libsdl.app.SDL;
 
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import dalvik.annotation.optimization.CriticalNative;
 
@@ -33,6 +44,9 @@ public class CallbackBridge {
     private static @Nullable WeakReference<DirectGamepadEnableHandler> sDirectGamepadEnableHandler;
     private static boolean sSdlInputBridgeLogged;
     private static int sSdlMouseButtonState;
+    private static final AtomicInteger sNextAudioCaptureHandle = new AtomicInteger(1);
+    private static final Map<Integer, AudioRecord> sAudioCaptures = new ConcurrentHashMap<>();
+    private static volatile @Nullable Context sAndroidAudioContext;
     
     public static final int CLIPBOARD_COPY = 2000;
     public static final int CLIPBOARD_PASTE = 2001;
@@ -258,6 +272,186 @@ public class CallbackBridge {
                 MainActivity.openLink(copy);
                 return null;
             default: return null;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static String listAndroidAudioInputs() {
+        return listAndroidAudioInputs(resolveAndroidAudioContext());
+    }
+
+    public static void setAndroidAudioContext(Context context) {
+        sAndroidAudioContext = context.getApplicationContext();
+    }
+
+    public static String listAndroidAudioInputs(@Nullable Context context) {
+        if (context == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return "";
+        AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (manager == null) return "";
+
+        StringBuilder result = new StringBuilder();
+        for (AudioDeviceInfo device : manager.getDevices(AudioManager.GET_DEVICES_INPUTS)) {
+            if (!device.isSource() || !isSelectableAudioInputType(device.getType())) continue;
+            String typeName = audioInputTypeName(device.getType());
+            String product = device.getProductName() == null
+                    ? "" : device.getProductName().toString().trim();
+            String name = product.isEmpty() || product.equalsIgnoreCase(typeName)
+                    ? typeName : typeName + " - " + product;
+            if (result.length() > 0) result.append('\n');
+            result.append(device.getId()).append('\t')
+                    .append(device.getType()).append('\t')
+                    .append(name.replace('\t', ' ').replace('\n', ' '));
+        }
+        return result.toString();
+    }
+
+    private static boolean isSelectableAudioInputType(int type) {
+        switch (type) {
+            case AudioDeviceInfo.TYPE_BUILTIN_MIC:
+            case AudioDeviceInfo.TYPE_WIRED_HEADSET:
+            case AudioDeviceInfo.TYPE_BLUETOOTH_SCO:
+            case AudioDeviceInfo.TYPE_USB_DEVICE:
+            case AudioDeviceInfo.TYPE_USB_ACCESSORY:
+            case AudioDeviceInfo.TYPE_USB_HEADSET:
+                return true;
+            default:
+                return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+                        && type == AudioDeviceInfo.TYPE_BLE_HEADSET;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static int openAndroidAudioInput(int deviceId, int sampleRate,
+                                            int channels, int requestedBufferSize) {
+        Context context = resolveAndroidAudioContext();
+        if (context == null) {
+            Log.w("BattlyAudio", "Microphone capture requested without an Android context");
+            return -1;
+        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                || ContextCompat.checkSelfPermission(context, android.Manifest.permission.RECORD_AUDIO)
+                != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            Log.w("BattlyAudio", "Microphone capture requested without RECORD_AUDIO permission");
+            return -1;
+        }
+
+        int channelMask = channels == 2
+                ? AudioFormat.CHANNEL_IN_STEREO : AudioFormat.CHANNEL_IN_MONO;
+        int minimum = AudioRecord.getMinBufferSize(sampleRate, channelMask,
+                AudioFormat.ENCODING_PCM_16BIT);
+        if (minimum <= 0) return -1;
+        int bufferSize = Math.max(minimum * 2, requestedBufferSize);
+        AudioRecord record = null;
+        try {
+            record = new AudioRecord.Builder()
+                    .setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
+                    .setAudioFormat(new AudioFormat.Builder()
+                            .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                            .setSampleRate(sampleRate)
+                            .setChannelMask(channelMask)
+                            .build())
+                    .setBufferSizeInBytes(bufferSize)
+                    .build();
+            if (record.getState() != AudioRecord.STATE_INITIALIZED) {
+                record.release();
+                return -1;
+            }
+            if (deviceId >= 0) {
+                AudioDeviceInfo selected = findAudioInput(context, deviceId);
+                if (selected == null || !record.setPreferredDevice(selected)) {
+                    Log.w("BattlyAudio", "Unable to select Android input device " + deviceId);
+                    record.release();
+                    return -1;
+                }
+            }
+            int handle = sNextAudioCaptureHandle.getAndIncrement();
+            sAudioCaptures.put(handle, record);
+            Log.i("BattlyAudio", "Opened Android input " + deviceId + " as capture " + handle);
+            return handle;
+        } catch (RuntimeException error) {
+            if (record != null) record.release();
+            Log.e("BattlyAudio", "Unable to open Android microphone", error);
+            return -1;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static boolean startAndroidAudioInput(int handle) {
+        AudioRecord record = sAudioCaptures.get(handle);
+        if (record == null) return false;
+        try {
+            record.startRecording();
+            return record.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING;
+        } catch (RuntimeException error) {
+            Log.e("BattlyAudio", "Unable to start Android microphone", error);
+            return false;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static byte[] readAndroidAudioInput(int handle, int length) {
+        AudioRecord record = sAudioCaptures.get(handle);
+        if (record == null || length <= 0) return new byte[0];
+        byte[] data = new byte[length];
+        int read = record.read(data, 0, length, AudioRecord.READ_BLOCKING);
+        if (read <= 0) return new byte[0];
+        if (read == length) return data;
+        byte[] exact = new byte[read];
+        System.arraycopy(data, 0, exact, 0, read);
+        return exact;
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static void stopAndroidAudioInput(int handle) {
+        AudioRecord record = sAudioCaptures.get(handle);
+        if (record == null || record.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING) return;
+        try {
+            record.stop();
+        } catch (RuntimeException error) {
+            Log.w("BattlyAudio", "Unable to stop Android microphone cleanly", error);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @Keep
+    public static void closeAndroidAudioInput(int handle) {
+        AudioRecord record = sAudioCaptures.remove(handle);
+        if (record == null) return;
+        try {
+            if (record.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) record.stop();
+        } catch (RuntimeException ignored) {
+        }
+        record.release();
+    }
+
+    private static @Nullable AudioDeviceInfo findAudioInput(Context context, int deviceId) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null;
+        AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (manager == null) return null;
+        for (AudioDeviceInfo device : manager.getDevices(AudioManager.GET_DEVICES_INPUTS)) {
+            if (device.isSource() && device.getId() == deviceId) return device;
+        }
+        return null;
+    }
+
+    private static @Nullable Context resolveAndroidAudioContext() {
+        Context sdlContext = SDL.getContext();
+        return sdlContext != null ? sdlContext : sAndroidAudioContext;
+    }
+
+    private static String audioInputTypeName(int type) {
+        switch (type) {
+            case AudioDeviceInfo.TYPE_BUILTIN_MIC: return "Internal microphone";
+            case AudioDeviceInfo.TYPE_WIRED_HEADSET: return "Wired headset microphone";
+            case AudioDeviceInfo.TYPE_BLUETOOTH_SCO: return "Bluetooth microphone";
+            case AudioDeviceInfo.TYPE_USB_DEVICE:
+            case AudioDeviceInfo.TYPE_USB_HEADSET: return "USB microphone";
+            default: return "Android microphone";
         }
     }
 

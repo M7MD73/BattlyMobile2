@@ -11,7 +11,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Мода ҡуйыусыһын һайлағыҙ</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly стартер көтөлмәгәнсә ҡолаған</string>
+    <string name="error_fatal">Battly Launcher көтөлмәгәнсә ҡолаған</string>
     <string name="error_no_version">Версиялар юҡ!</string>
     <string name="error_show_more">Күберәк</string>
     <string name="error_show_less">Әҙерәк</string>
@@ -220,7 +220,7 @@
     <string name="crash_no_findings">Һуңғы журналдарҙа билдәле авария ҡалыбы табылмаған.</string>
     <string name="crash_recovery_applied">Һауыҡтырыу акцияһы тамамланды</string>
     <string name="crash_recovery_manual">Был мәсьәләне ҡул менән үҙгәртергә кәрәк. Ентекле мәғлүмәт өсөн журналды асығыҙ.</string>
-    <string name="credits_version">2.2.3 версияһы</string>
+    <string name="credits_version">2.2.5 версияһы</string>
     <string name="ctrl_like_btn">Оҡшай</string>
     <string name="ctrl_liked_added">Оҡшаған контроль элементтарға өҫтәлде.</string>
     <string name="ctrl_liked_btn">Оҡшаны</string>
@@ -281,8 +281,8 @@
     <string name="java_runtime_download_progress">Скачивание Java %1$d (%2$.1f МБ / %3$.1f МБ)</string>
     <string name="java_runtime_download_title">Установка Java 8</string>
     <string name="java_runtime_download_waiting">әҙерләү Java 8 скачать...</string>
-    <string name="launcher_credits_title">Battly2.2.3.</string>
-    <string name="launcher_mobile_badge">Мобиль 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Мобиль 2.2.5</string>
     <string name="launcher_status_battly">Battly иҫәбенә</string>
     <string name="launcher_status_battly_plus">Battly+ иҫәп яҙмаһы</string>
     <string name="library_analyze_mods">Анализлау</string>
@@ -509,8 +509,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Battly ҡулланыу өсөн, һайлау, нисек һеҙ теләйһегеҙ, тип инеү һәм идара итеү һаҡланған Java иҫәп яҙмалары.</string>
     <string name="account_manager_title">Иҫәп менеджеры</string>
-    <string name="app_name">Battly Пуск</string>
-    <string name="app_short_name">Battly Пуск</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly Иҫәп яҙмаһы</string>
     <string name="auth_method_local">Урындағы иҫәп яҙмаһы</string>
     <string name="auth_method_microsoft">Microsoft Иҫәп яҙмаһы</string>
@@ -765,7 +765,7 @@
     <string name="installer_internal_fallback">Ярҙам итмәгән ҡуйыусы, иҫке Java UI аса</string>
     <string name="installer_internal_running">Анализлау ҡуйыусы...</string>
     <string name="installer_internal_success">%1$s туранан-тура Battly эсендә ҡуйылған</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Запуск 2.2.3
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5
         ПоджавЛанчер һәм Бордволк нигеҙендә стартер.&lt;br/&gt;&lt;br/&gt;
         Кредиттар&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -809,7 +809,7 @@
     <string name="launcher_version_format">Версия %1$s</string>
     <string name="launcher_version_unknown">Билдәһеҙ</string>
     <string name="launcher_versions_button">Версиялары</string>
-    <string name="lazy_service_default_title">Battly пускатель алғы план хеҙмәте</string>
+    <string name="lazy_service_default_title">Battly Launcher алғы план хеҙмәте</string>
     <string name="legacy_mixin_missing_message">Һеҙҙең Forge 1.7.10 модтарының береһе Губка Миксин һорай, әммә бер ниндәй ҙә Миксин йәки UniMixins провайдеры ҡуйылған. 1.7.10 өсөн ЮниМиксиндар/Миксин ҡуйырға йәки был модты Minecraft башлағансы алып ташларға.</string>
     <string name="legacy_mixin_missing_title">Мираҫ Mixin бәйлелеге юҡ</string>
     <string name="library_button_desc">Асыҡ китапхана</string>
@@ -1035,7 +1035,7 @@
     <string name="settings_panel_title">Запуск параметрҙары</string>
     <string name="shader_install_button">Шейдер ҡуйыу</string>
     <string name="shader_install_success">%1$s шейдерпактарға ҡуйылған</string>
-    <string name="storage_required">Battly Запуск тышҡы һаҡлау өсөн беркетелгән булырға тейеш. Зинһар, уны яңынан тоташтырығыҙ һәм ҡушымтаны яңынан эшләтеп ебәрегеҙ.</string>
+    <string name="storage_required">Battly Launcher тышҡы һаҡлау өсөн беркетелгән булырға тейеш. Зинһар, уны яңынан тоташтырығыҙ һәм ҡушымтаны яңынан эшләтеп ебәрегеҙ.</string>
     <string name="vanilla_install_create">Профиль булдырыу</string>
     <string name="vanilla_install_created">Профиль төҙөлдө</string>
     <string name="vanilla_install_downloading">Скачать Minecraft...</string>
@@ -1204,20 +1204,4 @@
     <string name="search_world_download_error">Донъя метамағлүмәттәрен күсереп алыу мөмкин булманы</string>
     <string name="world_install_button">Донъя ҡуйыу</string>
     <string name="world_install_success">Был данаға %1$s ҡуйылған</string>
-
-    <string name="battly_whats_new_action_start">2.2.3 тикшерергә</string>
-    <string name="battly_whats_new_compatibility_desc">Open modpack ғәмәле хәҙер яңы экземплярҙы һайлай һәм һәр ҡуйыу һәм йөкмәтке тәҙрәһен дөрөҫ яба.</string>
-    <string name="battly_whats_new_compatibility_title">Ҡуйылған модпактарҙы туранан-тура асыу</string>
-    <string name="battly_whats_new_controllers_desc">Battly клиент ҡуйыусы хәҙер дөрөҫ прокручиваемый исемлек ҡуллана, шул иҫәптән компакт экрандарҙа.</string>
-    <string name="battly_whats_new_controllers_title">Клиент исемлеге прокруткаһы нығытылған</string>
-    <string name="battly_whats_new_desc">Яңы айырымланған осраҡтар, скачиваемый донъялар һәм мөһим төҙәтеүҙәр өсөн Battly Эш майҙаны.</string>
-    <string name="battly_whats_new_instances_desc">Яңы Vanilla, загрузчик, клиент һәм modpack экземплярҙары үҙ донъяларын, модтарҙы, параметрҙарҙы һәм ресурс пакеттарын бойондороҡһоҙ папкала һаҡлай.</string>
-    <string name="battly_whats_new_instances_title">Һәр яңы экземпляр өсөн айырым папка</string>
-    <string name="battly_whats_new_recovery_desc">Яңы экземпляр изоляцияһы, хәүефһеҙерәк параметрҙарҙы һаҡлау һәм оҙайлы сеанс диагностикаһы конфигурацияны ҡайтанан тергеҙеүҙе кәметә һәм проблемаларҙы асыҡлауҙы еңеләйтә.</string>
-    <string name="battly_whats_new_recovery_title">Яҡшыртылған тотороҡлолоҡ</string>
-    <string name="battly_whats_new_title">Battly Мобиль 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Булған инстанциялар үҙҙәре булған урында ҡала. Папкаларҙы айырыу был версиянан башлап булдырылған экземплярҙарға ғына ҡағыла.</string>
-    <string name="battly_whats_new_transition_title">Battly2.2.3 әҙер</string>
-    <string name="battly_whats_new_worlds_desc">Ҡарау һәм ҡуйыу Minecraft донъяларҙан CurseForge туранан-тура һеҙ һайлаған экземплярға.</string>
-    <string name="battly_whats_new_worlds_title">Эш урынынан донъяларҙы күсерергә</string>
 </resources>

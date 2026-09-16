@@ -21,6 +21,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.jar.JarFile;
 
 public class AsyncAssetManager {
 
@@ -133,12 +137,7 @@ public class AsyncAssetManager {
     public static synchronized void unpackLwjglNatives(Context ctx) throws IOException {
         AssetManager am = ctx.getAssets();
         String sArch = archAsStringAndroid(getDeviceArchitecture());
-        File obsolete333Dir = new File(Tools.DIR_DATA, "lwjgl-3.3.3-natives/" + sArch);
-        if (obsolete333Dir.exists()) {
-            FileUtils.deleteDirectory(obsolete333Dir);
-            Log.i("UnpackLwjgl", "Removed obsolete LWJGL 3.3.3 native component " + obsolete333Dir);
-        }
-        String[] lwjglVersions = {"3.4.1", "3.4.2"};
+        String[] lwjglVersions = {"3.3.3", "3.4.1", "3.4.2"};
         for (String lwjglVersion : lwjglVersions) {
             String component = "lwjgl-" + lwjglVersion + "-natives";
             String componentPath = component + "/" + sArch;
@@ -188,18 +187,77 @@ public class AsyncAssetManager {
         }
     }
 
-    private static void unpackLwjglRootFiles(Context ctx) throws IOException {
+    private static synchronized void unpackLwjglRootFiles(Context ctx) throws IOException {
         AssetManager am = ctx.getAssets();
         String[] fileList = am.list("components/lwjgl3");
         if (fileList == null) return;
         File targetDir = new File(Tools.DIR_GAME_HOME, "lwjgl3");
         //noinspection ResultOfMethodCallIgnored
         targetDir.mkdirs();
+
+        File lockFile = new File(targetDir, ".install.lock");
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(lockFile, "rw");
+             FileChannel channel = randomAccessFile.getChannel();
+             FileLock ignored = channel.lock()) {
+            unpackLwjglRootFilesLocked(ctx, am, fileList, targetDir);
+        }
+    }
+
+    private static void unpackLwjglRootFilesLocked(Context ctx, AssetManager am,
+                                                   String[] fileList, File targetDir) throws IOException {
+
+        String packagedVersion;
+        try (InputStream inputStream = am.open("components/lwjgl3/version")) {
+            packagedVersion = Tools.read(inputStream);
+        }
+        File installedVersionFile = new File(targetDir, "version");
+        String installedVersion = null;
+        if (installedVersionFile.isFile()) {
+            try (FileInputStream inputStream = new FileInputStream(installedVersionFile)) {
+                installedVersion = Tools.read(inputStream);
+            }
+        }
+
+        boolean shouldUpdate = !packagedVersion.equals(installedVersion);
+        if (!shouldUpdate) {
+            for (String fileName : fileList) {
+                if ("version".equals(fileName) || !hasAsset(am, "components/lwjgl3/" + fileName)) {
+                    continue;
+                }
+                File installedFile = new File(targetDir, fileName);
+                if (!isUsableInstalledAsset(installedFile, fileName)) {
+                    Log.w("UnpackLwjgl", "LWJGL root component is incomplete: " + fileName);
+                    shouldUpdate = true;
+                    break;
+                }
+            }
+        }
+        if (!shouldUpdate) {
+            Log.i("UnpackLwjgl", "LWJGL root files are up-to-date with the launcher, continuing...");
+            return;
+        }
+
         for (String fileName : fileList) {
-            if (!hasAsset(am, "components/lwjgl3/" + fileName)) {
+            if ("version".equals(fileName) || !hasAsset(am, "components/lwjgl3/" + fileName)) {
                 continue;
             }
             Tools.copyAssetFile(ctx, "components/lwjgl3/" + fileName, targetDir.getAbsolutePath(), true);
+        }
+        // Commit the version marker last so interrupted updates are repaired next launch.
+        Tools.copyAssetFile(ctx, "components/lwjgl3/version", targetDir.getAbsolutePath(), true);
+    }
+
+    private static boolean isUsableInstalledAsset(File file, String fileName) {
+        if (!file.isFile() || file.length() == 0) return false;
+        if (!fileName.endsWith(".jar")) return true;
+        try (JarFile jar = new JarFile(file)) {
+            if ("lwjgl-patch-agent.jar".equals(fileName)) {
+                return jar.getManifest() != null
+                        && jar.getJarEntry("net/kdt/patch/LwjglPatchAgent.class") != null;
+            }
+            return jar.entries().hasMoreElements();
+        } catch (IOException | RuntimeException exception) {
+            return false;
         }
     }
 

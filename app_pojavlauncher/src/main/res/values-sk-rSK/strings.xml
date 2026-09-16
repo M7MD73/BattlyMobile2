@@ -11,7 +11,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Vybrať installer módu</string>
     <!-- Error messages -->
-    <string name="error_fatal">Spúšťač Battly neočakávane zlyhal</string>
+    <string name="error_fatal">Battly Launcher neočakávane zlyhal</string>
     <string name="error_no_version">Žiadne verzie!</string>
     <string name="error_show_more">Zobraziť viac</string>
     <string name="error_show_less">Zobraziť menej</string>
@@ -200,7 +200,7 @@
     <string name="preference_gyro_sample_rate_title">Obnovovacia frekvencia gyroskopu</string>
     <string name="preference_gyro_sample_rate_description">Ak máte problémy s výkonom pri používaní ovládania gyroskopom, zvýšte toto.</string>
     <string name="microsoft_login_retry_later">Príliš veľa žiadostí. Skúste to neskôr, prosím.</string>
-    <string name="storage_required">Spúšťač Battly vyžaduje pripojenie externého úložiska. Znova ho pripojte a reštartujte aplikáciu.</string>
+    <string name="storage_required">Battly Launcher vyžaduje pripojenie externého úložiska. Znova ho pripojte a reštartujte aplikáciu.</string>
     <string name="mcl_setting_title_buttonallcaps">V označeniach tlačidiel používať len veľké písmená</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Ak chcete v ovládacích prvkoch používať malé písmená, vypnite toto.</string>
     <string name="preference_shader_dump_title">Povolenie shader dumpingu</string>
@@ -299,8 +299,8 @@
     <string name="android_incompatible_mods_disable">Zakázať a spustiť</string>
     <string name="android_incompatible_mods_message">Tieto mody zahŕňajú natívne knižnice pre desktop Linux a nedajú sa spustiť na Android:\n\n%1$s\n\nBattly ich môže zakázať bez ich odstránenia.</string>
     <string name="android_incompatible_mods_title">Zistil sa nekompatibilný mod</string>
-    <string name="app_name">Spúšťač Battly</string>
-    <string name="app_short_name">Spúšťač Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Účet Battly</string>
     <string name="auth_method_local">Miestny účet</string>
     <string name="auth_method_microsoft">Účet Microsoft</string>
@@ -618,7 +618,7 @@
     <string name="credits_primary_development">Hlavný vývoj</string>
     <string name="credits_section_title">Kredity</string>
     <string name="credits_unaffiliated">Táto aplikácia nie je pridružená k Minecraft, Mojang alebo Microsoft.</string>
-    <string name="credits_version">Verzia 2.2.3</string>
+    <string name="credits_version">Verzia 2.2.5</string>
     <string name="ctrl_applied_success">Kontrola „%1$s“ bola úspešne použitá.</string>
     <string name="ctrl_apply_btn">Použite kontrolu</string>
     <string name="ctrl_apply_msg">Stiahnuť a použiť „%1$s“ ako rozloženie ovládacích prvkov?</string>
@@ -813,7 +813,7 @@
     <string name="java_runtime_download_progress">Sťahovanie Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Inštalácia Java 8</string>
     <string name="java_runtime_download_waiting">Pripravuje sa stiahnutie Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Spúšťač Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher založený na PojavLauncher a Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredity&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -824,11 +824,11 @@
         • GNU GPLv3 a komponenty tretích strán zahrnuté v projekte.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j a ďalšie pod ich pôvodnými licenciami.&lt;br/&gt;&lt;br/&gt;
         Táto aplikácia nie je pridružená k Minecraft, Mojang alebo Microsoft.</string>
-    <string name="launcher_credits_title">Spúšťač Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Stiahnuť</string>
     <string name="launcher_download_modpack">Importujte modpack</string>
     <string name="launcher_execute">Hrať</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_nav_back">Choď späť</string>
     <string name="launcher_nav_home">Vráťte sa domov</string>
     <string name="launcher_nav_workspace">Pracovný priestor Battly</string>
@@ -861,7 +861,7 @@
     <string name="launcher_version_format">Verzia %1$s</string>
     <string name="launcher_version_unknown">Neznámy</string>
     <string name="launcher_versions_button">Verzie</string>
-    <string name="lazy_service_default_title">Služba popredia spúšťača Battly</string>
+    <string name="lazy_service_default_title">Služba Battly Launcher v popredí</string>
     <string name="legacy_mixin_missing_message">Jeden z vašich modov Forge 1.7.10 vyžaduje Sponge Mixin, ale nie je nainštalovaný žiadny poskytovateľ Mixin alebo UniMixins. Pred spustením Minecraft nainštalujte UniMixins/Mixin pre 1.7.10 alebo tento mod odstráňte.</string>
     <string name="legacy_mixin_missing_title">Chýba staršia závislosť Mixin</string>
     <string name="library_analyze_mods">Analyzovať</string>
@@ -1074,7 +1074,7 @@
     <string name="newdl_downloading_game_files_size">Sťahuje sa hra… (%1$.2f/%2$.2f MB, %3$.2f MB/s)</string>
     <string name="newdl_extracting_native_libraries">Extrahovanie natívnych knižníc (%1$d/%2$d)</string>
     <string name="sodium_confirm_accept">Prijímam riziká</string>
-    <string name="sodium_confirm_message">Sodium nie je oficiálne podporovaný spúšťačom Battly.\n\nPovolenie môže spôsobiť grafické chyby, chyby a zlyhania. Server Discord nebude poskytovať žiadnu podporu pre problémy súvisiace so Sodium a nebude poskytnutá žiadna pomoc, ak stratíte svety alebo uložíte údaje.\n\nPrijatím beriete na vedomie, že to povoľujete na vlastné riziko.</string>
+    <string name="sodium_confirm_message">Sodium nie je oficiálne podporovaný aplikáciou Battly Launcher.\n\nPovolenie môže spôsobiť grafické chyby, chyby a zlyhania. Server Discord nebude poskytovať žiadnu podporu pre problémy súvisiace so Sodium a nebude poskytnutá žiadna pomoc, ak stratíte svety alebo uložíte údaje.\n\nPrijatím beriete na vedomie, že to povoľujete na vlastné riziko.</string>
     <string name="sodium_confirm_title">Povoliť Sodium?</string>
     <string name="sodium_launch_anyway">Napriek tomu spustiť</string>
 
@@ -1408,20 +1408,4 @@
     <string name="search_world_download_error">Nepodarilo sa stiahnuť metadáta sveta</string>
     <string name="world_install_button">Inštalovať svet</string>
     <string name="world_install_success">%1$s nainštalovaný do tejto inštancie</string>
-
-    <string name="battly_whats_new_action_start">Preskúmať 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Akcia Open modpack teraz vyberie novú inštanciu a správne zatvorí každé okno inštalácie a obsahu.</string>
-    <string name="battly_whats_new_compatibility_title">Otvorte nainštalované modpacky priamo</string>
-    <string name="battly_whats_new_controllers_desc">Inštalačný program klienta Battly teraz používa správny rolovací zoznam, a to aj na kompaktných obrazovkách.</string>
-    <string name="battly_whats_new_controllers_title">Opravené posúvanie zoznamu klientov</string>
-    <string name="battly_whats_new_desc">Nové izolované inštancie, svety na stiahnutie a dôležité opravy pre Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nové inštancie Vanilla, loader, client a modpack uchovávajú svoje svety, mody, nastavenia a balíčky zdrojov v nezávislom priečinku.</string>
-    <string name="battly_whats_new_instances_title">Samostatný priečinok pre každú novú inštanciu</string>
-    <string name="battly_whats_new_recovery_desc">Nová izolácia inštancií, bezpečnejšie ukladanie nastavení a diagnostika dlhých relácií znižujú resetovanie konfigurácie a uľahčujú identifikáciu problémov.</string>
-    <string name="battly_whats_new_recovery_title">Vylepšená stabilita</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Existujúce prípady zostávajú tam, kde sú. Izolácia priečinkov sa vzťahuje iba na inštancie vytvorené od tejto verzie.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 je pripravený</string>
-    <string name="battly_whats_new_worlds_desc">Prehliadajte a nainštalujte svety Minecraft zo CurseForge priamo do inštancie, ktorú si vyberiete.</string>
-    <string name="battly_whats_new_worlds_title">Stiahnite si svety z Workspace</string>
 </resources>

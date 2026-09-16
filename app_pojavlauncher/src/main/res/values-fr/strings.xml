@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Lanceur Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Sélectionnez un installateur de mods</string>
     <!-- Error messages -->
-    <string name="error_fatal">Le lanceur Battly s\'est écrasé de manière inattendue</string>
+    <string name="error_fatal">Le Battly Launcher s\'est écrasé de manière inattendue</string>
     <string name="error_no_version">Aucune version !</string>
     <string name="error_show_more">Afficher plus</string>
     <string name="error_show_less">Afficher moins</string>
@@ -204,7 +204,7 @@
     <string name="arc_capes_title">Capes Cosmetica</string>
     <string name="arc_capes_desc">Active les capes Cosmetica. Pour plus d\'informations visitez https://cosmetica.cc. Nécessite OptiFine.</string>
     <string name="notif_channel_name">Général</string>
-    <string name="lazy_service_default_title">Service de premier plan du lanceur Battly</string>
+    <string name="lazy_service_default_title">Service de premier plan du Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Installés</string>
     <string name="use_global_default">(Utiliser la valeur globale par défaut)</string>
     <string name="default_control">Contrôles par défaut</string>
@@ -234,7 +234,7 @@
     <string name="preference_gyro_sample_rate_title">Taux d\'échantillonnage du gyroscope</string>
     <string name="preference_gyro_sample_rate_description">Si vous avez des problèmes de performance avec les commandes du gyroscope, augmentez cette valeur.</string>
     <string name="microsoft_login_retry_later">Trop de requêtes, s\'il vous plaît réessayez plus tard.</string>
-    <string name="storage_required">Le lanceur Battly nécessite la connexion d’un stockage externe. Veuillez le reconnecter et redémarrer l\'application.</string>
+    <string name="storage_required">Le Battly Launcher nécessite la connexion d’un stockage externe. Veuillez le reconnecter et redémarrer l\'application.</string>
     <string name="mcl_setting_title_buttonallcaps">N\'utilisez que des lettres majuscules dans les libellés des boutons</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Désactivez cette option si vous souhaitez utiliser des lettres minuscules dans vos contrôles.</string>
     <string name="preference_shader_dump_title">Activer le dumping du shader</string>
@@ -395,7 +395,7 @@
     <string name="mg_renderer_summary_computeShaderext">Peut aider pour des bugs de shaders. À désactiver si ce n\'est pas nécessaire, peut causer des plantages.</string>
     <string name="mg_renderer_title_multidrawCompute">Utiliser l\'émulation de calcul multidessin</string>
     <string name="mg_renderer_summary_multidrawCompute">Utilise les nuanceurs de calcul pour l\'émulation multidessin</string>
-    <string name="app_short_name">Lanceur Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Seules les versions Vanilla 1.3.1 et supérieures sont supportées sur les comptes de démo</string>
     <string name="demo_unsupported">Profil de démo non pris en charge</string>
     <string name="change_account">Veuillez changer de compte pour utiliser cette fonction</string>
@@ -757,7 +757,7 @@
     <string name="credits_primary_development">Développement principal</string>
     <string name="credits_section_title">Crédits</string>
     <string name="credits_unaffiliated">Cette application n\'est pas affiliée à Minecraft, Mojang ou Microsoft.</string>
-    <string name="credits_version">Version 2.2.3</string>
+    <string name="credits_version">Version 2.2.5</string>
     <string name="ctrl_applied_success">Contrôle "%1$s" appliqué avec succès.</string>
     <string name="ctrl_apply_btn">Appliquer le contrôle</string>
     <string name="ctrl_apply_msg">Télécharger et appliquer « %1$s » comme disposition de contrôle ?</string>
@@ -943,7 +943,7 @@
     <string name="instance_storage_calculating">Calcul du stockage…</string>
     <string name="instance_use">Utiliser</string>
     <string name="java_runtime_download_message">Battly télécharge Java 8 après la première configuration au lieu de l\'envoyer dans l\'application. Cela réduit la taille de l\'application et prépare les anciennes versions de Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Lanceur Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Lanceur basé sur PojavLauncher et Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Crédits&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 et composants tiers inclus dans le projet.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j et plus sous leurs licences d\'origine.&lt;br/&gt;&lt;br/&gt;
         Cette application n\'est pas affiliée à Minecraft, Mojang ou Microsoft.</string>
-    <string name="launcher_credits_title">Lanceur Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Télécharger</string>
     <string name="launcher_download_modpack">Importer un pack de modules</string>
     <string name="launcher_execute">Jouer</string>
-    <string name="launcher_mobile_badge">Mobiles 2.2.3</string>
+    <string name="launcher_mobile_badge">Mobiles 2.2.5</string>
     <string name="launcher_nav_back">Retourner</string>
     <string name="launcher_nav_home">Retour à la maison</string>
     <string name="launcher_nav_workspace">Espace de travail Battly</string>
@@ -1187,7 +1187,7 @@
     <string name="launcher_status_battly">Compte Battly</string>
     <string name="launcher_status_battly_plus">Compte Battly+</string>
     <string name="sodium_confirm_accept">J\'accepte les risques</string>
-    <string name="sodium_confirm_message">Sodium n\'est pas officiellement pris en charge par le lanceur Battly.\n\nL\'activer peut provoquer des bugs graphiques, des problèmes et des plantages. Aucune assistance ne sera fournie sur le serveur Discord pour tout problème lié à Sodium, et aucune aide ne vous sera apportée si vous perdez des mondes ou sauvegardez des données.\n\nEn acceptant, vous reconnaissez que vous activez cela à vos propres risques.</string>
+    <string name="sodium_confirm_message">Sodium n\'est pas officiellement pris en charge par le Battly Launcher.\n\nL\'activer peut provoquer des bugs graphiques, des problèmes et des plantages. Aucune assistance ne sera fournie sur le serveur Discord pour tout problème lié à Sodium, et aucune aide ne vous sera apportée si vous perdez des mondes ou sauvegardez des données.\n\nEn acceptant, vous reconnaissez que vous activez cela à vos propres risques.</string>
     <string name="sodium_confirm_title">Activer Sodium ?</string>
     <string name="sodium_launch_anyway">Lance quand même</string>
 
@@ -1503,19 +1503,19 @@
     <string name="world_install_button">Installer le monde</string>
     <string name="world_install_success">%1$s installé dans cette instance</string>
 
-    <string name="battly_whats_new_action_start">Explorer 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">L\'action Ouvrir le modpack sélectionne désormais la nouvelle instance et ferme correctement chaque fenêtre d\'installation et de contenu.</string>
-    <string name="battly_whats_new_compatibility_title">Ouvrez directement les modpacks installés</string>
-    <string name="battly_whats_new_controllers_desc">Le programme d\'installation du client Battly utilise désormais une liste déroulante appropriée, y compris sur les écrans compacts.</string>
-    <string name="battly_whats_new_controllers_title">Défilement de la liste des clients corrigé</string>
-    <string name="battly_whats_new_desc">Nouvelles instances isolées, mondes téléchargeables et correctifs importants pour Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Les nouvelles instances Vanilla, chargeur, client et modpack conservent leurs mondes, mods, paramètres et packs de ressources dans un dossier indépendant.</string>
-    <string name="battly_whats_new_instances_title">Un dossier séparé pour chaque nouvelle instance</string>
-    <string name="battly_whats_new_recovery_desc">Une nouvelle isolation des instances, un stockage plus sûr des paramètres et des diagnostics de longue session réduisent les réinitialisations de configuration et facilitent l\'identification des problèmes.</string>
-    <string name="battly_whats_new_recovery_title">Stabilité améliorée</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Les instances existantes restent là où elles se trouvent. L\'isolation des dossiers s\'applique uniquement aux instances créées à partir de cette version.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 est prêt</string>
-    <string name="battly_whats_new_worlds_desc">Parcourez et installez les mondes Minecraft à partir de CurseForge directement dans l\'instance de votre choix.</string>
-    <string name="battly_whats_new_worlds_title">Télécharger des mondes depuis Workspace</string>
+    <string name="battly_whats_new_action_start">Découvrir le 2.2.5</string>
+    <string name="battly_whats_new_compatibility_desc">Battly reconnaît les plugins de bibliothèques natives et permet de lancer des mods compatibles comme Distant Horizons lorsque le plugin nécessaire est installé.</string>
+    <string name="battly_whats_new_compatibility_title">Plugins natifs et Distant Horizons</string>
+    <string name="battly_whats_new_controllers_desc">Battly consulte l\'API dans la langue de l\'appareil et met à jour son cache lorsque le contenu du serveur change.</string>
+    <string name="battly_whats_new_controllers_title">Nouveautés toujours mises à jour</string>
+    <string name="battly_whats_new_desc">Meilleure compatibilité avec Minecraft 26.3, audio natif pour les mods, nouveautés traduites et corrections d\'écran.</string>
+    <string name="battly_whats_new_instances_desc">Corrigés le démarrage, les textures et le rendu de Minecraft 26.3 en Vanilla, Fabric et les versions personnalisées.</string>
+    <string name="battly_whats_new_instances_title">Minecraft 26.3 corrigé</string>
+    <string name="battly_whats_new_recovery_desc">Améliorés Vulkan et l’orientation, la taille de la fenêtre de Minecraft, les arguments JVM et la détection des fermetures normales.</string>
+    <string name="battly_whats_new_recovery_title">Démarrage et fermeture plus précis</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
+    <string name="battly_whats_new_transition_desc">Vos instances et paramètres existants restent inchangés.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.5 est prêt</string>
+    <string name="battly_whats_new_worlds_desc">Les mods peuvent détecter le microphone de Android, choisir parmi les entrées disponibles et capturer la voix sans envoyer l\'audio du jeu.</string>
+    <string name="battly_whats_new_worlds_title">Microphone disponible pour les mods</string>
 </resources>

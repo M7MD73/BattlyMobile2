@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Пускач Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -212,7 +212,7 @@
     <string name="arc_capes_title">Плащі Cosmetica</string>
     <string name="arc_capes_desc">Умикає плащі від Cosmetica (раніше Arc). Для більш детальної інформації, будь ласка, відвідайте https://cosmetica.cc. Потребує OptiFine.</string>
     <string name="notif_channel_name">Загальне</string>
-    <string name="lazy_service_default_title">Служба запуску Battly</string>
+    <string name="lazy_service_default_title">Служба Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Установлено</string>
     <string name="use_global_default">(Використовувати усталено)</string>
     <string name="default_control">Усталене керування</string>
@@ -410,7 +410,7 @@
     <string name="mg_renderer_summary_computeShaderext">Може допомогти у вирішенні збоїв у пакеті шейдерів. Вимкніть, якщо не потрібно, це може призвести до збоїв.</string>
     <string name="mg_renderer_title_multidrawCompute">Викор. емуляцію обчислення Multidraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Використовує обчислювальні шейдери для емуляції Multidraw</string>
-    <string name="app_short_name">Пускач Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Лише усталена версія 1.3.1 і вище підтримуються демо обліковим записом</string>
     <string name="demo_unsupported">Демопрофіль не підтримується</string>
     <string name="change_account">Будь ласка, змініть обліковий запис для використання функції</string>
@@ -575,7 +575,7 @@
     <string name="crash_no_findings">У останніх журналах не знайдено відомого шаблону аварій.</string>
     <string name="crash_recovery_applied">Відновлювальна дія завершена</string>
     <string name="crash_recovery_manual">Ця проблема потребує ручної зміни. Відкрийте журнал для отримання деталей.</string>
-    <string name="credits_version">Версія 2.2.3</string>
+    <string name="credits_version">Версія 2.2.5</string>
     <string name="ctrl_like_btn">Подобається</string>
     <string name="ctrl_liked_added">Додано до вподобаних елементів керування.</string>
     <string name="ctrl_liked_btn">Вподобано</string>
@@ -636,8 +636,8 @@
     <string name="java_runtime_download_progress">Завантаження Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Встановлення Java 8</string>
     <string name="java_runtime_download_waiting">Підготовка до завантаження Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Мобільний 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Мобільний 2.2.5</string>
     <string name="launcher_status_battly">Обліковий запис Battly</string>
     <string name="launcher_status_battly_plus">Обліковий запис Battly+</string>
     <string name="library_analyze_mods">Аналіз</string>
@@ -1107,7 +1107,7 @@
     <string name="installer_internal_fallback">Непідтримуваний інсталятор відкриває застарілий інтерфейс користувача Java</string>
     <string name="installer_internal_running">Аналіз програми встановлення…</string>
     <string name="installer_internal_success">%1$s встановлено безпосередньо в Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Пускач на основі PojavLauncher і Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Кредити&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1516,20 +1516,4 @@
     <string name="search_world_download_error">Не вдалося завантажити глобальні метадані</string>
     <string name="world_install_button">Встановити світ</string>
     <string name="world_install_success">%1$s встановлено в цей екземпляр</string>
-
-    <string name="battly_whats_new_action_start">Дослідити 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Дія Open modpack тепер вибирає новий екземпляр і правильно закриває кожне вікно встановлення та вмісту.</string>
-    <string name="battly_whats_new_compatibility_title">Відкрийте встановлені пакети модів безпосередньо</string>
-    <string name="battly_whats_new_controllers_desc">Інсталятор клієнта Battly тепер використовує правильний список, який можна прокручувати, зокрема на компактних екранах.</string>
-    <string name="battly_whats_new_controllers_title">Виправлено прокручування списку клієнтів</string>
-    <string name="battly_whats_new_desc">Нові окремі екземпляри, доступні для завантаження світи та важливі виправлення для Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Нові екземпляри Vanilla, завантажувач, клієнт і модпак зберігають свої світи, моди, налаштування та пакети ресурсів у незалежній папці.</string>
-    <string name="battly_whats_new_instances_title">Окрема папка для кожного нового примірника</string>
-    <string name="battly_whats_new_recovery_desc">Нова ізоляція екземплярів, безпечніше зберігання налаштувань і діагностика тривалого сеансу зменшують скидання конфігурації та полегшують виявлення проблем.</string>
-    <string name="battly_whats_new_recovery_title">Покращена стабільність</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Існуючі екземпляри залишаються там, де вони є. Ізоляція папок застосовується лише до екземплярів, створених починаючи з цієї версії.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 готовий</string>
-    <string name="battly_whats_new_worlds_desc">Переглядайте та встановлюйте світи Minecraft із CurseForge безпосередньо у вибраний екземпляр.</string>
-    <string name="battly_whats_new_worlds_title">Завантажуйте світи з Workspace</string>
 </resources>

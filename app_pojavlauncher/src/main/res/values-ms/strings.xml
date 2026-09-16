@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Pelancar Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Pilih sebuah pemasang mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">Pelancar Battly telah ranap tanpa diduga</string>
+    <string name="error_fatal">Battly Launcher telah ranap tanpa diduga</string>
     <string name="error_no_version">Tiada versi!</string>
     <string name="error_show_more">Tunjuk lebih banyak</string>
     <string name="error_show_less">Tunjuk lebih sedikit</string>
@@ -210,7 +210,7 @@
     <string name="arc_capes_title">Mantel Cosmetica</string>
     <string name="arc_capes_desc">Mendayakan mantel daripada Cosmetica (sebelum ini Arc). Untuk maklumat lanjut sila layari https://cosmetica.cc. Memerlukan OptiFine.</string>
     <string name="notif_channel_name">Umum</string>
-    <string name="lazy_service_default_title">Perkhidmatan Latar Depan Pelancar Battly</string>
+    <string name="lazy_service_default_title">Perkhidmatan Latar Depan Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Dipasang</string>
     <string name="use_global_default">(Gunakan lalai global)</string>
     <string name="default_control">Peta kawalan lalai</string>
@@ -240,7 +240,7 @@
     <string name="preference_gyro_sample_rate_title">Kadar pensampelan giroskop</string>
     <string name="preference_gyro_sample_rate_description">Jika anda mempunyai masalah prestasi dengan kawalan giroskop, tingkatkan pilihan ini.</string>
     <string name="microsoft_login_retry_later">Terlalu banyak permintaan, sila cuba sebentar lagi.</string>
-    <string name="storage_required">Pelancar Battly memerlukan storan luaran untuk dilampirkan. Sila sambungkan semula dan mulakan semula apl.</string>
+    <string name="storage_required">Battly Launcher memerlukan storan luaran untuk dilampirkan. Sila sambungkan semula dan mulakan semula apl.</string>
     <string name="mcl_setting_title_buttonallcaps">Hanya gunakan huruf besar dalam label butang</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Nyahdayakan pilihan ini jika anda ingin menggunakan huruf kecil dalam kawalan anda.</string>
     <string name="create_profile">Cipta profail baharu</string>
@@ -408,7 +408,7 @@
     <string name="mg_renderer_summary_computeShaderext">Boleh membantu dengan gangguan dengan pek pembayang. Nyahdayakan jika tidak diperlukan, boleh menyebabkan ranap.</string>
     <string name="mg_renderer_title_multidrawCompute">Gunakan Emulasi Compute Multidraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Menggunakan pembayang compute untuk emulasi multidraw</string>
-    <string name="app_short_name">Pelancar Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Hanya versi 1.3.1 Vanila dan ke atas disokong pada akaun demo</string>
     <string name="demo_unsupported">Profil Demo tidak disokong</string>
     <string name="change_account">Sila tukar akaun untuk menggunakan fungsi ini</string>
@@ -749,7 +749,7 @@
     <string name="credits_primary_development">Pembangunan utama</string>
     <string name="credits_section_title">Kredit</string>
     <string name="credits_unaffiliated">Apl ini tidak bergabung dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="credits_version">Versi 2.2.3</string>
+    <string name="credits_version">Versi 2.2.5</string>
     <string name="ctrl_applied_success">Kawalan "%1$s" berjaya digunakan.</string>
     <string name="ctrl_apply_btn">Guna kawalan</string>
     <string name="ctrl_apply_msg">Muat turun dan gunakan "%1$s" sebagai reka letak kawalan anda?</string>
@@ -943,7 +943,7 @@
     <string name="java_runtime_download_progress">Memuat turun Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Memasang Java 8</string>
     <string name="java_runtime_download_waiting">Menyediakan muat turun Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Pelancar Battly 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Pelancar berdasarkan PojavLauncher dan Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredit&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 dan komponen pihak ketiga disertakan dalam projek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j dan banyak lagi di bawah lesen asal mereka.&lt;br/&gt;&lt;br/&gt;
         Apl ini tidak bergabung dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="launcher_credits_title">Pelancar Battly 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Muat turun</string>
     <string name="launcher_download_modpack">Import modpack</string>
     <string name="launcher_execute">Main</string>
-    <string name="launcher_mobile_badge">Mudah Alih 2.2.3</string>
+    <string name="launcher_mobile_badge">Mudah Alih 2.2.5</string>
     <string name="launcher_nav_back">pergi balik</string>
     <string name="launcher_nav_home">Pulang ke rumah</string>
     <string name="launcher_nav_workspace">Battly Ruang Kerja</string>
@@ -1199,7 +1199,7 @@
     <string name="launcher_status_battly">Akaun Battly</string>
     <string name="launcher_status_battly_plus">Akaun Battly+</string>
     <string name="sodium_confirm_accept">Saya terima risikonya</string>
-    <string name="sodium_confirm_message">Sodium tidak disokong secara rasmi oleh Pelancar Battly.\n\nMendayakannya boleh menyebabkan pepijat grafik, gangguan dan ranap sistem. Tiada sokongan akan diberikan dalam pelayan Discord untuk sebarang isu berkaitan Sodium dan tiada bantuan akan diberikan jika anda kehilangan dunia atau menyimpan data.\n\nDengan menerima, anda mengakui bahawa anda mendayakan ini atas risiko anda sendiri.</string>
+    <string name="sodium_confirm_message">Sodium tidak disokong secara rasmi oleh Battly Launcher.\n\nMendayakannya boleh menyebabkan pepijat grafik, gangguan dan ranap sistem. Tiada sokongan akan diberikan dalam pelayan Discord untuk sebarang isu berkaitan Sodium dan tiada bantuan akan diberikan jika anda kehilangan dunia atau menyimpan data.\n\nDengan menerima, anda mengakui bahawa anda mendayakan ini atas risiko anda sendiri.</string>
     <string name="sodium_confirm_title">Dayakan Sodium?</string>
     <string name="sodium_launch_anyway">Lancar pula</string>
 
@@ -1509,20 +1509,4 @@
     <string name="search_world_download_error">Gagal memuat turun metadata dunia</string>
     <string name="world_install_button">Pasang dunia</string>
     <string name="world_install_success">%1$s dipasang ke dalam contoh ini</string>
-
-    <string name="battly_whats_new_action_start">Teroka 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Tindakan modpack Buka kini memilih contoh baharu dan menutup setiap tetingkap pemasangan dan kandungan dengan betul.</string>
-    <string name="battly_whats_new_compatibility_title">Buka modpack yang dipasang secara langsung</string>
-    <string name="battly_whats_new_controllers_desc">Pemasang klien Battly kini menggunakan senarai boleh tatal yang betul, termasuk pada skrin padat.</string>
-    <string name="battly_whats_new_controllers_title">Penatalan senarai pelanggan tetap</string>
-    <string name="battly_whats_new_desc">Kejadian terpencil baharu, dunia boleh dimuat turun dan pembetulan penting untuk Ruang Kerja Battly.</string>
-    <string name="battly_whats_new_instances_desc">Kejadian Vanila, pemuat, klien dan modpack baharu mengekalkan dunia, mod, tetapan dan pek sumber mereka dalam folder bebas.</string>
-    <string name="battly_whats_new_instances_title">Folder berasingan untuk setiap contoh baharu</string>
-    <string name="battly_whats_new_recovery_desc">Pengasingan contoh baharu, storan tetapan lebih selamat dan diagnostik sesi panjang mengurangkan tetapan semula konfigurasi dan memudahkan masalah dikenal pasti.</string>
-    <string name="battly_whats_new_recovery_title">Kestabilan yang lebih baik</string>
-    <string name="battly_whats_new_title">Battly Mudah Alih 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Keadaan sedia ada kekal di tempatnya. Pengasingan folder hanya digunakan pada kejadian yang dibuat daripada versi ini dan seterusnya.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 sedia</string>
-    <string name="battly_whats_new_worlds_desc">Semak imbas dan pasang dunia Minecraft daripada CurseForge terus ke dalam contoh yang anda pilih.</string>
-    <string name="battly_whats_new_worlds_title">Muat turun dunia daripada Ruang Kerja</string>
 </resources>

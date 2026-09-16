@@ -1,0 +1,156 @@
+[
+  {
+    "id": "22",
+    "title": "Battly Mobile 2.2.5 kini tersedia",
+    "content": "Battly Mobile 2.2.5 kini tersedia. Pembaruan ini meningkatkan kompatibilitas dengan versi Minecraft terbaru, audio dari mod, dan cara Battly menampilkan pembaruannya dalam setiap bahasa.\n\n**Pembaharuan:**\n\n- Pembaruan diperoleh dari API dalam bahasa perangkat, dengan terjemahan lengkap untuk 10 bahasa yang paling banyak digunakan dan fallback ke bahasa Inggris.\n- Battly menyimpan respons server terakhir yang valid dan memperbarui cache hanya ketika konten API berubah, sehingga pembaruan tetap tersedia secara offline setelah dimuat sekali.\n- Kompatibilitas dengan **Minecraft 26.3** meningkat, termasuk perbaikan pada saat memulai, rendering, dan tekstur di Vanilla, Fabric, dan versi kustom.\n- Dukungan ditambahkan untuk plugin dari pustaka native yang digunakan oleh mod seperti **Distant Horizons**. Jika plugin yang kompatibel terpasang, Battly tidak lagi memblokir startup karena mendeteksi mod.\n- Mod Minecraft yang menggunakan mikrofon kini dapat mendeteksi input audio di Android.\n- Pilihan ditambahkan antara mikrofon internal, headset, dan input audio lain yang tersedia.\n- Isolasi mikrofon di Battly Worlds ditingkatkan untuk mencegah pengiriman audio dari permainan itu sendiri ke pemain lain.\n- Masalah Vulkan, permukaan alternatif, dan orientasi yang bisa membuat layar berputar atau dirender secara tidak benar di beberapa perangkat telah diperbaiki.\n- Masalah di mana beberapa profil kontrol atau klien hanya dapat memperkecil jendela render Minecraft saat menggunakan kombinasi seperti Shift+W atau Shift+klik kanan, sementara kontrol tetap dalam layar penuh, telah diperbaiki.\n- Argumen JVM kustom menggantikan nilai default yang sesuai dengan benar, termasuk ukuran cache kode.\n- Peringatan crash palsu berkurang ketika Minecraft selesai dengan benar.\n- Peningkatan umum pada stabilitas, kompatibilitas, dan diagnostik.\n\nTerima kasih kepada semua yang terus mengirim laporan dan membantu meningkatkan Battly ❤️\n\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-16 13:30:00"
+  },
+  {
+    "id": "21",
+    "title": "Battly Mobile 2.2.4 kini tersedia",
+    "content": "Battly Mobile 2.2.4 sekarang tersedia. Pembaruan ini terutama berfokus pada peningkatan stabilitas selama sesi permainan yang panjang, mengurangi penurunan FPS secara tiba-tiba, dan memperbaiki berbagai masalah terkait dengan LWJGL, Java, dan penutupan Minecraft.\n\n**Yang Baru:**\n\n- Stabilitas FPS dan memori ditingkatkan selama permainan panjang.\n- Penutupan mendadak yang disebabkan oleh tekanan memori asli dan grafis dikurangi.\n- Penggunaan memori awal Java disesuaikan untuk menyediakan lebih banyak sumber daya bagi Android, renderer, dan mod.\n- Masalah saat menyiapkan LWJGL dari beberapa proses secara bersamaan diperbaiki.\n- Kompatibilitas **LWJGL 3.3.3, 3.4.1, dan 3.4.2** dengan versi modern Java dan Minecraft ditingkatkan.\n- Layar yang berputar atau duplikat pada beberapa perangkat saat menggunakan sistem alternatif rendering permukaan diperbaiki.\n- Deteksi mod yang mencakup pustaka asli desktop yang tidak kompatibel dengan Android ditingkatkan.\n- Argumen JVM yang disesuaikan sekarang menggantikan argumen yang setara dari launcher atau versi dengan benar, mencegah nilai duplikat atau tidak kompatibel.\n- Penutupan normal Minecraft seharusnya tidak lagi menghasilkan laporan crash karena kesalahan yang dapat dipulihkan pada narator atau komponen opsional lainnya.\n- Diagnostik memori, renderer, dan proses ditingkatkan untuk mempermudah analisis masalah spesifik pada beberapa perangkat.\n- Nama **Battly Launcher** tetap utuh dalam semua bahasa dan tidak diterjemahkan secara harfiah.\n- Peningkatan umum dalam stabilitas, kompatibilitas, dan performa.\n\nTerima kasih kepada semua yang terus mengirim laporan dan membantu meningkatkan Battly ❤️\n\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-12 23:37:00"
+  },
+  {
+    "id": "20",
+    "title": "Sudah tersedia Battly Mobile 2.2.3",
+    "content": "Battly Mobile 2.2.3 kini tersedia dengan peningkatan penting pada Battly Workspace, sistem instance, kinerja dengan shader, dan stabilitas umum.\n\n**Yang baru:**\n\n- Opsi baru untuk mencari, mengunduh, dan menginstal dunia langsung dari Battly Workspace.\n- Setiap instance baru sekarang menggunakan folder sendiri untuk menghindari pencampuran dunia, mod, konfigurasi, dan file lain antara versi Minecraft yang berbeda.\n- Memperbaiki masalah yang dapat mereset konfigurasi Minecraft saat menutup dan membuka kembali sebuah instance.\n- Stabilitas ditingkatkan selama permainan panjang dan beberapa penurunan FPS drastis dikurangi.\n- Kinerja dengan penggunaan shader ditingkatkan secara drastis.\n- Pemilihan otomatis renderer dan konfigurasi grafis ditingkatkan sesuai perangkat, versi Minecraft, dan shader yang terinstal.\n- Kompatibilitas LTW dengan perangkat Adreno dan versi terbaru Minecraft ditingkatkan.\n- Memperbaiki tombol **Buka modpack** agar memilih instance dengan benar, menutup jendela sebelumnya, dan memulai Minecraft.\n- Memperbaiki pergeseran pada daftar klien.\n- Memperbaiki kesalahan Google Play Services yang bisa muncul setelah bermain atau menutup Minecraft.\n- Manajemen memori dan gambar ditingkatkan untuk mengurangi penutupan mendadak.\n- Peningkatan stabilitas, kompatibilitas, dan kinerja secara umum.\n\nTerima kasih kepada semua yang terus mengirim laporan dan membantu meningkatkan Battly ❤️\n\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-04 20:46:00"
+  },
+  {
+    "id": "19",
+    "title": "Sudah tersedia Battly Mobile 2.2.2",
+    "content": "**Perbaruan**\n- Mode offline baru untuk menggunakan Battly dan versi yang terinstal tanpa koneksi. Battly berhenti memperbarui, menghapus, atau mengunduh ulang file saat mode offline aktif.\n- Sistem optimisasi baru yang menguji berbagai konfigurasi MobileGlues dan merekomendasikan yang tercepat untuk setiap perangkat.\n- Deteksi renderer yang kompatibel lebih baik.\n- Kinerja dan kompatibilitas lebih baik saat menggunakan shader.\n- Galeri gambar baru untuk pratinjau mod, modpack, shader, paket sumber daya, dan konten lainnya.\n- Battly Worlds bekerja lebih baik ketika dua pengguna terhubung ke jaringan Wi-Fi yang sama.\n- Stabilitas ruang, undangan, dan koneksi Battly Worlds lebih baik. Ditambahkan koneksi alternatif ketika router memblokir komunikasi langsung antar perangkat.\n- Perbaikan pada obrolan suara, pemulihan audio, dan overlay pemain.\n- Masalah undangan yang tidak tiba secara real-time telah diperbaiki.\n- Informasi di ruang publik lebih baik, termasuk pemain yang terhubung dan host.\n- Perbaikan umum pada stabilitas, kinerja, dan kompatibilitas.\n\nTerima kasih kepada semua yang terus mengirimkan masukan dan membantu meningkatkan Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-09-01 XX:XX:XX"
+  },
+  {
+    "id": "18",
+    "title": "Sudah tersedia Battly Mobile 2.2.1",
+    "content": "Pembaruan ini terutama berfokus pada peningkatan Battly Worlds, obrolan suara baru, Battly Social, dan beberapa bagian dari launcher.\n\n**Berita Baru**\n- Obrolan suara baru yang langsung terintegrasi di Battly Worlds.\n- Koneksi otomatis ke obrolan suara saat masuk ke sebuah ruang.\n- Kontrol baru untuk membisukan mikrofon, mematikan suara sendiri, dan menyesuaikan volume setiap pemain secara individual.\n- Overlay baru di dalam Minecraft untuk melihat siapa yang sedang berbicara, dengan posisi dan transparansi yang dapat disesuaikan.\n- Akses cepat baru ke obrolan suara dari kontrol di dalam game.\n- Suara baru saat terhubung dan terputus dari obrolan suara, dengan opsi untuk menonaktifkannya.\n- Pengaturan audio baru dan penjelasan lebih baik tentang izin mikrofon.\n- Status dan pengaturan obrolan suara dipertahankan di antara permainan dan restart.\n- Kestabilan koneksi yang lebih baik antara host dan pemain di Battly Worlds.\n- Peningkatan di Battly Social, ruangan, undangan, dan pemain yang terhubung.\n- Pemulihan audio yang lebih baik jika koneksi hilang sementara.\n- Perbaikan masalah audio yang terlalu keras, terdistorsi, atau yang bisa berhenti terdengar.\n- Peningkatan umum pada kestabilan, performa, dan kompatibilitas.\n\nTerima kasih kepada semua yang terus mencoba Battly Mobile dan mengirimkan umpan balik kalian ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-XX XX:XX:XX"
+  },
+  {
+    "id": "17",
+    "title": "Battly Mobile 2.2.0 kini tersedia",
+    "content": "Battly Mobile 2.2.0 sekarang tersedia dengan Battly Worlds, cara baru bermain dengan teman dari mana saja, selain peningkatan penting di Battly Workspace, antarmuka, dan stabilitas.\n\n**Battly Worlds**\n- Battly Worlds baru, sekarang berfungsi tanpa perlu izin VPNService (yang menyebalkan, Google).\n- Buat ruang pribadi dan bagikan kode dengan temanmu, atau ubah menjadi publik agar muncul di penjelajah Battly Worlds.\n- Undangan langsung antar teman di Battly dan deteksi otomatis dunia terbuka di LAN.\n- Penjelajah baru untuk ruang publik dengan pencari berdasarkan kode dan pembaruan ruang.\n- Ruang tetap aktif selama tuan rumah masih bermain dan dapat ditutup otomatis saat keluar dari Minecraft.\n- Pengguna biasa dapat mengirim hingga 5 undangan langsung. Battly+ mencakup undangan tak terbatas, ruang lebih tahan lama, persistensi, dan akses prioritas.\n- Antarmuka baru Battly Worlds, lebih kompak dan sederhana, dengan alat untuk memeriksa koneksi dan latensi.\n\n**Pembaharuan lainnya**\n- Akses baru ke Battly Worlds dan Skins Battly dari menu utama.\n- Battly Workspace meningkatkan pemilihan konten: pertama pilih loader, kemudian versi Minecraft, dan akhirnya versi mod atau konten.\n- Pencari baru, versi diatur dalam grid, dan indikasi versi yang direkomendasikan kompatibel.\n- Pemilihan versi lebih baik untuk mods, modpacks, shaders, resource packs, dan datapacks.\n- Desain umum lebih kompak dan lebih disesuaikan dengan perangkat yang memiliki notch.\n- Peningkatan internal di Terracotta, koneksi, performa, stabilitas, dan terjemahan.\n\nBattly Mobile 2.2.0 membuat bermain dengan teman dari mana saja lebih mudah dan meningkatkan beberapa bagian yang paling sering digunakan dari Battly Mobile.\n\nTerima kasih kepada semua yang terus mengirimkan feedback dan membantu meningkatkan Battly Mobile. Nikmati Battly Worlds ❤️\n@here & @everyone",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-20 22:11:00"
+  },
+  {
+    "id": "16",
+    "title": "Tebak siapa yang kembali dalam beberapa jam 👀",
+    "content": "¡BattlyWorlds akan kembali dalam beberapa jam! 🌍\n\nSegera kalian bisa menikmati kembali BattlyWorlds di Battly Mobile.\n\n![BattlyWorlds](https://pbs.twimg.com/media/HQF4V17XAAAYNhM?format=jpg&name=4096x4096)",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-19 16:20:00"
+  },
+  {
+    "id": "15",
+    "title": "Battly Mobile 2.1.1 kini tersedia",
+    "content": "Battly Mobile 2.1.1 sekarang tersedia. Pembaruan ini terutama berfokus pada memperbaiki masalah yang terdeteksi setelah rilis 2.1.0 dan meningkatkan stabilitas umum Battly.\n\n**Yang Baru:**\n\n- Memperbaiki beberapa penutupan tiba-tiba Minecraft yang terdeteksi di berbagai versi dan perangkat.\n- Meningkatkan stabilitas sesi Microsoft, mengurangi pemutusan mendadak dan profil yang bisa muncul kosong.\n- Peringatan Sodium sekarang hanya bersifat informatif dan membuat lebih jelas bahwa mod tetap kompatibel.\n- Memperbaiki peringatan crash yang bisa muncul meskipun Minecraft telah ditutup dengan benar. Battly membedakan dengan lebih baik antara penutupan normal permainan dan kegagalan nyata.\n- Memperbaiki tombol Buka modpack setelah menyelesaikan instalasi. Instansi yang baru saja diinstal dipilih secara otomatis dan siap untuk dimainkan.\n- Tombol Mainkan sekarang menampilkan versi dengan benar setelah menginstal instansi baru.\n- Pengelola Skins Battly sekarang menunjukkan apakah skin yang dipilih menggunakan model Slim atau Klasik.\n- Perbaikan umum pada stabilitas, sesi, modpacks, peringatan, dan deteksi kesalahan.\n\nBattly Mobile 2.1.1 bertujuan untuk menyempurnakan perubahan yang diperkenalkan di 2.1.0 dan menyelesaikan masalah terpenting yang ditemukan sejak rilisnya, tanpa mengubah fungsi yang sudah berjalan dengan baik.\n\nTerima kasih kepada semua yang telah melaporkan kesalahan dan mengirimkan umpan balik. Ini sangat membantu untuk terus meningkatkan Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-18 23:06:00"
+  },
+  {
+    "id": "14",
+    "title": "Battly Mobile 2.1.0 kini tersedia",
+    "content": "Battly Mobile 2.1.0 sudah hadir dengan salah satu pembaruan terbesar hingga saat ini, berfokus pada peningkatan pengalaman bermain, manajemen instance, unduhan, kinerja, dan stabilitas.\n\n**Berita Terbaru:**\n\n- Sistem pengaturan penuh baru untuk kontroler PlayStation, Xbox, dan Nintendo Switch, dengan panduan langkah demi langkah, pratinjau 3D animasi, pemetaan gerakan, kamera, klik, D-pad, dan scroll, kalibrasi stik, serta profil terpisah untuk setiap instance.\n- MobileGlues diperbarui ke versi 2.0.0, dengan opsi grafis baru, peningkatan kinerja, dan kompatibilitas lebih besar dengan versi terbaru Minecraft.\n- Sistem unduhan sepenuhnya diperbarui, dengan HTTP/2, pemanfaatan kembali koneksi, melanjutkan unduhan, dan hingga 100 berkas simultan.\n- Perubahan dalam unduhan menghadirkan peningkatan kecepatan yang besar: snapshot terbaru Minecraft, yang sebelumnya memerlukan sekitar 2 menit untuk diunduh, sekarang bisa siap dalam sekitar 15 detik.\n- Gambar baru kontroler di dalam game, dapat disesuaikan dan dengan tombol yang bereaksi secara real-time.\n- Setelah selesai melakukan instalasi, kamu dapat langsung membuka modpack.\n- Pendeteksian mod yang tidak kompatibel lebih baik, dengan penjelasan dan solusi yang lebih jelas.\n- Battly memilih Java, LWJGL, dan renderer paling sesuai untuk setiap versi Minecraft dengan lebih cerdas.\n- Opsi grafis baru untuk menyesuaikan kinerja lebih baik dengan setiap perangkat.\n- Unduhan kini menggunakan 64 koneksi simultan secara default, dapat disesuaikan secara manual antara 16 hingga 100.\n- Pusat pemeliharaan baru mampu mendeteksi dan memperbaiki berbagai masalah secara otomatis.\n- Penghitung FPS ditingkatkan dan pengukuran ping server yang nyata.\n- Perbaikan tombol atas dan fungsi tombol ESC.\n- Respons kontrol sentuh lebih baik di dalam menu.\n- Peningkatan internal pada sistem unduhan, manajemen konten, dan kompatibilitas.\n- Peningkatan umum pada stabilitas, kinerja, kompatibilitas, terjemahan, dan desain.\n\nBattly Mobile 2.1.0 merupakan perubahan besar di banyak bagian aplikasi, terutama pada sistem unduhan, yang kini memanfaatkan koneksi yang tersedia dengan lebih baik dan secara drastis mengurangi waktu yang diperlukan untuk memasang versi baru.\n\nTujuan dari pembaruan ini adalah untuk memberikan pengalaman bermain yang lebih cepat, lengkap, stabil, dan nyaman saat bermain Minecraft dari Android.\n\nTerima kasih kepada semua yang terus menggunakan Battly dan mengirimkan umpan balik kalian ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-18 01:09:00"
+  },
+  {
+    "id": "13",
+    "title": "Battly Mobile 2.0.9 kini tersedia",
+    "content": "Banyak dari kalian yang menantikannya: skin Battly sekarang berfungsi di semua versi Minecraft yang kompatibel, mulai dari 1.7.10 hingga 26.2, termasuk Vanilla, Forge, Fabric, dan OptiFine.\n\n**Pembaharuan:**\n\n- Opsi baru untuk menyesuaikan sensitivitas gerakan sentuh.\n- Kamu bisa menempatkan menu samping di kiri atau kanan.\n- Opsi baru Abaikan notch untuk memanfaatkan 100% layar.\n- Battly Workspace sekarang menampilkan ikon mod dan konten yang terpasang.\n- Dukungan lebih baik untuk latar belakang kustom, GIF, dan video.\n\n**Minecraft dan kompatibilitas:**\n\n- Kontrol sentuh, gerakan kamera, dan interaksi dengan permainan diperbaiki.\n- Tombol seperti ESC diperbaiki dan penghitung FPS dikembalikan di versi modern.\n- Kompatibilitas lebih baik dengan Forge, NeoForge, dan OptiFine.\n- Pemilihan otomatis Java, LWJGL, dan renderer yang lebih baik.\n- Perbaikan pada instalasi yang terhenti pada 95%.\n- Deteksi dan perbaikan instalasi tidak lengkap lebih baik.\n- Unduhan lebih handal dan kompatibilitas lebih baik dengan versi lama, modern, dan snapshot.\n\n**Perbaikan:**\n\n- Masalah unduhan, koneksi, dan IPv6 diperbaiki.\n- Masalah dengan latar video, ikon, dan layar dengan notch diperbaiki.\n- Penyelesaian instalasi Forge dan OptiFine lebih baik.\n- Lebih sedikit crash, stabilitas lebih tinggi, dan pesan kesalahan lebih jelas.\n\nTerima kasih kepada semua yang terus mencoba Battly, melaporkan bug, dan membantu saya memperbaiki setiap pembaruan. Nikmati Battly Mobile 2.0.9! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-11 19:25:00"
+  },
+  {
+    "id": "12",
+    "title": "Battly Mobile 2.0.8 kini tersedia",
+    "content": "Pembaruan ini mengembalikan fungsi stabil dari kontrol sentuh dan memperbaiki berbagai masalah penting pada versi terbaru.\n\n**Yang Baru:**\n\n- Fungsi stabil dari kontrol sentuh telah dipulihkan.\n- Tombol atas diperbaiki, termasuk tombol ESC.\n- Interaksi dengan menu di versi modern Minecraft telah diperbaiki.\n- Akun offline tidak lagi muncul dengan antrean unduhan premium.\n- Instalasi Forge lebih cepat berkat penggunaan ulang penginstal yang telah diunduh.\n- Pemilihan LWJGL lebih baik untuk Minecraft 26.x.\n- Perbaikan umum kompatibilitas dan stabilitas.\n\nTerima kasih kepada semua dan maaf lagi atas masalahnya. Nikmati Battly Mobile 2.0.8! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-02 01:55:00"
+  },
+  {
+    "id": "11",
+    "title": "Battly Mobile 2.0.7 kini tersedia",
+    "content": "Battly Mobile 2.0.7 sekarang tersedia dengan peningkatan penting pada kontrol, instalasi, catatan kesalahan, dan kompatibilitas umum.\n\n**Yang Baru:**\n\n- Kontrol sentuh yang ditingkatkan untuk versi dan snapshot terbaru.\n- Tombol atas, tombol ESC, dan pergerakan kamera telah diperbaiki.\n- Representasi warna, resolusi, dan permukaan permainan yang lebih baik.\n- Instalasi Forge dan NeoForge lebih cepat, andal, dan dengan percobaan ulang otomatis.\n- Deteksi file yang rusak atau tidak lengkap selama instalasi menjadi lebih baik.\n- Instalasi dan impor modpack lebih stabil.\n- Instansi baru muncul segera setelah diinstal atau diimpor.\n- Antarmuka unduhan dan instalasi baru dengan kartu, ikon, dan kemajuan terperinci.\n- Panel log sepenuhnya diperbarui dengan pencarian, filter, penghitung, dan pelacakan langsung.\n- Kinerja lebih baik saat melihat log besar.\n- Latar belakang kustom dan video animasi lebih kompatibel.\n- Pemilihan dan perbaikan pustaka grafis Minecraft lebih baik.\n- Deteksi mod yang tidak kompatibel di Fabric, Forge, dan Quilt lebih baik.\n- Pesan kesalahan lebih jelas, menunjukkan masalah dan solusi yang mungkin.\n- Urutan versi Quilt telah diperbaiki.\n- Manajemen akun Microsoft lebih baik: akun demo yang salah tidak lagi dibuat.\n- Akun Microsoft tanpa Minecraft sekarang menampilkan pesan yang jelas.\n- Penghapusan otomatis akun demo lama yang tersisa.\n- Lebih banyak pengujian otomatis untuk instalasi, versi, dan kompatibilitas.\n- Berbagai peningkatan umum pada stabilitas, desain, dan kinerja.\n\nTerima kasih kepada semua. Nikmati Battly Mobile 2.0.7! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-08-01 00:08:00"
+  },
+  {
+    "id": "10",
+    "title": "¿Battly Client untuk versi yang lebih baru?",
+    "content": "Banyak dari kalian telah meminta agar Battly Client kompatibel dengan versi Minecraft yang lebih baru.\n\nAku telah mendengarkan kalian. 👀\n\nSegera aku akan membagikan lebih banyak informasi tentang pembaruan terbaru Battly Client.",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-31 00:12:00"
+  },
+  {
+    "id": "9",
+    "title": "Battly Mobile 2.0.6 kini tersedia",
+    "content": "Pembaruan ini memperbaiki beberapa kesalahan penting yang terdeteksi pada beberapa perangkat setelah versi terakhir.\n\n**Pembaharuan:**\n\n- Memperbaiki kesalahan saat mencoba masuk ke Battly.\n- Memperbaiki penutupan mendadak saat memulai Minecraft.\n- Memperbaiki masalah kompatibilitas dengan LWJGL.\n- Memperbaiki pengunduhan versi Java untuk arsitektur yang salah.\n- Deteksi prosesor dan arsitektur perangkat yang lebih baik.\n- Memperbaiki kesalahan saat menjalankan Battly dari Google Play pada perangkat tertentu.\n- Penghapusan otomatis berkas lama yang dapat menyebabkan konflik setelah pembaruan.\n- Memperbaiki penutupan mendadak terkait SDL saat memulai Battly.\n- Kompatibilitas lebih baik dengan Fabric dan versi yang menggunakan LWJGL 3.\n- Stabilitas peluncur dan startup Minecraft secara umum lebih baik.\n\nJika Anda masih menggunakan versi sebelumnya, Anda bisa langsung memperbarui ke 2.0.6 tanpa menginstal versi perantara.\n\nTerima kasih telah melaporkan kesalahan dan membantu saya meningkatkan Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-28 21:56:00"
+  },
+  {
+    "id": "8",
+    "title": "Patch mendesak: Battly Mobile 2.0.5",
+    "content": "Battly Mobile 2.0.5 kini tersedia, sebuah patch mendesak yang memperbaiki penutupan tiba-tiba saat menjalankan versi tertentu dari Minecraft di beberapa perangkat, selain masalah lain yang ditemukan di 2.0.4.\n\nJika kamu belum memperbarui ke 2.0.4, kamu bisa langsung menginstal versi 2.0.5 dan menghindari dua loncatan versi tersebut.\n\nTerima kasih kepada semua yang melaporkan masalah dan membantu saya memperbaiki Battly Mobile ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-28 01:41:00"
+  },
+  {
+    "id": "7",
+    "title": "Battly Mobile 2.0.4 kini tersedia",
+    "content": "Battly Mobile 2.0.4 sekarang tersedia dengan berbagai peningkatan stabilitas, kinerja, dan kompatibilitas.\n\n**Yang Baru:**\n\n- Performa yang lebih baik untuk versi baru dan lama dari Minecraft.\n- Beberapa masalah dengan Forge, mod, shader, dan snapshot telah diperbaiki.\n- Kontrol sentuh dan gerakan kamera telah diperbaiki.\n- Minecraft sekarang memilih pengaturan grafis yang lebih baik untuk setiap perangkat.\n- Layar baru yang menjelaskan mod mana yang tidak kompatibel dan bagaimana cara memperbaikinya.\n- Pesan kesalahan lebih jelas dan mudah dipahami.\n- Opsi untuk membagikan log kesalahan melalui tautan.\n- Unduhan lebih cepat dan secara otomatis menyesuaikan dengan kemampuan ponsel.\n- Lebih sedikit penutupan mendadak dan kinerja lebih baik pada perangkat sederhana.\n- Kompatibilitas lebih baik dengan perangkat lama dan modern.\n- Kompatibilitas dengan perangkat 32-bit dikembalikan.\n- Minecraft tetap dengan benar dalam posisi horizontal.\n- BattlyWorlds sementara dinonaktifkan sampai menerima izin dari Google.\n- Banyak perbaikan umum untuk stabilitas dan kompatibilitas.\n\nTerima kasih semuanya. Nikmati Battly Mobile 2.0.4! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-27 23:48:00"
+  },
+  {
+    "id": "6",
+    "title": "Battly Mobile 2.0.3 kini tersedia",
+    "content": "Battly Mobile 2.0.3 kini tersedia.\n\nVersi ini memperbaiki banyak kesalahan yang kalian alami dengan 2.0.1, jadi perbarui, coba, dan beritahu saya bagaimana hasilnya bekerja. 😉\n\nSaya juga ingin meminta maaf atas masalah yang kalian alami selama versi ini. Saat ini saya tidak memiliki tim yang bekerja dengan saya untuk menguji semua fungsi dan perangkat sebelum merilis setiap pembaruan, jadi saya tidak selalu bisa memastikan semuanya bebas dari kesalahan.\n\nSaya akan terus bekerja untuk memperbaiki masalah yang muncul dan meningkatkan Battly Mobile dengan bantuan kalian.\n\nTerima kasih semuanya dan maaf sekali lagi. Nikmati! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-22 00:28:00"
+  },
+  {
+    "id": "5",
+    "title": "Battly Mobile 2.0.1 kini tersedia!",
+    "content": "Battly Mobile 2.0.1 kini tersedia dengan berbagai fitur baru, peningkatan performa, dan perbaikan. \n\n**Apa yang baru:** \n\n- Battly Skin Manager baru dengan upload, library, aplikasi, dan penghapusan skin, model slim, dan preview 3D. \n- Dukungan untuk skin kustom permanen pada akun offline. \n- Battly Social baru untuk mencari teman, mengelola permintaan, melihat siapa yang bermain, mengundang, dan bergabung. \n- Manajer instance dan dunia baru dengan duplikasi, impor, ekspor, cadangan, pemulihan, dan diagnostik. \n- Manajer file Battly baru dengan tampilan daftar dan grid. \n- Sistem renderer baru dengan deteksi lebih baik, antarmuka Battly, dan dukungan untuk backend grafis yang lebih baik. \n- MobileGlues diperbarui dengan peningkatan untuk Sodium, shader, tekstur, dan versi modern. \n- Peningkatan pada versi Minecraft, termasuk mesin pencari, filter berdasarkan jenis, dan daftar yang lebih praktis untuk Vanilla dan loader. \n- Dukungan yang ditingkatkan untuk Forge, NeoForge, Fabric, Quilt, LegacyFabric, OptiFine, dan pelanggan. \n- Opsi ForgeOptiFine baru untuk menginstal Forge dan OptiFine secara otomatis. \n- Unduhan yang lebih cepat, paralel, dapat dilanjutkan, dan disesuaikan dengan perangkat. \n- Instalasi mod yang ditingkatkan dengan ketergantungan otomatis dan perbaikan untuk CurseForge dan Modrinth. \n- Manajemen konten yang terinstal lebih baik untuk mengaktifkan, menonaktifkan, menghapus, dan memindahkan mod, resource pack, shader, dan datapack. \n- Marketplace kontrol yang ditingkatkan dengan pencarian, pratinjau, like, item yang disimpan, ikon, dan desain baru. \n- FPS dan penghitung ping baru yang dapat disesuaikan untuk kontrol. \n- Kontrol dan konfigurasi independen untuk setiap instance. \n- Implementasi login dengan Battly, Google, dan Discord. \n- Java 8 sekarang diunduh setelah proses pengaturan awal untuk mengurangi ukuran aplikasi. \n- Manajer Java baru dengan unduhan, impor, deteksi, dan perbaikan runtime yang rusak. \n- Dukungan lebih baik untuk snapshot, LWJGL, Battly Client, shader, Forge, dan versi lama. \n- Pilihan otomatis Java, LWJGL, dan renderer yang lebih baik tergantung versi dan perangkat. \n- Penanganan penutupan tak terduga yang lebih baik: Battly kembali ke peluncur, menganalisis kesalahan dan menampilkan informasi yang berguna. \n- Berita yang dioptimalkan dengan cache, bahasa, gambar, dan tautan. \n- Peningkatan performa dan memori untuk perangkat yang kurang bertenaga. \n- Lebih banyak layar, dialog, menu, dan konfirmasi yang disesuaikan dengan desain Battly. \n- Terjemahan baru, teks revisi, dan koreksi dalam semua bahasa yang tersedia.\n- Koreksi penting pada dependensi, orientasi horizontal, perender, skin, runtime, dan elemen antarmuka lama.\n\nTerima kasih semuanya. Nikmati Battly Mobile 2.0.1! ❤️",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-21 00:10:00"
+  },
+  {
+    "id": "4",
+    "title": "🏆 Tiba Battly Champions!",
+    "content": "Battly Launcher dan MoonLightMC bergabung untuk menyelenggarakan Battly Champions, sebuah kejuaraan spesial dengan 12 minigame berturut-turut dan hadiah luar biasa: 5 AKUN MINECRAFT PREMIUM GRATIS.\n\nUntuk ikut serta, kamu hanya perlu mengisi formulir pendaftaran dengan data asli dan jujur. Kami akan menggunakan informasi itu untuk menetapkan grupmu, jadwalmu, dan mengatur semua detail acara dengan lebih baik.\n\n📝 **Formulir pendaftaran:** [Klik di sini](https://battlylauncher.com/forms/pre-registro-battly-champions-battly-x-moonlightmc)\n\nBergabunglah dengan Discord [Battly Launcher](https://discord.gg/8X5t58hW4E) atau [MoonLightMC](https://discord.gg/aXqGdfv2ch) untuk tetap mendapat informasi tentang grup, jadwal, dan semua pembaruan kejuaraan.\n\nBersiaplah untuk bersaing, bersenang-senang, dan berjuang untuk salah satu dari 5 akun premium! 🚀",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-07-05 00:00:00"
+  },
+  {
+    "id": "3",
+    "title": "Selamat datang di Battly Mobile 2.0!",
+    "content": "Battly Mobile kembali sepenuhnya diperbarui dengan pengalaman yang lebih modern, lebih stabil, dan jauh lebih diperhatikan untuk perangkat Android.\n\nDalam versi baru ini kamu akan menemukan antarmuka yang didesain ulang, peningkatan kinerja, dasar yang lebih bersih dan siap untuk pembaruan di masa depan, selain pengalaman yang jauh lebih mendekati apa yang Battly adalah hari ini.\n\nIni hanya awal dari tahap baru untuk Battly Mobile. Saya akan terus bekerja pada fitur baru, peningkatan, dan optimisasi agar setiap versi lebih baik dari sebelumnya.\n\nTerima kasih telah terus menjadi bagian dari Battly ♥",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2026-05-18 00:00:00"
+  },
+  {
+    "id": "2",
+    "title": "Masalah dengan Battly Mobile?",
+    "content": "Apakah kamu mengalami masalah saat membuka versi?  \nSaya telah mendeteksi kesalahan saat memulai versi tertentu. Semua versi yang lebih tinggi dari 1.18.2 akan mengalami kesalahan saat memulai.  \n\nForge juga sedang gagal. Saya sedang menyelidiki masalahnya dan akan segera memperbaikinya. Jangan memberikan kritik karena itu akan memperburuk segalanya.  \n\nTerima kasih telah mempercayai Battly ♥!",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2023-07-30 21:10:43"
+  },
+  {
+    "id": "1",
+    "title": "Terima kasih kepada semua!",
+    "content": "Halo para gamers! Akhirnya, versi Battly untuk perangkat seluler telah keluar, nikmatilah!",
+    "author": "Battly Staff - 1ly4s0",
+    "publish_date": "2023-07-30 21:10:43"
+  }
+]

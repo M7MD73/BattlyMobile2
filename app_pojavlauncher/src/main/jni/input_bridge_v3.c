@@ -44,6 +44,28 @@ do {                                                                       \
 static void registerFunctions(JNIEnv *env);
 static void ensureRuntimeGlfwBridge(JNIEnv *env, jclass glfwClass);
 
+JNIEXPORT jstring JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeListAndroidAudioInputs(
+        JNIEnv *env, jclass clazz);
+JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeOpenAndroidAudioInput(
+        JNIEnv *env, jclass clazz, jint device_id, jint sample_rate, jint channels, jint buffer_size);
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeStartAndroidAudioInput(
+        JNIEnv *env, jclass clazz, jint handle);
+JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeReadAndroidAudioInput(
+        JNIEnv *env, jclass clazz, jint handle, jbyteArray target, jint offset, jint length);
+JNIEXPORT void JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeStopAndroidAudioInput(
+        JNIEnv *env, jclass clazz, jint handle);
+JNIEXPORT void JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeCloseAndroidAudioInput(
+        JNIEnv *env, jclass clazz, jint handle);
+
+static const JNINativeMethod runtime_audio_fcns[] = {
+        {"nativeListAndroidAudioInputs", "()Ljava/lang/String;", Java_org_lwjgl_glfw_CallbackBridge_nativeListAndroidAudioInputs},
+        {"nativeOpenAndroidAudioInput", "(IIII)I", Java_org_lwjgl_glfw_CallbackBridge_nativeOpenAndroidAudioInput},
+        {"nativeStartAndroidAudioInput", "(I)Z", Java_org_lwjgl_glfw_CallbackBridge_nativeStartAndroidAudioInput},
+        {"nativeReadAndroidAudioInput", "(I[BII)I", Java_org_lwjgl_glfw_CallbackBridge_nativeReadAndroidAudioInput},
+        {"nativeStopAndroidAudioInput", "(I)V", Java_org_lwjgl_glfw_CallbackBridge_nativeStopAndroidAudioInput},
+        {"nativeCloseAndroidAudioInput", "(I)V", Java_org_lwjgl_glfw_CallbackBridge_nativeCloseAndroidAudioInput}
+};
+
 jint JNI_OnLoad(JavaVM* vm, __attribute__((unused)) void* reserved) {
     if (pojav_environ->dalvikJavaVMPtr == NULL) {
         LOGI("Saving DVM environ...");
@@ -55,6 +77,12 @@ jint JNI_OnLoad(JavaVM* vm, __attribute__((unused)) void* reserved) {
         pojav_environ->method_accessAndroidClipboard = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "accessAndroidClipboard", "(ILjava/lang/String;)Ljava/lang/String;");
         pojav_environ->method_onGrabStateChanged = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "onGrabStateChanged", "(Z)V");
         pojav_environ->method_onDirectInputEnable = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "onDirectInputEnable", "()V");
+        pojav_environ->method_listAndroidAudioInputs = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "listAndroidAudioInputs", "()Ljava/lang/String;");
+        pojav_environ->method_openAndroidAudioInput = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "openAndroidAudioInput", "(IIII)I");
+        pojav_environ->method_startAndroidAudioInput = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "startAndroidAudioInput", "(I)Z");
+        pojav_environ->method_readAndroidAudioInput = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "readAndroidAudioInput", "(II)[B");
+        pojav_environ->method_stopAndroidAudioInput = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "stopAndroidAudioInput", "(I)V");
+        pojav_environ->method_closeAndroidAudioInput = (*dvEnv)->GetStaticMethodID(dvEnv, pojav_environ->bridgeClazz, "closeAndroidAudioInput", "(I)V");
         pojav_environ->isUseStackQueueCall = JNI_FALSE;
     } else if (pojav_environ->dalvikJavaVMPtr != vm) {
         LOGI("Saving JVM environ...");
@@ -64,6 +92,14 @@ jint JNI_OnLoad(JavaVM* vm, __attribute__((unused)) void* reserved) {
         hookExec(vmEnv);
         installLwjglDlopenHook(vmEnv);
         installEMUIIteratorMititgation(vmEnv);
+        jclass runtimeBridge = (*vmEnv)->FindClass(vmEnv, "org/lwjgl/glfw/CallbackBridge");
+        if (runtimeBridge != NULL) {
+            (*vmEnv)->RegisterNatives(vmEnv, runtimeBridge, runtime_audio_fcns,
+                                      sizeof(runtime_audio_fcns) / sizeof(runtime_audio_fcns[0]));
+        } else {
+            (*vmEnv)->ExceptionClear(vmEnv);
+            LOGE("Unable to register Android audio bridge in the runtime JVM");
+        }
     }
 
     if(pojav_environ->dalvikJavaVMPtr == vm) {
@@ -332,6 +368,92 @@ Java_org_lwjgl_glfw_CallbackBridge_nativeEnableGamepadDirectInput(__attribute__(
     TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr, "nativeEnableGamepadDirectInput failed!\n", return JNI_FALSE;);
     (*dvm_env)->CallStaticVoidMethod(dvm_env, pojav_environ->bridgeClazz, pojav_environ->method_onDirectInputEnable);
     return JNI_TRUE;
+}
+
+JNIEXPORT jstring JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeListAndroidAudioInputs(JNIEnv *env, jclass clazz) {
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeListAndroidAudioInputs failed!\n", return NULL;);
+    jobject value = (*dvm_env)->CallStaticObjectMethod(dvm_env, pojav_environ->bridgeClazz,
+                                                        pojav_environ->method_listAndroidAudioInputs);
+    if ((*dvm_env)->ExceptionCheck(dvm_env)) {
+        (*dvm_env)->ExceptionDescribe(dvm_env);
+        (*dvm_env)->ExceptionClear(dvm_env);
+        return NULL;
+    }
+    return value == NULL ? NULL : convertStringJVM(dvm_env, env, (jstring) value);
+}
+
+JNIEXPORT jint JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeOpenAndroidAudioInput(JNIEnv *env, jclass clazz,
+                                                               jint device_id, jint sample_rate,
+                                                               jint channels, jint buffer_size) {
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeOpenAndroidAudioInput failed!\n", return -1;);
+    jint handle = (*dvm_env)->CallStaticIntMethod(dvm_env, pojav_environ->bridgeClazz,
+                                                  pojav_environ->method_openAndroidAudioInput,
+                                                  device_id, sample_rate, channels, buffer_size);
+    if ((*dvm_env)->ExceptionCheck(dvm_env)) {
+        (*dvm_env)->ExceptionDescribe(dvm_env);
+        (*dvm_env)->ExceptionClear(dvm_env);
+        return -1;
+    }
+    return handle;
+}
+
+JNIEXPORT jboolean JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeStartAndroidAudioInput(JNIEnv *env, jclass clazz,
+                                                                jint handle) {
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeStartAndroidAudioInput failed!\n", return JNI_FALSE;);
+    return (*dvm_env)->CallStaticBooleanMethod(dvm_env, pojav_environ->bridgeClazz,
+                                               pojav_environ->method_startAndroidAudioInput,
+                                               handle);
+}
+
+JNIEXPORT jint JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeReadAndroidAudioInput(JNIEnv *env, jclass clazz,
+                                                               jint handle, jbyteArray target,
+                                                               jint offset, jint length) {
+    if (target == NULL || offset < 0 || length <= 0) return 0;
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeReadAndroidAudioInput failed!\n", return -1;);
+    jbyteArray source = (jbyteArray) (*dvm_env)->CallStaticObjectMethod(
+            dvm_env, pojav_environ->bridgeClazz, pojav_environ->method_readAndroidAudioInput,
+            handle, length);
+    if ((*dvm_env)->ExceptionCheck(dvm_env)) {
+        (*dvm_env)->ExceptionDescribe(dvm_env);
+        (*dvm_env)->ExceptionClear(dvm_env);
+        return -1;
+    }
+    if (source == NULL) return 0;
+    jsize read = (*dvm_env)->GetArrayLength(dvm_env, source);
+    if (read > length) read = length;
+    if (read > 0) {
+        jbyte *bytes = (*dvm_env)->GetByteArrayElements(dvm_env, source, NULL);
+        (*env)->SetByteArrayRegion(env, target, offset, read, bytes);
+        (*dvm_env)->ReleaseByteArrayElements(dvm_env, source, bytes, JNI_ABORT);
+    }
+    (*dvm_env)->DeleteLocalRef(dvm_env, source);
+    return read;
+}
+
+JNIEXPORT void JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeStopAndroidAudioInput(JNIEnv *env, jclass clazz,
+                                                               jint handle) {
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeStopAndroidAudioInput failed!\n", return;);
+    (*dvm_env)->CallStaticVoidMethod(dvm_env, pojav_environ->bridgeClazz,
+                                     pojav_environ->method_stopAndroidAudioInput, handle);
+}
+
+JNIEXPORT void JNICALL
+Java_org_lwjgl_glfw_CallbackBridge_nativeCloseAndroidAudioInput(JNIEnv *env, jclass clazz,
+                                                                jint handle) {
+    TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr,
+                   "nativeCloseAndroidAudioInput failed!\n", return;);
+    (*dvm_env)->CallStaticVoidMethod(dvm_env, pojav_environ->bridgeClazz,
+                                     pojav_environ->method_closeAndroidAudioInput, handle);
 }
 
 JNIEXPORT jfloat JNICALL

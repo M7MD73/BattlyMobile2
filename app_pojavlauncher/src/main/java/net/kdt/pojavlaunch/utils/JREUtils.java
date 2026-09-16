@@ -177,6 +177,9 @@ public class JREUtils {
             ldLibraryPath.append(Tools.lwjglNativesDir).append(":");
         }
         ldLibraryPath.append(NATIVE_LIB_DIR);
+        for (String pluginPath : NativeLibraryPluginManager.activeNativePaths()) {
+            ldLibraryPath.append(":").append(pluginPath);
+        }
         LD_LIBRARY_PATH = ldLibraryPath.toString();
     }
 
@@ -303,6 +306,8 @@ public class JREUtils {
         if(LauncherPreferences.PREF_BIG_CORE_AFFINITY) envMap.put("POJAV_BIG_CORE_AFFINITY", "1");
         envMap.put("AWTSTUB_WIDTH", Integer.toString(CallbackBridge.windowWidth > 0 ? CallbackBridge.windowWidth : CallbackBridge.physicalWidth));
         envMap.put("AWTSTUB_HEIGHT", Integer.toString(CallbackBridge.windowHeight > 0 ? CallbackBridge.windowHeight : CallbackBridge.physicalHeight));
+        String audioInputs = CallbackBridge.listAndroidAudioInputs(activity);
+        if (!audioInputs.isEmpty()) envMap.put("BATTLY_AUDIO_INPUTS", audioInputs);
 
         GLInfoUtils.GLInfo info = graphicsInfo;
         if(!envMap.containsKey("LIBGL_ES") && LOCAL_RENDERER != null) {
@@ -390,11 +395,32 @@ public class JREUtils {
         purgeArg(userArgs, "-XX:ActiveProcessorCount");
 
         //Add automatically generated args
-        userArgs.add("-Xms" + LauncherPreferences.PREF_RAM_ALLOCATION + "M");
-        userArgs.add("-Xmx" + LauncherPreferences.PREF_RAM_ALLOCATION + "M");
-        if (LauncherPreferences.PREF_RAM_ALLOCATION <= 1280) {
+        int effectiveMaximumHeapMb = JvmMemoryPolicy.maximumHeapMb(
+                LauncherPreferences.PREF_RAM_ALLOCATION,
+                Architecture.is32BitsDevice(), runtime.javaVersion);
+        int initialHeapMb = JvmMemoryPolicy.initialHeapMb(effectiveMaximumHeapMb);
+        userArgs.add("-Xms" + initialHeapMb + "M");
+        userArgs.add("-Xmx" + effectiveMaximumHeapMb + "M");
+        Logger.appendToLog("JVM heap policy: initial=" + initialHeapMb
+                + "MB, maximum=" + effectiveMaximumHeapMb + "MB");
+        if (effectiveMaximumHeapMb != LauncherPreferences.PREF_RAM_ALLOCATION) {
+            Logger.appendToLog("Info: 32-bit Java " + runtime.javaVersion
+                    + " heap capped at " + effectiveMaximumHeapMb
+                    + "MB to preserve native LWJGL address space");
+        }
+        if (Architecture.is32BitsDevice() && runtime.javaVersion >= 21
+                && !JvmArgumentMerger.containsSameOption(
+                        userArgs, "-Dorg.lwjgl.system.allocator=system")) {
+            userArgs.add("-Dorg.lwjgl.system.allocator=system");
+        }
+        if (effectiveMaximumHeapMb <= 1280) {
             userArgs.add("-XX:+UseSerialGC");
-            userArgs.add("-XX:ReservedCodeCacheSize=48M");
+            String defaultCodeCache = "-XX:ReservedCodeCacheSize=48M";
+            if (!JvmArgumentMerger.containsSameOption(userArgs, defaultCodeCache)) {
+                userArgs.add(defaultCodeCache);
+            } else {
+                Logger.appendToLog("JVM code cache policy: keeping the custom ReservedCodeCacheSize");
+            }
         }
         if(LOCAL_RENDERER != null) userArgs.add("-Dorg.lwjgl.opengl.libname=" + graphicsLib);
 
@@ -403,10 +429,10 @@ public class JREUtils {
         userArgs.add("-Dorg.lwjgl.freetype.libname="+ NATIVE_LIB_DIR +"/libfreetype.so");
         userArgs.add("-Dorg.lwjgl.spvc.libname="+ NATIVE_LIB_DIR +"/libspirv-cross-c-shared.so");
         if (Tools.isValidString(Tools.lwjglNativesDir)) {
-            userArgs.add("-Dorg.lwjgl.shaderc.libname="
-                    + new File(Tools.lwjglNativesDir, "libshaderc.so").getAbsolutePath());
-            userArgs.add("-Dorg.lwjgl.vma.libname="
-                    + new File(Tools.lwjglNativesDir, "liblwjgl_vma.so").getAbsolutePath());
+            addNativeLibraryOverride(userArgs, "org.lwjgl.shaderc.libname",
+                    new File(Tools.lwjglNativesDir, "libshaderc.so"));
+            addNativeLibraryOverride(userArgs, "org.lwjgl.vma.libname",
+                    new File(Tools.lwjglNativesDir, "liblwjgl_vma.so"));
         }
 
         // Some phones are not using the right number of cores, fix that
@@ -424,7 +450,30 @@ public class JREUtils {
             Logger.appendToLog("Warning: LWJGL2 injector is missing or invalid; launching without it");
         }
 
-        userArgs.addAll(JVMArgs);
+        List<String> effectiveCustomArguments = parseJavaArguments(userArgsString);
+        purgeArg(effectiveCustomArguments,"-Xms");
+        purgeArg(effectiveCustomArguments,"-Xmx");
+        purgeArg(effectiveCustomArguments,"-d32");
+        purgeArg(effectiveCustomArguments,"-d64");
+        purgeArg(effectiveCustomArguments, "-Xint");
+        purgeArg(effectiveCustomArguments, "-XX:+UseTransparentHugePages");
+        purgeArg(effectiveCustomArguments, "-XX:+UseLargePagesInMetaspace");
+        purgeArg(effectiveCustomArguments, "-XX:+UseLargePages");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.opengl.libname");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.spvc.libname");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.shaderc.libname");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.vma.libname");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.freetype.libname");
+        purgeArg(effectiveCustomArguments, "-XX:ActiveProcessorCount");
+
+        List<String> mergedJvmArgs = JvmArgumentMerger.removeOverriddenJvmOptions(
+                JVMArgs, effectiveCustomArguments);
+        int replacedArgumentCount = JVMArgs.size() - mergedJvmArgs.size();
+        if (replacedArgumentCount > 0) {
+            Logger.appendToLog("Custom JVM arguments replaced " + replacedArgumentCount
+                    + " launch option(s)");
+        }
+        userArgs.addAll(mergedJvmArgs);
         if (usesDesktopErrorWindowLoader(JVMArgs)) {
             // Cacio may have added its own headless flag to JVMArgs. Apply this last so
             // Fabric and Forge cannot replace the native Battly error screen with AWT.
@@ -451,6 +500,14 @@ public class JREUtils {
                 () -> android.os.Process.killProcess(android.os.Process.myPid()),
                 450
         );
+    }
+
+    private static void addNativeLibraryOverride(List<String> userArgs, String property, File library) {
+        if (library.isFile() && library.length() > 0) {
+            userArgs.add("-D" + property + "=" + library.getAbsolutePath());
+        } else {
+            Logger.appendToLog("Warning: Android native unavailable for " + property + ": " + library);
+        }
     }
 
     private static boolean usesDesktopErrorWindowLoader(List<String> gameArguments) {
@@ -588,15 +645,7 @@ public class JREUtils {
         }
         List<String> additionalArguments = new ArrayList<>();
         for(String arg : overridableArguments) {
-            String strippedArg = arg.substring(0,arg.indexOf('='));
-            boolean add = true;
-            for(String uarg : userArguments) {
-                if(uarg.startsWith(strippedArg)) {
-                    add = false;
-                    break;
-                }
-            }
-            if(add)
+            if(!JvmArgumentMerger.containsSameOption(userArguments, arg))
                 additionalArguments.add(arg);
             else
                 Log.i("ArgProcessor","Arg skipped: "+arg);
@@ -780,6 +829,7 @@ public class JREUtils {
     public static native void initializeHooks();
     public static native void setupExitMethod(Context context);
     public static native int getRendererFps();
+    public static native boolean probeSystemVulkan();
     // Obtain AWT screen pixels to render on Android SurfaceView
     public static native int[] renderAWTScreenFrame(/* Object canvas, int width, int height */);
     static {

@@ -389,7 +389,7 @@
     <string name="credits_primary_development">Hoofontwikkeling</string>
     <string name="credits_section_title">Krediete</string>
     <string name="credits_unaffiliated">Hierdie toepassing is nie geaffilieer met Minecraft, Mojang of Microsoft nie.</string>
-    <string name="credits_version">Weergawe 2.2.3</string>
+    <string name="credits_version">Weergawe 2.2.5</string>
     <string name="ctrl_applied_success">Beheer "%1$s" is suksesvol toegepas.</string>
     <string name="ctrl_apply_btn">Pas beheer toe</string>
     <string name="ctrl_apply_msg">Laai "%1$s" af en pas dit toe as jou beheeruitleg?</string>
@@ -584,7 +584,7 @@
     <string name="java_runtime_download_progress">Laai tans af Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installeer Java 8</string>
     <string name="java_runtime_download_waiting">Berei tans Java 8 aflaai voor...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher gebaseer op PojavLauncher en Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediete&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -595,11 +595,11 @@
         • GNU GPLv3 en derdeparty-komponente ingesluit by die projek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j en meer onder hul oorspronklike lisensies.&lt;br/&gt;&lt;br/&gt;
         Hierdie toepassing is nie geaffilieer met Minecraft, Mojang of Microsoft nie.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">Laai af</string>
     <string name="launcher_download_modpack">Voer modpack in</string>
     <string name="launcher_execute">Speel</string>
-    <string name="launcher_mobile_badge">Selfoon 2.2.3</string>
+    <string name="launcher_mobile_badge">Selfoon 2.2.5</string>
     <string name="launcher_nav_back">Gaan terug</string>
     <string name="launcher_nav_home">Keer terug huis toe</string>
     <string name="launcher_nav_workspace">Battly Werkspasie</string>
@@ -1189,20 +1189,4 @@
     <string name="search_world_download_error">Kon nie wêreldmetadata aflaai nie</string>
     <string name="world_install_button">Installeer wêreld</string>
     <string name="world_install_success">%1$s in hierdie geval geïnstalleer</string>
-
-    <string name="battly_whats_new_action_start">Verken 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Die Open modpack-aksie kies nou die nuwe instansie en maak elke installasie- en inhoudvenster korrek toe.</string>
-    <string name="battly_whats_new_compatibility_title">Maak geïnstalleerde modpacks direk oop</string>
-    <string name="battly_whats_new_controllers_desc">Die Battly-kliëntinstalleerder gebruik nou \'n behoorlike blaaibare lys, insluitend op kompakte skerms.</string>
-    <string name="battly_whats_new_controllers_title">Kliëntlysblaai is opgelos</string>
-    <string name="battly_whats_new_desc">Nuwe geïsoleerde gevalle, aflaaibare wêrelde en belangrike regstellings vir Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nuwe Vanilla, loader, client en modpack gevalle hou hul wêrelde, mods, instellings en hulpbronpakke in \'n onafhanklike vouer.</string>
-    <string name="battly_whats_new_instances_title">\'n Aparte gids vir elke nuwe instansie</string>
-    <string name="battly_whats_new_recovery_desc">Nuwe instansie-isolasie, veiliger instellingsberging en langsessiediagnostiek verminder konfigurasieterugstellings en maak probleme makliker om te identifiseer.</string>
-    <string name="battly_whats_new_recovery_title">Verbeterde stabiliteit</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Bestaande gevalle bly waar hulle is. Vouer-isolasie is slegs van toepassing op gevalle wat vanaf hierdie weergawe geskep is.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 is gereed</string>
-    <string name="battly_whats_new_worlds_desc">Blaai deur en installeer Minecraft wêrelde vanaf CurseForge direk in die geval wat jy kies.</string>
-    <string name="battly_whats_new_worlds_title">Laai wêrelde van Workspace af</string>
 </resources>

@@ -186,7 +186,7 @@
     <string name="pedit_renderer">العارض</string>
     <string name="arc_capes_desc">يفعل أوشحه من Cosmetica, (المعروفة مسبقًا ب Arc). لمزيد من المعلومات، يرجى زيارة https://cosmetica.cc, يتطلب Optifine لكي يعمل.</string>
     <string name="notif_channel_name">عام</string>
-    <string name="lazy_service_default_title">خدمة المقدمة لقاذفة Battly</string>
+    <string name="lazy_service_default_title">خدمة المقدمة لBattly Launcher</string>
     <string name="mcl_setting_veroption_installed">مثبت</string>
     <string name="use_global_default">(استخدم الافتراضي العام)</string>
     <string name="default_control">مخطط التحكم الأفتراضي</string>
@@ -383,8 +383,8 @@
     <string name="android_incompatible_mods_disable">تعطيل وإطلاق</string>
     <string name="android_incompatible_mods_message">تتضمن هذه التعديلات مكتبات Linux الأصلية لسطح المكتب ولا يمكن تشغيلها على Android:\n\n%1$s\n\nBattly يمكنه تعطيلها دون حذفها.</string>
     <string name="android_incompatible_mods_title">تم اكتشاف نموذج غير متوافق</string>
-    <string name="app_name">قاذفة Battly</string>
-    <string name="app_short_name">قاذفة Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">حساب Battly</string>
     <string name="auth_method_local">الحساب المحلي</string>
     <string name="auth_method_microsoft">حساب Microsoft</string>
@@ -690,7 +690,7 @@
     <string name="credits_primary_development">التطوير الرئيسي</string>
     <string name="credits_section_title">الاعتمادات</string>
     <string name="credits_unaffiliated">لا يرتبط هذا التطبيق بـ Minecraft أو Mojang أو Microsoft.</string>
-    <string name="credits_version">الإصدار 2.2.3</string>
+    <string name="credits_version">الإصدار 2.2.5</string>
     <string name="ctrl_applied_success">تم تطبيق التحكم "%1$s" بنجاح.</string>
     <string name="ctrl_apply_btn">تطبيق السيطرة</string>
     <string name="ctrl_apply_msg">هل تريد تنزيل وتطبيق "%1$s" كتخطيط التحكم الخاص بك؟</string>
@@ -876,7 +876,7 @@
     <string name="instance_storage_calculating">جارٍ حساب مساحة التخزين...</string>
     <string name="instance_use">استخدم</string>
     <string name="java_runtime_download_message">يقوم Battly بتنزيل Java 8 بعد الإعداد الأول بدلاً من شحنه داخل التطبيق. يؤدي هذا إلى تقليل حجم التطبيق وإعداد الإصدارات الأقدم من Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher يعتمد على PojavLauncher وBoardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;الائتمانات&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -887,11 +887,11 @@
         • GNU GPLv3 ومكونات الطرف الثالث المضمنة في المشروع.&lt;br/&gt;
         • OpenJDK، LWJGL، GL4ES، LTW، Apache Commons، exp4j والمزيد بموجب تراخيصهم الأصلية.&lt;br/&gt;&lt;br/&gt;
         لا يرتبط هذا التطبيق بـ Minecraft أو Mojang أو Microsoft.</string>
-    <string name="launcher_credits_title">Battly قاذفة 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">تحميل</string>
     <string name="launcher_download_modpack">استيراد modpack</string>
     <string name="launcher_execute">العب</string>
-    <string name="launcher_mobile_badge">الجوال 2.2.3</string>
+    <string name="launcher_mobile_badge">الجوال 2.2.5</string>
     <string name="launcher_nav_back">ارجع</string>
     <string name="launcher_nav_home">العودة إلى المنزل</string>
     <string name="launcher_nav_workspace">مساحة العمل Battly</string>
@@ -1442,20 +1442,4 @@
     <string name="search_world_download_error">فشل تنزيل بيانات التعريف العالمية</string>
     <string name="world_install_button">تثبيت العالم</string>
     <string name="world_install_success">تم تثبيت %1$s في هذه الحالة</string>
-
-    <string name="battly_whats_new_action_start">اكتشف 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">يحدد إجراء Open modpack الآن المثيل الجديد ويغلق كل نافذة تثبيت ومحتوى بشكل صحيح.</string>
-    <string name="battly_whats_new_compatibility_title">افتح حزم modpack المثبتة مباشرة</string>
-    <string name="battly_whats_new_controllers_desc">يستخدم برنامج تثبيت العميل Battly الآن قائمة مناسبة قابلة للتمرير، بما في ذلك الشاشات المدمجة.</string>
-    <string name="battly_whats_new_controllers_title">تم إصلاح تمرير قائمة العملاء</string>
-    <string name="battly_whats_new_desc">مثيلات معزولة جديدة وعوالم قابلة للتنزيل وإصلاحات مهمة لمساحة عمل Battly.</string>
-    <string name="battly_whats_new_instances_desc">تحتفظ مثيلات Vanilla والمحمل والعميل وmodpack الجديدة بعوالمها وتعديلاتها وإعداداتها وحزم الموارد الخاصة بها في مجلد مستقل.</string>
-    <string name="battly_whats_new_instances_title">مجلد منفصل لكل مثيل جديد</string>
-    <string name="battly_whats_new_recovery_desc">يؤدي عزل المثيلات الجديدة وتخزين الإعدادات الأكثر أمانًا وتشخيصات الجلسة الطويلة إلى تقليل عمليات إعادة تعيين التكوين وتسهيل التعرف على المشكلات.</string>
-    <string name="battly_whats_new_recovery_title">تحسين الاستقرار</string>
-    <string name="battly_whats_new_title">Battly موبايل 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">تبقى المثيلات الموجودة في مكانها. ينطبق عزل المجلد فقط على المثيلات التي تم إنشاؤها من هذا الإصدار وما بعده.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 جاهز</string>
-    <string name="battly_whats_new_worlds_desc">تصفح وقم بتثبيت عوالم Minecraft من CurseForge مباشرة في المثيل الذي تختاره.</string>
-    <string name="battly_whats_new_worlds_title">قم بتنزيل العوالم من مساحة العمل</string>
 </resources>

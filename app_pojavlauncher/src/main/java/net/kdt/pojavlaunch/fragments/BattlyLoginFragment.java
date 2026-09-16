@@ -207,7 +207,7 @@ public class BattlyLoginFragment extends Fragment {
                         if (looksLikeToken(resolvedUuid)) {
                             resolvedUuid = "";
                         }
-                        BattlyPlusManager.updateFromLoginResponse(appContext, resp);
+                        BattlyPlusManager.updateFromLoginResponse(appContext, resolvedUsername, resp);
                     } catch (Exception ignored) {
                         // Use provided username as fallback
                     }
@@ -313,7 +313,7 @@ public class BattlyLoginFragment extends Fragment {
             uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username)
                     .getBytes(StandardCharsets.UTF_8)).toString();
         }
-        BattlyPlusManager.updateFromLoginResponse(appContext, response);
+        BattlyPlusManager.updateFromLoginResponse(appContext, username, response);
         completeBattlyLogin(activity, appContext, username, token, uuid, token);
     }
 
@@ -400,7 +400,7 @@ public class BattlyLoginFragment extends Fragment {
                 if (uuid.isEmpty()) {
                     uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(StandardCharsets.UTF_8)).toString();
                 }
-                BattlyPlusManager.updateFromLoginResponse(appContext, response);
+                BattlyPlusManager.updateFromLoginResponse(appContext, username, response);
                 completeBattlyLogin(activity, appContext, username, token, uuid, token);
             } catch (Exception e) {
                 if (mDiscordLoginCompleted) return;
@@ -453,7 +453,7 @@ public class BattlyLoginFragment extends Fragment {
                 if (uuid.isEmpty()) {
                     uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(StandardCharsets.UTF_8)).toString();
                 }
-                BattlyPlusManager.updateFromLoginResponse(appContext, response);
+                BattlyPlusManager.updateFromLoginResponse(appContext, username, response);
                 completeBattlyLogin(activity, appContext, username, token, uuid, token);
             } catch (Exception e) {
                 runOnActivity(activity, () -> {

@@ -1,6 +1,7 @@
 package net.kdt.pojavlaunch.utils;
 
 import android.os.Build;
+import android.util.AtomicFile;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -252,7 +253,7 @@ public class DownloadUtils {
         try {
             String urlContent = DownloadUtils.downloadString(url);
             T parseResult = parseCallback.process(urlContent);
-            writeStringCache(cacheDestination, urlContent);
+            writeStringCacheIfChanged(cacheDestination, urlContent);
             return parseResult;
         } catch (IOException | ParseException networkError) {
             if (cacheDestination.isFile() && cacheDestination.canRead()) {
@@ -367,6 +368,35 @@ public class DownloadUtils {
             httpConnection.setRequestProperty("Accept-Encoding", "identity");
         }
         return connection;
+    }
+
+    private static void writeStringCacheIfChanged(File cacheDestination, String value) {
+        if (cacheDestination.isFile() && cacheDestination.canRead()) {
+            try {
+                String cachedValue = Tools.read(new FileInputStream(cacheDestination));
+                if (value.equals(cachedValue)) return;
+            } catch (IOException e) {
+                Log.i("DownloadUtils", "Unable to compare the server-backed string cache", e);
+            }
+        }
+
+        if (!cacheDestination.exists()
+                && !FileUtils.ensureParentDirectorySilently(cacheDestination)) {
+            return;
+        }
+        if (cacheDestination.exists() && !cacheDestination.canWrite()) return;
+
+        AtomicFile atomicFile = new AtomicFile(cacheDestination);
+        FileOutputStream output = null;
+        try {
+            output = atomicFile.startWrite();
+            output.write(value.getBytes(StandardCharsets.UTF_8));
+            output.flush();
+            atomicFile.finishWrite(output);
+        } catch (IOException | RuntimeException e) {
+            if (output != null) atomicFile.failWrite(output);
+            Log.i("DownloadUtils", "Failed to update the server-backed string cache", e);
+        }
     }
 
     public static <T> T readStringCache(String cacheName, ParseCallback<T> parseCallback)

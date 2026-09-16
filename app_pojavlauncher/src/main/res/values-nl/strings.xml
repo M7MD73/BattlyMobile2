@@ -368,7 +368,7 @@
     <string name="crash_no_findings">Er is geen bekend crashpatroon gevonden in de nieuwste logboeken.</string>
     <string name="crash_recovery_applied">Herstelactie voltooid</string>
     <string name="crash_recovery_manual">Dit probleem vereist een handmatige wijziging. Open het logboek voor meer informatie.</string>
-    <string name="credits_version">Versie 2.2.3</string>
+    <string name="credits_version">Versie 2.2.5</string>
     <string name="ctrl_like_btn">Zoals</string>
     <string name="ctrl_liked_added">Toegevoegd aan \'gelikete\' besturingselementen.</string>
     <string name="ctrl_liked_btn">Vond ik leuk</string>
@@ -429,8 +429,8 @@
     <string name="java_runtime_download_progress">Java %1$d (%2$.1f MB / %3$.1f MB) downloaden</string>
     <string name="java_runtime_download_title">Java installeren 8</string>
     <string name="java_runtime_download_waiting">Java 8 downloaden voorbereiden...</string>
-    <string name="launcher_credits_title">Battly-opstartprogramma 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobiel 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobiel 2.2.5</string>
     <string name="launcher_status_battly">Battly-rekening</string>
     <string name="launcher_status_battly_plus">Battly+-rekening</string>
     <string name="library_analyze_mods">Analyseer</string>
@@ -652,8 +652,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Als u Battly wilt gebruiken, kiest u hoe u zich wilt aanmelden en hoe u opgeslagen Java-accounts wilt beheren.</string>
     <string name="account_manager_title">Accountmanager</string>
-    <string name="app_name">Battly-opstartprogramma</string>
-    <string name="app_short_name">Battly-opstartprogramma</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly-rekening</string>
     <string name="auth_method_local">Lokaal account</string>
     <string name="auth_method_microsoft">Microsoft-rekening</string>
@@ -908,7 +908,7 @@
     <string name="installer_internal_fallback">Niet-ondersteund installatieprogramma, waardoor de verouderde Java-gebruikersinterface wordt geopend</string>
     <string name="installer_internal_running">Installateur analyseren…</string>
     <string name="installer_internal_success">%1$s direct in de Battly geïnstalleerd</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher gebaseerd op PojavLauncher en Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Tegoeden&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1343,20 +1343,4 @@
     <string name="search_world_download_error">Kan wereldmetadata niet downloaden</string>
     <string name="world_install_button">Wereld installeren</string>
     <string name="world_install_success">%1$s geïnstalleerd in deze instantie</string>
-
-    <string name="battly_whats_new_action_start">Verken 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">De actie Open modpack selecteert nu het nieuwe exemplaar en sluit elk installatie- en inhoudsvenster correct.</string>
-    <string name="battly_whats_new_compatibility_title">Open geïnstalleerde modpacks rechtstreeks</string>
-    <string name="battly_whats_new_controllers_desc">Het Battly-clientinstallatieprogramma gebruikt nu een goede schuifbare lijst, ook op compacte schermen.</string>
-    <string name="battly_whats_new_controllers_title">Het scrollen van de klantenlijst is opgelost</string>
-    <string name="battly_whats_new_desc">Nieuwe geïsoleerde instanties, downloadbare werelden en belangrijke oplossingen voor Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nieuwe Vanilla-, loader-, client- en modpack-instanties bewaren hun werelden, mods, instellingen en bronpakketten in een onafhankelijke map.</string>
-    <string name="battly_whats_new_instances_title">Voor elk nieuw exemplaar een aparte map</string>
-    <string name="battly_whats_new_recovery_desc">Nieuwe instance-isolatie, veiligere opslag van instellingen en diagnostiek over lange sessies verminderen het aantal configuratieresets en maken het gemakkelijker om problemen te identificeren.</string>
-    <string name="battly_whats_new_recovery_title">Verbeterde stabiliteit</string>
-    <string name="battly_whats_new_title">Battly Mobiel 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Bestaande instances blijven waar ze zijn. Mapisolatie is alleen van toepassing op exemplaren die vanaf deze versie zijn gemaakt.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 is klaar</string>
-    <string name="battly_whats_new_worlds_desc">Blader door en installeer Minecraft-werelden van CurseForge rechtstreeks in de instantie die u kiest.</string>
-    <string name="battly_whats_new_worlds_title">Download werelden van Workspace</string>
 </resources>

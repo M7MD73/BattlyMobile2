@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Spouštěč Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Vyberte instalátor módů</string>
     <!-- Error messages -->
-    <string name="error_fatal">Spouštěč Battly neočekávaně selhal</string>
+    <string name="error_fatal">Battly Launcher neočekávaně selhal</string>
     <string name="error_no_version">Žádná verze!</string>
     <string name="error_show_more">Zobrazit více</string>
     <string name="error_show_less">Zobrazit méně</string>
@@ -210,7 +210,7 @@
     <string name="arc_capes_title">Kápě Cosmetica</string>
     <string name="arc_capes_desc">Zapne kápě z Cosmeticy (dříve Arc) Pro více informací navštivte https://cosmetica.cc. Vyžaduje OptiFine.</string>
     <string name="notif_channel_name">Všeobecné</string>
-    <string name="lazy_service_default_title">Služba popředí spouštěče Battly</string>
+    <string name="lazy_service_default_title">Služba popředí Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Nainstalováno</string>
     <string name="use_global_default">(Užít globální výchozí nastavení)</string>
     <string name="default_control">Výchozí ovládání</string>
@@ -408,7 +408,7 @@
     <string name="mg_renderer_summary_computeShaderext">Může pomoci s chybami shaderpacků. Zakažte, pokud to není třeba, může samo způsobovat pády.</string>
     <string name="mg_renderer_title_multidrawCompute">Použít výpočty mnohonásobnou emulace</string>
     <string name="mg_renderer_summary_multidrawCompute">Používá výpočty stínů pro mnohonásobnou emulaci</string>
-    <string name="app_short_name">Spouštěč Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Na demo účtech jsou podporovány pouze Vanilla verze 1.3.1 a výše</string>
     <string name="demo_unsupported">Demo profil není podporován</string>
     <string name="change_account">Pro použití této funkce prosím změňte účty</string>
@@ -567,7 +567,7 @@
     <string name="crash_no_findings">V nejnovějších protokolech nebyl nalezen žádný známý vzorec selhání.</string>
     <string name="crash_recovery_applied">Obnovení bylo dokončeno</string>
     <string name="crash_recovery_manual">Tento problém vyžaduje ruční změnu. Pro podrobnosti otevřete protokol.</string>
-    <string name="credits_version">Verze 2.2.3</string>
+    <string name="credits_version">Verze 2.2.5</string>
     <string name="ctrl_like_btn">Jako</string>
     <string name="ctrl_liked_added">Přidáno k oblíbeným ovládacím prvkům.</string>
     <string name="ctrl_liked_btn">Líbilo se</string>
@@ -628,8 +628,8 @@
     <string name="java_runtime_download_progress">Stahování Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instalace Java 8</string>
     <string name="java_runtime_download_waiting">Příprava stažení Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
     <string name="launcher_status_battly">Účet Battly</string>
     <string name="launcher_status_battly_plus">Účet Battly+</string>
     <string name="library_analyze_mods">Analyzujte</string>
@@ -681,7 +681,7 @@
     <string name="sdl_library_error_title">Chyba spouštěcí knihovny</string>
     <string name="skip">Přeskočit</string>
     <string name="sodium_confirm_accept">Rizika přijímám</string>
-    <string name="sodium_confirm_message">Sodium není oficiálně podporováno spouštěčem Battly.\n\nPovolení může způsobit grafické chyby, závady a pády. Na serveru Discord nebude poskytována žádná podpora pro jakékoli problémy související se Sodium a nebude poskytnuta žádná pomoc, pokud ztratíte světy nebo uložíte data.\n\nPřijetím potvrzujete, že tuto funkci aktivujete na vlastní riziko.</string>
+    <string name="sodium_confirm_message">Sodium není oficiálně podporováno aplikací Battly Launcher.\n\nPovolení může způsobit grafické chyby, závady a pády. Na serveru Discord nebude poskytována žádná podpora pro jakékoli problémy související se Sodium a nebude poskytnuta žádná pomoc, pokud ztratíte světy nebo uložíte data.\n\nPřijetím potvrzujete, že tuto funkci aktivujete na vlastní riziko.</string>
     <string name="sodium_confirm_title">Povolit Sodium?</string>
     <string name="sodium_launch_anyway">Přesto spustit</string>
     <string name="world_deleted">Svět smazán</string>
@@ -1099,7 +1099,7 @@
     <string name="installer_internal_fallback">Nepodporovaný instalační program, otevírá se starší uživatelské rozhraní Java</string>
     <string name="installer_internal_running">Probíhá analýza instalačního programu…</string>
     <string name="installer_internal_success">%1$s nainstalován přímo uvnitř Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher založený na PojavLauncher a Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredity&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1508,20 +1508,4 @@
     <string name="search_world_download_error">Stažení metadat světa se nezdařilo</string>
     <string name="world_install_button">Instalovat svět</string>
     <string name="world_install_success">Do této instance byl nainstalován %1$s</string>
-
-    <string name="battly_whats_new_action_start">Prozkoumat 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Akce Open modpack nyní vybere novou instanci a správně zavře každé okno instalace a obsahu.</string>
-    <string name="battly_whats_new_compatibility_title">Otevřete nainstalované modpacky přímo</string>
-    <string name="battly_whats_new_controllers_desc">Instalační program klienta Battly nyní používá správný rolovací seznam, a to i na kompaktních obrazovkách.</string>
-    <string name="battly_whats_new_controllers_title">Posouvání seznamu klientů opraveno</string>
-    <string name="battly_whats_new_desc">Nové izolované instance, světy ke stažení a důležité opravy pro Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nové instance Vanilla, loader, klient a modpack uchovávají své světy, mody, nastavení a balíčky zdrojů v nezávislé složce.</string>
-    <string name="battly_whats_new_instances_title">Samostatná složka pro každou novou instanci</string>
-    <string name="battly_whats_new_recovery_desc">Nová izolace instancí, bezpečnější úložiště nastavení a diagnostika dlouhých relací omezují resetování konfigurace a usnadňují identifikaci problémů.</string>
-    <string name="battly_whats_new_recovery_title">Vylepšená stabilita</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Stávající instance zůstávají tam, kde jsou. Izolace složek se vztahuje pouze na instance vytvořené od této verze a dále.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 je připraven</string>
-    <string name="battly_whats_new_worlds_desc">Procházejte a instalujte světy Minecraft ze CurseForge přímo do instance, kterou si vyberete.</string>
-    <string name="battly_whats_new_worlds_title">Stáhněte si světy z Workspace</string>
 </resources>

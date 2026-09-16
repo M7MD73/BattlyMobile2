@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Program uruchamiający Battly</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Wybierz instalator modyfikacji</string>
     <!-- Error messages -->
-    <string name="error_fatal">Program uruchamiający Battly nieoczekiwanie uległ awarii</string>
+    <string name="error_fatal">Battly Launcher nieoczekiwanie uległ awarii</string>
     <string name="error_no_version">Brak wersji!</string>
     <string name="error_show_more">Pokaż więcej</string>
     <string name="error_show_less">Pokaż mniej</string>
@@ -212,7 +212,7 @@
     <string name="arc_capes_title">Peleryny Cosmetica</string>
     <string name="arc_capes_desc">Włącza peleryny z Cosmetica (wcześniej Arc). Więcej informacji znajdziesz na stronie https://cosmetica.cc. Wymaga OptiFine.</string>
     <string name="notif_channel_name">Ogólne</string>
-    <string name="lazy_service_default_title">Usługa pierwszego planu uruchamiania Battly</string>
+    <string name="lazy_service_default_title">Usługa pierwszego planu Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">Zainstalowane</string>
     <string name="use_global_default">(Użyj ustawień globalnych)</string>
     <string name="default_control">Domyślne sterowanie</string>
@@ -242,7 +242,7 @@
     <string name="preference_gyro_sample_rate_title">Częstotliwość próbkowania żyroskopu</string>
     <string name="preference_gyro_sample_rate_description">Zwiększ tę wartość, jeśli doświadczasz problemów z wydajnością sterowania żyroskopem.</string>
     <string name="microsoft_login_retry_later">Zbyt wiele żądań. Spróbuj ponownie później.</string>
-    <string name="storage_required">Program uruchamiający Battly wymaga podłączenia pamięci zewnętrznej. Podłącz go ponownie i uruchom ponownie aplikację.</string>
+    <string name="storage_required">Battly Launcher wymaga podłączenia pamięci zewnętrznej. Podłącz go ponownie i uruchom ponownie aplikację.</string>
     <string name="mcl_setting_title_buttonallcaps">W etykietach przycisków stosuj wyłącznie wielkie litery</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Wyłącz tę opcję, jeśli chcesz używać małych liter w sterowaniu dotykowym.</string>
     <string name="create_profile">Utwórz nowy profil</string>
@@ -410,7 +410,7 @@
     <string name="mg_renderer_summary_computeShaderext">Może pomóc w przypadku problemów z shaderpackami. Jeśli nie jest potrzebne, wyłącz je, ponieważ może powodować awarie.</string>
     <string name="mg_renderer_title_multidrawCompute">Użyj emulacji obliczeniowej Multidraw</string>
     <string name="mg_renderer_summary_multidrawCompute">Wykorzystuje shadery obliczeniowe do emulacji Multidraw</string>
-    <string name="app_short_name">Program uruchamiający Battly</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">Na kontach demonstracyjnych obsługiwane są wyłącznie wersje Vanilla 1.3.1 i nowsze</string>
     <string name="demo_unsupported">Profil demonstracyjny nie jest obsługiwany</string>
     <string name="change_account">Aby skorzystać z tej funkcji, zmień konto</string>
@@ -575,7 +575,7 @@
     <string name="crash_no_findings">W najnowszych logach nie znaleziono żadnego znanego schematu awarii.</string>
     <string name="crash_recovery_applied">Akcja przywracania została ukończona</string>
     <string name="crash_recovery_manual">Ten problem wymaga ręcznej zmiany. Otwórz dziennik, aby poznać szczegóły.</string>
-    <string name="credits_version">Wersja 2.2.3</string>
+    <string name="credits_version">Wersja 2.2.5</string>
     <string name="ctrl_like_btn">Jak</string>
     <string name="ctrl_liked_added">Dodano do lubianych elementów sterujących.</string>
     <string name="ctrl_liked_btn">Podobało się</string>
@@ -636,8 +636,8 @@
     <string name="java_runtime_download_progress">Pobieranie Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instalowanie Java 8</string>
     <string name="java_runtime_download_waiting">Przygotowywanie pobrania Java 8...</string>
-    <string name="launcher_credits_title">Program uruchamiający Battly 2.2.3</string>
-    <string name="launcher_mobile_badge">Komórka 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Komórka 2.2.5</string>
     <string name="launcher_status_battly">Konto Battly</string>
     <string name="launcher_status_battly_plus">Konto Battly+</string>
     <string name="library_analyze_mods">Analizuj</string>
@@ -689,7 +689,7 @@
     <string name="sdl_library_error_title">Błąd biblioteki programu uruchamiającego</string>
     <string name="skip">Pomiń</string>
     <string name="sodium_confirm_accept">Akceptuję ryzyko</string>
-    <string name="sodium_confirm_message">Sodium nie jest oficjalnie obsługiwany przez program uruchamiający Battly.\n\nWłączenie go może powodować błędy graficzne, usterki i awarie. Na serwerze Discord nie będzie zapewnione wsparcie w przypadku jakichkolwiek problemów związanych z Sodium i żadna pomoc nie zostanie udzielona w przypadku utraty światów lub zapisania danych.\n\nAkceptując, potwierdzasz, że włączasz to na własne ryzyko.</string>
+    <string name="sodium_confirm_message">Sodium nie jest oficjalnie obsługiwany przez Battly Launcher.\n\nWłączenie go może powodować błędy graficzne, usterki i awarie. Na serwerze Discord nie będzie zapewnione wsparcie w przypadku jakichkolwiek problemów związanych z Sodium i żadna pomoc nie zostanie udzielona w przypadku utraty światów lub zapisania danych.\n\nAkceptując, potwierdzasz, że włączasz to na własne ryzyko.</string>
     <string name="sodium_confirm_title">Włączyć Sodium?</string>
     <string name="sodium_launch_anyway">Uruchom mimo to</string>
     <string name="world_deleted">Świat usunięty</string>
@@ -1107,7 +1107,7 @@
     <string name="installer_internal_fallback">Nieobsługiwany instalator otwierający starszy interfejs użytkownika Java</string>
     <string name="installer_internal_running">Analizuję instalatora…</string>
     <string name="installer_internal_success">%1$s zainstalowany bezpośrednio w Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher oparty na PojavLauncher i Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredyty&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1516,20 +1516,4 @@
     <string name="search_world_download_error">Nie udało się pobrać metadanych świata</string>
     <string name="world_install_button">Zainstaluj świat</string>
     <string name="world_install_success">%1$s zainstalowany w tej instancji</string>
-
-    <string name="battly_whats_new_action_start">Przeglądaj 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Akcja Otwórz pakiet modów wybiera teraz nową instancję i poprawnie zamyka każde okno instalacji i zawartości.</string>
-    <string name="battly_whats_new_compatibility_title">Otwórz bezpośrednio zainstalowane pakiety modów</string>
-    <string name="battly_whats_new_controllers_desc">Instalator klienta Battly korzysta teraz z odpowiedniej przewijanej listy, także na ekranach kompaktowych.</string>
-    <string name="battly_whats_new_controllers_title">Naprawiono przewijanie listy klientów</string>
-    <string name="battly_whats_new_desc">Nowe izolowane instancje, światy do pobrania i ważne poprawki dla Battly Workspace.</string>
-    <string name="battly_whats_new_instances_desc">Nowe instancje Vanilla, modułu ładującego, klienta i pakietów modów przechowują swoje światy, mody, ustawienia i pakiety zasobów w niezależnym folderze.</string>
-    <string name="battly_whats_new_instances_title">Oddzielny folder dla każdej nowej instancji</string>
-    <string name="battly_whats_new_recovery_desc">Nowa izolacja instancji, bezpieczniejsze przechowywanie ustawień i długa diagnostyka ograniczają konieczność resetowania konfiguracji i ułatwiają identyfikację problemów.</string>
-    <string name="battly_whats_new_recovery_title">Poprawiona stabilność</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Istniejące instancje pozostają tam, gdzie są. Izolacja folderów dotyczy tylko instancji utworzonych od tej wersji.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 jest gotowy</string>
-    <string name="battly_whats_new_worlds_desc">Przeglądaj i instaluj światy Minecraft z CurseForge bezpośrednio w wybranej instancji.</string>
-    <string name="battly_whats_new_worlds_title">Pobierz światy z Workspace</string>
 </resources>

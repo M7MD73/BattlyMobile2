@@ -111,7 +111,7 @@
     <string name="arc_capes_title">Cosmetica keebid</string>
     <string name="arc_capes_desc">Lubab Cosmetica (endine Arc) keebid. Rohkema teabe saamiseks külasta https://cosmetica.cc. Nõuab OptiFine\'i.</string>
     <string name="notif_channel_name">Üldine</string>
-    <string name="lazy_service_default_title">Battly käivitaja esiplaaniteenus</string>
+    <string name="lazy_service_default_title">Battly Launcher esiplaaniteenus</string>
     <string name="notification_terminate">Sundsulge</string>
     <string name="notification_game_runs">Mäng töötab!</string>
     <string name="folder_dialog_create">Loo</string>
@@ -284,7 +284,7 @@
     <string name="crash_no_findings">Viimastest logidest teadaolevat krahhimustrit ei leitud.</string>
     <string name="crash_recovery_applied">Taastetoiming lõpetatud</string>
     <string name="crash_recovery_manual">See probleem vajab käsitsi muutmist. Üksikasjade vaatamiseks avage logi.</string>
-    <string name="credits_version">Versioon 2.2.3</string>
+    <string name="credits_version">Versioon 2.2.5</string>
     <string name="ctrl_like_btn">meeldib</string>
     <string name="ctrl_liked_added">Lisatud meeldinud juhtnuppudele.</string>
     <string name="ctrl_liked_btn">Meeldis</string>
@@ -345,8 +345,8 @@
     <string name="java_runtime_download_progress">Java %1$d (%2$.1f MB / %3$.1f MB) allalaadimine</string>
     <string name="java_runtime_download_title">Java 8 installimine</string>
     <string name="java_runtime_download_waiting">Java 8 allalaadimise ettevalmistamine...</string>
-    <string name="launcher_credits_title">Battly kanderakett 2.2.3</string>
-    <string name="launcher_mobile_badge">Mobiil 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobiil 2.2.5</string>
     <string name="launcher_status_battly">Battly konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analüüsida</string>
@@ -406,7 +406,7 @@
     <string name="sdl_library_error_title">Käivitusprogrammi teegi viga</string>
     <string name="skip">Jäta vahele</string>
     <string name="sodium_confirm_accept">Ma aktsepteerin riske</string>
-    <string name="sodium_confirm_message">Sodiumei toeta ametlikultBattlyKäivitaja.\n\nSelle lubamine võib põhjustada graafilisi vigu, tõrkeid ja kokkujooksmisi. Toetust ei antaDiscordserver mis tahes jaoksSodium- seotud probleemidega ja abi ei anta, kui kaotate maailmu või salvestate andmeid.\n\nNõustumisega kinnitate, et lubate selle omal riisikol.</string>
+    <string name="sodium_confirm_message">Sodiumei toeta ametlikultBattly Launcher.\n\nSelle lubamine võib põhjustada graafilisi vigu, tõrkeid ja kokkujooksmisi. Toetust ei antaDiscordserver mis tahes jaoksSodium- seotud probleemidega ja abi ei anta, kui kaotate maailmu või salvestate andmeid.\n\nNõustumisega kinnitate, et lubate selle omal riisikol.</string>
     <string name="sodium_confirm_title">Kas lubada Sodium?</string>
     <string name="sodium_launch_anyway">Käivitage ikkagi</string>
     <string name="world_deleted">Maailm kustutatud</string>
@@ -573,8 +573,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">Battly kasutamiseks valige, kuidas soovite sisse logida ja hallata salvestatud Java kontosid.</string>
     <string name="account_manager_title">Kontohaldur</string>
-    <string name="app_name">Battly kanderakett</string>
-    <string name="app_short_name">Battly kanderakett</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">Battly konto</string>
     <string name="auth_method_local">Kohalik konto</string>
     <string name="auth_method_microsoft">Microsoft konto</string>
@@ -807,7 +807,7 @@
     <string name="download_version_subtitle">Valige versiooni tüüp, mida soovite alla laadida</string>
     <string name="download_version_title">Laadige alla Minecraft versioon</string>
     <string name="download_version_vanilla_desc">Ametlik versioon ilma muudatusteta.</string>
-    <string name="error_fatal">Battly käivitaja jooksis ootamatult kokku</string>
+    <string name="error_fatal">Battly Launcher jooksis ootamatult kokku</string>
     <string name="file_picker_missing_path">Seda teed ei saanud avada</string>
     <string name="global_cancel">Tühista</string>
     <string name="global_copy">Kopeeri</string>
@@ -828,7 +828,7 @@
     <string name="installer_internal_fallback">Toetamata installiprogramm avab pärandkasutajaliidese Java</string>
     <string name="installer_internal_running">Installeri analüüsimine…</string>
     <string name="installer_internal_success">%1$s, mis on paigaldatud otse Battly sisse</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly käivitusprogramm 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Käivitusprogramm, mis põhineb PojavLauncheril ja Boardwalkil.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediidid&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1096,7 +1096,7 @@
     <string name="settings_panel_title">Käivitusprogrammi seaded</string>
     <string name="shader_install_button">Installige varjutaja</string>
     <string name="shader_install_success">Shaderpackidesse paigaldatud %1$s</string>
-    <string name="storage_required">Launcher Battly nõuab välise salvestusruumi ühendamist. Ühendage see uuesti ja taaskäivitage rakendus.</string>
+    <string name="storage_required">Battly Launcher nõuab välise salvestusruumi ühendamist. Ühendage see uuesti ja taaskäivitage rakendus.</string>
     <string name="vanilla_install_create">Loo profiil</string>
     <string name="vanilla_install_created">Profiil loodud</string>
     <string name="vanilla_install_downloading">Minecraft allalaadimine…</string>
@@ -1265,20 +1265,4 @@
     <string name="search_world_download_error">Maailma metaandmete allalaadimine ebaõnnestus</string>
     <string name="world_install_button">Installimaailm</string>
     <string name="world_install_success">Sellesse eksemplari installitud %1$s</string>
-
-    <string name="battly_whats_new_action_start">Uurige 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">Toiming Ava modpack valib nüüd uue eksemplari ja sulgeb õigesti kõik installi- ja sisuaknad.</string>
-    <string name="battly_whats_new_compatibility_title">Avage installitud modifikatsioonipaketid otse</string>
-    <string name="battly_whats_new_controllers_desc">Battly kliendiinstaller kasutab nüüd korralikku keritavat loendit, sealhulgas kompaktsetel ekraanidel.</string>
-    <string name="battly_whats_new_controllers_title">Kliendiloendi kerimine parandatud</string>
-    <string name="battly_whats_new_desc">Uued isoleeritud eksemplarid, allalaaditavad maailmad ja olulised parandused Battly tööruumi jaoks.</string>
-    <string name="battly_whats_new_instances_desc">Uued Vanilla, laaduri, kliendi ja modifikatsioonipaketi eksemplarid hoiavad oma maailmad, modifikatsioonid, sätted ja ressursipaketid sõltumatus kaustas.</string>
-    <string name="battly_whats_new_instances_title">Iga uue eksemplari jaoks eraldi kaust</string>
-    <string name="battly_whats_new_recovery_desc">Uue eksemplari isoleerimine, turvalisem seadete salvestamine ja pika seansi diagnostika vähendavad konfiguratsiooni lähtestamist ja muudavad probleemide tuvastamise lihtsamaks.</string>
-    <string name="battly_whats_new_recovery_title">Parem stabiilsus</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">Olemasolevad eksemplarid jäävad sinna, kus nad on. Kausta eraldamine kehtib ainult sellest versioonist alates loodud eksemplaride puhul.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 on valmis</string>
-    <string name="battly_whats_new_worlds_desc">Sirvige ja installige Minecraft maailmu CurseForge-st otse valitud eksemplari.</string>
-    <string name="battly_whats_new_worlds_title">Laadige tööruumist alla maailmad</string>
 </resources>

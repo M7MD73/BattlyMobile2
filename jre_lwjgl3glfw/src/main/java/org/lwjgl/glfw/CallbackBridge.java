@@ -57,6 +57,14 @@ public class CallbackBridge {
     public static native void nativeSetGrabbing(boolean grab);
     public static native ByteBuffer nativeCreateGamepadButtonBuffer();
     public static native ByteBuffer nativeCreateGamepadAxisBuffer();
+    public static native String nativeListAndroidAudioInputs();
+    public static native int nativeOpenAndroidAudioInput(int deviceId, int sampleRate,
+                                                          int channels, int bufferSize);
+    public static native boolean nativeStartAndroidAudioInput(int handle);
+    public static native int nativeReadAndroidAudioInput(int handle, byte[] data,
+                                                          int offset, int length);
+    public static native void nativeStopAndroidAudioInput(int handle);
+    public static native void nativeCloseAndroidAudioInput(int handle);
     private static native boolean nativeEnableGamepadDirectInput();
 }
 

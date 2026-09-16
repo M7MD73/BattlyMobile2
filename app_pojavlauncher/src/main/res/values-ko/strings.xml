@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">Battly 실행기</string>
+    <string name="app_name">Battly Launcher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -14,7 +14,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">모드 설치기를 선택하세요</string>
     <!-- Error messages -->
-    <string name="error_fatal">Battly 런처가 예기치 않게 충돌했습니다.</string>
+    <string name="error_fatal">Battly Launcher가 예기치 않게 충돌했습니다.</string>
     <string name="error_no_version">버전이 없습니다!</string>
     <string name="error_show_more">더 보기</string>
     <string name="error_show_less">간략히 보기</string>
@@ -209,7 +209,7 @@
 더 많은 정보를 위해 https://cosmetica.cc 를 방문해주세요.
 옵티파인이 필요합니다.</string>
     <string name="notif_channel_name">일반</string>
-    <string name="lazy_service_default_title">Battly 실행기 포그라운드 서비스</string>
+    <string name="lazy_service_default_title">Battly Launcher 포그라운드 서비스</string>
     <string name="mcl_setting_veroption_installed">설치됨</string>
     <string name="use_global_default">(글로벌 기본값 사용)</string>
     <string name="default_control">기본 조작</string>
@@ -399,7 +399,7 @@
     <string name="mg_renderer_summary_computeShaderext">쉐이더팩 버그 현상에 도움이 될 수 있습니다. 충돌을 유발할 수 있으므로 필요하지 않다면 비활성화하세요.</string>
     <string name="mg_renderer_title_multidrawCompute">Compute 기반 Multidraw 에뮬레이션 사용</string>
     <string name="mg_renderer_summary_multidrawCompute">Multidraw 에뮬레이션에 Compute 쉐이더를 사용합니다</string>
-    <string name="app_short_name">Battly 실행기</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="demo_versions_supported">데모 계정에서는 바닐라 1.3.1 이상만 지원합니다</string>
     <string name="demo_unsupported">데모 프로필 지원 안함</string>
     <string name="change_account">이 기능을 사용하려면 계정을 변경하세요</string>
@@ -752,7 +752,7 @@
     <string name="credits_primary_development">주요 개발</string>
     <string name="credits_section_title">크레딧</string>
     <string name="credits_unaffiliated">이 앱은 Minecraft, Mojang 또는 Microsoft와 관련이 없습니다.</string>
-    <string name="credits_version">버전 2.2.3</string>
+    <string name="credits_version">버전 2.2.5</string>
     <string name="ctrl_applied_success">컨트롤 "%1$s"이(가) 성공적으로 적용되었습니다.</string>
     <string name="ctrl_apply_btn">제어 적용</string>
     <string name="ctrl_apply_msg">"%1$s"을 다운로드하여 컨트롤 레이아웃으로 적용하시겠습니까?</string>
@@ -938,7 +938,7 @@
     <string name="instance_storage_calculating">저장용량 계산 중…</string>
     <string name="instance_use">사용</string>
     <string name="java_runtime_download_message">Battly는 앱 내부로 배송하는 대신 첫 번째 설정 후 Java 8을 다운로드합니다. 이렇게 하면 앱 크기가 줄어들고 이전 Minecraft 버전이 준비됩니다.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly 실행기 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher 및 Boardwalk를 기반으로 한 실행기입니다.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;크레딧&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -949,11 +949,11 @@
         • 프로젝트에 포함된 GNU GPLv3 및 타사 구성요소.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j 등은 원래 라이선스에 따라 제공됩니다.&lt;br/&gt;&lt;br/&gt;
         이 앱은 Minecraft, Mojang 또는 Microsoft와 관련이 없습니다.</string>
-    <string name="launcher_credits_title">Battly 실행기 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
     <string name="launcher_download">다운로드</string>
     <string name="launcher_download_modpack">모드팩 가져오기</string>
     <string name="launcher_execute">플레이</string>
-    <string name="launcher_mobile_badge">모바일 2.2.3</string>
+    <string name="launcher_mobile_badge">모바일 2.2.5</string>
     <string name="launcher_nav_back">돌아가기</string>
     <string name="launcher_nav_home">집으로 돌아가기</string>
     <string name="launcher_nav_workspace">Battly 작업 공간</string>
@@ -1187,7 +1187,7 @@
     <string name="launcher_status_battly">Battly 계정</string>
     <string name="launcher_status_battly_plus">Battly+ 계정</string>
     <string name="sodium_confirm_accept">나는 위험을 받아들인다</string>
-    <string name="sodium_confirm_message">Sodium는 Battly 런처에서 공식적으로 지원되지 않습니다.\n\n이를 활성화하면 그래픽 버그, 결함 및 충돌이 발생할 수 있습니다. Sodium 관련 문제에 대해 Discord 서버에서는 지원이 제공되지 않으며, 월드를 잃거나 데이터를 저장하는 경우 어떤 도움도 제공되지 않습니다.\n\n수락함으로써 귀하는 이 기능을 활성화하는 데 따른 책임은 본인에게 있음을 인정합니다.</string>
+    <string name="sodium_confirm_message">Sodium는 Battly Launcher에서 공식적으로 지원되지 않습니다.\n\n이를 활성화하면 그래픽 버그, 결함 및 충돌이 발생할 수 있습니다. Sodium 관련 문제에 대해 Discord 서버에서는 지원이 제공되지 않으며, 월드를 잃거나 데이터를 저장하는 경우 어떤 도움도 제공되지 않습니다.\n\n수락함으로써 귀하는 이 기능을 활성화하는 데 따른 책임은 본인에게 있음을 인정합니다.</string>
     <string name="sodium_confirm_title">Sodium를 활성화하시겠습니까?</string>
     <string name="sodium_launch_anyway">어쨌든 실행</string>
 
@@ -1502,20 +1502,4 @@
     <string name="search_world_download_error">월드 메타데이터를 다운로드하지 못했습니다.</string>
     <string name="world_install_button">설치세계</string>
     <string name="world_install_success">이 인스턴스에 설치된 %1$s</string>
-
-    <string name="battly_whats_new_action_start">2.2.3 탐색</string>
-    <string name="battly_whats_new_compatibility_desc">이제 Modpack 열기 작업은 새 인스턴스를 선택하고 모든 설치 및 콘텐츠 창을 올바르게 닫습니다.</string>
-    <string name="battly_whats_new_compatibility_title">설치된 모드팩을 직접 열기</string>
-    <string name="battly_whats_new_controllers_desc">Battly 클라이언트 설치 프로그램은 이제 소형 화면을 포함하여 적절한 스크롤 가능 목록을 사용합니다.</string>
-    <string name="battly_whats_new_controllers_title">클라이언트 목록 스크롤이 수정되었습니다.</string>
-    <string name="battly_whats_new_desc">Battly Workspace에 대한 새로운 격리된 인스턴스, 다운로드 가능한 월드 및 중요한 수정 사항입니다.</string>
-    <string name="battly_whats_new_instances_desc">새로운 바닐라, 로더, 클라이언트 및 모드팩 인스턴스는 월드, 모드, 설정 및 리소스 팩을 독립 폴더에 보관합니다.</string>
-    <string name="battly_whats_new_instances_title">모든 새 인스턴스에 대한 별도의 폴더</string>
-    <string name="battly_whats_new_recovery_desc">새로운 인스턴스 격리, 더욱 안전한 설정 저장 및 장기 세션 진단을 통해 구성 재설정을 줄이고 문제를 더 쉽게 식별할 수 있습니다.</string>
-    <string name="battly_whats_new_recovery_title">안정성 향상</string>
-    <string name="battly_whats_new_title">Battly 모바일 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">기존 인스턴스는 현재 위치에 유지됩니다. 폴더 격리는 이 버전부터 생성된 인스턴스에만 적용됩니다.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3이 준비되었습니다</string>
-    <string name="battly_whats_new_worlds_desc">CurseForge에서 Minecraft 월드를 찾아 선택한 인스턴스에 직접 설치하세요.</string>
-    <string name="battly_whats_new_worlds_title">Workspace에서 세계 다운로드</string>
 </resources>

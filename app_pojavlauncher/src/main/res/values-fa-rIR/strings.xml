@@ -181,7 +181,7 @@
     <string name="arc_capes_title">شنل های Cosmetica</string>
     <string name="arc_capes_desc">شنل های Cosmetica (قبلاً Arc) را فعال می کند. برای اطلاعات بیشتر لطفاً به https://cosmetica.cc مراجعه کنید. به OptiFine نیاز دارد.</string>
     <string name="notif_channel_name">عمومی</string>
-    <string name="lazy_service_default_title">سرویس پیش زمینه لانچر Battly</string>
+    <string name="lazy_service_default_title">سرویس پیش زمینه Battly Launcher</string>
     <string name="mcl_setting_veroption_installed">نصب شد</string>
     <string name="use_global_default">(از پیش‌فرض استفاده کنید)</string>
     <string name="progresslayout_tasks_in_progress">%d وظیفه در حال انجام</string>
@@ -388,7 +388,7 @@
     <string name="crash_no_findings">هیچ الگوی خرابی شناخته شده ای در آخرین گزارش ها یافت نشد.</string>
     <string name="crash_recovery_applied">عملیات بازیابی تکمیل شد</string>
     <string name="crash_recovery_manual">این موضوع نیاز به تغییر دستی دارد. گزارش را برای جزئیات باز کنید.</string>
-    <string name="credits_version">نسخه 2.2.3</string>
+    <string name="credits_version">نسخه 2.2.5</string>
     <string name="ctrl_like_btn">مانند</string>
     <string name="ctrl_liked_added">به کنترل‌های پسندیده اضافه شد.</string>
     <string name="ctrl_liked_btn">پسندید</string>
@@ -449,8 +449,8 @@
     <string name="java_runtime_download_progress">دانلود Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">نصب Java 8</string>
     <string name="java_runtime_download_waiting">آماده سازی دانلود Java 8...</string>
-    <string name="launcher_credits_title">لانچر Battly 2.2.3</string>
-    <string name="launcher_mobile_badge">موبایل 2.2.3</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_mobile_badge">موبایل 2.2.5</string>
     <string name="launcher_status_battly">حساب Battly</string>
     <string name="launcher_status_battly_plus">حساب Battly+</string>
     <string name="library_analyze_mods">تحلیل کنید</string>
@@ -505,7 +505,7 @@
     <string name="sdl_library_error_title">خطای کتابخانه راه‌انداز</string>
     <string name="skip">پرش کنید</string>
     <string name="sodium_confirm_accept">من خطرات را می پذیرم</string>
-    <string name="sodium_confirm_message">Sodium به طور رسمی توسط راه‌انداز Battly پشتیبانی نمی‌شود.\n\nفعال کردن آن ممکن است باعث ایجاد اشکالات گرافیکی، اشکالات و خرابی‌ها شود. هیچ پشتیبانی در سرور Discord برای مشکلات مربوط به Sodium ارائه نمی‌شود، و در صورت از دست دادن دنیا یا ذخیره داده‌ها، هیچ کمکی ارائه نمی‌شود.\n\nبا پذیرش، تصدیق می‌کنید که این کار را با مسئولیت خود فعال می‌کنید.</string>
+    <string name="sodium_confirm_message">Sodium به طور رسمی توسط Battly Launcher پشتیبانی نمی‌شود.\n\nفعال کردن آن ممکن است باعث ایجاد اشکالات گرافیکی، اشکالات و خرابی‌ها شود. هیچ پشتیبانی در سرور Discord برای مشکلات مربوط به Sodium ارائه نمی‌شود، و در صورت از دست دادن دنیا یا ذخیره داده‌ها، هیچ کمکی ارائه نمی‌شود.\n\nبا پذیرش، تصدیق می‌کنید که این کار را با مسئولیت خود فعال می‌کنید.</string>
     <string name="sodium_confirm_title">Sodium فعال شود؟</string>
     <string name="sodium_launch_anyway">به هر حال راه اندازی کنید</string>
     <string name="world_deleted">جهان حذف شد</string>
@@ -672,8 +672,8 @@
     <string name="search_filter_source_modrinth">Modrinth</string>
     <string name="account_manager_subtitle">برای استفاده از Battly، نحوه ورود و مدیریت حساب های ذخیره شده Java را انتخاب کنید.</string>
     <string name="account_manager_title">مدیر حساب</string>
-    <string name="app_name">لانچر Battly</string>
-    <string name="app_short_name">لانچر Battly</string>
+    <string name="app_name">Battly Launcher</string>
+    <string name="app_short_name">Battly Launcher</string>
     <string name="auth_method_battly">حساب Battly</string>
     <string name="auth_method_local">حساب محلی</string>
     <string name="auth_method_microsoft">حساب Microsoft</string>
@@ -906,7 +906,7 @@
     <string name="download_version_subtitle">نوع نسخه ای را که می خواهید دانلود کنید انتخاب کنید</string>
     <string name="download_version_title">نسخه Minecraft را دانلود کنید</string>
     <string name="download_version_vanilla_desc">نسخه رسمی بدون تغییرات</string>
-    <string name="error_fatal">لانچر Battly به طور غیرمنتظره ای از کار افتاده است</string>
+    <string name="error_fatal">Battly Launcher به طور غیرمنتظره ای از کار افتاده است</string>
     <string name="file_picker_missing_path">این مسیر باز نشد</string>
     <string name="global_cancel">لغو کنید</string>
     <string name="global_copy">کپی کنید</string>
@@ -927,7 +927,7 @@
     <string name="installer_internal_fallback">نصب‌کننده پشتیبانی‌نشده، رابط کاربری قدیمی Java را باز می‌کند</string>
     <string name="installer_internal_running">در حال تجزیه و تحلیل نصب کننده…</string>
     <string name="installer_internal_success">%1$s مستقیماً در Battly نصب شده است</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.3&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         لانچر مبتنی بر PojavLauncher و Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;اعتبارها&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1194,7 +1194,7 @@
     <string name="settings_panel_title">تنظیمات لانچر</string>
     <string name="shader_install_button">سایه زن را نصب کنید</string>
     <string name="shader_install_success">%1$s در Shaderpack ها نصب شده است</string>
-    <string name="storage_required">لانچر Battly برای اتصال به حافظه خارجی نیاز دارد. لطفاً آن را دوباره وصل کنید و برنامه را دوباره راه اندازی کنید.</string>
+    <string name="storage_required">Battly Launcher برای اتصال به حافظه خارجی نیاز دارد. لطفاً آن را دوباره وصل کنید و برنامه را دوباره راه اندازی کنید.</string>
     <string name="vanilla_install_create">ایجاد نمایه</string>
     <string name="vanilla_install_created">نمایه ایجاد شد</string>
     <string name="vanilla_install_downloading">در حال دانلود Minecraft…</string>
@@ -1363,20 +1363,4 @@
     <string name="search_world_download_error">ابرداده جهان دانلود نشد</string>
     <string name="world_install_button">جهان را نصب کنید</string>
     <string name="world_install_success">%1$s در این نمونه نصب شده است</string>
-
-    <string name="battly_whats_new_action_start">کاوش 2.2.3</string>
-    <string name="battly_whats_new_compatibility_desc">اکشن Open modpack اکنون نمونه جدید را انتخاب می کند و هر پنجره نصب و محتوا را به درستی می بندد.</string>
-    <string name="battly_whats_new_compatibility_title">modpack های نصب شده را مستقیماً باز کنید</string>
-    <string name="battly_whats_new_controllers_desc">نصب‌کننده سرویس گیرنده Battly اکنون از یک لیست قابل پیمایش مناسب، از جمله در صفحه‌های فشرده استفاده می‌کند.</string>
-    <string name="battly_whats_new_controllers_title">پیمایش لیست مشتریان ثابت شد</string>
-    <string name="battly_whats_new_desc">نمونه‌های جدا شده جدید، جهان‌های قابل دانلود و اصلاحات مهم برای فضای کاری Battly.</string>
-    <string name="battly_whats_new_instances_desc">نمونه‌های جدید Vanilla، loader، Client و modpack جهان‌ها، مودها، تنظیمات و بسته‌های منابع خود را در یک پوشه مستقل نگه می‌دارند.</string>
-    <string name="battly_whats_new_instances_title">یک پوشه جداگانه برای هر نمونه جدید</string>
-    <string name="battly_whats_new_recovery_desc">جداسازی نمونه جدید، ذخیره‌سازی تنظیمات ایمن‌تر و عیب‌یابی طولانی‌مدت، بازنشانی پیکربندی را کاهش می‌دهد و شناسایی مشکلات را آسان‌تر می‌کند.</string>
-    <string name="battly_whats_new_recovery_title">ثبات بهبود یافته</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.3</string>
-    <string name="battly_whats_new_transition_desc">موارد موجود در جایی که هستند باقی می مانند. جداسازی پوشه فقط برای نمونه هایی اعمال می شود که از این نسخه به بعد ایجاد شده اند.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.3 آماده است</string>
-    <string name="battly_whats_new_worlds_desc">جهان های Minecraft را از CurseForge مستقیماً در نمونه ای که انتخاب می کنید، مرور و نصب کنید.</string>
-    <string name="battly_whats_new_worlds_title">دنیاها را از Workspace بارگیری کنید</string>
 </resources>

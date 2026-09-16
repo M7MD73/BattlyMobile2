@@ -57,4 +57,15 @@ public class GameSessionExitClassifierTest {
     public void nativeLinkFailureWithoutExitIsUnexpected() {
         assertTrue(GameSessionExitClassifier.endedUnexpectedly("java.lang.UnsatisfiedLinkError: liblwjgl.so"));
     }
+
+    @Test
+    public void recoveredNarratorLinkFailureDoesNotTurnCleanShutdownIntoCrash() {
+        String log = "[Render thread/ERROR]: Error while loading the narrator\n"
+                + "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite'\n"
+                + "[Render thread/INFO]: Stopping!\n"
+                + "EGLBridge: Terminating\n"
+                + "Java Exit code: 1\n";
+
+        assertFalse(GameSessionExitClassifier.endedUnexpectedly(1, null, log));
+    }
 }
