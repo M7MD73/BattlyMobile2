@@ -2,7 +2,7 @@
 
 Esta guía deja el repositorio listo para GitHub sin subir secretos y separa claramente pruebas de producción.
 
-La versión preparada por este documento es Battly Mobile `2.2.5` (`versionCode 10000025`).
+La versión preparada por este documento es Battly Mobile `2.2.9` (`versionCode 10000030`).
 
 ## Variantes
 
@@ -111,7 +111,7 @@ Para convertir archivos a base64 desde PowerShell:
 
 ## BattlyWorlds
 
-BattlyWorlds está desactivado por defecto mientras Google Play revisa el acceso a VPNService. La propiedad `battlyWorldsEnabled` controla a la vez la lógica, el servicio VPN y el permiso `FOREGROUND_SERVICE_CONNECTED_DEVICE`. Para una build autorizada usa `./gradlew assembleRelease -PbattlyWorldsEnabled=true`; sin esa propiedad, el servicio y el permiso no aparecen en el manifest fusionado.
+Battly Worlds está activado en `gradle.properties` mediante `battlyWorldsEnabled=true`. El modo VPN se controla por separado con `battlyWorldsVpnEnabled=false`: las builds actuales usan el transporte sin VPN y excluyen el servicio VPN y su permiso asociado del manifest fusionado.
 
 ## Builds
 
@@ -225,4 +225,17 @@ El control de release usa Android Lint con `abortOnError = true`. Los avisos her
 4. `adb install .\app_pojavlauncher\build\outputs\apk\debug\app_pojavlauncher-debug.apk`
 5. `.\gradlew :app_pojavlauncher:bundleGplay --console=plain`
 6. Verificar 16 KB con el script anterior.
-7. Confirmar que `versionName` es `2.2.5` y `versionCode` es `10000025` en el manifest fusionado o con `apkanalyzer`.
+7. Confirmar que `versionName` es `2.2.9` y `versionCode` es `10000030` en el manifest fusionado o con `apkanalyzer`.
+
+## Parches Nativos Actuales
+
+Los cambios locales de los submodulos se conservan en estos archivos:
+
+- `patches/mobileglues/2.0.0-battly.patch`
+- `patches/sdl/3.2.20-battly.patch`
+- `patches/ltw/battly.patch`
+
+Gradle comprueba si cada parche ya esta aplicado antes de compilar. Los parches
+incluyen los nuevos fuentes necesarios y se validan contra una extraccion limpia
+del commit fijado de cada submodulo. Las carpetas `.cxx` y los demas resultados
+de compilacion no forman parte de estos parches.

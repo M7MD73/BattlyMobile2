@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.2.8 - 2026-10-22
+
+- Corregidos el movimiento relativo del ratón físico, su captura al entrar en un mundo y la separación de eventos de ratón y mando.
+- Corregidos el borrado con el teclado, el enfoque de los campos y las peticiones de teclado que llegaban fuera de orden.
+- Añadida una opción en Controles para desactivar la apertura automática del teclado sin impedir su apertura manual.
+- Se conserva el intervalo de VSync al recrear superficies EGL, tanto en GLFW como en SDL. Los logs muestran los límites de Minecraft y Battly para distinguir restricciones adicionales del dispositivo.
+- Reducidas las barreras de almacenamiento al escribir logs, conservando su contenido, y las actualizaciones innecesarias de controles de FPS y voz.
+- Corregidos el formato de servers.dat y la lectura de listas vacías para añadir servidores promocionados sin reemplazar los personales.
+- Mejorada la compatibilidad de ventanas, superficies y consultas de dispositivos SDL en Minecraft 26.3.
+- Incluidos parches de coherencia de memoria de MobileGlues y correcciones seleccionadas de shaders y framebuffers de LTW.
+- Añadido Krypton Wrapper como renderizador opcional, con correcciones para shaders de OptiFine.
+- Mejorada la resolución de dependencias nativas compatibles y añadidas librerías de audio Android con validación de su contrato JNI.
+- Corregidos recursos de shaders afectados y el orden del argumento headless de MoreCosmetics, sin emular librerías de Windows ni garantizar todos los modpacks.
+- Actualizados el panel nativo de novedades, los 10 idiomas del feed y el fallback inglés. Las notas no garantizan compatibilidad universal con mods, GPUs ni métodos de entrada.
+- Producción 2.2.8 (10000028), sin R8 ni reducción de recursos.
+
 ## 2.2.5 - 2026-09-16
 
 - Las noticias del launcher se obtienen en el idioma del dispositivo mediante feeds separados por idioma.

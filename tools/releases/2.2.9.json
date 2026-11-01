@@ -1,0 +1,79 @@
+{
+  "version": "2.2.9",
+  "version_code": 10000030,
+  "previous_version": "2.2.8",
+  "id": "27",
+  "publish_date": "2026-10-23 23:30:00",
+  "required_native_terms": [],
+  "required_news_terms": [],
+  "en": {
+    "title": "Battly Mobile 2.2.9 is now available",
+    "intro": "This update strengthens file access, modpack installation and external plugin authorization.",
+    "bullets": [
+      "Improved protection when installing and importing modpacks: downloaded files and archive contents must stay inside their assigned instance.",
+      "Fixed file sharing permissions so access to one folder does not grant access to other folders.",
+      "External native plugins now require explicit authorization in Battly before use, with a warning explaining their access.",
+      "Plugin authorization is linked to the APK signing identity. Bundled native dependencies continue to work automatically.",
+      "Strengthened Discord sign-in by checking that each response belongs to a pending, unexpired login and accepting it only once.",
+      "Improved recovery of Discord sign-in when the Android activity is recreated.",
+      "Usage analytics now activate automatically when Battly starts. Offline mode still does not send events.",
+      "Updated the native release notes panel, translated news and plugin permission messages.",
+      "General stability and compatibility improvements."
+    ],
+    "thanks": "Thank you for sending reports and helping improve Battly ❤️",
+    "panel": {
+      "battly_whats_new_title": "Battly Mobile 2.2.9",
+      "battly_whats_new_desc": "Safer modpack installation, file sharing and external plugin authorization.",
+      "battly_whats_new_controllers_title": "Protected file sharing",
+      "battly_whats_new_controllers_desc": "Sharing one folder no longer allows access to other folders outside the permission you granted.",
+      "battly_whats_new_instances_title": "Protected modpack installation",
+      "battly_whats_new_instances_desc": "Archive contents and downloaded files stay inside their assigned instance, without modifying other instances.",
+      "battly_whats_new_worlds_title": "Your plugin permissions",
+      "battly_whats_new_worlds_desc": "External plugins need authorization before use. Previously installed plugins must be authorized again once.",
+      "battly_whats_new_compatibility_title": "Safer Discord sign-in",
+      "battly_whats_new_compatibility_desc": "Login responses must match a pending request, expire after a short time and can only be accepted once.",
+      "battly_whats_new_native_title": "Native dependencies remain available",
+      "battly_whats_new_native_desc": "Built-in libraries work automatically. Permissions for external plugins are linked to the APK signing identity.",
+      "battly_whats_new_recovery_title": "Statistics and translations",
+      "battly_whats_new_recovery_desc": "Usage analytics activate when Battly starts, except in offline mode. Release notes and plugin messages have been translated.",
+      "battly_whats_new_action_start": "Explore 2.2.9",
+      "battly_whats_new_transition_title": "Battly 2.2.9 is ready",
+      "battly_whats_new_transition_desc": "Your instances remain in place. Authorize trusted external plugins in Settings before using them."
+    }
+  },
+  "es": {
+    "title": "Ya disponible Battly Mobile 2.2.9",
+    "intro": "Esta actualización refuerza el acceso a los archivos, la instalación de modpacks y los permisos de los plugins externos.",
+    "bullets": [
+      "Mejorada la protección al instalar e importar modpacks: los archivos descargados y el contenido de los paquetes quedan dentro de su instancia.",
+      "Corregidos los permisos al compartir archivos para que dar acceso a una carpeta no permita acceder a otras.",
+      "Los plugins nativos externos ahora necesitan autorización dentro de Battly antes de utilizarse, con un aviso que explica el acceso que tendrán.",
+      "La autorización de cada plugin queda vinculada a la firma de su APK. Las dependencias nativas incluidas en Battly siguen funcionando automáticamente.",
+      "Reforzado el inicio de sesión con Discord para comprobar que cada respuesta pertenece a una solicitud pendiente, no ha caducado y se acepta una sola vez.",
+      "Mejorada la recuperación del inicio de sesión con Discord cuando Android recrea la pantalla.",
+      "Las estadísticas de uso se activan automáticamente al iniciar Battly. El modo offline sigue sin enviar eventos.",
+      "Actualizados el panel nativo de novedades, las noticias traducidas y los mensajes de permisos de plugins.",
+      "Mejoras generales de estabilidad y compatibilidad."
+    ],
+    "thanks": "Gracias a todos por seguir enviando reportes y ayudando a mejorar Battly ❤️",
+    "panel": {
+      "battly_whats_new_title": "Battly Mobile 2.2.9",
+      "battly_whats_new_desc": "Instalación de modpacks, archivos compartidos y plugins externos más seguros.",
+      "battly_whats_new_controllers_title": "Archivos compartidos protegidos",
+      "battly_whats_new_controllers_desc": "Compartir una carpeta ya no permite acceder a otras fuera del permiso que has concedido.",
+      "battly_whats_new_instances_title": "Instalación de modpacks protegida",
+      "battly_whats_new_instances_desc": "El contenido de los paquetes y los archivos descargados quedan dentro de su instancia, sin modificar otras instancias.",
+      "battly_whats_new_worlds_title": "Tú autorizas los plugins",
+      "battly_whats_new_worlds_desc": "Los plugins externos necesitan autorización antes de usarse. Los ya instalados deben autorizarse de nuevo una vez.",
+      "battly_whats_new_compatibility_title": "Inicio con Discord más seguro",
+      "battly_whats_new_compatibility_desc": "Las respuestas deben corresponder a una solicitud pendiente, caducan pasado un breve plazo y solo se aceptan una vez.",
+      "battly_whats_new_native_title": "Tus dependencias siguen disponibles",
+      "battly_whats_new_native_desc": "Las librerías incluidas funcionan automáticamente. Los permisos de los plugins externos quedan vinculados a la firma de la APK.",
+      "battly_whats_new_recovery_title": "Estadísticas y traducciones",
+      "battly_whats_new_recovery_desc": "Las estadísticas se activan al iniciar Battly, excepto en modo offline. Novedades y mensajes de plugins traducidos.",
+      "battly_whats_new_action_start": "Explorar la 2.2.9",
+      "battly_whats_new_transition_title": "Battly 2.2.9 está listo",
+      "battly_whats_new_transition_desc": "Tus instancias siguen en su sitio. Autoriza los plugins externos de confianza en Ajustes antes de usarlos."
+    }
+  }
+}
