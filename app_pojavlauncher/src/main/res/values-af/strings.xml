@@ -389,7 +389,7 @@
     <string name="credits_primary_development">Hoofontwikkeling</string>
     <string name="credits_section_title">Krediete</string>
     <string name="credits_unaffiliated">Hierdie toepassing is nie geaffilieer met Minecraft, Mojang of Microsoft nie.</string>
-    <string name="credits_version">Weergawe 2.2.5</string>
+    <string name="credits_version">Weergawe 2.2.9</string>
     <string name="ctrl_applied_success">Beheer "%1$s" is suksesvol toegepas.</string>
     <string name="ctrl_apply_btn">Pas beheer toe</string>
     <string name="ctrl_apply_msg">Laai "%1$s" af en pas dit toe as jou beheeruitleg?</string>
@@ -584,7 +584,7 @@
     <string name="java_runtime_download_progress">Laai tans af Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installeer Java 8</string>
     <string name="java_runtime_download_waiting">Berei tans Java 8 aflaai voor...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher gebaseer op PojavLauncher en Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediete&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -595,11 +595,11 @@
         • GNU GPLv3 en derdeparty-komponente ingesluit by die projek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j en meer onder hul oorspronklike lisensies.&lt;br/&gt;&lt;br/&gt;
         Hierdie toepassing is nie geaffilieer met Minecraft, Mojang of Microsoft nie.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Laai af</string>
     <string name="launcher_download_modpack">Voer modpack in</string>
     <string name="launcher_execute">Speel</string>
-    <string name="launcher_mobile_badge">Selfoon 2.2.5</string>
+    <string name="launcher_mobile_badge">Selfoon 2.2.9</string>
     <string name="launcher_nav_back">Gaan terug</string>
     <string name="launcher_nav_home">Keer terug huis toe</string>
     <string name="launcher_nav_workspace">Battly Werkspasie</string>
@@ -1189,4 +1189,107 @@
     <string name="search_world_download_error">Kon nie wêreldmetadata aflaai nie</string>
     <string name="world_install_button">Installeer wêreld</string>
     <string name="world_install_success">%1$s in hierdie geval geïnstalleer</string>
+
+    <string name="battly_whats_new_transition_desc">Jou gevalle bly in plek. Magtig betroubare eksterne inproppe in Instellings voordat u dit gebruik.</string>
+    <string name="download_action_import_mods_title">Voer eksterne mods in</string>
+    <string name="download_action_import_mods_subtitle">Kies een of meer `.jar`-lêers en voeg dit by die geselekteerde instansie.</string>
+    <string name="library_installed_show_more">Wys %1$d meer</string>
+    <string name="library_import_mods_replace_title">Vervang bestaande mods?</string>
+    <string name="library_import_mods_replace_message">%1$d geselekteerde mod-lêers bestaan reeds in %2$s. Battly sal hulle slegs vervang nadat die nuwe lêers bekragtig is.</string>
+    <string name="library_import_mods_invalid">Geen geldige `.jar` mod-lêers is gekies nie.</string>
+    <string name="library_import_mods_success">%1$d mods in %2$s ingevoer.</string>
+    <string name="library_import_mods_partial">Ingevoerde %1$d mods in %2$s · %3$d lêers kon nie ingevoer word nie.</string>
+    <string name="library_import_mods_error">Die geselekteerde mods kon nie ingevoer word nie.</string>
+    <string name="battly_whats_new_action_start">Verken 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Aanmelding-reaksies moet ooreenstem met \'n hangende versoek, verval na \'n kort tydjie en kan slegs een keer aanvaar word.</string>
+    <string name="battly_whats_new_compatibility_title">Veiliger Discord-aanmelding</string>
+    <string name="battly_whats_new_controllers_desc">Deur een vouer te deel, laat dit nie meer toegang tot ander vouers buite die toestemming wat jy verleen het nie.</string>
+    <string name="battly_whats_new_controllers_title">Beskermde lêerdeling</string>
+    <string name="battly_whats_new_desc">Veiliger modpack-installasie, lêerdeling en eksterne inpropmagtiging.</string>
+    <string name="battly_whats_new_instances_desc">Argiefinhoud en afgelaaide lêers bly binne hul toegewysde instansie, sonder om ander instansies te wysig.</string>
+    <string name="battly_whats_new_instances_title">Beskermde modpack installasie</string>
+    <string name="battly_whats_new_recovery_desc">Gebruiksanalise word geaktiveer wanneer Battly begin, behalwe in die aflynmodus. Vrystellingsnotas en inpropboodskappe is vertaal.</string>
+    <string name="battly_whats_new_recovery_title">Statistiek en vertalings</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 is gereed</string>
+    <string name="battly_whats_new_worlds_desc">Eksterne inproppe benodig magtiging voor gebruik. Voorheen geïnstalleerde inproppe moet weer een keer gemagtig word.</string>
+    <string name="battly_whats_new_worlds_title">Jou inproptoestemmings</string>
+    <string name="battly_appearance_title">Battly velle en kappe</string>
+    <string name="battly_appearance_subtitle">Voorbeskou en bestuur jou volledige Minecraft-voorkoms vanaf Mobile.</string>
+    <string name="battly_capes_title">Battly kappe</string>
+    <string name="battly_capes_description">Kies \'n amptelike kaap of laai jou eie op met Battly+. Die aktiewe kaap word in die 3D-voorskou en binne Minecraft gewys.</string>
+    <string name="battly_capes_loading">Laai tans Battly-kappe...</string>
+    <string name="battly_capes_active">Aktiewe cape</string>
+    <string name="battly_capes_none">Geen aktiewe kaap nie</string>
+    <string name="battly_capes_empty">Geen kappe is vir hierdie rekening beskikbaar nie.</string>
+    <string name="battly_capes_upload">Laai kaap op</string>
+    <string name="battly_capes_upload_plus">Laai op met Battly+</string>
+    <string name="battly_capes_plus_required">Pasgemaakte kappe is beskikbaar met Battly+. Jy kan steeds die amptelike kappe gebruik.</string>
+    <string name="battly_capes_disable">Geen kaap nie</string>
+    <string name="battly_capes_disabled">Kaapse gestremde</string>
+    <string name="battly_capes_uploaded">Kaap opgelaai en toegepas</string>
+    <string name="battly_capes_applied">Kaap toegepas</string>
+    <string name="battly_capes_deleted">Kaap geskrap</string>
+    <string name="battly_capes_previewing">Voorskou kaap</string>
+    <string name="battly_capes_custom">Pasgemaakte kaap</string>
+    <string name="battly_capes_official">Amptelike kaap</string>
+
+    <string name="battly_capes_unavailable">Capes is tydelik onbeskikbaar. Jou velle is nog beskikbaar.</string>
+
+    <string name="native_plugins_bundled_category">Android afhanklikhede ingesluit by Battly</string>
+    <string name="native_plugins_bundled_ready">Weergawe %1$s · Gereed</string>
+
+    <string name="battly_whats_new_native_title">Inheemse afhanklikhede bly beskikbaar</string>
+    <string name="battly_whats_new_native_desc">Ingeboude biblioteke werk outomaties. Toestemmings vir eksterne inproppe is gekoppel aan die APK-ondertekeningidentiteit.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Daaglikse aktiwiteit · Selfoon</string>
+    <string name="battly_stats_history_notice">Plaaslike tyd wanneer aangeteken. Geskiedenis begin met hierdie opdatering; vorige totale bly onder.</string>
+    <string name="battly_stats_history_unavailable">Daaglikse geskiedenis is nog nie op die bediener beskikbaar nie. Jou totale statistieke word hieronder getoon.</string>
+    <string name="battly_stats_period_label">Aktiwiteitsperiode</string>
+    <string name="battly_stats_day_label">Aktiwiteitsdatum</string>
+    <string name="battly_stats_period_days">Laaste %1$d dae</string>
+    <string name="battly_stats_period_summary">Aktiewe dae: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Eerste aktiwiteit: %1$s · Laaste aktiwiteit: %2$s</string>
+    <string name="battly_stats_day_modes">Wêrelde: %1$s · Bedieners: %2$s (Battly Worlds: %3$s) · Speletjieslyste: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Alle tye totale · PC + Selfoon</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Maak die sleutelbord outomaties oop</string>
+
+    <string name="native_plugins_trust_warning">Hierdie eksterne inprop kan inheemse kode laat loop met toegang tot Battly lêers en rekeninge. Laat slegs inproppe toe van \'n bron wat jy vertrou. Toestemming is gekoppel aan die APK-ondertekeningidentiteit.</string>
+    <string name="native_plugins_trust_action">Laat inprop toe</string>
+
+    <string name="peripheral_title">Sleutelbord, muis en kontroleerder</string>
+    <string name="peripheral_devices">Gekoppelde randapparatuur</string>
+    <string name="peripheral_no_devices">Geen eksterne randapparatuur bespeur nie</string>
+    <string name="peripheral_mouse">Fisiese muis</string>
+    <string name="peripheral_pc_preset">Pas PC muis voorafinstelling toe</string>
+    <string name="peripheral_pc_mode">Resolusie-onafhanklike mik</string>
+    <string name="peripheral_pc_mode_summary">Konstante lineêre sensitiwiteit, ongeag die weergawe-resolusie. Battly voeg geen versnelling of gladmaak by nie. Android 8 of later.</string>
+    <string name="peripheral_mouse_x">Horisontale sensitiwiteit</string>
+    <string name="peripheral_mouse_y">Vertikale sensitiwiteit</string>
+    <string name="peripheral_invert_x">Keer horisontale as om</string>
+    <string name="peripheral_invert_y">Keer vertikale as om</string>
+    <string name="peripheral_mouse_test">Toets muis kalibrasie</string>
+    <string name="peripheral_keyboard">Fisiese sleutelbord</string>
+    <string name="peripheral_bindings">Speletjie sleutelbindings</string>
+    <string name="peripheral_binding_count">%1$d bindings. Spyskaart-tik is onveranderd.</string>
+    <string name="peripheral_keyboard_test">Toets sleutels en kombinasies</string>
+    <string name="peripheral_stick_linear">Lineêre kontroleerder mik</string>
+    <string name="peripheral_stick_linear_summary">Proporsionele stokreaksie in plaas van die verstek kwadratiese kurwe. Van toepassing op Battly kontroleerder kartering, nie inheemse kontroleerder mods nie.</string>
+    <string name="peripheral_stick_sensitivity">Kontroleerder kamera sensitiwiteit</string>
+    <string name="peripheral_reset_test">Stel meting terug</string>
+    <string name="peripheral_add_binding">Voeg sleutelbinding by</string>
+    <string name="peripheral_source_key">Fisiese sleutel</string>
+    <string name="peripheral_target_key">Stuur hierdie sleutel na Minecraft</string>
+    <string name="peripheral_press_key">Druk en laat \'n fisiese sleutel los. As u \'n bestaande binding kies, word dit verwyder. Wysigingssleutels behou hul normale gedrag.</string>
+    <string name="peripheral_invalid_key">Kies \'n nie-wysiger sleutelbordsleutel. Android-stelselsleutels kan nie heraangewys word nie.</string>
+    <string name="peripheral_mouse_ready">Klik op die toetsarea om die muis vas te vang. Druk Escape om dit vry te laat. Metings is relatiewe beweging wat deur Android gerapporteer word, nie hardeware DPI nie.</string>
+    <string name="peripheral_keyboard_ready">Druk sleutels of kombinasies op jou fisiese sleutelbord. Druk Escape om die toets te sluit.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nSpeletjie X / Y: %3$s\nVoorbeelde: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nSleutel: %2$s · Skandeer: %3$d · Herhaal: %4$d\nHoud: %5$s</string>
 </resources>

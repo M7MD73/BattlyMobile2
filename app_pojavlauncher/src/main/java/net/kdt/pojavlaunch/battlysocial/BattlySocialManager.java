@@ -52,6 +52,7 @@ public final class BattlySocialManager {
     }
 
     public static void heartbeatLauncher(Context context) {
+        BattlyUsageStatsManager.startLauncherSession(context);
         if (context == null || !FirebaseProcessGuard.isLauncherProcess(context)
                 || System.currentTimeMillis() - sLastLauncherHeartbeat < 30000L) return;
         if (BattlyWorldsInvites.isGameActive(context)) return;
@@ -69,6 +70,10 @@ public final class BattlySocialManager {
         if (context == null) return;
         sGameContext = context.getApplicationContext();
         sGameVersion = version == null ? "" : version;
+        net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile profile =
+                net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles.getCurrentProfile();
+        BattlyUsageStatsManager.startGameSession(context, sGameVersion,
+                profile == null ? "" : profile.name);
         Tools.MAIN_HANDLER.removeCallbacks(GAME_HEARTBEAT);
         Tools.MAIN_HANDLER.post(GAME_HEARTBEAT);
     }
@@ -78,6 +83,7 @@ public final class BattlySocialManager {
         sGameContext = null;
         sGameVersion = "";
         GAME_HEARTBEAT_IN_FLIGHT.set(false);
+        BattlyUsageStatsManager.stopGameSession(context);
         LauncherPreferences.DEFAULT_PREF.edit()
                 .remove(KEY_ACTIVE_SERVER_HOST)
                 .remove(KEY_ACTIVE_SERVER_PORT)

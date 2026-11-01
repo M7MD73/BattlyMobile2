@@ -176,7 +176,7 @@
     <string name="crash_no_findings">नवीनतम लॉग में कोई ज्ञात क्रैश पैटर्न नहीं मिला।</string>
     <string name="crash_recovery_applied">पुनर्प्राप्ति कार्रवाई पूर्ण हो गई</string>
     <string name="crash_recovery_manual">इस समस्या में मैन्युअल परिवर्तन की आवश्यकता है. विवरण के लिए लॉग खोलें.</string>
-    <string name="credits_version">संस्करण 2.2.5</string>
+    <string name="credits_version">संस्करण 2.2.9</string>
     <string name="ctrl_like_btn">जैसे</string>
     <string name="ctrl_liked_added">पसंदीदा नियंत्रणों में जोड़ा गया.</string>
     <string name="ctrl_liked_btn">पसंद आया</string>
@@ -237,8 +237,8 @@
     <string name="java_runtime_download_progress">डाउनलोड हो रहा है Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8 स्थापित करना</string>
     <string name="java_runtime_download_waiting">Java 8 डाउनलोड तैयार किया जा रहा है...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">मोबाइल 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">मोबाइल 2.2.9</string>
     <string name="launcher_status_battly">Battly खाता</string>
     <string name="launcher_status_battly_plus">Battly+ खाता</string>
     <string name="library_analyze_mods">विश्लेषण करें</string>
@@ -723,7 +723,7 @@
     <string name="installer_internal_fallback">असमर्थित इंस्टॉलर, लीगेसी Java UI खोल रहा है</string>
     <string name="installer_internal_running">इंस्टॉलर का विश्लेषण किया जा रहा है...</string>
     <string name="installer_internal_success">%1$s सीधे Battly के अंदर स्थापित किया गया</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher और बोर्डवॉक पर आधारित लॉन्चर।&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;क्रेडिट&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1163,19 +1163,107 @@
     <string name="world_install_button">विश्व स्थापित करें</string>
     <string name="world_install_success">इस उदाहरण में %1$s स्थापित है</string>
 
-    <string name="battly_whats_new_action_start">2.2.5 को खोजें</string>
-    <string name="battly_whats_new_compatibility_desc">Battly मूल लाइब्रेरी प्लगइन्स को पहचानता है और आवश्यक प्लगइन स्थापित होने पर Distant Horizons जैसे संगत मॉड्स शुरू करने की अनुमति देता है।</string>
-    <string name="battly_whats_new_compatibility_title">मूल प्लगइन्स और डिस्टेंट होराइज़न्स</string>
-    <string name="battly_whats_new_controllers_desc">Battly डिवाइस की भाषा में API से पूछताछ करता है और जब सर्वर की सामग्री बदलती है तो अपने कैश को अपडेट करता है।</string>
-    <string name="battly_whats_new_controllers_title">हमेशा अद्यतन नवीनताएँ</string>
-    <string name="battly_whats_new_desc">Minecraft 26.3 के साथ बेहतर संगतता, मॉड्स के लिए मूल ऑडियो, अनुवादित नई विशेषताएँ और स्क्रीन सुधार।</string>
-    <string name="battly_whats_new_instances_desc">Vanilla में Minecraft 26.3, Fabric और व्यक्तिगत संस्करणों में शुरुआत, बनावट और रेंडरिंग को सही किया गया।</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 सही किया गया</string>
-    <string name="battly_whats_new_recovery_desc">Vulkan और ओरिएंटेशन में सुधार, Minecraft की विंडो का आकार, JVM तर्क और सामान्य समाप्ति का पता लगाने में सुधार।</string>
-    <string name="battly_whats_new_recovery_title">सटीक प्रारंभ और समाप्ति</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">आपके मौजूदा इंस्टेंस और सेटिंग्स बिना बदलाव के बने रहते हैं।</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 तैयार है</string>
-    <string name="battly_whats_new_worlds_desc">मॉड्स Android के माइक्रोफोन का पता लगा सकते हैं, उपलब्ध इनपुट में से चुन सकते हैं और गेम की ऑडियो भेजे बिना आवाज़ कैप्चर कर सकते हैं।</string>
-    <string name="battly_whats_new_worlds_title">मॉड्स के लिए माइक्रोफोन उपलब्ध</string>
+    <string name="battly_whats_new_action_start">2.2.9 का अन्वेषण करें</string>
+    <string name="battly_whats_new_compatibility_desc">लॉगिन प्रतिक्रियाएँ लंबित अनुरोध से मेल खानी चाहिए, थोड़े समय के बाद समाप्त होनी चाहिए और केवल एक बार स्वीकार की जा सकती हैं।</string>
+    <string name="battly_whats_new_compatibility_title">सुरक्षित Discord साइन-इन</string>
+    <string name="battly_whats_new_controllers_desc">एक फ़ोल्डर साझा करना अब आपके द्वारा दी गई अनुमति के बाहर अन्य फ़ोल्डरों तक पहुंच की अनुमति नहीं देता है।</string>
+    <string name="battly_whats_new_controllers_title">संरक्षित फ़ाइल साझाकरण</string>
+    <string name="battly_whats_new_desc">सुरक्षित मॉडपैक इंस्टॉलेशन, फ़ाइल शेयरिंग और बाहरी प्लगइन प्राधिकरण।</string>
+    <string name="battly_whats_new_instances_desc">संग्रहित सामग्री और डाउनलोड की गई फ़ाइलें अन्य उदाहरणों को संशोधित किए बिना, उनके निर्दिष्ट उदाहरण के अंदर रहती हैं।</string>
+    <string name="battly_whats_new_instances_title">संरक्षित मॉडपैक स्थापना</string>
+    <string name="battly_whats_new_recovery_desc">ऑफ़लाइन मोड को छोड़कर, Battly प्रारंभ होने पर उपयोग विश्लेषण सक्रिय हो जाता है। रिलीज़ नोट्स और प्लगइन संदेशों का अनुवाद किया गया है।</string>
+    <string name="battly_whats_new_recovery_title">सांख्यिकी और अनुवाद</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">आपके उदाहरण यथावत बने रहेंगे. विश्वसनीय बाहरी प्लगइन्स का उपयोग करने से पहले उन्हें सेटिंग्स में अधिकृत करें।</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 तैयार है</string>
+    <string name="battly_whats_new_worlds_desc">बाहरी प्लगइन्स को उपयोग से पहले प्राधिकरण की आवश्यकता होती है। पहले स्थापित प्लगइन्स को एक बार फिर से अधिकृत किया जाना चाहिए।</string>
+    <string name="battly_whats_new_worlds_title">आपकी प्लगइन अनुमतियाँ</string>
+
+    <string name="download_action_import_mods_title">बाहरी मॉड आयात करें</string>
+    <string name="download_action_import_mods_subtitle">एक या अधिक `.jar` फ़ाइलें चुनें और उन्हें चयनित उदाहरण में जोड़ें।</string>
+    <string name="library_installed_show_more">%1$d और अधिक दिखाएँ</string>
+    <string name="library_import_mods_replace_title">मौजूदा मॉड बदलें?</string>
+    <string name="library_import_mods_replace_message">%1$d चयनित मॉड फ़ाइलें %2$s में पहले से मौजूद हैं। Battly नई फ़ाइलों को सत्यापित करने के बाद ही उन्हें प्रतिस्थापित करेगा।</string>
+    <string name="library_import_mods_invalid">कोई वैध `.jar` मॉड फ़ाइलें नहीं चुनी गईं।</string>
+    <string name="library_import_mods_success">%2$s में आयातित %1$d मॉड।</string>
+    <string name="library_import_mods_partial">%2$s में आयातित %1$d मॉड · %3$d फ़ाइलें आयात नहीं की जा सकीं।</string>
+    <string name="library_import_mods_error">चयनित मॉड आयात नहीं किये जा सके.</string>
+    <string name="battly_appearance_title">Battly खाल और टोपी</string>
+    <string name="battly_appearance_subtitle">मोबाइल से अपनी संपूर्ण Minecraft उपस्थिति का पूर्वावलोकन करें और प्रबंधित करें।</string>
+    <string name="battly_capes_title">Battly केप</string>
+    <string name="battly_capes_description">एक आधिकारिक केप चुनें या Battly+ के साथ अपना स्वयं का केप अपलोड करें। सक्रिय केप को 3डी पूर्वावलोकन में और Minecraft के अंदर दिखाया गया है।</string>
+    <string name="battly_capes_loading">Battly कैप लोड हो रहा है...</string>
+    <string name="battly_capes_active">सक्रिय केप</string>
+    <string name="battly_capes_none">कोई सक्रिय केप नहीं</string>
+    <string name="battly_capes_empty">इस खाते के लिए कोई कैप उपलब्ध नहीं है.</string>
+    <string name="battly_capes_upload">केप अपलोड करें</string>
+    <string name="battly_capes_upload_plus">Battly+ के साथ अपलोड करें</string>
+    <string name="battly_capes_plus_required">कस्टम केप Battly+ के साथ उपलब्ध हैं। आप अभी भी आधिकारिक टोपी का उपयोग कर सकते हैं.</string>
+    <string name="battly_capes_disable">कोई केप नहीं</string>
+    <string name="battly_capes_disabled">केप अक्षम</string>
+    <string name="battly_capes_uploaded">केप अपलोड और लागू किया गया</string>
+    <string name="battly_capes_applied">केप ने आवेदन किया</string>
+    <string name="battly_capes_deleted">केप हटा दिया गया</string>
+    <string name="battly_capes_previewing">केप का पूर्वावलोकन</string>
+    <string name="battly_capes_custom">कस्टम केप</string>
+    <string name="battly_capes_official">आधिकारिक केप</string>
+
+    <string name="battly_capes_unavailable">केप अस्थायी रूप से अनुपलब्ध हैं. आपकी खालें अभी भी उपलब्ध हैं।</string>
+
+    <string name="native_plugins_bundled_category">Android निर्भरताएँ Battly के साथ शामिल हैं</string>
+    <string name="native_plugins_bundled_ready">संस्करण %1$s · तैयार</string>
+
+    <string name="battly_whats_new_native_title">मूल निर्भरताएँ उपलब्ध रहती हैं</string>
+    <string name="battly_whats_new_native_desc">अंतर्निहित लाइब्रेरी स्वचालित रूप से काम करती हैं। बाहरी प्लगइन्स के लिए अनुमतियाँ एपीके हस्ताक्षर पहचान से जुड़ी हुई हैं।</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">दैनिक गतिविधि · मोबाइल</string>
+    <string name="battly_stats_history_notice">रिकॉर्ड किए जाने पर स्थानीय समय. इतिहास इस अद्यतन के साथ शुरू होता है; पिछला योग नीचे रहता है.</string>
+    <string name="battly_stats_history_unavailable">दैनिक इतिहास अभी सर्वर पर उपलब्ध नहीं है. आपके कुल आँकड़े नीचे दिखाए गए हैं।</string>
+    <string name="battly_stats_period_label">गतिविधि अवधि</string>
+    <string name="battly_stats_day_label">गतिविधि दिनांक</string>
+    <string name="battly_stats_period_days">पिछले %1$d दिन</string>
+    <string name="battly_stats_period_summary">सक्रिय दिन: %1$d · Minecraft: %2$s · लॉन्चर: %3$s</string>
+    <string name="battly_stats_time_range">पहली गतिविधि: %1$s · अंतिम गतिविधि: %2$s</string>
+    <string name="battly_stats_day_modes">संसार: %1$s · सर्वर: %2$s (Battly Worlds: %3$s) · गेम मेनू: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · लॉन्चर: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d एस</string>
+    <string name="battly_stats_lifetime">सर्वकालिक योग · पीसी + मोबाइल</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · लॉन्चर: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d एच</string>
+    <string name="automatic_game_keyboard_title">कीबोर्ड अपने आप खोलें</string>
+
+    <string name="native_plugins_trust_warning">यह बाहरी प्लगइन Battly फ़ाइलों और खातों तक पहुंच के साथ मूल कोड चला सकता है। केवल उसी स्रोत से प्लगइन्स की अनुमति दें जिस पर आपको भरोसा है। अनुमति एपीके हस्ताक्षर पहचान से जुड़ी हुई है।</string>
+    <string name="native_plugins_trust_action">प्लगइन की अनुमति दें</string>
+
+    <string name="peripheral_title">कीबोर्ड, माउस और नियंत्रक</string>
+    <string name="peripheral_devices">जुड़े हुए बाह्य उपकरण</string>
+    <string name="peripheral_no_devices">कोई बाहरी परिधीय पता नहीं चला</string>
+    <string name="peripheral_mouse">भौतिक चूहा</string>
+    <string name="peripheral_pc_preset">पीसी माउस प्रीसेट लागू करें</string>
+    <string name="peripheral_pc_mode">संकल्प-स्वतंत्र लक्ष्य</string>
+    <string name="peripheral_pc_mode_summary">रेंडर रिज़ॉल्यूशन की परवाह किए बिना लगातार रैखिक संवेदनशीलता। Battly कोई त्वरण या स्मूथिंग नहीं जोड़ता है। Android 8 या बाद का संस्करण।</string>
+    <string name="peripheral_mouse_x">क्षैतिज संवेदनशीलता</string>
+    <string name="peripheral_mouse_y">ऊर्ध्वाधर संवेदनशीलता</string>
+    <string name="peripheral_invert_x">क्षैतिज अक्ष को उल्टा करें</string>
+    <string name="peripheral_invert_y">ऊर्ध्वाधर अक्ष को उलटा करें</string>
+    <string name="peripheral_mouse_test">माउस अंशांकन का परीक्षण करें</string>
+    <string name="peripheral_keyboard">भौतिक कीबोर्ड</string>
+    <string name="peripheral_bindings">गेमप्ले कुंजी बाइंडिंग</string>
+    <string name="peripheral_binding_count">%1$d बाइंडिंग। मेनू टाइपिंग अपरिवर्तित है.</string>
+    <string name="peripheral_keyboard_test">परीक्षण कुंजी और संयोजन</string>
+    <string name="peripheral_stick_linear">रैखिक नियंत्रक लक्ष्य</string>
+    <string name="peripheral_stick_linear_summary">डिफ़ॉल्ट द्विघात वक्र के बजाय आनुपातिक छड़ी प्रतिक्रिया। Battly कंट्रोलर मैपिंग पर लागू होता है, नेटिव कंट्रोलर मॉड पर नहीं।</string>
+    <string name="peripheral_stick_sensitivity">नियंत्रक कैमरा संवेदनशीलता</string>
+    <string name="peripheral_reset_test">माप रीसेट करें</string>
+    <string name="peripheral_add_binding">कुंजी बाइंडिंग जोड़ें</string>
+    <string name="peripheral_source_key">भौतिक कुंजी</string>
+    <string name="peripheral_target_key">इस कुंजी को Minecraft पर भेजें</string>
+    <string name="peripheral_press_key">भौतिक कुंजी दबाएँ और छोड़ें। किसी मौजूदा बाइंडिंग का चयन करने से वह हट जाती है। संशोधक कुंजियाँ अपना सामान्य व्यवहार बनाए रखती हैं।</string>
+    <string name="peripheral_invalid_key">एक गैर-संशोधक कुंजीपटल कुंजी चुनें. Android सिस्टम कुंजियों को दोबारा मैप नहीं किया जा सकता।</string>
+    <string name="peripheral_mouse_ready">माउस को पकड़ने के लिए परीक्षण क्षेत्र पर क्लिक करें। इसे रिलीज़ करने के लिए एस्केप दबाएँ। माप Android द्वारा रिपोर्ट की गई सापेक्ष गति हैं, हार्डवेयर DPI नहीं।</string>
+    <string name="peripheral_keyboard_ready">अपने भौतिक कीबोर्ड पर कुंजियाँ या संयोजन दबाएँ। परीक्षण बंद करने के लिए एस्केप दबाएँ।</string>
+    <string name="peripheral_mouse_result">%1$s\एनAndroid एक्स / वाई: %2$s\nगेम एक्स/वाई: %3$s\nनमूने: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nकुंजी: %2$s · स्कैन: %3$d · दोहराएँ: %4$d\nआयोजित: %5$s</string>
 </resources>

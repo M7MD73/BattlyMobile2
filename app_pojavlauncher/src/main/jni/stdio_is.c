@@ -11,6 +11,7 @@
 #include <environ/environ.h>
 
 #include "stdio_is.h"
+#include "log_file_writer.h"
 
 //
 // Created by maks on 17.02.21.
@@ -26,14 +27,16 @@ static pthread_t logger;
 static jmethodID logger_onEventLogged;
 static volatile jobject logListener = NULL;
 static int latestlog_fd = -1;
+static pthread_mutex_t logfile_mutex = PTHREAD_MUTEX_INITIALIZER;
+static battly_log_write_state logfile_write_state;
 
 
 static bool recordBuffer(char* buf, ssize_t len) {
     if(strstr(buf, "Session ID is")) return false;
-    if(latestlog_fd != -1) {
-        write(latestlog_fd, buf, len);
-        fdatasync(latestlog_fd);
-    }
+    pthread_mutex_lock(&logfile_mutex);
+    if(latestlog_fd != -1)
+        battly_log_write(latestlog_fd, buf, (size_t) len, &logfile_write_state);
+    pthread_mutex_unlock(&logfile_mutex);
     return true;
 }
 
@@ -45,6 +48,7 @@ static void *logger_thread() {
     ssize_t  rsize;
     char buf[2050];
     while((rsize = read(pfd[0], buf, sizeof(buf)-1)) > 0) {
+        buf[rsize] = 0; // recordBuffer's session-token filter requires a terminated string.
         bool shouldRecordString = recordBuffer(buf, rsize); //record with newline int latestlog
         if(buf[rsize-1]=='\n') {
             rsize=rsize-1; //truncate
@@ -61,11 +65,15 @@ static void *logger_thread() {
 }
 JNIEXPORT void JNICALL
 Java_net_kdt_pojavlaunch_Logger_begin(JNIEnv *env, __attribute((unused)) jclass clazz, jstring logPath) {
+    pthread_mutex_lock(&logfile_mutex);
     if(latestlog_fd != -1) {
         int localfd = latestlog_fd;
         latestlog_fd = -1;
+        fdatasync(localfd);
         close(localfd);
     }
+    memset(&logfile_write_state, 0, sizeof(logfile_write_state));
+    pthread_mutex_unlock(&logfile_mutex);
     if(logger_onEventLogged == NULL) {
         jclass eventLogListener = (*env)->FindClass(env, "net/kdt/pojavlaunch/Logger$eventLogListener");
         logger_onEventLogged = (*env)->GetMethodID(env, eventLogListener, "onEventLogged", "(Ljava/lang/String;)V");
@@ -83,18 +91,23 @@ Java_net_kdt_pojavlaunch_Logger_begin(JNIEnv *env, __attribute((unused)) jclass 
 
     /* open latestlog.txt for writing */
     const char* logFilePath = (*env)->GetStringUTFChars(env, logPath, NULL);
-    latestlog_fd = open(logFilePath, O_WRONLY | O_TRUNC);
-    if(latestlog_fd == -1) {
-        latestlog_fd = 0;
+    int opened_fd = open(logFilePath, O_WRONLY | O_TRUNC | O_CREAT, 0600);
+    (*env)->ReleaseStringUTFChars(env, logPath, logFilePath);
+    if(opened_fd == -1) {
         (*env)->ThrowNew(env, ioeClass, strerror(errno));
         return;
     }
-    (*env)->ReleaseStringUTFChars(env, logPath, logFilePath);
+    pthread_mutex_lock(&logfile_mutex);
+    latestlog_fd = opened_fd;
+    pthread_mutex_unlock(&logfile_mutex);
 
     /* spawn the logging thread */
     int result = pthread_create(&logger, 0, logger_thread, 0);
     if(result != 0) {
+        pthread_mutex_lock(&logfile_mutex);
         close(latestlog_fd);
+        latestlog_fd = -1;
+        pthread_mutex_unlock(&logfile_mutex);
         (*env)->ThrowNew(env, ioeClass, strerror(result));
     }
     pthread_detach(logger);

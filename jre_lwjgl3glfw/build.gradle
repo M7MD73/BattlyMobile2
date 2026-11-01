@@ -30,11 +30,14 @@ jar {
     }
     if (gitUsed()){
       File versionFile = file("../app_pojavlauncher/src/main/assets/components/lwjgl3/version")
-      String lwjglPatchVersion = getGitHash(project.projectDir) + "-cacio-ctc-labymod-stable-fix18-solclient-real-ui-battly-r19-audio-input-routing"
-      versionFile.write(lwjglPatchVersion)
-      file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.3.3/version").write(lwjglPatchVersion + "-3.3.3")
-      file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.4.1/version").write(lwjglPatchVersion + "-3.4.1-native-r7-sdl3412")
-      file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.4.2/version").write(lwjglPatchVersion + "-3.4.2-mojo5-sdl-input-r1")
+        String lwjglPatchVersion = getGitHash(project.projectDir) + "-cacio-ctc-labymod-stable-fix18-solclient-real-ui-battly-r24-size-codecs"
+      def writeVersionIfChanged = { File target, String value ->
+          if (!target.isFile() || target.getText('UTF-8') != value) target.write(value, 'UTF-8')
+      }
+      writeVersionIfChanged(versionFile, lwjglPatchVersion)
+      writeVersionIfChanged(file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.3.3/version"), lwjglPatchVersion + "-3.3.3")
+      writeVersionIfChanged(file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.4.1/version"), lwjglPatchVersion + "-3.4.1-native-r7-sdl3412")
+      writeVersionIfChanged(file("../app_pojavlauncher/src/main/assets/components/lwjgl3/3.4.2/version"), lwjglPatchVersion + "-3.4.2-mojo5-sdl-input-r4")
     }
     from {
         configurations.default.collect {
@@ -99,6 +102,7 @@ tasks.register("patchMergedLwjglModules") {
                 sourceSets.main.output.classesDirs.files.each { classesDir ->
                     fileTree(classesDir).matching {
                         include "org/lwjgl/glfw/**"
+                        include "android/util/**"
                     }.files.each { compiledClass ->
                         String relativePath = classesDir.toPath().relativize(compiledClass.toPath()).toString()
                         delete new File(stagingDir, relativePath)
@@ -107,6 +111,7 @@ tasks.register("patchMergedLwjglModules") {
                 copy {
                     from(sourceSets.main.output.classesDirs) {
                         include "org/lwjgl/glfw/**"
+                        include "android/util/**"
                     }
                     into stagingDir
                 }

@@ -20,6 +20,8 @@ public class MinecraftServerSessionTrackerTest {
         MinecraftServerSessionTracker.Endpoint endpoint = MinecraftServerSessionTracker.getEndpoint();
         assertEquals("play.example.net", endpoint.host);
         assertEquals(25570, endpoint.port);
+        assertEquals(MinecraftServerSessionTracker.Mode.MULTIPLAYER,
+                MinecraftServerSessionTracker.getMode());
     }
 
     @Test
@@ -36,9 +38,23 @@ public class MinecraftServerSessionTrackerTest {
         MinecraftServerSessionTracker.inspectLine("Connecting to server.test:25565");
         MinecraftServerSessionTracker.inspectLine("Starting integrated minecraft server version 1.21");
         assertNull(MinecraftServerSessionTracker.getEndpoint());
+        assertEquals(MinecraftServerSessionTracker.Mode.SINGLEPLAYER,
+                MinecraftServerSessionTracker.getMode());
 
         MinecraftServerSessionTracker.inspectLine("Connecting to server.test:25565");
         MinecraftServerSessionTracker.inspectLine("Connection lost: Disconnected");
         assertNull(MinecraftServerSessionTracker.getEndpoint());
+        assertEquals(MinecraftServerSessionTracker.Mode.MENU,
+                MinecraftServerSessionTracker.getMode());
+    }
+
+    @Test
+    public void tracksLocalWorldName() {
+        MinecraftServerSessionTracker.inspectLine("Starting integrated server version 1.21.11");
+        MinecraftServerSessionTracker.inspectLine("Preparing level \"My Survival World\"");
+
+        assertEquals(MinecraftServerSessionTracker.Mode.SINGLEPLAYER,
+                MinecraftServerSessionTracker.getMode());
+        assertEquals("My Survival World", MinecraftServerSessionTracker.getWorldName());
     }
 }

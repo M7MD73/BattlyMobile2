@@ -757,7 +757,7 @@
     <string name="credits_primary_development">Développement principal</string>
     <string name="credits_section_title">Crédits</string>
     <string name="credits_unaffiliated">Cette application n\'est pas affiliée à Minecraft, Mojang ou Microsoft.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_applied_success">Contrôle "%1$s" appliqué avec succès.</string>
     <string name="ctrl_apply_btn">Appliquer le contrôle</string>
     <string name="ctrl_apply_msg">Télécharger et appliquer « %1$s » comme disposition de contrôle ?</string>
@@ -943,7 +943,7 @@
     <string name="instance_storage_calculating">Calcul du stockage…</string>
     <string name="instance_use">Utiliser</string>
     <string name="java_runtime_download_message">Battly télécharge Java 8 après la première configuration au lieu de l\'envoyer dans l\'application. Cela réduit la taille de l\'application et prépare les anciennes versions de Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Lanceur basé sur PojavLauncher et Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Crédits&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 et composants tiers inclus dans le projet.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j et plus sous leurs licences d\'origine.&lt;br/&gt;&lt;br/&gt;
         Cette application n\'est pas affiliée à Minecraft, Mojang ou Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Télécharger</string>
     <string name="launcher_download_modpack">Importer un pack de modules</string>
     <string name="launcher_execute">Jouer</string>
-    <string name="launcher_mobile_badge">Mobiles 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobiles 2.2.9</string>
     <string name="launcher_nav_back">Retourner</string>
     <string name="launcher_nav_home">Retour à la maison</string>
     <string name="launcher_nav_workspace">Espace de travail Battly</string>
@@ -1503,19 +1503,107 @@
     <string name="world_install_button">Installer le monde</string>
     <string name="world_install_success">%1$s installé dans cette instance</string>
 
-    <string name="battly_whats_new_action_start">Découvrir le 2.2.5</string>
-    <string name="battly_whats_new_compatibility_desc">Battly reconnaît les plugins de bibliothèques natives et permet de lancer des mods compatibles comme Distant Horizons lorsque le plugin nécessaire est installé.</string>
-    <string name="battly_whats_new_compatibility_title">Plugins natifs et Distant Horizons</string>
-    <string name="battly_whats_new_controllers_desc">Battly consulte l\'API dans la langue de l\'appareil et met à jour son cache lorsque le contenu du serveur change.</string>
-    <string name="battly_whats_new_controllers_title">Nouveautés toujours mises à jour</string>
-    <string name="battly_whats_new_desc">Meilleure compatibilité avec Minecraft 26.3, audio natif pour les mods, nouveautés traduites et corrections d\'écran.</string>
-    <string name="battly_whats_new_instances_desc">Corrigés le démarrage, les textures et le rendu de Minecraft 26.3 en Vanilla, Fabric et les versions personnalisées.</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 corrigé</string>
-    <string name="battly_whats_new_recovery_desc">Améliorés Vulkan et l’orientation, la taille de la fenêtre de Minecraft, les arguments JVM et la détection des fermetures normales.</string>
-    <string name="battly_whats_new_recovery_title">Démarrage et fermeture plus précis</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">Vos instances et paramètres existants restent inchangés.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 est prêt</string>
-    <string name="battly_whats_new_worlds_desc">Les mods peuvent détecter le microphone de Android, choisir parmi les entrées disponibles et capturer la voix sans envoyer l\'audio du jeu.</string>
-    <string name="battly_whats_new_worlds_title">Microphone disponible pour les mods</string>
+    <string name="battly_whats_new_action_start">Explorer 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Les réponses de connexion doivent correspondre à une demande en attente, expirer après un court laps de temps et ne peuvent être acceptées qu\'une seule fois.</string>
+    <string name="battly_whats_new_compatibility_title">Connexion plus sûre au Discord</string>
+    <string name="battly_whats_new_controllers_desc">Le partage d\'un dossier ne permet plus d\'accéder à d\'autres dossiers en dehors de l\'autorisation que vous avez accordée.</string>
+    <string name="battly_whats_new_controllers_title">Partage de fichiers protégé</string>
+    <string name="battly_whats_new_desc">Installation plus sûre du modpack, partage de fichiers et autorisation de plugin externe.</string>
+    <string name="battly_whats_new_instances_desc">Le contenu des archives et les fichiers téléchargés restent dans l\'instance qui leur est attribuée, sans modifier les autres instances.</string>
+    <string name="battly_whats_new_instances_title">Installation du modpack protégé</string>
+    <string name="battly_whats_new_recovery_desc">L\'analyse d\'utilisation s\'active au démarrage de Battly, sauf en mode hors ligne. Les notes de version et les messages du plugin ont été traduits.</string>
+    <string name="battly_whats_new_recovery_title">Statistiques et traductions</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">Vos instances restent en place. Autorisez les plugins externes de confiance dans les paramètres avant de les utiliser.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 est prêt</string>
+    <string name="battly_whats_new_worlds_desc">Les plugins externes nécessitent une autorisation avant d\'être utilisés. Les plugins précédemment installés doivent être à nouveau autorisés.</string>
+    <string name="battly_whats_new_worlds_title">Les autorisations de votre plugin</string>
+
+    <string name="download_action_import_mods_title">Importer des mods externes</string>
+    <string name="download_action_import_mods_subtitle">Choisissez un ou plusieurs fichiers `.jar` et ajoutez-les à l\'instance sélectionnée.</string>
+    <string name="library_installed_show_more">Afficher %1$d plus</string>
+    <string name="library_import_mods_replace_title">Remplacer les mods existants ?</string>
+    <string name="library_import_mods_replace_message">Les fichiers mod sélectionnés %1$d existent déjà dans %2$s. Battly ne les remplacera qu\'après validation des nouveaux fichiers.</string>
+    <string name="library_import_mods_invalid">Aucun fichier mod `.jar` valide n\'a été sélectionné.</string>
+    <string name="library_import_mods_success">Mods %1$d importés dans %2$s.</string>
+    <string name="library_import_mods_partial">Les mods %1$d importés dans %2$s · Les fichiers %3$d n\'ont pas pu être importés.</string>
+    <string name="library_import_mods_error">Les mods sélectionnés n\'ont pas pu être importés.</string>
+    <string name="battly_appearance_title">Peaux et capes Battly</string>
+    <string name="battly_appearance_subtitle">Prévisualisez et gérez votre apparence complète Minecraft depuis Mobile.</string>
+    <string name="battly_capes_title">Capes Battly</string>
+    <string name="battly_capes_description">Choisissez une cape officielle ou téléchargez la vôtre avec Battly+. La cape active est affichée dans l\'aperçu 3D et à l\'intérieur du Minecraft.</string>
+    <string name="battly_capes_loading">Chargement des capes Battly...</string>
+    <string name="battly_capes_active">Cape active</string>
+    <string name="battly_capes_none">Aucune cape active</string>
+    <string name="battly_capes_empty">Aucune cape n\'est disponible pour ce compte.</string>
+    <string name="battly_capes_upload">Télécharger la cape</string>
+    <string name="battly_capes_upload_plus">Télécharger avec Battly+</string>
+    <string name="battly_capes_plus_required">Des capes personnalisées sont disponibles avec Battly+. Vous pouvez toujours utiliser les capes officielles.</string>
+    <string name="battly_capes_disable">Pas de cape</string>
+    <string name="battly_capes_disabled">Cap désactivé</string>
+    <string name="battly_capes_uploaded">Cape téléchargée et appliquée</string>
+    <string name="battly_capes_applied">Cape appliquée</string>
+    <string name="battly_capes_deleted">Cap supprimé</string>
+    <string name="battly_capes_previewing">Cap de prévisualisation</string>
+    <string name="battly_capes_custom">Cape personnalisée</string>
+    <string name="battly_capes_official">Cape officielle</string>
+
+    <string name="battly_capes_unavailable">Les capes sont temporairement indisponibles. Vos skins sont toujours disponibles.</string>
+
+    <string name="native_plugins_bundled_category">Dépendances Android incluses avec Battly</string>
+    <string name="native_plugins_bundled_ready">Version %1$s · Prêt</string>
+
+    <string name="battly_whats_new_native_title">Les dépendances natives restent disponibles</string>
+    <string name="battly_whats_new_native_desc">Les bibliothèques intégrées fonctionnent automatiquement. Les autorisations pour les plugins externes sont liées à l\'identité de signature de l\'APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Activité quotidienne · Mobile</string>
+    <string name="battly_stats_history_notice">Heure locale au moment de l\'activité. L\'historique commence avec cette mise à jour ; les totaux précédents sont conservés ci-dessous.</string>
+    <string name="battly_stats_history_unavailable">L\'historique quotidien n\'est pas encore disponible sur le serveur. Vos statistiques totales sont présentées ci-dessous.</string>
+    <string name="battly_stats_period_label">Période d\'activité</string>
+    <string name="battly_stats_day_label">Date d\'activité</string>
+    <string name="battly_stats_period_days">Derniers jours %1$d</string>
+    <string name="battly_stats_period_summary">Jours actifs : %1$d · Minecraft : %2$s · Lanceur : %3$s</string>
+    <string name="battly_stats_time_range">Première activité : %1$s · Dernière activité : %2$s</string>
+    <string name="battly_stats_day_modes">Mondes : %1$s · Serveurs : %2$s (Battly Worlds : %3$s) · Menus de jeu : %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft : %3$s · Lanceur : %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$ds</string>
+    <string name="battly_stats_lifetime">Totaux de tous les temps · PC + Mobile</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft : %2$s · Lanceur : %3$s</string>
+    <string name="battly_stats_chart_hours">%1$dh</string>
+    <string name="automatic_game_keyboard_title">Ouvrir automatiquement le clavier</string>
+
+    <string name="native_plugins_trust_warning">Ce plugin externe peut exécuter du code natif avec accès aux fichiers et comptes Battly. Autorisez uniquement les plugins provenant d’une source de confiance. L\'autorisation est liée à l\'identité de signature de l\'APK.</string>
+    <string name="native_plugins_trust_action">Autoriser le plugin</string>
+
+    <string name="peripheral_title">Clavier, souris et contrôleur</string>
+    <string name="peripheral_devices">Périphériques connectés</string>
+    <string name="peripheral_no_devices">Aucun périphérique externe détecté</string>
+    <string name="peripheral_mouse">Souris physique</string>
+    <string name="peripheral_pc_preset">Appliquer le préréglage de la souris PC</string>
+    <string name="peripheral_pc_mode">Visée indépendante de la résolution</string>
+    <string name="peripheral_pc_mode_summary">Sensibilité linéaire constante quelle que soit la résolution du rendu. Battly n’ajoute aucune accélération ni lissage. Android 8 ou version ultérieure.</string>
+    <string name="peripheral_mouse_x">Sensibilité horizontale</string>
+    <string name="peripheral_mouse_y">Sensibilité verticale</string>
+    <string name="peripheral_invert_x">Inverser l\'axe horizontal</string>
+    <string name="peripheral_invert_y">Inverser l\'axe vertical</string>
+    <string name="peripheral_mouse_test">Tester l\'étalonnage de la souris</string>
+    <string name="peripheral_keyboard">Clavier physique</string>
+    <string name="peripheral_bindings">Raccourcis de touches de gameplay</string>
+    <string name="peripheral_binding_count">Fixations %1$d. La saisie des menus est inchangée.</string>
+    <string name="peripheral_keyboard_test">Tester les touches et les combinaisons</string>
+    <string name="peripheral_stick_linear">Visée du contrôleur linéaire</string>
+    <string name="peripheral_stick_linear_summary">Réponse proportionnelle du stick au lieu de la courbe quadratique par défaut. S\'applique au mappage du contrôleur Battly, et non aux mods de contrôleur natifs.</string>
+    <string name="peripheral_stick_sensitivity">Sensibilité de la caméra du contrôleur</string>
+    <string name="peripheral_reset_test">Réinitialiser la mesure</string>
+    <string name="peripheral_add_binding">Ajouter une liaison de clé</string>
+    <string name="peripheral_source_key">Clé physique</string>
+    <string name="peripheral_target_key">Envoyez cette clé à Minecraft</string>
+    <string name="peripheral_press_key">Appuyez et relâchez une touche physique. La sélection d’une liaison existante la supprime. Les touches de modification conservent leur comportement normal.</string>
+    <string name="peripheral_invalid_key">Choisissez une touche du clavier non modificatrice. Les clés système Android ne peuvent pas être remappées.</string>
+    <string name="peripheral_mouse_ready">Cliquez sur la zone de test pour capturer la souris. Appuyez sur Échap pour le libérer. Les mesures sont des mouvements relatifs signalés par Android, et non par le DPI matériel.</string>
+    <string name="peripheral_keyboard_ready">Appuyez sur des touches ou des combinaisons de votre clavier physique. Appuyez sur Échap pour fermer le test.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X/Y : %2$s\nJeu X/Y : %3$s\nÉchantillons : %4$d</string>
+    <string name="peripheral_key_result">%1$s\nClé : %2$s · Numérisation : %3$d · Répéter : %4$d\nEn attente : %5$s</string>
 </resources>

@@ -2,6 +2,14 @@
   "schema": "battly-renderer-plugins-v1",
   "renderers": [
     {
+      "id": "opengles3_krypton",
+      "name": "Krypton Wrapper 0.4.5",
+      "description": "",
+      "minSdk": 26,
+      "requiresGles3": true,
+      "requiredLibraries": ["libng_gl4es.so"]
+    },
+    {
       "id": "battly_kopper",
       "name": "Kopper Zink (OpenGL 4.6)",
       "description": "Mesa Zink through the packaged EGL/Kopper bridge.",

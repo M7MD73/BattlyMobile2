@@ -14,6 +14,7 @@ typedef struct {
     EGLint     format;
     EGLContext context;
     EGLSurface surface;
+    int swapInterval;
 } gl_render_window_t;
 
 bool gl_init();

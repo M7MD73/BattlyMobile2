@@ -1,0 +1,143 @@
+diff --git a/src/gl/glsl/glsl_for_es.cpp b/src/gl/glsl/glsl_for_es.cpp
+index ad4337e..111b873 100644
+--- a/src/gl/glsl/glsl_for_es.cpp
++++ b/src/gl/glsl/glsl_for_es.cpp
+@@ -744,8 +744,13 @@ std::string preprocess_glsl(const std::string& glsl, GLenum shaderType, bool* at
+ int get_or_add_glsl_version(std::string& glsl) {
+     int glsl_version = getGLSLVersion(glsl.c_str());
+     if (glsl_version == -1) {
+-        glsl_version = 140;
+-        glsl.insert(0, "#version 140\n");
++        glsl_version = 450;
++        glsl.insert(0, "#version 450\n");
++    } else if (glsl_version < 450) {
++        // Normalize desktop sources to the OpenGL SPIR-V target, including line continuations.
++        glsl = std::regex_replace(glsl, std::regex(R"(#version\s+\d{3})"),
++                                  "#version 450", std::regex_constants::format_first_only);
++        glsl_version = 450;
+     }
+     // LOGD("GLSL version: %d",glsl_version)
+     return glsl_version;
+@@ -783,7 +788,7 @@ std::vector<unsigned int> glsl_to_spirv(GLenum shader_type, int glsl_version, co
+     shader.setStrings(shader_src, 1);
+ 
+     using namespace glslang;
+-    shader.setEnvInput(EShSourceGlsl, shader_language, EShClientVulkan, glsl_version);
++    shader.setEnvInput(EShSourceGlsl, shader_language, EShClientOpenGL, glsl_version);
+     shader.setEnvClient(EShClientOpenGL, EShTargetOpenGL_450);
+     shader.setEnvTarget(EShTargetSpv, EShTargetSpv_1_5);
+     shader.setAutoMapLocations(true);
+@@ -792,7 +797,7 @@ std::vector<unsigned int> glsl_to_spirv(GLenum shader_type, int glsl_version, co
+     TBuiltInResource TBuiltInResource_resources = InitResources();
+ 
+     if (!shader.parse(&TBuiltInResource_resources, glsl_version, true, EShMsgDefault)) {
+-        DBG(SHUT_LOGD("glslang: GLSL Compiling ERROR: \n%s", shader.getInfoLog());)
++        SHUT_LOGD("Krypton: desktop GLSL translation failed: \n%s", shader.getInfoLog());
+         errc = -1;
+         return {};
+     }
+diff --git a/src/gl/program.c b/src/gl/program.c
+index b99bff3..3cdc355 100644
+--- a/src/gl/program.c
++++ b/src/gl/program.c
+@@ -30,9 +30,13 @@ void VISIBLE glBindFragDataLocation(GLuint program, GLuint colorNumber, const GL
+     DBG(SHUT_LOGD("glBindFragDataLocation(%d, %d, \"%s\")\n", program, colorNumber, name))
+     FLUSH_BEGINEND;
+     CHECK_PROGRAM(void, program)
+-    if (glprogram->last_frag) {
++    if (name && glprogram->last_frag && glprogram->last_frag->converted) {
+         if (!glprogram->last_frag->before_patch) {
+-            glprogram->last_frag->before_patch = glprogram->last_frag->converted;
++            glprogram->last_frag->before_patch = strdup(glprogram->last_frag->converted);
++            if (!glprogram->last_frag->before_patch) {
++                errorShim(GL_OUT_OF_MEMORY);
++                return;
++            }
+         }
+         DBG(SHUT_LOGD("Target shader:\n%s\n", glprogram->last_frag->converted))
+         int len = strlen(name);
+@@ -51,8 +55,10 @@ void VISIBLE glBindFragDataLocation(GLuint program, GLuint colorNumber, const GL
+ 
+         if (regcomp(&regex, targetPattern, REG_EXTENDED) != 0) {
+             fprintf(stderr, "Failed to compile regex\n");
++            free(targetPattern);
+             return;
+         }
++        free(targetPattern);
+ 
+         char* searchStart = glprogram->last_frag->converted;
+         while (regexec(&regex, searchStart, 1, pmatch, 0) == 0) {
+@@ -93,14 +99,16 @@ void VISIBLE glBindFragDataLocation(GLuint program, GLuint colorNumber, const GL
+                 strcat(newConverted, result);
+                 strcat(newConverted, temp + matchLen);
+ 
+-                strcpy(glprogram->last_frag->converted, newConverted);
+-                free(newConverted);
++                // The location qualifier makes the source larger than its original allocation.
++                free(glprogram->last_frag->converted);
++                glprogram->last_frag->converted = newConverted;
++                searchStart = newConverted + prefixLen + strlen(result);
+             }
+ 
+             free(origin);
+             free(result);
+ 
+-            searchStart += pmatch[0].rm_eo;
++            if (!temp) break;
+         }
+ 
+         regfree(&regex);
+@@ -924,7 +932,7 @@ void APIENTRY_GL4ES gl4es_glLinkProgram(GLuint program) {
+             }
+         }
+         // for glBindFragDataLocation
+-        if (glprogram->last_vert && glprogram->frag_data_changed == 1) {
++        if (glprogram->last_frag && glprogram->frag_data_changed == 1) {
+             LOAD_GLES2(glShaderSource);
+             LOAD_GLES2(glCompileShader);
+             LOAD_GLES2(glAttachShader);
+diff --git a/src/gl/shader.c b/src/gl/shader.c
+index d8c1533..8626831 100644
+--- a/src/gl/shader.c
++++ b/src/gl/shader.c
+@@ -80,6 +80,7 @@ void actually_deleteshader(GLuint shader) {
+             kh_del(shaderlist, shaders, k);
+             if (glshader->source) free(glshader->source);
+             if (glshader->converted) free(glshader->converted);
++            if (glshader->before_patch) free(glshader->before_patch);
+             free(glshader);
+         }
+     }
+@@ -689,6 +690,10 @@ void APIENTRY_GL4ES gl4es_glShaderSource(GLuint shader, GLsizei count, const GLc
+     for (int i = 0; i < count; i++)
+         l += (length && length[i] >= 0) ? length[i] : strlen(string[i]);
+     if (glshader->source) free(glshader->source);
++    if (glshader->converted) free(glshader->converted);
++    if (glshader->before_patch) free(glshader->before_patch);
++    glshader->converted = NULL;
++    glshader->before_patch = NULL;
+     glshader->source = malloc(l + 1);
+     memset(glshader->source, 0, l + 1);
+     if (length) {
+@@ -724,14 +729,18 @@ void APIENTRY_GL4ES gl4es_glShaderSource(GLuint shader, GLsizei count, const GLc
+                     // bool isBSL = first_three_lines_contains_BSL(glshader->source);
+                     bool isBuiltInVariableConverted = is_glsl_builtin_converted(glshader->source);
+                     remove_before_version(glshader->source);
+-                    char* convertedSource = glshader->source;
++                    bool hasFragColor = contains_glFragColor(glshader->source);
++                    char* convertedSource = strdup(glshader->source);
+                     if (!isBuiltInVariableConverted)
++                    {
++                        free(convertedSource);
+                         convertedSource = ConvertShaderBuiltInVariableOnly(
+-                            convertedSource, glshader->type == GL_VERTEX_SHADER ? 1 : 0, &glshader->need,
++                            glshader->source, glshader->type == GL_VERTEX_SHADER ? 1 : 0, &glshader->need,
+                             isBuiltInVariableConverted ? 0 : 1);
++                    }
+                     free(glshader->source);
+                     if (glshader->type == GL_FRAGMENT_SHADER) {
+-                        if (contains_glFragColor(glshader->source)) {
++                        if (hasFragColor) {
+                             convertedSource = replace_glFragColor(convertedSource);
+                             convertedSource = insert_gl_FragColor_if_missing(convertedSource);
+                         } else {

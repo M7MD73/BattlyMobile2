@@ -406,7 +406,7 @@
     <string name="crash_no_findings">Ən son qeydlərdə məlum qəza nümunəsi tapılmadı.</string>
     <string name="crash_recovery_applied">Bərpa əməliyyatı tamamlandı</string>
     <string name="crash_recovery_manual">Bu problemin əl ilə dəyişdirilməsi lazımdır. Təfərrüatlar üçün jurnalı açın.</string>
-    <string name="credits_version">Versiya 2.2.5</string>
+    <string name="credits_version">Versiya 2.2.9</string>
     <string name="ctrl_like_btn">kimi</string>
     <string name="ctrl_liked_added">Bəyəndiyiniz idarəetmələrə əlavə edildi.</string>
     <string name="ctrl_liked_btn">Bəyəndim</string>
@@ -467,8 +467,8 @@
     <string name="java_runtime_download_progress">Endirilir Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java quraşdırılması 8</string>
     <string name="java_runtime_download_waiting">Java 8 endirilməsi hazırlanır...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Battly hesabı</string>
     <string name="launcher_status_battly_plus">Battly+ hesabı</string>
     <string name="library_analyze_mods">Təhlil edin</string>
@@ -938,7 +938,7 @@
     <string name="installer_internal_fallback">Dəstəklənməyən quraşdırıcı, köhnə Java UI-ni açır</string>
     <string name="installer_internal_running">Quraşdırıcı təhlil edilir...</string>
     <string name="installer_internal_success">%1$s birbaşa Battly daxilində quraşdırılmışdır</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Başlatıcı PojavLauncher və Boardwalk əsasında.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditlər&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1378,4 +1378,107 @@
     <string name="search_world_download_error">Dünya metadatasını endirmək alınmadı</string>
     <string name="world_install_button">Dünyanı quraşdırın</string>
     <string name="world_install_success">%1$s bu instansiyaya quraşdırılmışdır</string>
+
+    <string name="battly_whats_new_transition_desc">Nümunələriniz yerində qalır. Etibarlı xarici plaginləri istifadə etməzdən əvvəl Parametrlərdə icazə verin.</string>
+    <string name="download_action_import_mods_title">Xarici modları idxal edin</string>
+    <string name="download_action_import_mods_subtitle">Bir və ya daha çox `.jar` faylı seçin və onları seçilmiş nümunəyə əlavə edin.</string>
+    <string name="library_installed_show_more">%1$d daha çox göstər</string>
+    <string name="library_import_mods_replace_title">Mövcud modlar dəyişdirilsin?</string>
+    <string name="library_import_mods_replace_message">%1$d seçilmiş mod faylları artıq %2$s-də mövcuddur. Battly onları yalnız yeni faylları təsdiq etdikdən sonra əvəz edəcək.</string>
+    <string name="library_import_mods_invalid">Heç bir etibarlı `.jar` mod faylı seçilməyib.</string>
+    <string name="library_import_mods_success">%1$d modları %2$s-ə idxal edildi.</string>
+    <string name="library_import_mods_partial">İdxal edilmiş %1$d modlarını %2$s -ə %3$d faylları idxal etmək mümkün olmadı.</string>
+    <string name="library_import_mods_error">Seçilmiş modları idxal etmək mümkün olmadı.</string>
+    <string name="battly_whats_new_action_start">2.2.9-u araşdırın</string>
+    <string name="battly_whats_new_compatibility_desc">Giriş cavabları gözlənilən sorğuya uyğun olmalıdır, qısa müddətdən sonra başa çatır və yalnız bir dəfə qəbul edilə bilər.</string>
+    <string name="battly_whats_new_compatibility_title">Daha təhlükəsiz Discord girişi</string>
+    <string name="battly_whats_new_controllers_desc">Bir qovluğu paylaşmaq artıq verdiyiniz icazədən kənar digər qovluqlara daxil olmağa imkan vermir.</string>
+    <string name="battly_whats_new_controllers_title">Qorunan fayl paylaşımı</string>
+    <string name="battly_whats_new_desc">Daha təhlükəsiz modpack quraşdırılması, fayl paylaşımı və xarici plagin icazəsi.</string>
+    <string name="battly_whats_new_instances_desc">Arxiv məzmunu və endirilmiş fayllar digər nümunələri dəyişdirmədən təyin edilmiş nümunənin daxilində qalır.</string>
+    <string name="battly_whats_new_instances_title">Qorunan modpack quraşdırılması</string>
+    <string name="battly_whats_new_recovery_desc">İstifadə analitikası oflayn rejim istisna olmaqla, Battly işə salındıqda aktivləşir. Buraxılış qeydləri və plagin mesajları tərcümə edilmişdir.</string>
+    <string name="battly_whats_new_recovery_title">Statistika və tərcümələr</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 hazırdır</string>
+    <string name="battly_whats_new_worlds_desc">Xarici plaginlər istifadə etməzdən əvvəl icazə tələb edir. Əvvəllər quraşdırılmış plaginlər bir daha avtorizasiya edilməlidir.</string>
+    <string name="battly_whats_new_worlds_title">Plugin icazələriniz</string>
+    <string name="battly_appearance_title">Battly dərilər və başlıqlar</string>
+    <string name="battly_appearance_subtitle">Mobildən tam Minecraft görünüşünüzü önizləyin və idarə edin.</string>
+    <string name="battly_capes_title">Battly qapaqlar</string>
+    <string name="battly_capes_description">Rəsmi başlıq seçin və ya Battly+ ilə özünüzü yükləyin. Aktiv başlıq 3D önizləmədə və Minecraft daxilində göstərilir.</string>
+    <string name="battly_capes_loading">Battly qapaqları yüklənir...</string>
+    <string name="battly_capes_active">Aktiv papaq</string>
+    <string name="battly_capes_none">Aktiv papaq yoxdur</string>
+    <string name="battly_capes_empty">Bu hesab üçün heç bir başlıq yoxdur.</string>
+    <string name="battly_capes_upload">Cape yükləyin</string>
+    <string name="battly_capes_upload_plus">Battly+ ilə yükləyin</string>
+    <string name="battly_capes_plus_required">Xüsusi başlıqlar Battly+ ilə mövcuddur. Hələ də rəsmi papaqlardan istifadə edə bilərsiniz.</string>
+    <string name="battly_capes_disable">Başlıq yoxdur</string>
+    <string name="battly_capes_disabled">Cape əlil</string>
+    <string name="battly_capes_uploaded">Cape yükləndi və tətbiq edildi</string>
+    <string name="battly_capes_applied">Cape tətbiq olundu</string>
+    <string name="battly_capes_deleted">Başlıq silindi</string>
+    <string name="battly_capes_previewing">Ön görünüş</string>
+    <string name="battly_capes_custom">Xüsusi papaq</string>
+    <string name="battly_capes_official">Rəsmi papaq</string>
+
+    <string name="battly_capes_unavailable">Burunlar müvəqqəti olaraq əlçatmazdır. Dəriləriniz hələ də mövcuddur.</string>
+
+    <string name="native_plugins_bundled_category">Android asılılıqları Battly-ə daxildir</string>
+    <string name="native_plugins_bundled_ready">Versiya %1$s · Hazır</string>
+
+    <string name="battly_whats_new_native_title">Doğma asılılıqlar mövcud olaraq qalır</string>
+    <string name="battly_whats_new_native_desc">Daxili kitabxanalar avtomatik işləyir. Xarici plaginlər üçün icazələr APK imzalama şəxsiyyəti ilə əlaqələndirilir.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Gündəlik fəaliyyət · Mobil</string>
+    <string name="battly_stats_history_notice">Qeydə alındıqda yerli vaxt. Tarix bu yeniləmə ilə başlayır; əvvəlki yekunlar aşağıda qalır.</string>
+    <string name="battly_stats_history_unavailable">Gündəlik tarixçə hələ serverdə mövcud deyil. Ümumi statistikanız aşağıda göstərilir.</string>
+    <string name="battly_stats_period_label">Fəaliyyət dövrü</string>
+    <string name="battly_stats_day_label">Fəaliyyət tarixi</string>
+    <string name="battly_stats_period_days">Son %1$d günlər</string>
+    <string name="battly_stats_period_summary">Aktiv günlər: %1$d · Minecraft: %2$s · Başlatıcı: %3$s</string>
+    <string name="battly_stats_time_range">İlk fəaliyyət: %1$s · Son fəaliyyət: %2$s</string>
+    <string name="battly_stats_day_modes">Dünyalar: %1$s · Serverlər: %2$s (Battly Worlds: %3$s) · Oyun menyuları: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Başlatıcı: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Bütün zamanların yekunları · PC + Mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Başlatıcı: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Klaviaturanı avtomatik aç</string>
+
+    <string name="native_plugins_trust_warning">Bu xarici plagin Battly fayllarına və hesablarına giriş ilə yerli kodu işlədə bilər. Yalnız etibar etdiyiniz mənbədən olan plaginlərə icazə verin. İcazə APK imzalama identifikasiyası ilə əlaqələndirilir.</string>
+    <string name="native_plugins_trust_action">Pluginə icazə verin</string>
+
+    <string name="peripheral_title">Klaviatura, siçan və nəzarətçi</string>
+    <string name="peripheral_devices">Qoşulmuş periferik qurğular</string>
+    <string name="peripheral_no_devices">Heç bir xarici periferiya aşkarlanmadı</string>
+    <string name="peripheral_mouse">Fiziki siçan</string>
+    <string name="peripheral_pc_preset">PC siçan əvvəlcədən təyinini tətbiq edin</string>
+    <string name="peripheral_pc_mode">Qətnamədən asılı olmayan məqsəd</string>
+    <string name="peripheral_pc_mode_summary">Render rezolyusiyasından asılı olmayaraq daimi xətti həssaslıq. Battly heç bir sürətlənmə və ya hamarlama əlavə etmir. Android 8 və ya daha sonra.</string>
+    <string name="peripheral_mouse_x">Üfüqi həssaslıq</string>
+    <string name="peripheral_mouse_y">Şaquli həssaslıq</string>
+    <string name="peripheral_invert_x">Üfüqi oxu çevirin</string>
+    <string name="peripheral_invert_y">Şaquli oxu tərsinə çevirin</string>
+    <string name="peripheral_mouse_test">Siçan kalibrlənməsini sınayın</string>
+    <string name="peripheral_keyboard">Fiziki klaviatura</string>
+    <string name="peripheral_bindings">Oyun açarı bağlamaları</string>
+    <string name="peripheral_binding_count">%1$d bağlamalar. Menyunun yazılması dəyişməzdir.</string>
+    <string name="peripheral_keyboard_test">Test düymələri və birləşmələri</string>
+    <string name="peripheral_stick_linear">Xətti nəzarətçi hədəfləmə</string>
+    <string name="peripheral_stick_linear_summary">Defolt kvadrat əyri əvəzinə proporsional çubuq cavabı. Doğma nəzarətçi modlarına deyil, Battly nəzarətçi xəritəsinə aiddir.</string>
+    <string name="peripheral_stick_sensitivity">Nəzarətçi kamera həssaslığı</string>
+    <string name="peripheral_reset_test">Ölçməni sıfırlayın</string>
+    <string name="peripheral_add_binding">Açar bağlama əlavə edin</string>
+    <string name="peripheral_source_key">Fiziki açar</string>
+    <string name="peripheral_target_key">Bu açarı Minecraft-ə göndərin</string>
+    <string name="peripheral_press_key">Fiziki düyməni basın və buraxın. Mövcud bağlamanın seçilməsi onu aradan qaldırır. Modifikator düymələri normal davranışlarını saxlayır.</string>
+    <string name="peripheral_invalid_key">Dəyişdirməyən klaviatura düyməsini seçin. Android sistem açarları yenidən təsvir edilə bilməz.</string>
+    <string name="peripheral_mouse_ready">Siçanı tutmaq üçün test sahəsinə klikləyin. Onu buraxmaq üçün Escape düyməsini basın. Ölçmələr hardware DPI deyil, Android tərəfindən bildirilən nisbi hərəkətdir.</string>
+    <string name="peripheral_keyboard_ready">Fiziki klaviaturanızda düymələri və ya birləşmələri basın. Testi bağlamaq üçün Escape düyməsini basın.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nOyun X / Y: %3$s\nNümunələr: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nAçar: %2$s · Skan: %3$d · Təkrar: %4$d\nSaxlanılır: %5$s</string>
 </resources>

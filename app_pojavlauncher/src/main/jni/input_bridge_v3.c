@@ -31,6 +31,8 @@
 #define EVENT_TYPE_KEY 1005
 #define EVENT_TYPE_MOUSE_BUTTON 1006
 #define EVENT_TYPE_SCROLL 1007
+#define TEXT_INPUT_SHOW 2003
+#define TEXT_INPUT_HIDE 2004
 
 #define TRY_ATTACH_ENV(env_name, vm, error_message, then) JNIEnv* env_name;\
 do {                                                                       \
@@ -368,6 +370,31 @@ Java_org_lwjgl_glfw_CallbackBridge_nativeEnableGamepadDirectInput(__attribute__(
     TRY_ATTACH_ENV(dvm_env, pojav_environ->dalvikJavaVMPtr, "nativeEnableGamepadDirectInput failed!\n", return JNI_FALSE;);
     (*dvm_env)->CallStaticVoidMethod(dvm_env, pojav_environ->bridgeClazz, pojav_environ->method_onDirectInputEnable);
     return JNI_TRUE;
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nativeSetAndroidTextInputActive(
+        __attribute__((unused)) JNIEnv* env,
+        __attribute__((unused)) jclass clazz,
+        jboolean active) {
+    JNIEnv *dalvikEnv;
+    if ((*pojav_environ->dalvikJavaVMPtr)->AttachCurrentThread(
+            pojav_environ->dalvikJavaVMPtr, &dalvikEnv, NULL) != JNI_OK
+            || dalvikEnv == NULL) {
+        return;
+    }
+    if (pojav_environ->bridgeClazz != NULL
+            && pojav_environ->method_accessAndroidClipboard != NULL) {
+        jobject result = (*dalvikEnv)->CallStaticObjectMethod(
+                dalvikEnv,
+                pojav_environ->bridgeClazz,
+                pojav_environ->method_accessAndroidClipboard,
+                active ? TEXT_INPUT_SHOW : TEXT_INPUT_HIDE,
+                NULL);
+        if (result != NULL) {
+            (*dalvikEnv)->DeleteLocalRef(dalvikEnv, result);
+        }
+    }
+    (*pojav_environ->dalvikJavaVMPtr)->DetachCurrentThread(pojav_environ->dalvikJavaVMPtr);
 }
 
 JNIEXPORT jstring JNICALL

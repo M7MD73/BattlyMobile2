@@ -431,7 +431,9 @@ public class CurseforgeApi implements ModpackApi{
                     if(url == null && curseFile.required)
                         throw new IOException("Failed to obtain download URL for "+curseFile.projectID+" "+curseFile.fileID);
                     else if(url == null) return null;
-                    return new ModDownloader.FileInfo(url, FileUtils.getFileName(url), getDownloadSha1(curseFile.projectID, curseFile.fileID));
+                    return new ModDownloader.FileInfo(url,
+                            net.kdt.pojavlaunch.utils.SafeFilePaths.downloadFileName(url),
+                            getDownloadSha1(curseFile.projectID, curseFile.fileID));
                 });
             }
             modDownloader.awaitFinish((c,m)->

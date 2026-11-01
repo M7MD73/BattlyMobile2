@@ -66,6 +66,45 @@ public final class ModCompatibilityAnalyzer {
     public static Analysis analyze(String source) {
         if (source == null || source.trim().isEmpty()) return Analysis.none();
         String lower = source.toLowerCase(Locale.ROOT);
+        if (lower.contains("net.hnt3r.utils.hunterprotection") && lower.contains("kernel32")) {
+            return new Analysis(true, "Fabric",
+                    "This Hunter client build requires Windows kernel32 and cannot run on Android.",
+                    "Disable this client or install an Android-compatible build. This is not the Krypton renderer or the standard Krypton network mod.",
+                    "", "", Collections.emptyList(), primaryExcerpt(source));
+        }
+        if (lower.contains("morecosmetics") && lower.contains("java.awt.component.initids")) {
+            return new Analysis(true, "Fabric",
+                    "MoreCosmetics initialized its desktop debug console without the required headless JVM mode.",
+                    "Update Battly to the headless launch-argument correction. This is separate from Voice Chat's native codec dependencies.",
+                    "", "", Collections.emptyList(), primaryExcerpt(source));
+        }
+        if (lower.contains("de.maxhenkel.voicechat") && lower.contains("libm.so.6")) {
+            return new Analysis(true, "Fabric",
+                    "Simple Voice Chat loaded Linux desktop audio libraries instead of Android codecs.",
+                    "Update Battly to use its Android codec replacements. If this repeats, this mod build has a different JNI API: use a compatible Voice Chat build. Do not rename libm.so.6 or replace Android system libraries.",
+                    "", "", Collections.emptyList(), primaryExcerpt(source));
+        }
+        if (lower.contains("forge-47.4.26") && lower.contains("optifine_hd_u_i6")
+                && lower.contains("net/minecraft/client/gui/screens/loadingoverlay")) {
+            return new Analysis(true, "Forge",
+                    "Forge 47.4.26 and this OptiFine I6 build fail to load Minecraft's LoadingOverlay.",
+                    "Test OptiFine I6 with its documented Forge 47.2.18 build, or disable OptiFine. Keep the current instance and worlds; do not replace the client JAR with a vanilla JAR.",
+                    "", "", Collections.emptyList(), primaryExcerpt(source));
+        }
+        if (lower.contains("krypton.mixins.json")
+                && lower.contains("e4mc.mixins.json")
+                && lower.contains("@redirect conflict")) {
+            MutableIssue conflict = new MutableIssue(
+                    "krypton", findModVersion(source, "krypton"),
+                    "e4mc", "disable one of these network patches");
+            conflict.modName = "Krypton + e4mc";
+            conflict.dependencyName = "Network Mixin conflict";
+            return new Analysis(true, "Fabric",
+                    "Krypton and e4mc are modifying the same Minecraft network cipher and cannot start together.",
+                    "Recommended solution: disable Krypton and keep e4mc enabled. Battly does not delete the mod.",
+                    "", "", Collections.singletonList(conflict.freeze()),
+                    primaryExcerpt(source));
+        }
         if (lower.contains("embeddium.mixins.json") && lower.contains("optifine")) {
             MutableIssue conflict = new MutableIssue(
                     "embeddium", findModVersion(source, "embeddium"),

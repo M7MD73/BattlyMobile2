@@ -42,17 +42,20 @@ public final class BattlyPlusManager {
         }
         MinecraftAccount currentAccount = PojavProfile.getCurrentProfileContent(
                 context.getApplicationContext(), null);
-        if (!isBattlyAccountEligible(currentAccount)) {
-            return false;
-        }
+        return isPlus(context, currentAccount);
+    }
+
+    /** Returns the cached entitlement for this exact account, not the selected account. */
+    public static boolean isPlus(Context context, MinecraftAccount account) {
+        if (context == null || !isBattlyAccountEligible(account)) return false;
         SharedPreferences preferences = accountPrefs(context);
-        String accountKey = premiumPreferenceKey(currentAccount.username);
+        String accountKey = premiumPreferenceKey(account.username);
         if (preferences.contains(accountKey)) {
             return preferences.getBoolean(accountKey, false);
         }
         String premiumAccount = preferences.getString(PREF_PREMIUM_ACCOUNT, "");
         return preferences.getBoolean(PREF_IS_PREMIUM, false)
-                && sameAccount(currentAccount, premiumAccount);
+                && sameAccount(account, premiumAccount);
     }
 
     static boolean isBattlyAccountEligible(MinecraftAccount account) {

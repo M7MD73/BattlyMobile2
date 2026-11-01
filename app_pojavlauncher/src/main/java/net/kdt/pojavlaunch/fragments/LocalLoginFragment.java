@@ -16,7 +16,6 @@ import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
 
 import java.io.File;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LocalLoginFragment extends Fragment {
@@ -34,13 +33,19 @@ public class LocalLoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mUsernameEditText = view.findViewById(R.id.login_edit_email);
         view.findViewById(R.id.login_button).setOnClickListener(v -> {
-            if(!checkEditText()) {
-                Context context = v.getContext();
+            String username = mUsernameEditText.getText().toString().trim();
+            mUsernameEditText.setText(username);
+            Context context = v.getContext();
+            if (username.length() < 3 || username.length() > 16
+                    || !mUsernameValidationPattern.matcher(username).matches()) {
                 Tools.dialog(context, context.getString(R.string.local_login_bad_username_title), context.getString(R.string.local_login_bad_username_text));
                 return;
             }
-
-            String username = mUsernameEditText.getText().toString();
+            if (new File(Tools.DIR_ACCOUNT_NEW, username + ".json").exists()) {
+                Tools.dialog(context, context.getString(R.string.local_login_existing_account_title),
+                        context.getString(R.string.local_login_existing_account_text, username));
+                return;
+            }
             if (requireActivity() instanceof LauncherActivity) {
                 ((LauncherActivity) requireActivity()).completeMojangLogin(username, "", null);
             } else {
@@ -56,17 +61,4 @@ public class LocalLoginFragment extends Fragment {
     }
 
 
-    /** @return Whether the mail (and password) text are eligible to make an auth request  */
-    private boolean checkEditText(){
-
-        String text = mUsernameEditText.getText().toString();
-
-        Matcher matcher = mUsernameValidationPattern.matcher(text);
-        return !(text.isEmpty()
-                || text.length() < 3
-                || text.length() > 16
-                || !matcher.find()
-                || new File(Tools.DIR_ACCOUNT_NEW + "/" + text + ".json").exists()
-        );
-    }
 }

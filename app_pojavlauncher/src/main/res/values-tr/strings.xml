@@ -766,7 +766,7 @@
     <string name="credits_primary_development">Ana geliştirme</string>
     <string name="credits_section_title">Kredi</string>
     <string name="credits_unaffiliated">Bu uygulama Minecraft, Mojang veya Microsoft ile bağlantılı değildir.</string>
-    <string name="credits_version">Sürüm 2.2.5</string>
+    <string name="credits_version">Sürüm 2.2.9</string>
     <string name="ctrl_applied_success">"%1$s" kontrolü başarıyla uygulandı.</string>
     <string name="ctrl_apply_btn">Kontrolü uygula</string>
     <string name="ctrl_apply_msg">Kontrol düzeniniz olarak "%1$s" indirip uygulamak ister misiniz?</string>
@@ -952,7 +952,7 @@
     <string name="instance_storage_calculating">Depolama alanı hesaplanıyor…</string>
     <string name="instance_use">Kullanım</string>
     <string name="java_runtime_download_message">Battly, uygulamanın içine göndermek yerine ilk kurulumdan sonra Java 8\'i indirir. Bu, uygulama boyutunu küçültür ve daha eski Minecraft sürümlerini hazırlar.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher ve Boardwalk tabanlı başlatıcı.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediler&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -963,11 +963,11 @@
         • GNU GPLv3 ve üçüncü taraf bileşenler projeye dahil edilmiştir.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j ve daha fazlası orijinal lisansları altında.&lt;br/&gt;&lt;br/&gt;
         Bu uygulama Minecraft, Mojang veya Microsoft ile bağlantılı değildir.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">İndir</string>
     <string name="launcher_download_modpack">Mod paketini içe aktar</string>
     <string name="launcher_execute">Oyna</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_nav_back">Geri dön</string>
     <string name="launcher_nav_home">Eve dön</string>
     <string name="launcher_nav_workspace">Battly Çalışma Alanı</string>
@@ -1511,4 +1511,107 @@
     <string name="search_world_download_error">Dünya meta verileri indirilemedi</string>
     <string name="world_install_button">Dünyayı yükle</string>
     <string name="world_install_success">Bu örneğe %1$s yüklendi</string>
+
+    <string name="battly_whats_new_transition_desc">Örnekleriniz yerinde kalır. Güvenilir harici eklentileri kullanmadan önce Ayarlar\'da yetkilendirin.</string>
+    <string name="download_action_import_mods_title">Harici modları içe aktar</string>
+    <string name="download_action_import_mods_subtitle">Bir veya daha fazla `.jar` dosyası seçin ve bunları seçilen örneğe ekleyin.</string>
+    <string name="library_installed_show_more">%1$d daha fazlasını göster</string>
+    <string name="library_import_mods_replace_title">Mevcut modlar değiştirilsin mi?</string>
+    <string name="library_import_mods_replace_message">%1$d seçilen mod dosyaları %2$s\'de zaten mevcut. Battly bunları yalnızca yeni dosyaları doğruladıktan sonra değiştirecektir.</string>
+    <string name="library_import_mods_invalid">Geçerli bir `.jar` mod dosyası seçilmedi.</string>
+    <string name="library_import_mods_success">%1$d modları %2$s\'ye aktarıldı.</string>
+    <string name="library_import_mods_partial">%1$d modları %2$s\'ye aktarıldı · %3$d dosyaları içe aktarılamadı.</string>
+    <string name="library_import_mods_error">Seçilen modlar içe aktarılamadı.</string>
+    <string name="battly_whats_new_action_start">2.2.9\'u keşfedin</string>
+    <string name="battly_whats_new_compatibility_desc">Giriş yanıtları, bekleyen bir istekle eşleşmeli, kısa bir süre sonra sona ermeli ve yalnızca bir kez kabul edilebilmelidir.</string>
+    <string name="battly_whats_new_compatibility_title">Daha güvenli Discord oturum açma</string>
+    <string name="battly_whats_new_controllers_desc">Bir klasörü paylaşmak artık verdiğiniz izin dışındaki diğer klasörlere erişime izin vermiyor.</string>
+    <string name="battly_whats_new_controllers_title">Korumalı dosya paylaşımı</string>
+    <string name="battly_whats_new_desc">Daha güvenli modpack kurulumu, dosya paylaşımı ve harici eklenti yetkilendirmesi.</string>
+    <string name="battly_whats_new_instances_desc">Arşiv içerikleri ve indirilen dosyalar, diğer örneklerde değişiklik yapılmadan, kendilerine atanan örneklerin içinde kalır.</string>
+    <string name="battly_whats_new_instances_title">Korumalı mod paketi kurulumu</string>
+    <string name="battly_whats_new_recovery_desc">Kullanım analizleri, çevrimdışı mod dışında Battly başlatıldığında etkinleşir. Sürüm notları ve eklenti mesajları çevrildi.</string>
+    <string name="battly_whats_new_recovery_title">İstatistikler ve çeviriler</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 hazır</string>
+    <string name="battly_whats_new_worlds_desc">Harici eklentilerin kullanımdan önce yetkilendirilmesi gerekir. Daha önce yüklenen eklentilerin bir kez daha yetkilendirilmesi gerekir.</string>
+    <string name="battly_whats_new_worlds_title">Eklenti izinleriniz</string>
+    <string name="battly_appearance_title">Battly görünümler ve pelerinler</string>
+    <string name="battly_appearance_subtitle">Minecraft görünümünüzün tamamını Mobil cihazdan önizleyin ve yönetin.</string>
+    <string name="battly_capes_title">Battly pelerinler</string>
+    <string name="battly_capes_description">Battly+ ile resmi bir pelerin seçin veya kendinizinkini yükleyin. Aktif pelerin 3D ön izlemede ve Minecraft\'nin içinde gösterilmektedir.</string>
+    <string name="battly_capes_loading">Battly pelerinler yükleniyor...</string>
+    <string name="battly_capes_active">Aktif pelerin</string>
+    <string name="battly_capes_none">Aktif pelerin yok</string>
+    <string name="battly_capes_empty">Bu hesap için pelerin mevcut değil.</string>
+    <string name="battly_capes_upload">Pelerini yükle</string>
+    <string name="battly_capes_upload_plus">Battly+ ile yükleyin</string>
+    <string name="battly_capes_plus_required">Özel pelerinler Battly+ ile mevcuttur. Resmi pelerinleri hâlâ kullanabilirsiniz.</string>
+    <string name="battly_capes_disable">Pelerin yok</string>
+    <string name="battly_capes_disabled">Pelerin devre dışı</string>
+    <string name="battly_capes_uploaded">Pelerin yüklendi ve uygulandı</string>
+    <string name="battly_capes_applied">Pelerin uygulandı</string>
+    <string name="battly_capes_deleted">Pelerin silindi</string>
+    <string name="battly_capes_previewing">Pelerin önizleniyor</string>
+    <string name="battly_capes_custom">Özel pelerin</string>
+    <string name="battly_capes_official">Resmi pelerin</string>
+
+    <string name="battly_capes_unavailable">Pelerinler geçici olarak kullanılamıyor. Görünümleriniz hâlâ mevcut.</string>
+
+    <string name="native_plugins_bundled_category">Android bağımlılıkları Battly\'ye dahildir</string>
+    <string name="native_plugins_bundled_ready">Sürüm %1$s · Hazır</string>
+
+    <string name="battly_whats_new_native_title">Yerel bağımlılıklar kullanılabilir durumda kalır</string>
+    <string name="battly_whats_new_native_desc">Yerleşik kütüphaneler otomatik olarak çalışır. Harici eklentilere ilişkin izinler, APK imzalama kimliğine bağlıdır.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Günlük aktivite · Mobil</string>
+    <string name="battly_stats_history_notice">Kaydedildiğinde yerel saat. Tarih bu güncellemeyle başlıyor; önceki toplamlar aşağıda kalıyor.</string>
+    <string name="battly_stats_history_unavailable">Günlük geçmiş henüz sunucuda mevcut değil. Toplam istatistikleriniz aşağıda gösterilmektedir.</string>
+    <string name="battly_stats_period_label">Faaliyet dönemi</string>
+    <string name="battly_stats_day_label">Faaliyet tarihi</string>
+    <string name="battly_stats_period_days">Son %1$d gün</string>
+    <string name="battly_stats_period_summary">Aktif günler: %1$d · Minecraft: %2$s · Başlatıcı: %3$s</string>
+    <string name="battly_stats_time_range">İlk aktivite: %1$s · Son aktivite: %2$s</string>
+    <string name="battly_stats_day_modes">Dünyalar: %1$s · Sunucular: %2$s (Battly Worlds: %3$s) · Oyun menüleri: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Başlatıcı: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d\'ler</string>
+    <string name="battly_stats_lifetime">Tüm zamanların toplamları · PC + Mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Başlatıcı: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Klavyeyi otomatik aç</string>
+
+    <string name="native_plugins_trust_warning">Bu harici eklenti, Battly dosyalarına ve hesaplarına erişimle yerel kodu çalıştırabilir. Yalnızca güvendiğiniz bir kaynaktan gelen eklentilere izin verin. İzin, APK imzalama kimliğine bağlıdır.</string>
+    <string name="native_plugins_trust_action">Eklentiye izin ver</string>
+
+    <string name="peripheral_title">Klavye, fare ve denetleyici</string>
+    <string name="peripheral_devices">Bağlı çevre birimleri</string>
+    <string name="peripheral_no_devices">Hiçbir harici çevre birimi algılanmadı</string>
+    <string name="peripheral_mouse">Fiziksel fare</string>
+    <string name="peripheral_pc_preset">PC fare ön ayarını uygula</string>
+    <string name="peripheral_pc_mode">Çözünürlükten bağımsız hedefleme</string>
+    <string name="peripheral_pc_mode_summary">İşleme çözünürlüğünden bağımsız olarak sabit doğrusal hassasiyet. Battly hızlanma veya yumuşatma eklemez. Android 8 veya üstü.</string>
+    <string name="peripheral_mouse_x">Yatay hassasiyet</string>
+    <string name="peripheral_mouse_y">Dikey hassasiyet</string>
+    <string name="peripheral_invert_x">Yatay ekseni ters çevir</string>
+    <string name="peripheral_invert_y">Dikey ekseni ters çevir</string>
+    <string name="peripheral_mouse_test">Fare kalibrasyonunu test edin</string>
+    <string name="peripheral_keyboard">Fiziksel klavye</string>
+    <string name="peripheral_bindings">Oynanış tuş bağlantıları</string>
+    <string name="peripheral_binding_count">%1$d bağlamaları. Menü yazımında değişiklik yok.</string>
+    <string name="peripheral_keyboard_test">Test tuşları ve kombinasyonları</string>
+    <string name="peripheral_stick_linear">Doğrusal denetleyici hedefleme</string>
+    <string name="peripheral_stick_linear_summary">Varsayılan ikinci dereceden eğri yerine orantılı çubuk yanıtı. Yerel denetleyici modları için değil, Battly denetleyici eşlemesi için geçerlidir.</string>
+    <string name="peripheral_stick_sensitivity">Denetleyici kamera hassasiyeti</string>
+    <string name="peripheral_reset_test">Ölçümü sıfırla</string>
+    <string name="peripheral_add_binding">Anahtar bağlama ekle</string>
+    <string name="peripheral_source_key">Fiziksel anahtar</string>
+    <string name="peripheral_target_key">Bu anahtarı Minecraft\'ye gönderin</string>
+    <string name="peripheral_press_key">Fiziksel bir tuşa basıp bırakın. Mevcut bir bağlamanın seçilmesi onu kaldırır. Değiştirici tuşlar normal davranışlarını korur.</string>
+    <string name="peripheral_invalid_key">Değiştirici olmayan bir klavye tuşu seçin. Android sistem anahtarları yeniden eşlenemez.</string>
+    <string name="peripheral_mouse_ready">Fareyi yakalamak için test alanına tıklayın. Serbest bırakmak için Escape tuşuna basın. Ölçümler donanım DPI\'sı değil, Android tarafından bildirilen göreceli harekettir.</string>
+    <string name="peripheral_keyboard_ready">Fiziksel klavyenizdeki tuşlara veya kombinasyonlara basın. Testi kapatmak için Escape tuşuna basın.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nOyun X / Y: %3$s\nÖrnekler: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nAnahtar: %2$s · Tarama: %3$d · Tekrarla: %4$d\nTutulan: %5$s</string>
 </resources>

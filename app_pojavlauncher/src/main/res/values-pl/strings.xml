@@ -575,7 +575,7 @@
     <string name="crash_no_findings">W najnowszych logach nie znaleziono żadnego znanego schematu awarii.</string>
     <string name="crash_recovery_applied">Akcja przywracania została ukończona</string>
     <string name="crash_recovery_manual">Ten problem wymaga ręcznej zmiany. Otwórz dziennik, aby poznać szczegóły.</string>
-    <string name="credits_version">Wersja 2.2.5</string>
+    <string name="credits_version">Wersja 2.2.9</string>
     <string name="ctrl_like_btn">Jak</string>
     <string name="ctrl_liked_added">Dodano do lubianych elementów sterujących.</string>
     <string name="ctrl_liked_btn">Podobało się</string>
@@ -636,8 +636,8 @@
     <string name="java_runtime_download_progress">Pobieranie Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instalowanie Java 8</string>
     <string name="java_runtime_download_waiting">Przygotowywanie pobrania Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Komórka 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Komórka 2.2.9</string>
     <string name="launcher_status_battly">Konto Battly</string>
     <string name="launcher_status_battly_plus">Konto Battly+</string>
     <string name="library_analyze_mods">Analizuj</string>
@@ -1107,7 +1107,7 @@
     <string name="installer_internal_fallback">Nieobsługiwany instalator otwierający starszy interfejs użytkownika Java</string>
     <string name="installer_internal_running">Analizuję instalatora…</string>
     <string name="installer_internal_success">%1$s zainstalowany bezpośrednio w Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher oparty na PojavLauncher i Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredyty&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1516,4 +1516,107 @@
     <string name="search_world_download_error">Nie udało się pobrać metadanych świata</string>
     <string name="world_install_button">Zainstaluj świat</string>
     <string name="world_install_success">%1$s zainstalowany w tej instancji</string>
+
+    <string name="battly_whats_new_transition_desc">Twoje instancje pozostają na swoim miejscu. Autoryzuj zaufane wtyczki zewnętrzne w Ustawieniach przed ich użyciem.</string>
+    <string name="download_action_import_mods_title">Importuj mody zewnętrzne</string>
+    <string name="download_action_import_mods_subtitle">Wybierz jeden lub więcej plików `.jar` i dodaj je do wybranej instancji.</string>
+    <string name="library_installed_show_more">Pokaż więcej %1$d</string>
+    <string name="library_import_mods_replace_title">Zamienić istniejące mody?</string>
+    <string name="library_import_mods_replace_message">Wybrane pliki modów %1$d już istnieją w %2$s. Battly zastąpi je dopiero po zatwierdzeniu nowych plików.</string>
+    <string name="library_import_mods_invalid">Nie wybrano prawidłowych plików modów `.jar`.</string>
+    <string name="library_import_mods_success">Zaimportowano mody %1$d do %2$s.</string>
+    <string name="library_import_mods_partial">Zaimportowane mody %1$d do %2$s · Nie można zaimportować plików %3$d.</string>
+    <string name="library_import_mods_error">Nie można zaimportować wybranych modów.</string>
+    <string name="battly_whats_new_action_start">Przeglądaj 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Odpowiedzi na logowanie muszą odpowiadać oczekującym żądaniom, wygasać po krótkim czasie i mogą zostać zaakceptowane tylko raz.</string>
+    <string name="battly_whats_new_compatibility_title">Bezpieczniejsze logowanie do Discord</string>
+    <string name="battly_whats_new_controllers_desc">Udostępnienie jednego folderu nie umożliwia już dostępu do innych folderów poza przyznanymi uprawnieniami.</string>
+    <string name="battly_whats_new_controllers_title">Chronione udostępnianie plików</string>
+    <string name="battly_whats_new_desc">Bezpieczniejsza instalacja pakietów modów, udostępnianie plików i autoryzacja wtyczek zewnętrznych.</string>
+    <string name="battly_whats_new_instances_desc">Zawartość archiwum i pobrane pliki pozostają w przypisanej im instancji, bez modyfikowania innych instancji.</string>
+    <string name="battly_whats_new_instances_title">Chroniona instalacja pakietu modów</string>
+    <string name="battly_whats_new_recovery_desc">Analiza użytkowania aktywuje się po uruchomieniu Battly, z wyjątkiem trybu offline. Informacje o wydaniu i komunikaty wtyczek zostały przetłumaczone.</string>
+    <string name="battly_whats_new_recovery_title">Statystyki i tłumaczenia</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 jest gotowy</string>
+    <string name="battly_whats_new_worlds_desc">Wtyczki zewnętrzne wymagają autoryzacji przed użyciem. Wcześniej zainstalowane wtyczki muszą zostać jeszcze raz autoryzowane.</string>
+    <string name="battly_whats_new_worlds_title">Twoje uprawnienia wtyczki</string>
+    <string name="battly_appearance_title">Battly skórki i peleryny</string>
+    <string name="battly_appearance_subtitle">Przeglądaj i zarządzaj pełnym wyglądem Minecraft z poziomu urządzenia mobilnego.</string>
+    <string name="battly_capes_title">Peleryny Battly</string>
+    <string name="battly_capes_description">Wybierz oficjalną pelerynę lub prześlij własną za pomocą Battly+. Aktywna peleryna jest pokazana w podglądzie 3D oraz wewnątrz Minecraft.</string>
+    <string name="battly_capes_loading">Ładowanie peleryn Battly...</string>
+    <string name="battly_capes_active">Aktywna peleryna</string>
+    <string name="battly_capes_none">Brak aktywnej peleryny</string>
+    <string name="battly_capes_empty">Dla tego konta nie są dostępne żadne peleryny.</string>
+    <string name="battly_capes_upload">Prześlij pelerynę</string>
+    <string name="battly_capes_upload_plus">Prześlij za pomocą Battly+</string>
+    <string name="battly_capes_plus_required">Niestandardowe peleryny są dostępne z Battly+. Nadal możesz używać oficjalnych peleryn.</string>
+    <string name="battly_capes_disable">Bez peleryny</string>
+    <string name="battly_capes_disabled">Przylądek wyłączony</string>
+    <string name="battly_capes_uploaded">Cape przesłane i zastosowane</string>
+    <string name="battly_capes_applied">Zastosowano pelerynę</string>
+    <string name="battly_capes_deleted">Przylądek usunięty</string>
+    <string name="battly_capes_previewing">Podgląd przylądka</string>
+    <string name="battly_capes_custom">Niestandardowa peleryna</string>
+    <string name="battly_capes_official">Oficjalna peleryna</string>
+
+    <string name="battly_capes_unavailable">Peleryny są chwilowo niedostępne. Twoje skórki są nadal dostępne.</string>
+
+    <string name="native_plugins_bundled_category">Zależności Android zawarte w Battly</string>
+    <string name="native_plugins_bundled_ready">Wersja %1$s · Gotowe</string>
+
+    <string name="battly_whats_new_native_title">Zależności natywne pozostają dostępne</string>
+    <string name="battly_whats_new_native_desc">Wbudowane biblioteki działają automatycznie. Uprawnienia dla wtyczek zewnętrznych są powiązane z tożsamością podpisującą plik APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Codzienna aktywność · Telefon komórkowy</string>
+    <string name="battly_stats_history_notice">Czas lokalny po zarejestrowaniu. Historia zaczyna się od tej aktualizacji; poprzednie sumy pozostają poniżej.</string>
+    <string name="battly_stats_history_unavailable">Historia dzienna nie jest jeszcze dostępna na serwerze. Twoje całkowite statystyki są pokazane poniżej.</string>
+    <string name="battly_stats_period_label">Okres aktywności</string>
+    <string name="battly_stats_day_label">Data działania</string>
+    <string name="battly_stats_period_days">Ostatnie dni %1$d</string>
+    <string name="battly_stats_period_summary">Aktywne dni: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Pierwsza aktywność: %1$s · Ostatnia aktywność: %2$s</string>
+    <string name="battly_stats_day_modes">Światy: %1$s · Serwery: %2$s (Battly Worlds: %3$s) · Menu gry: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Program uruchamiający: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Sumy wszechczasów · PC + telefon komórkowy</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Program uruchamiający: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d godz</string>
+    <string name="automatic_game_keyboard_title">Automatycznie otwieraj klawiaturę</string>
+
+    <string name="native_plugins_trust_warning">Ta zewnętrzna wtyczka może uruchamiać natywny kod z dostępem do plików i kont Battly. Zezwalaj tylko na wtyczki z zaufanego źródła. Uprawnienie jest powiązane z tożsamością podpisującą plik APK.</string>
+    <string name="native_plugins_trust_action">Zezwól na wtyczkę</string>
+
+    <string name="peripheral_title">Klawiatura, mysz i kontroler</string>
+    <string name="peripheral_devices">Podłączone urządzenia peryferyjne</string>
+    <string name="peripheral_no_devices">Nie wykryto zewnętrznych urządzeń peryferyjnych</string>
+    <string name="peripheral_mouse">Fizyczna mysz</string>
+    <string name="peripheral_pc_preset">Zastosuj ustawienie wstępne myszy komputerowej</string>
+    <string name="peripheral_pc_mode">Celowanie niezależne od rozdzielczości</string>
+    <string name="peripheral_pc_mode_summary">Stała czułość liniowa niezależnie od rozdzielczości renderowania. Battly nie dodaje przyspieszenia ani wygładzania. Android 8 lub nowszy.</string>
+    <string name="peripheral_mouse_x">Czułość pozioma</string>
+    <string name="peripheral_mouse_y">Czułość pionowa</string>
+    <string name="peripheral_invert_x">Odwróć oś poziomą</string>
+    <string name="peripheral_invert_y">Odwróć oś pionową</string>
+    <string name="peripheral_mouse_test">Przetestuj kalibrację myszy</string>
+    <string name="peripheral_keyboard">Klawiatura fizyczna</string>
+    <string name="peripheral_bindings">Powiązania klawiszy rozgrywki</string>
+    <string name="peripheral_binding_count">Wiązania %1$d. Sposób pisania w menu pozostaje niezmieniony.</string>
+    <string name="peripheral_keyboard_test">Testuj klucze i kombinacje</string>
+    <string name="peripheral_stick_linear">Celowanie kontrolera liniowego</string>
+    <string name="peripheral_stick_linear_summary">Proporcjonalna reakcja drążka zamiast domyślnej krzywej kwadratowej. Dotyczy mapowania kontrolera Battly, a nie natywnych modów kontrolera.</string>
+    <string name="peripheral_stick_sensitivity">Czułość kamery kontrolera</string>
+    <string name="peripheral_reset_test">Zresetuj pomiar</string>
+    <string name="peripheral_add_binding">Dodaj powiązanie klawiszy</string>
+    <string name="peripheral_source_key">Klucz fizyczny</string>
+    <string name="peripheral_target_key">Wyślij ten klucz do Minecraft</string>
+    <string name="peripheral_press_key">Naciśnij i zwolnij klawisz fizyczny. Wybranie istniejącego powiązania powoduje jego usunięcie. Klawisze modyfikujące zachowują swoje normalne zachowanie.</string>
+    <string name="peripheral_invalid_key">Wybierz klawisz klawiatury niemodyfikujący. Nie można ponownie przypisać kluczy systemowych Android.</string>
+    <string name="peripheral_mouse_ready">Kliknij obszar testowy, aby przechwycić mysz. Naciśnij Escape, aby go zwolnić. Pomiary dotyczą ruchu względnego zgłaszanego przez Android, a nie sprzętowego DPI.</string>
+    <string name="peripheral_keyboard_ready">Naciśnij klawisze lub kombinacje na klawiaturze fizycznej. Naciśnij Escape, aby zamknąć test.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGra X / Y: %3$s\nPróbki: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKlucz: %2$s · Skan: %3$d · Powtórz: %4$d\nZatrzymany: %5$s</string>
 </resources>

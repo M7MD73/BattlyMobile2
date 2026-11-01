@@ -226,7 +226,7 @@
     <string name="crash_no_findings">Соңғы журналдарда белгілі бұзылу үлгісі табылмады.</string>
     <string name="crash_recovery_applied">Қалпына келтіру әрекеті аяқталды</string>
     <string name="crash_recovery_manual">Бұл мәселе қолмен өзгертуді қажет етеді. Мәліметтер алу үшін журналды ашыңыз.</string>
-    <string name="credits_version">2.2.5 нұсқасы</string>
+    <string name="credits_version">2.2.9 нұсқасы</string>
     <string name="ctrl_like_btn">Ұнайды</string>
     <string name="ctrl_liked_added">Ұнаған басқару элементтеріне қосылды.</string>
     <string name="ctrl_liked_btn">Ұнады</string>
@@ -287,8 +287,8 @@
     <string name="java_runtime_download_progress">Жүктеп алынуда Java %1$d (%2$.1f МБ / %3$.1f МБ)</string>
     <string name="java_runtime_download_title">Java орнату 8</string>
     <string name="java_runtime_download_waiting">Java 8 жүктеп алу дайындалуда...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Ұялы телефон 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Ұялы телефон 2.2.9</string>
     <string name="launcher_status_battly">Battly тіркелгісі</string>
     <string name="launcher_status_battly_plus">Battly+ тіркелгісі</string>
     <string name="library_analyze_mods">Талдау</string>
@@ -771,7 +771,7 @@
     <string name="installer_internal_fallback">Қолдау көрсетілмейтін орнатушы, ескі Java UI ашады</string>
     <string name="installer_internal_running">Орнатушы талдауда…</string>
     <string name="installer_internal_success">%1$s тікелей Battly ішінде орнатылған</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher және Boardwalk негізіндегі қосқыш.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Несиелер&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -815,7 +815,7 @@
     <string name="launcher_version_format">%1$s нұсқасы</string>
     <string name="launcher_version_unknown">Белгісіз</string>
     <string name="launcher_versions_button">Нұсқалар</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launcher Foreground қызметі</string>
     <string name="legacy_mixin_missing_message">Forge 1.7.10 модтарының бірі губка араластырғышын сұрайды, бірақ ешқандай Mixin немесе UniMixins провайдері орнатылмаған. 1.7.10 үшін UniMixins/Mixin орнатыңыз немесе Minecraft іске қоспас бұрын сол режимді жойыңыз.</string>
     <string name="legacy_mixin_missing_title">Бұрынғы Mixin тәуелділігі жоқ</string>
     <string name="library_button_desc">Кітапхананы ашу</string>
@@ -1210,4 +1210,107 @@
     <string name="search_world_download_error">Әлемдік метадеректер жүктеп алынбады</string>
     <string name="world_install_button">Әлемді орнату</string>
     <string name="world_install_success">%1$s осы данаға орнатылған</string>
+
+    <string name="battly_whats_new_transition_desc">Даналарыңыз орнында қалады. Сенімді сыртқы плагиндерді қолданбас бұрын "Параметрлер" бөлімінде рұқсат етіңіз.</string>
+    <string name="download_action_import_mods_title">Сыртқы режимдерді импорттау</string>
+    <string name="download_action_import_mods_subtitle">Бір немесе бірнеше `.jar` файлын таңдап, оларды таңдалған данаға қосыңыз.</string>
+    <string name="library_installed_show_more">%1$d көбірек көрсету</string>
+    <string name="library_import_mods_replace_title">Бар режимдерді ауыстыру керек пе?</string>
+    <string name="library_import_mods_replace_message">%1$d таңдалған мод файлдары %2$s ішінде бұрыннан бар. Battly оларды жаңа файлдарды тексергеннен кейін ғана ауыстырады.</string>
+    <string name="library_import_mods_invalid">Жарамды `.jar` мод файлдары таңдалмады.</string>
+    <string name="library_import_mods_success">%1$d моддері %2$s ішіне импортталды.</string>
+    <string name="library_import_mods_partial">Импортталған %1$d режимдерін %2$s ішіне импорттау · %3$d файлдарын импорттау мүмкін емес.</string>
+    <string name="library_import_mods_error">Таңдалған модтерді импорттау мүмкін емес.</string>
+    <string name="battly_whats_new_action_start">2.2.9 зерттеңіз</string>
+    <string name="battly_whats_new_compatibility_desc">Жүйеге кіру жауаптары күтудегі сұрауға сәйкес болуы керек, мерзімі қысқа уақыттан кейін аяқталады және тек бір рет қабылдануы мүмкін.</string>
+    <string name="battly_whats_new_compatibility_title">Қауіпсіз Discord жүйеге кіру</string>
+    <string name="battly_whats_new_controllers_desc">Бір қалтаны ортақ пайдалану бұдан былай сіз берген рұқсаттан тыс басқа қалталарға кіруге мүмкіндік бермейді.</string>
+    <string name="battly_whats_new_controllers_title">Қорғалған файлды ортақ пайдалану</string>
+    <string name="battly_whats_new_desc">Қауіпсіз модпакетті орнату, файлдарды ортақ пайдалану және сыртқы плагин авторизациясы.</string>
+    <string name="battly_whats_new_instances_desc">Мұрағат мазмұны мен жүктеп алынған файлдар басқа даналарды өзгертпей тағайындалған дананың ішінде қалады.</string>
+    <string name="battly_whats_new_instances_title">Қорғалған модпакетті орнату</string>
+    <string name="battly_whats_new_recovery_desc">Желіден тыс режимді қоспағанда, Battly іске қосылғанда пайдалану талдаулары белсендіріледі. Шығарылым жазбалары мен плагин хабарлары аударылды.</string>
+    <string name="battly_whats_new_recovery_title">Статистика және аудармалар</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 дайын</string>
+    <string name="battly_whats_new_worlds_desc">Сыртқы плагиндерді пайдалану алдында авторизация қажет. Бұрын орнатылған плагиндерге бір рет қайта рұқсат беру керек.</string>
+    <string name="battly_whats_new_worlds_title">Плагин рұқсаттарыңыз</string>
+    <string name="battly_appearance_title">Battly терілері мен мүйістері</string>
+    <string name="battly_appearance_subtitle">Ұялы телефоннан толық Minecraft сыртқы түрін алдын ала қараңыз және басқарыңыз.</string>
+    <string name="battly_capes_title">Battly қалпақшалары</string>
+    <string name="battly_capes_description">Ресми қалпақ таңдаңыз немесе Battly+ арқылы өзіңізге жүктеп салыңыз. Белсенді қалпақ 3D алдын ала қарауда және Minecraft ішінде көрсетілген.</string>
+    <string name="battly_capes_loading">Battly қалпақшалары жүктелуде...</string>
+    <string name="battly_capes_active">Белсенді шапан</string>
+    <string name="battly_capes_none">Белсенді қалпақ жоқ</string>
+    <string name="battly_capes_empty">Бұл тіркелгі үшін ешқандай қақпақ жоқ.</string>
+    <string name="battly_capes_upload">Кепті жүктеп салу</string>
+    <string name="battly_capes_upload_plus">Battly+ арқылы жүктеп салыңыз</string>
+    <string name="battly_capes_plus_required">Арнайы қалпақшалар Battly+ арқылы қол жетімді. Сіз әлі де ресми қалпақшаларды пайдалана аласыз.</string>
+    <string name="battly_capes_disable">Шапшаң жоқ</string>
+    <string name="battly_capes_disabled">Кейп өшірілген</string>
+    <string name="battly_capes_uploaded">Кейп жүктеп салынды және қолданылды</string>
+    <string name="battly_capes_applied">Кейп қолданылды</string>
+    <string name="battly_capes_deleted">Кейп жойылды</string>
+    <string name="battly_capes_previewing">Алдын ала қарау</string>
+    <string name="battly_capes_custom">Арнайы шапан</string>
+    <string name="battly_capes_official">Ресми шапан</string>
+
+    <string name="battly_capes_unavailable">Қапшықтар уақытша қолжетімсіз. Терілеріңіз әлі де қолжетімді.</string>
+
+    <string name="native_plugins_bundled_category">Android тәуелділіктері Battly құрамына кіреді</string>
+    <string name="native_plugins_bundled_ready">%1$s нұсқасы · Дайын</string>
+
+    <string name="battly_whats_new_native_title">Жергілікті тәуелділіктер қолжетімді болып қалады</string>
+    <string name="battly_whats_new_native_desc">Кірістірілген кітапханалар автоматты түрде жұмыс істейді. Сыртқы плагиндерге арналған рұқсаттар APK қол қою идентификаторымен байланыстырылған.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Күнделікті әрекет · Ұялы телефон</string>
+    <string name="battly_stats_history_notice">Жазылған кездегі жергілікті уақыт. Тарих осы жаңартудан басталады; бұрынғы қорытындылар төменде қалды.</string>
+    <string name="battly_stats_history_unavailable">Күнделікті тарих серверде әлі қолжетімді емес. Сіздің жалпы статистикаңыз төменде көрсетілген.</string>
+    <string name="battly_stats_period_label">Белсенділік кезеңі</string>
+    <string name="battly_stats_day_label">Әрекет күні</string>
+    <string name="battly_stats_period_days">Соңғы %1$d күндері</string>
+    <string name="battly_stats_period_summary">Белсенді күндер: %1$d · Minecraft: %2$s · Іске қосу құрылғысы: %3$s</string>
+    <string name="battly_stats_time_range">Бірінші әрекет: %1$s · Соңғы әрекет: %2$s</string>
+    <string name="battly_stats_day_modes">Әлемдер: %1$s · Серверлер: %2$s (Battly Worlds: %3$s) · Ойын мәзірлері: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Іске қосушы: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d с</string>
+    <string name="battly_stats_lifetime">Барлық уақыттағы жиынтықтар · ДК + Ұялы телефон</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Іске қосушы: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d сағ</string>
+    <string name="automatic_game_keyboard_title">Пернетақтаны автоматты түрде ашу</string>
+
+    <string name="native_plugins_trust_warning">Бұл сыртқы плагин Battly файлдары мен тіркелгілеріне қатынасу арқылы жергілікті кодты іске қоса алады. Тек сенетін көзден алынған плагиндерге рұқсат етіңіз. Рұқсат APK қол қою идентификаторымен байланыстырылған.</string>
+    <string name="native_plugins_trust_action">Плагинге рұқсат беру</string>
+
+    <string name="peripheral_title">Пернетақта, тінтуір және контроллер</string>
+    <string name="peripheral_devices">Қосылған перифериялық құрылғылар</string>
+    <string name="peripheral_no_devices">Сыртқы перифериялық құрылғылар анықталмады</string>
+    <string name="peripheral_mouse">Физикалық тышқан</string>
+    <string name="peripheral_pc_preset">ДК тінтуірінің алдын ала орнатуын қолданыңыз</string>
+    <string name="peripheral_pc_mode">Шешімділікке тәуелсіз мақсат қою</string>
+    <string name="peripheral_pc_mode_summary">Рендер рұқсатына қарамастан тұрақты сызықтық сезімталдық. Battly жеделдету немесе тегістеуді қоспайды. Android 8 немесе одан кейінгі.</string>
+    <string name="peripheral_mouse_x">Көлденең сезімталдық</string>
+    <string name="peripheral_mouse_y">Тік сезімталдық</string>
+    <string name="peripheral_invert_x">Көлденең осьті аударыңыз</string>
+    <string name="peripheral_invert_y">Тік осьті төңкеру</string>
+    <string name="peripheral_mouse_test">Тінтуірді калибрлеуді тексеру</string>
+    <string name="peripheral_keyboard">Физикалық пернетақта</string>
+    <string name="peripheral_bindings">Ойын пернелерінің байламдары</string>
+    <string name="peripheral_binding_count">%1$d байланыстырулары. Мәзірді теру өзгеріссіз.</string>
+    <string name="peripheral_keyboard_test">Тест пернелері мен комбинациялары</string>
+    <string name="peripheral_stick_linear">Сызықтық контроллер нысанасы</string>
+    <string name="peripheral_stick_linear_summary">Әдепкі квадрат қисығының орнына пропорционалды таяқша жауап. Жергілікті контроллер режимдеріне емес, Battly контроллерін салыстыруға қолданылады.</string>
+    <string name="peripheral_stick_sensitivity">Контроллер камерасының сезімталдығы</string>
+    <string name="peripheral_reset_test">Өлшемді қалпына келтіру</string>
+    <string name="peripheral_add_binding">Кілтті байланыстыруды қосыңыз</string>
+    <string name="peripheral_source_key">Физикалық кілт</string>
+    <string name="peripheral_target_key">Бұл кілтті Minecraft нөміріне жіберіңіз</string>
+    <string name="peripheral_press_key">Физикалық пернені басып, босатыңыз. Бар байланыстыруды таңдау оны жояды. Модификатор пернелері қалыпты әрекетін сақтайды.</string>
+    <string name="peripheral_invalid_key">Модификатор емес пернетақта пернесін таңдаңыз. Android жүйелік кілттерді қайта салу мүмкін емес.</string>
+    <string name="peripheral_mouse_ready">Тінтуірді түсіру үшін сынақ аймағын басыңыз. Оны босату үшін Escape түймесін басыңыз. Өлшемдер Android хабарлаған салыстырмалы қозғалыс, аппараттық DPI емес.</string>
+    <string name="peripheral_keyboard_ready">Физикалық пернетақтадағы пернелерді немесе комбинацияларды басыңыз. Сынақты жабу үшін Escape түймесін басыңыз.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nX / Y ойыны: %3$s\nҮлгілері: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nКілт: %2$s · Сканерлеу: %3$d · Қайталау: %4$d\nҰсталады: %5$s</string>
 </resources>

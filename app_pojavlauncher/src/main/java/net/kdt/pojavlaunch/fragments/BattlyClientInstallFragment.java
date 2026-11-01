@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch.fragments;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -102,6 +103,7 @@ public class BattlyClientInstallFragment extends Fragment {
     }
 
     private void loadClients() {
+        if (mProgress == null) return;
         mProgress.setVisibility(View.VISIBLE);
         new Thread(() -> {
             try {
@@ -124,6 +126,7 @@ public class BattlyClientInstallFragment extends Fragment {
                     }
                 }
                 Tools.runOnUiThread(() -> {
+                    if (!hasActiveView()) return;
                     mClients.clear();
                     mClients.addAll(entries);
                     mProgress.setVisibility(View.GONE);
@@ -131,6 +134,7 @@ public class BattlyClientInstallFragment extends Fragment {
                 });
             } catch (Exception e) {
                 Tools.runOnUiThread(() -> {
+                    if (!hasActiveView()) return;
                     mProgress.setVisibility(View.GONE);
                     viewRetry(true);
                     Tools.showError(requireContext(), e);
@@ -199,16 +203,18 @@ public class BattlyClientInstallFragment extends Fragment {
             Toast.makeText(requireContext(), R.string.download_client_no_download, Toast.LENGTH_LONG).show();
             return;
         }
+        Context appContext = requireContext().getApplicationContext();
+        String downloadingMessage = appContext.getString(R.string.download_client_downloading, client.name);
+        String installingMessage = appContext.getString(R.string.download_client_installing, client.name);
+        String successMessage = appContext.getString(R.string.client_install_success, client.name);
         mProgress.setVisibility(View.VISIBLE);
         setInstallProgress(0, 0, getString(R.string.download_client_preparing, client.name));
         new Thread(() -> {
             try {
                 File zip = new File(Tools.DIR_CACHE, "battly-clients/" + client.folderName + ".zip");
                 DownloadUtils.downloadFileMonitored(client.downloadUrl, zip, null, (curr, max) ->
-                        Tools.runOnUiThread(() -> setInstallProgress(curr, max,
-                                getString(R.string.download_client_downloading, client.name))));
-                Tools.runOnUiThread(() -> setInstallProgress(1, 1,
-                        getString(R.string.download_client_installing, client.name)));
+                        runOnActiveView(() -> setInstallProgress(curr, max, downloadingMessage)));
+                runOnActiveView(() -> setInstallProgress(1, 1, installingMessage));
                 try (ZipFile zipFile = new ZipFile(zip)) {
                     ZipUtils.zipExtract(zipFile, "", new File(Tools.DIR_GAME_NEW));
                 }
@@ -228,21 +234,41 @@ public class BattlyClientInstallFragment extends Fragment {
                         .putString(LauncherPreferences.PREF_KEY_CURRENT_PROFILE, key)
                         .apply();
                 Tools.runOnUiThread(() -> {
+                    if (!hasActiveView()) return;
                     mProgress.setVisibility(View.GONE);
                     hideInstallProgress();
-                    Toast.makeText(requireContext(),
-                            getString(R.string.client_install_success, client.name),
-                            Toast.LENGTH_LONG).show();
-                    Tools.backToMainMenu(requireActivity());
+                    Toast.makeText(appContext, successMessage, Toast.LENGTH_LONG).show();
+                    if (getActivity() != null) Tools.backToMainMenu(getActivity());
                 });
             } catch (Exception e) {
                 Tools.runOnUiThread(() -> {
+                    if (!hasActiveView()) return;
                     mProgress.setVisibility(View.GONE);
                     hideInstallProgress();
                     Tools.showError(requireContext(), e);
                 });
             }
         }, "Battly Client Install").start();
+    }
+
+    private boolean hasActiveView() {
+        return isAdded() && getView() != null;
+    }
+
+    private void runOnActiveView(Runnable action) {
+        Tools.runOnUiThread(() -> {
+            if (hasActiveView()) action.run();
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mList = null;
+        mProgress = null;
+        mInstallProgress = null;
+        mInstallProgressText = null;
+        mSearch = null;
     }
 
     private void viewRetry(boolean visible) {

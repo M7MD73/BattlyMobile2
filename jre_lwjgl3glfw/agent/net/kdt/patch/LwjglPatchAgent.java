@@ -32,6 +32,10 @@ public class LwjglPatchAgent {
             "net/labymod/core/client/gui/screen/activity/DefaultOverlayRegistry";
     private static final String LABY_DEFAULT_NAVIGATION_REGISTRY =
             "net/labymod/core/client/gui/navigation/DefaultNavigationRegistry";
+    private static final String MC_EDIT_BOX =
+            "net/minecraft/client/gui/components/EditBox";
+    private static final String MC_MULTI_LINE_EDIT_BOX =
+            "net/minecraft/client/gui/components/MultiLineEditBox";
 
     public static void premain(String agentArgs, Instrumentation inst) {
         initializeAndroidAudioProvider();
@@ -41,6 +45,16 @@ public class LwjglPatchAgent {
                                     ProtectionDomain protectionDomain, byte[] classfileBuffer) {
                 if (className == null) return null;
                 try {
+                    if (className.startsWith("de/maxhenkel/") && className.endsWith("/LibraryLoader")) {
+                        byte[] codec = CodecNativeTransformer.transform(loader, className, classfileBuffer);
+                        if (codec != null) return codec;
+                    }
+                    if ("top/fifthlight/touchcontroller/relocated/top/fifthlight/combine/platform_1_20_x/TextMeasurerImpl".equals(className)) {
+                        return patchTouchControllerTextConstraints(classfileBuffer);
+                    }
+                    if ("imgui/moulberry92/ImGui".equals(className)) {
+                        return ImGuiNativeTransformer.transform(loader, classfileBuffer);
+                    }
                     if (!className.startsWith("net/kdt/patch/")
                             && containsAscii(classfileBuffer, "javax/sound/sampled/AudioSystem")) {
                         byte[] patchedAudio = patchJavaSoundDiscovery(className, classfileBuffer);
@@ -54,6 +68,9 @@ public class LwjglPatchAgent {
                     }
                     if ("org/spongepowered/asm/mixin/MixinEnvironment".equals(className)) {
                         return patchMixinEnvironment(classfileBuffer);
+                    }
+                    if (MC_EDIT_BOX.equals(className) || MC_MULTI_LINE_EDIT_BOX.equals(className)) {
+                        return patchMinecraftTextInput(className, classfileBuffer);
                     }
                     if (LWJGL_CONTEXT_TRANSFORMER.equals(className)) {
                         return patchLabyLwjglContextTransformer(classfileBuffer);
@@ -82,7 +99,95 @@ public class LwjglPatchAgent {
                 return null;
             }
         }, false);
-        System.out.println("[LwjglPatchAgent] Registered ARM32 memory + GL + MixinEnvironment + LabyMod LWJGL + LabyMod visual + LabyMod screen patchers.");
+        System.out.println("[LwjglPatchAgent] Registered Android text input + ARM32 memory + GL + MixinEnvironment + LabyMod patchers.");
+    }
+
+    static byte[] patchTouchControllerTextConstraints(byte[] original) {
+        ClassReader reader = new ClassReader(makeAsm96Readable(original));
+        ClassWriter writer = new ClassWriter(reader, 0);
+        final boolean[] changed = {false};
+        reader.accept(new ClassVisitor(Opcodes.ASM9, writer) {
+            @Override
+            public void visit(int version, int access, String name, String signature,
+                              String superName, String[] interfaces) {
+                super.visit(readClassVersion(original), access, name, signature, superName, interfaces);
+            }
+
+            @Override
+            public MethodVisitor visitMethod(int access, String name, String descriptor,
+                                             String signature, String[] exceptions) {
+                return new MethodVisitor(Opcodes.ASM9,
+                        super.visitMethod(access, name, descriptor, signature, exceptions)) {
+                    @Override
+                    public void visitMethodInsn(int opcode, String owner, String method,
+                                                String desc, boolean isInterface) {
+                        if (opcode == Opcodes.INVOKESTATIC && "coerceIn".equals(method)
+                                && "(III)I".equals(desc)
+                                && owner.startsWith("top/fifthlight/touchcontroller/relocated/kotlin/ranges/")) {
+                            changed[0] = true;
+                            owner = "net/kdt/patch/TouchLayoutCompat";
+                        }
+                        super.visitMethodInsn(opcode, owner, method, desc, isInterface);
+                    }
+                };
+            }
+        }, 0);
+        return changed[0] ? writer.toByteArray() : null;
+    }
+
+    static byte[] patchMinecraftTextInput(String className, byte[] classfileBuffer) {
+        final int originalClassVersion = readClassVersion(classfileBuffer);
+        ClassReader reader = new ClassReader(makeAsm96Readable(classfileBuffer));
+        ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+        final boolean[] patched = {false};
+        reader.accept(new ClassVisitor(Opcodes.ASM9, writer) {
+            @Override
+            public void visit(int version, int access, String name, String signature,
+                              String superName, String[] interfaces) {
+                // ASM 9.6 predates Java 25. The reader sees a compatible header,
+                // while the transformed class keeps Minecraft's original version.
+                super.visit(originalClassVersion, access, name, signature, superName, interfaces);
+            }
+
+            @Override
+            public MethodVisitor visitMethod(int access, String name, String descriptor,
+                                             String signature, String[] exceptions) {
+                MethodVisitor delegate = super.visitMethod(access, name, descriptor, signature, exceptions);
+                if (!"setFocused".equals(name) || !"(Z)V".equals(descriptor)) {
+                    return delegate;
+                }
+                patched[0] = true;
+                return new MethodVisitor(Opcodes.ASM9, delegate) {
+                    @Override
+                    public void visitInsn(int opcode) {
+                        if (opcode == Opcodes.RETURN) {
+                            super.visitVarInsn(Opcodes.ILOAD, 1);
+                            super.visitMethodInsn(Opcodes.INVOKESTATIC,
+                                    "net/kdt/patch/TextInputBridge",
+                                    "onTextFocusChanged", "(Z)V", false);
+                        }
+                        super.visitInsn(opcode);
+                    }
+                };
+            }
+        }, ClassReader.EXPAND_FRAMES);
+        if (!patched[0]) return null;
+        System.out.println("[BattlyInput] Automatic keyboard focus hook installed in " + className);
+        return writer.toByteArray();
+    }
+
+    private static int readClassVersion(byte[] classfileBuffer) {
+        if (classfileBuffer == null || classfileBuffer.length < 8) return 0;
+        return ((classfileBuffer[6] & 0xff) << 8) | (classfileBuffer[7] & 0xff);
+    }
+
+    private static byte[] makeAsm96Readable(byte[] classfileBuffer) {
+        int version = readClassVersion(classfileBuffer);
+        if (version <= Opcodes.V22) return classfileBuffer;
+        byte[] readable = classfileBuffer.clone();
+        readable[6] = (byte) (Opcodes.V22 >>> 8);
+        readable[7] = (byte) Opcodes.V22;
+        return readable;
     }
 
     static byte[] patchJavaSoundDiscovery(String className, byte[] classfileBuffer) {

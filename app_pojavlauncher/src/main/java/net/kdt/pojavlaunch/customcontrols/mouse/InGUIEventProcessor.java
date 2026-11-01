@@ -2,6 +2,7 @@ package net.kdt.pojavlaunch.customcontrols.mouse;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 
 import net.kdt.pojavlaunch.LwjglGlfwKeycode;
 import net.kdt.pojavlaunch.SingleTapConfirm;
@@ -17,11 +18,13 @@ public class InGUIEventProcessor implements TouchEventProcessor {
     private final PointerTracker mTracker = new PointerTracker();
     private final TapDetector mSingleTapDetector;
     private AbstractTouchpad mTouchpad;
+    private final View mSurface;
     private boolean mIsMouseDown = false;
     private float mStartX, mStartY;
     private final Scroller mScroller = new Scroller(FINGER_SCROLL_THRESHOLD);
 
-    public InGUIEventProcessor() {
+    public InGUIEventProcessor(View surface) {
+        mSurface = surface;
         mSingleTapDetector = new TapDetector(1, TapDetector.DETECTION_METHOD_BOTH);
     }
 
@@ -64,6 +67,9 @@ public class InGUIEventProcessor implements TouchEventProcessor {
 
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
+                if (motionEvent.getActionMasked() == MotionEvent.ACTION_UP && !touchpadDisplayed()) {
+                    sendTouchCoordinates(motionEvent.getX(), motionEvent.getY());
+                }
                 mScroller.resetScrollOvershoot();
                 mTracker.cancelTracking();
 
@@ -89,7 +95,9 @@ public class InGUIEventProcessor implements TouchEventProcessor {
     }
 
     private void sendTouchCoordinates(float x, float y) {
-        CallbackBridge.sendCursorPos( x * LauncherPreferences.PREF_SCALE_FACTOR, y * LauncherPreferences.PREF_SCALE_FACTOR);
+        CallbackBridge.sendCursorPos(
+                CursorCoordinates.toGame(x, mSurface.getWidth(), CallbackBridge.windowWidth, LauncherPreferences.PREF_SCALE_FACTOR),
+                CursorCoordinates.toGame(y, mSurface.getHeight(), CallbackBridge.windowHeight, LauncherPreferences.PREF_SCALE_FACTOR));
     }
 
     private void enableMouse() {

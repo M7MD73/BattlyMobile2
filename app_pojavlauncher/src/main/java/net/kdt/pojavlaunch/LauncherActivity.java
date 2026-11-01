@@ -44,6 +44,7 @@ import net.kdt.pojavlaunch.analytics.Telemetry;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsInvites;
 import net.kdt.pojavlaunch.battlysocial.BattlySocialManager;
 import net.kdt.pojavlaunch.battlysocial.BattlySocialNotifications;
+import net.kdt.pojavlaunch.battlysocial.BattlyUsageStatsManager;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
 import net.kdt.pojavlaunch.extra.ExtraListener;
@@ -83,12 +84,14 @@ import net.kdt.pojavlaunch.utils.DateUtils;
 import net.kdt.pojavlaunch.utils.JavaRuntimeInstallDialog;
 import net.kdt.pojavlaunch.utils.CrashAnalysisEngine;
 import net.kdt.pojavlaunch.utils.GameSessionExitClassifier;
+import net.kdt.pojavlaunch.utils.ModConflictDetector;
 import net.kdt.pojavlaunch.fragments.ModCompatibilityFragment;
 import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
 import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 import net.kdt.pojavlaunch.utils.NotificationUtils;
 import net.kdt.pojavlaunch.utils.PromotedServersManager;
 import net.kdt.pojavlaunch.utils.BattlyOfflineMode;
+import net.kdt.pojavlaunch.utils.VersionInstallState;
 import net.kdt.pojavlaunch.onboarding.OnboardingActivity;
 
 import java.io.File;
@@ -153,6 +156,7 @@ public class LauncherActivity extends BaseActivity {
             });
 
     private mcAccountSpinner mAccountSpinner;
+    private boolean mAccessLaunchPending;
     private FragmentContainerView mFragmentView;
     private ImageView mLauncherBackground;
     private ImageView mLauncherBackgroundNext;
@@ -292,13 +296,152 @@ public class LauncherActivity extends BaseActivity {
             }
         }
 
-        new MinecraftDownloader().start(
-                this,
-                mcVersion,
-                normalizedVersionId,
-                new ContextAwareDoneListener(this, normalizedVersionId));
+        if (mcVersion == null
+                && Tools.isOnline(this)
+                && !VersionInstallState.hasLocalMetadata(
+                        new File(Tools.DIR_HOME_VERSION), normalizedVersionId)) {
+            new AsyncVersionList().getVersionList(versions -> {
+                if (versions != null) {
+                    ExtraCore.setValue(ExtraConstants.RELEASE_TABLE, versions);
+                }
+                String refreshedVersionId =
+                        AsyncMinecraftDownloader.normalizeVersionId(requestedVersionId);
+                JMinecraftVersionList.Version refreshedVersion =
+                        AsyncMinecraftDownloader.getListedVersion(refreshedVersionId);
+                if (refreshedVersion == null) {
+                    resetLaunchGameUi();
+                    if (VersionInstallState.hasLocalMetadata(new File(Tools.DIR_HOME_VERSION), refreshedVersionId)) {
+                        startMinecraftDownload(null, refreshedVersionId);
+                        return;
+                    }
+                    if (VersionInstallState.isLoaderVersion(refreshedVersionId)) {
+                        if (isFinishing() || isDestroyed()) return;
+                        Tools.createStyledDialogBuilder(this)
+                                .setTitle(R.string.local_version_missing_title)
+                                .setMessage(getString(R.string.local_version_missing_message, refreshedVersionId))
+                                .setPositiveButton(R.string.local_version_missing_versions, (dialog, which) ->
+                                        Tools.swapFragment(this, DownloadVersionSelectorFragment.class,
+                                                DownloadVersionSelectorFragment.TAG, null))
+                                .setNegativeButton(android.R.string.cancel, null).show();
+                        return;
+                    }
+                    Tools.showErrorRemote(new IOException(
+                            "Unable to find Minecraft version " + requestedVersionId
+                                    + " in the version catalog"));
+                    return;
+                }
+                startMinecraftDownload(refreshedVersion, refreshedVersionId);
+            }, false);
+            return false;
+        }
+        startMinecraftDownload(mcVersion, normalizedVersionId);
         return false;
     };
+
+    private void startMinecraftDownload(@Nullable JMinecraftVersionList.Version version,
+                                        @NonNull String versionId) {
+        MinecraftProfile profile = LauncherProfiles.getCurrentProfile();
+        ModConflictDetector.Conflict networkConflict = ModConflictDetector.findKryptonE4mc(
+                Tools.getGameDirPath(profile));
+        if (networkConflict != null) {
+            showNetworkModConflictDialog(networkConflict, version, versionId);
+            return;
+        }
+        String pluginMinecraftVersion = resolvePluginMinecraftVersion(version, versionId);
+        java.util.List<File> incompatibleMods = Tools.getAndroidIncompatibleNativeMods(
+                this, pluginMinecraftVersion);
+        if (!incompatibleMods.isEmpty()) {
+            showIncompatibleNativeModsDialog(incompatibleMods, pluginMinecraftVersion,
+                    () -> startMinecraftDownloadUnchecked(version, versionId));
+            return;
+        }
+        startMinecraftDownloadUnchecked(version, versionId);
+    }
+
+    private void showNetworkModConflictDialog(@NonNull ModConflictDetector.Conflict conflict,
+                                              @Nullable JMinecraftVersionList.Version version,
+                                              @NonNull String versionId) {
+        AlertDialog dialog = Tools.createStyledDialogBuilder(this)
+                .setTitle(R.string.network_mod_conflict_title)
+                .setMessage(getString(R.string.network_mod_conflict_message,
+                        conflict.krypton.getName(), conflict.e4mc.getName()))
+                .setIcon(R.drawable.minecraft_tnt)
+                .setPositiveButton(R.string.android_incompatible_mods_disable, (ignored, which) -> {
+                    if (conflict.disableRecommended()) {
+                        startMinecraftDownload(version, versionId);
+                    } else {
+                        resetLaunchGameUi();
+                        Tools.showError(this, new IOException(
+                                "Unable to disable " + conflict.recommendedDisable.getName()));
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, (ignored, which) -> resetLaunchGameUi())
+                .create();
+        Tools.styleDialog(dialog);
+        dialog.setOnCancelListener(ignored -> resetLaunchGameUi());
+        dialog.show();
+    }
+
+    private void startMinecraftDownloadUnchecked(@Nullable JMinecraftVersionList.Version version,
+                                                  @NonNull String versionId) {
+        if (mAccessLaunchPending) return;
+        mAccessLaunchPending = true;
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.guard(this, () -> {
+            mAccessLaunchPending = false;
+            new MinecraftDownloader().start(this, version, versionId,
+                    new ContextAwareDoneListener(this, versionId));
+        }, () -> {
+            mAccessLaunchPending = false;
+            resetLaunchGameUi();
+        });
+    }
+
+    private String resolvePluginMinecraftVersion(@Nullable JMinecraftVersionList.Version version,
+                                                  @NonNull String versionId) {
+        if (version != null && Tools.isValidString(version.inheritsFrom)) {
+            return version.inheritsFrom;
+        }
+        if (version == null && VersionInstallState.hasLocalMetadata(
+                new File(Tools.DIR_HOME_VERSION), versionId)) {
+            try {
+                JMinecraftVersionList.Version local = Tools.getVersionInfo(versionId);
+                if (local != null && Tools.isValidString(local.inheritsFrom)) {
+                    return local.inheritsFrom;
+                }
+            } catch (RuntimeException exception) {
+                Log.w("LauncherActivity", "Could not resolve base version for native mod check", exception);
+            }
+        }
+        return versionId;
+    }
+
+    private void showIncompatibleNativeModsDialog(@NonNull java.util.List<File> mods,
+                                                   @NonNull String minecraftVersion,
+                                                   @NonNull Runnable continuation) {
+        StringBuilder names = new StringBuilder();
+        for (File mod : mods) {
+            if (names.length() > 0) names.append('\n');
+            names.append("- ").append(mod.getName());
+        }
+        AlertDialog dialog = Tools.createStyledDialogBuilder(this)
+                .setTitle(R.string.android_incompatible_mods_title)
+                .setMessage(getString(R.string.android_incompatible_mods_message, names.toString()))
+                .setIcon(R.drawable.minecraft_tnt)
+                .setPositiveButton(R.string.android_incompatible_mods_disable, (ignored, which) -> {
+                    try {
+                        Tools.disableAndroidIncompatibleNativeMods(this, minecraftVersion);
+                        continuation.run();
+                    } catch (RuntimeException exception) {
+                        resetLaunchGameUi();
+                        Tools.showError(this, exception);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, (ignored, which) -> resetLaunchGameUi())
+                .create();
+        Tools.styleDialog(dialog);
+        dialog.setOnCancelListener(ignored -> resetLaunchGameUi());
+        dialog.show();
+    }
 
     private void resetLaunchGameUi() {
         ExtraCore.setValue(ExtraConstants.LAUNCH_GAME_UI_RESET, true);
@@ -450,7 +593,8 @@ public class LauncherActivity extends BaseActivity {
 
     private void showWhatsNewIfNeeded(Runnable afterDone) {
         if (!canShowStartupPrompt()) return;
-        if (LauncherPreferences.DEFAULT_PREF.getBoolean(OnboardingActivity.PREF_WHATS_NEW_SEEN, false)) {
+        if (LauncherPreferences.DEFAULT_PREF.getBoolean(
+                OnboardingActivity.getWhatsNewSeenPreferenceKey(), false)) {
             if (afterDone != null) afterDone.run();
             return;
         }
@@ -523,12 +667,10 @@ public class LauncherActivity extends BaseActivity {
         if (!Tools.isValidString(provider) || !Tools.isValidString(token)) {
             return;
         }
-        getSharedPreferences("battly_oauth", MODE_PRIVATE)
-                .edit()
-                .putString("provider", provider)
-                .putString("token", token)
-                .putString("nonce", nonce == null ? "" : nonce)
-                .apply();
+        if (!net.kdt.pojavlaunch.utils.BattlyOAuthSession.accept(this, provider, token, nonce)) {
+            intent.setData(null);
+            return;
+        }
         intent.setData(null);
         Toast.makeText(this, R.string.battly_login_completing, Toast.LENGTH_SHORT).show();
     }
@@ -721,6 +863,7 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.checkOnResume(this);
         ContextExecutor.setActivity(this);
         inspectReturnedGameSession();
         applyLauncherBackground();
@@ -740,7 +883,9 @@ public class LauncherActivity extends BaseActivity {
 
     @Override
     protected void onPause() {
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.stopWatching(this);
         BattlyWorldsInvites.stopInvitePolling();
+        BattlyUsageStatsManager.stopLauncherSession(this);
         super.onPause();
         ContextExecutor.clearActivity();
         if (mInstallTracker != null) {
@@ -757,6 +902,7 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         mActivityDestroyed = true;
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.release(this);
         mStartupPromptHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
         mProgressLayout.cleanUpObservers();
@@ -1231,6 +1377,9 @@ public class LauncherActivity extends BaseActivity {
         if (fragment instanceof LauncherPreferenceVideoFragment) {
             return getString(R.string.preference_video_title);
         }
+        if (fragment instanceof net.kdt.pojavlaunch.prefs.screens.LauncherPreferencePeripheralFragment) {
+            return getString(R.string.peripheral_title);
+        }
         if (fragment instanceof LauncherPreferenceControlFragment) {
             return getString(R.string.preference_control_title);
         }
@@ -1247,7 +1396,7 @@ public class LauncherActivity extends BaseActivity {
             return getString(R.string.mcl_setting_title_renderer_settings);
         }
         if (fragment instanceof BattlySkinManagerFragment) {
-            return getString(R.string.battly_skins_title);
+            return getString(R.string.battly_appearance_title);
         }
         if (fragment instanceof BattlySocialFragment) {
             return getString(R.string.battly_social_title);

@@ -448,7 +448,7 @@
     <string name="crash_no_findings">ไม่พบรูปแบบการชนที่ทราบในบันทึกล่าสุด</string>
     <string name="crash_recovery_applied">การดำเนินการกู้คืนเสร็จสมบูรณ์</string>
     <string name="crash_recovery_manual">ปัญหานี้ต้องการการเปลี่ยนแปลงด้วยตนเอง เปิดบันทึกเพื่อดูรายละเอียด</string>
-    <string name="credits_version">เวอร์ชัน 2.2.5</string>
+    <string name="credits_version">เวอร์ชัน 2.2.9</string>
     <string name="ctrl_like_btn">ถูกใจ</string>
     <string name="ctrl_liked_added">เพิ่มไปยังการควบคุมที่ถูกใจแล้ว</string>
     <string name="ctrl_liked_btn">ถูกใจแล้ว</string>
@@ -509,8 +509,8 @@
     <string name="java_runtime_download_progress">กำลังดาวน์โหลด Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">การติดตั้ง Java 8</string>
     <string name="java_runtime_download_waiting">กำลังเตรียมดาวน์โหลด Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">มือถือ 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">มือถือ 2.2.9</string>
     <string name="launcher_status_battly">บัญชี Battly</string>
     <string name="launcher_status_battly_plus">บัญชี Battly+</string>
     <string name="library_analyze_mods">วิเคราะห์</string>
@@ -986,7 +986,7 @@
     <string name="installer_internal_fallback">โปรแกรมติดตั้งที่ไม่รองรับ กำลังเปิด Java UI ดั้งเดิม</string>
     <string name="installer_internal_running">กำลังวิเคราะห์ตัวติดตั้ง...</string>
     <string name="installer_internal_success">%1$s ติดตั้งโดยตรงภายใน Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         ตัวเรียกใช้งานขึ้นอยู่กับ PojavLauncher และ Boardwalk&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;เครดิต&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1419,4 +1419,107 @@
     <string name="search_world_download_error">ดาวน์โหลดข้อมูลเมตาของโลกไม่สำเร็จ</string>
     <string name="world_install_button">ติดตั้งโลก</string>
     <string name="world_install_success">ติดตั้ง %1$s ในอินสแตนซ์นี้แล้ว</string>
+
+    <string name="battly_whats_new_transition_desc">อินสแตนซ์ของคุณยังคงอยู่ อนุญาตปลั๊กอินภายนอกที่เชื่อถือได้ในการตั้งค่าก่อนใช้งาน</string>
+    <string name="download_action_import_mods_title">นำเข้า mod ภายนอก</string>
+    <string name="download_action_import_mods_subtitle">เลือกไฟล์ `.jar` หนึ่งไฟล์ขึ้นไปและเพิ่มลงในอินสแตนซ์ที่เลือก</string>
+    <string name="library_installed_show_more">แสดง %1$d เพิ่มเติม</string>
+    <string name="library_import_mods_replace_title">แทนที่ mods ที่มีอยู่หรือไม่</string>
+    <string name="library_import_mods_replace_message">ไฟล์ mod ที่เลือก %1$d มีอยู่แล้วใน %2$s Battly จะแทนที่หลังจากตรวจสอบไฟล์ใหม่แล้วเท่านั้น</string>
+    <string name="library_import_mods_invalid">ไม่ได้เลือกไฟล์ mod `.jar` ที่ถูกต้อง</string>
+    <string name="library_import_mods_success">นำเข้าม็อด %1$d เข้าสู่ %2$s</string>
+    <string name="library_import_mods_partial">นำเข้า mods %1$d ลงใน %2$s · ไฟล์ %3$d ไม่สามารถนำเข้าได้</string>
+    <string name="library_import_mods_error">ไม่สามารถนำเข้า mods ที่เลือกได้</string>
+    <string name="battly_whats_new_action_start">สำรวจ 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">การตอบกลับในการเข้าสู่ระบบจะต้องตรงกับคำขอที่รอดำเนินการ ซึ่งจะหมดอายุหลังจากช่วงเวลาสั้นๆ และสามารถยอมรับได้เพียงครั้งเดียวเท่านั้น</string>
+    <string name="battly_whats_new_compatibility_title">การลงชื่อเข้าใช้ Discord ที่ปลอดภัยยิ่งขึ้น</string>
+    <string name="battly_whats_new_controllers_desc">การแชร์โฟลเดอร์หนึ่งไม่อนุญาตให้เข้าถึงโฟลเดอร์อื่นที่อยู่นอกเหนือสิทธิ์ที่คุณให้อีกต่อไป</string>
+    <string name="battly_whats_new_controllers_title">การแชร์ไฟล์ที่ได้รับการป้องกัน</string>
+    <string name="battly_whats_new_desc">การติดตั้ง modpack ที่ปลอดภัยยิ่งขึ้น การแชร์ไฟล์ และการอนุญาตปลั๊กอินภายนอก</string>
+    <string name="battly_whats_new_instances_desc">เนื้อหาที่เก็บถาวรและไฟล์ที่ดาวน์โหลดจะยังคงอยู่ในอินสแตนซ์ที่ได้รับมอบหมาย โดยไม่ต้องแก้ไขอินสแตนซ์อื่นๆ</string>
+    <string name="battly_whats_new_instances_title">การติดตั้ง modpack ที่มีการป้องกัน</string>
+    <string name="battly_whats_new_recovery_desc">การวิเคราะห์การใช้งานเปิดใช้งานเมื่อ Battly เริ่มทำงาน ยกเว้นในโหมดออฟไลน์ บันทึกประจำรุ่นและข้อความปลั๊กอินได้รับการแปลแล้ว</string>
+    <string name="battly_whats_new_recovery_title">สถิติและการแปล</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 พร้อมแล้ว</string>
+    <string name="battly_whats_new_worlds_desc">ปลั๊กอินภายนอกต้องได้รับอนุญาตก่อนใช้งาน ปลั๊กอินที่ติดตั้งไว้ก่อนหน้านี้จะต้องได้รับอนุญาตอีกครั้งหนึ่งครั้ง</string>
+    <string name="battly_whats_new_worlds_title">สิทธิ์ปลั๊กอินของคุณ</string>
+    <string name="battly_appearance_title">สกินและเสื้อคลุม Battly</string>
+    <string name="battly_appearance_subtitle">ดูตัวอย่างและจัดการรูปลักษณ์ Minecraft ที่สมบูรณ์ของคุณจากมือถือ</string>
+    <string name="battly_capes_title">เสื้อคลุม Battly</string>
+    <string name="battly_capes_description">เลือกเสื้อคลุมอย่างเป็นทางการหรืออัปโหลดเสื้อคลุมของคุณเองด้วย Battly+ เสื้อคลุมที่ใช้งานอยู่จะแสดงในการดูตัวอย่าง 3 มิติและภายใน Minecraft</string>
+    <string name="battly_capes_loading">กำลังโหลดเสื้อคลุม Battly...</string>
+    <string name="battly_capes_active">เสื้อคลุมที่ใช้งานอยู่</string>
+    <string name="battly_capes_none">ไม่มีเสื้อคลุมที่ใช้งานอยู่</string>
+    <string name="battly_capes_empty">ไม่มีผ้าคลุมสำหรับบัญชีนี้</string>
+    <string name="battly_capes_upload">อัพโหลดเคป</string>
+    <string name="battly_capes_upload_plus">อัปโหลดด้วย Battly+</string>
+    <string name="battly_capes_plus_required">เสื้อคลุมแบบกำหนดเองมีจำหน่ายใน Battly+ คุณยังสามารถใช้เสื้อคลุมอย่างเป็นทางการได้</string>
+    <string name="battly_capes_disable">ไม่มีเสื้อคลุม</string>
+    <string name="battly_capes_disabled">ปิดการใช้งานเคป</string>
+    <string name="battly_capes_uploaded">Cape อัปโหลดและนำไปใช้</string>
+    <string name="battly_capes_applied">ใช้เคปแล้ว</string>
+    <string name="battly_capes_deleted">แคปลบแล้ว</string>
+    <string name="battly_capes_previewing">การดูตัวอย่างเสื้อคลุม</string>
+    <string name="battly_capes_custom">เสื้อคลุมที่กำหนดเอง</string>
+    <string name="battly_capes_official">เสื้อคลุมอย่างเป็นทางการ</string>
+
+    <string name="battly_capes_unavailable">Capes ไม่สามารถใช้งานได้ชั่วคราว สกินของคุณยังคงมีอยู่</string>
+
+    <string name="native_plugins_bundled_category">การขึ้นต่อกันของ Android รวมอยู่ใน Battly</string>
+    <string name="native_plugins_bundled_ready">เวอร์ชัน %1$s · พร้อมแล้ว</string>
+
+    <string name="battly_whats_new_native_title">การพึ่งพาดั้งเดิมยังคงมีอยู่</string>
+    <string name="battly_whats_new_native_desc">ไลบรารี่ในตัวทำงานโดยอัตโนมัติ การอนุญาตสำหรับปลั๊กอินภายนอกเชื่อมโยงกับข้อมูลประจำตัวการลงนาม APK</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">กิจกรรมประจำวัน · มือถือ</string>
+    <string name="battly_stats_history_notice">เวลาท้องถิ่นเมื่อบันทึก ประวัติศาสตร์เริ่มต้นด้วยการอัปเดตนี้ ยอดรวมก่อนหน้านี้ยังคงอยู่ด้านล่าง</string>
+    <string name="battly_stats_history_unavailable">ประวัติรายวันยังไม่พร้อมใช้งานบนเซิร์ฟเวอร์ สถิติทั้งหมดของคุณแสดงอยู่ด้านล่าง</string>
+    <string name="battly_stats_period_label">ระยะเวลากิจกรรม</string>
+    <string name="battly_stats_day_label">วันที่ทำกิจกรรม</string>
+    <string name="battly_stats_period_days">%1$d วันที่ผ่านมา</string>
+    <string name="battly_stats_period_summary">วันที่ใช้งาน: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">กิจกรรมแรก: %1$s · กิจกรรมสุดท้าย: %2$s</string>
+    <string name="battly_stats_day_modes">โลก: %1$s · เซิร์ฟเวอร์: %2$s (Battly Worlds: %3$s) · เมนูเกม: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · ตัวเรียกใช้: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d ส</string>
+    <string name="battly_stats_lifetime">ยอดรวมตลอดกาล · พีซี + มือถือ</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · ตัวเรียกใช้งาน: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d ชม</string>
+    <string name="automatic_game_keyboard_title">เปิดแป้นพิมพ์โดยอัตโนมัติ</string>
+
+    <string name="native_plugins_trust_warning">ปลั๊กอินภายนอกนี้สามารถเรียกใช้โค้ดเนทิฟพร้อมการเข้าถึงไฟล์และบัญชี Battly อนุญาตเฉพาะปลั๊กอินจากแหล่งที่คุณเชื่อถือเท่านั้น การอนุญาตเชื่อมโยงกับข้อมูลประจำตัวที่ลงนาม APK</string>
+    <string name="native_plugins_trust_action">อนุญาตปลั๊กอิน</string>
+
+    <string name="peripheral_title">คีย์บอร์ด เมาส์ และคอนโทรลเลอร์</string>
+    <string name="peripheral_devices">อุปกรณ์ต่อพ่วงที่เชื่อมต่อ</string>
+    <string name="peripheral_no_devices">ไม่พบอุปกรณ์ต่อพ่วงภายนอก</string>
+    <string name="peripheral_mouse">เมาส์ทางกายภาพ</string>
+    <string name="peripheral_pc_preset">ใช้การตั้งค่าล่วงหน้าของเมาส์พีซี</string>
+    <string name="peripheral_pc_mode">การเล็งที่ไม่ขึ้นอยู่กับความละเอียด</string>
+    <string name="peripheral_pc_mode_summary">ความไวเชิงเส้นคงที่โดยไม่คำนึงถึงความละเอียดของการเรนเดอร์ Battly ไม่เพิ่มความเร่งหรือความนุ่มนวล Android 8 หรือใหม่กว่า</string>
+    <string name="peripheral_mouse_x">ความไวในแนวนอน</string>
+    <string name="peripheral_mouse_y">ความไวในแนวตั้ง</string>
+    <string name="peripheral_invert_x">กลับแกนนอน</string>
+    <string name="peripheral_invert_y">กลับแกนแนวตั้ง</string>
+    <string name="peripheral_mouse_test">ทดสอบการปรับเทียบเมาส์</string>
+    <string name="peripheral_keyboard">แป้นพิมพ์กายภาพ</string>
+    <string name="peripheral_bindings">การเชื่อมโยงคีย์การเล่นเกม</string>
+    <string name="peripheral_binding_count">การผูก %1$d การพิมพ์เมนูไม่เปลี่ยนแปลง</string>
+    <string name="peripheral_keyboard_test">ทดสอบคีย์และการรวมกัน</string>
+    <string name="peripheral_stick_linear">การเล็งตัวควบคุมเชิงเส้น</string>
+    <string name="peripheral_stick_linear_summary">การตอบสนองแบบสติ๊กตามสัดส่วนแทนการใช้เส้นโค้งกำลังสองเริ่มต้น นำไปใช้กับการแมปคอนโทรลเลอร์ Battly ไม่ใช่ม็อดคอนโทรลเลอร์ดั้งเดิม</string>
+    <string name="peripheral_stick_sensitivity">ความไวของกล้องควบคุม</string>
+    <string name="peripheral_reset_test">รีเซ็ตการวัด</string>
+    <string name="peripheral_add_binding">เพิ่มการเชื่อมโยงคีย์</string>
+    <string name="peripheral_source_key">คีย์ฟิสิคัล</string>
+    <string name="peripheral_target_key">ส่งคีย์นี้ไปที่ Minecraft</string>
+    <string name="peripheral_press_key">กดและปล่อยปุ่มทางกายภาพ การเลือกการเชื่อมโยงที่มีอยู่จะเป็นการลบออก ปุ่มปรับเปลี่ยนจะคงพฤติกรรมปกติไว้</string>
+    <string name="peripheral_invalid_key">เลือกแป้นคีย์บอร์ดที่ไม่มีตัวปรับแต่ง คีย์ระบบ Android ไม่สามารถแมปใหม่ได้</string>
+    <string name="peripheral_mouse_ready">คลิกพื้นที่ทดสอบเพื่อจับเมาส์ กด Escape เพื่อปล่อย การวัดเป็นการเคลื่อนไหวสัมพันธ์ที่รายงานโดย Android ไม่ใช่ DPI ของฮาร์ดแวร์</string>
+    <string name="peripheral_keyboard_ready">กดปุ่มหรือกดรวมกันบนแป้นพิมพ์จริงของคุณ กด Escape เพื่อปิดการทดสอบ</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nเกม X / Y: %3$s\nตัวอย่าง: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nคีย์: %2$s · สแกน: %3$d · ทำซ้ำ: %4$d\n มือถือ: %5$s</string>
 </resources>

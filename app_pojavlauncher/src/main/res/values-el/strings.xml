@@ -438,7 +438,7 @@
     <string name="crash_no_findings">Δεν βρέθηκε γνωστό μοτίβο σύγκρουσης στα πιο πρόσφατα αρχεία καταγραφής.</string>
     <string name="crash_recovery_applied">Η ενέργεια ανάκτησης ολοκληρώθηκε</string>
     <string name="crash_recovery_manual">Αυτό το ζήτημα χρειάζεται χειροκίνητη αλλαγή. Ανοίξτε το αρχείο καταγραφής για λεπτομέρειες.</string>
-    <string name="credits_version">Έκδοση 2.2.5</string>
+    <string name="credits_version">Έκδοση 2.2.9</string>
     <string name="ctrl_like_btn">Όπως</string>
     <string name="ctrl_liked_added">Προστέθηκε στα στοιχεία ελέγχου που σας αρέσουν.</string>
     <string name="ctrl_liked_btn">Άρεσε</string>
@@ -499,8 +499,8 @@
     <string name="java_runtime_download_progress">Λήψη του Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Εγκατάσταση του Java 8</string>
     <string name="java_runtime_download_waiting">Προετοιμασία λήψης Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Κινητό 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Κινητό 2.2.9</string>
     <string name="launcher_status_battly">Λογαριασμός Battly</string>
     <string name="launcher_status_battly_plus">Λογαριασμός Battly+</string>
     <string name="library_analyze_mods">Αναλύστε</string>
@@ -976,7 +976,7 @@
     <string name="installer_internal_fallback">Μη υποστηριζόμενο πρόγραμμα εγκατάστασης, ανοίγοντας την παλαιού τύπου διεπαφή χρήστη Java</string>
     <string name="installer_internal_running">Ανάλυση προγράμματος εγκατάστασης…</string>
     <string name="installer_internal_success">Το %1$s εγκαθίσταται απευθείας στο Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Εκκίνηση που βασίζεται στο PojavLauncher και στο Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Πιστώσεις&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1410,4 +1410,107 @@
     <string name="search_world_download_error">Αποτυχία λήψης παγκόσμιων μεταδεδομένων</string>
     <string name="world_install_button">Κόσμος εγκατάστασης</string>
     <string name="world_install_success">Το %1$s είναι εγκατεστημένο σε αυτήν την παρουσία</string>
+
+    <string name="battly_whats_new_transition_desc">Οι περιπτώσεις σας παραμένουν στη θέση τους. Εξουσιοδοτήστε αξιόπιστες εξωτερικές προσθήκες στις Ρυθμίσεις πριν τις χρησιμοποιήσετε.</string>
+    <string name="download_action_import_mods_title">Εισαγωγή εξωτερικών mods</string>
+    <string name="download_action_import_mods_subtitle">Επιλέξτε ένα ή περισσότερα αρχεία «.jar» και προσθέστε τα στην επιλεγμένη παρουσία.</string>
+    <string name="library_installed_show_more">Εμφάνιση περισσότερων %1$d</string>
+    <string name="library_import_mods_replace_title">Αντικατάσταση υπαρχόντων mods;</string>
+    <string name="library_import_mods_replace_message">Τα επιλεγμένα αρχεία mod %1$d υπάρχουν ήδη στο %2$s. Το Battly θα τα αντικαταστήσει μόνο μετά την επικύρωση των νέων αρχείων.</string>
+    <string name="library_import_mods_invalid">Δεν επιλέχθηκαν έγκυρα αρχεία mod ".jar".</string>
+    <string name="library_import_mods_success">Εισήχθησαν τροποποιήσεις %1$d στο %2$s.</string>
+    <string name="library_import_mods_partial">Εισήχθησαν τροποποιήσεις %1$d στο %2$s · Δεν ήταν δυνατή η εισαγωγή αρχείων %3$d.</string>
+    <string name="library_import_mods_error">Δεν ήταν δυνατή η εισαγωγή των επιλεγμένων mods.</string>
+    <string name="battly_whats_new_action_start">Εξερεύνηση 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Οι απαντήσεις σύνδεσης πρέπει να αντιστοιχούν σε ένα αίτημα σε εκκρεμότητα, να λήγουν μετά από σύντομο χρονικό διάστημα και μπορούν να γίνουν δεκτές μόνο μία φορά.</string>
+    <string name="battly_whats_new_compatibility_title">Ασφαλέστερη σύνδεση Discord</string>
+    <string name="battly_whats_new_controllers_desc">Η κοινή χρήση ενός φακέλου δεν επιτρέπει πλέον την πρόσβαση σε άλλους φακέλους εκτός της άδειας που εκχωρήσατε.</string>
+    <string name="battly_whats_new_controllers_title">Προστατευμένη κοινή χρήση αρχείων</string>
+    <string name="battly_whats_new_desc">Ασφαλέστερη εγκατάσταση modpack, κοινή χρήση αρχείων και εξουσιοδότηση εξωτερικής προσθήκης.</string>
+    <string name="battly_whats_new_instances_desc">Τα περιεχόμενα αρχειοθέτησης και τα ληφθέντα αρχεία παραμένουν μέσα στο εκχωρημένο στιγμιότυπο, χωρίς να τροποποιούνται άλλες παρουσίες.</string>
+    <string name="battly_whats_new_instances_title">Προστατευμένη εγκατάσταση modpack</string>
+    <string name="battly_whats_new_recovery_desc">Τα αναλυτικά στοιχεία χρήσης ενεργοποιούνται όταν ξεκινά το Battly, εκτός από τη λειτουργία εκτός σύνδεσης. Οι σημειώσεις έκδοσης και τα μηνύματα πρόσθετων έχουν μεταφραστεί.</string>
+    <string name="battly_whats_new_recovery_title">Στατιστικά στοιχεία και μεταφράσεις</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Το Battly 2.2.9 είναι έτοιμο</string>
+    <string name="battly_whats_new_worlds_desc">Τα εξωτερικά πρόσθετα χρειάζονται εξουσιοδότηση πριν από τη χρήση. Οι προσθήκες που έχουν εγκατασταθεί στο παρελθόν πρέπει να εξουσιοδοτηθούν ξανά.</string>
+    <string name="battly_whats_new_worlds_title">Τα δικαιώματα των προσθηκών σας</string>
+    <string name="battly_appearance_title">Battly δέρματα και κάπες</string>
+    <string name="battly_appearance_subtitle">Κάντε προεπισκόπηση και διαχειριστείτε την πλήρη εμφάνιση Minecraft από το κινητό.</string>
+    <string name="battly_capes_title">Κάπες Battly</string>
+    <string name="battly_capes_description">Επιλέξτε μια επίσημη κάπα ή ανεβάστε τη δική σας με το Battly+. Το ενεργό ακρωτήριο εμφανίζεται στην τρισδιάστατη προεπισκόπηση και μέσα στο Minecraft.</string>
+    <string name="battly_capes_loading">Φόρτωση κάπας Battly...</string>
+    <string name="battly_capes_active">Ενεργή κάπα</string>
+    <string name="battly_capes_none">Χωρίς ενεργή κάπα</string>
+    <string name="battly_capes_empty">Δεν υπάρχουν διαθέσιμες κάπες για αυτόν τον λογαριασμό.</string>
+    <string name="battly_capes_upload">Ανεβάστε κάπα</string>
+    <string name="battly_capes_upload_plus">Μεταφόρτωση με Battly+</string>
+    <string name="battly_capes_plus_required">Οι προσαρμοσμένες κάπες είναι διαθέσιμες με το Battly+. Μπορείτε ακόμα να χρησιμοποιήσετε τις επίσημες κάπες.</string>
+    <string name="battly_capes_disable">Χωρίς κάπα</string>
+    <string name="battly_capes_disabled">Το ακρωτήρι απενεργοποιημένο</string>
+    <string name="battly_capes_uploaded">Το Cape μεταφορτώθηκε και εφαρμόστηκε</string>
+    <string name="battly_capes_applied">Εφαρμόστηκε το ακρωτήριο</string>
+    <string name="battly_capes_deleted">Το ακρωτήριο διαγράφηκε</string>
+    <string name="battly_capes_previewing">Προεπισκόπηση ακρωτηρίου</string>
+    <string name="battly_capes_custom">Προσαρμοσμένη κάπα</string>
+    <string name="battly_capes_official">Επίσημη κάπα</string>
+
+    <string name="battly_capes_unavailable">Τα ακρωτήρια δεν είναι διαθέσιμα προσωρινά. Τα δέρματα σας είναι ακόμα διαθέσιμα.</string>
+
+    <string name="native_plugins_bundled_category">Οι εξαρτήσεις Android περιλαμβάνονται στο Battly</string>
+    <string name="native_plugins_bundled_ready">Έκδοση %1$s · Έτοιμη</string>
+
+    <string name="battly_whats_new_native_title">Οι εγγενείς εξαρτήσεις παραμένουν διαθέσιμες</string>
+    <string name="battly_whats_new_native_desc">Οι ενσωματωμένες βιβλιοθήκες λειτουργούν αυτόματα. Τα δικαιώματα για εξωτερικές προσθήκες συνδέονται με την ταυτότητα υπογραφής APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Καθημερινή δραστηριότητα · Κινητό</string>
+    <string name="battly_stats_history_notice">Τοπική ώρα όταν καταγράφεται. Το ιστορικό ξεκινά με αυτήν την ενημέρωση. Τα προηγούμενα σύνολα παραμένουν κάτω.</string>
+    <string name="battly_stats_history_unavailable">Το ημερήσιο ιστορικό δεν είναι ακόμη διαθέσιμο στον διακομιστή. Τα συνολικά στατιστικά σας φαίνονται παρακάτω.</string>
+    <string name="battly_stats_period_label">Περίοδος δραστηριότητας</string>
+    <string name="battly_stats_day_label">Ημερομηνία δραστηριότητας</string>
+    <string name="battly_stats_period_days">Τελευταίες %1$d ημέρες</string>
+    <string name="battly_stats_period_summary">Ενεργές ημέρες: %1$d · Minecraft: %2$s · Εκκίνηση: %3$s</string>
+    <string name="battly_stats_time_range">Πρώτη δραστηριότητα: %1$s · Τελευταία δραστηριότητα: %2$s</string>
+    <string name="battly_stats_day_modes">Κόσμοι: %1$s · Διακομιστές: %2$s (Battly Worlds: %3$s) · Μενού παιχνιδιών: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Εκτοξευτής: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Σύνολα όλων των εποχών · Υπολογιστής + Κινητό</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Εκτοξευτής: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Αυτόματο άνοιγμα πληκτρολογίου</string>
+
+    <string name="native_plugins_trust_warning">Αυτή η εξωτερική προσθήκη μπορεί να εκτελεί εγγενή κώδικα με πρόσβαση σε αρχεία και λογαριασμούς Battly. Επιτρέψτε μόνο προσθήκες από μια πηγή που εμπιστεύεστε. Η άδεια συνδέεται με την ταυτότητα υπογραφής APK.</string>
+    <string name="native_plugins_trust_action">Να επιτρέπεται η προσθήκη</string>
+
+    <string name="peripheral_title">Πληκτρολόγιο, ποντίκι και χειριστήριο</string>
+    <string name="peripheral_devices">Συνδεδεμένα περιφερειακά</string>
+    <string name="peripheral_no_devices">Δεν εντοπίστηκαν εξωτερικά περιφερειακά</string>
+    <string name="peripheral_mouse">Φυσικό ποντίκι</string>
+    <string name="peripheral_pc_preset">Εφαρμογή προεπιλογής ποντικιού υπολογιστή</string>
+    <string name="peripheral_pc_mode">Στόχευση ανεξάρτητη από την ανάλυση</string>
+    <string name="peripheral_pc_mode_summary">Σταθερή γραμμική ευαισθησία ανεξάρτητα από την ανάλυση απόδοσης. Το Battly δεν προσθέτει επιτάχυνση ή εξομάλυνση. Android 8 ή νεότερη έκδοση.</string>
+    <string name="peripheral_mouse_x">Οριζόντια ευαισθησία</string>
+    <string name="peripheral_mouse_y">Κάθετη ευαισθησία</string>
+    <string name="peripheral_invert_x">Αντιστροφή οριζόντιου άξονα</string>
+    <string name="peripheral_invert_y">Αντιστροφή κατακόρυφου άξονα</string>
+    <string name="peripheral_mouse_test">Δοκιμή βαθμονόμησης ποντικιού</string>
+    <string name="peripheral_keyboard">Φυσικό πληκτρολόγιο</string>
+    <string name="peripheral_bindings">Δεσίματα πλήκτρων παιχνιδιού</string>
+    <string name="peripheral_binding_count">%1$d δεσίματα. Η πληκτρολόγηση του μενού δεν έχει αλλάξει.</string>
+    <string name="peripheral_keyboard_test">Δοκιμαστικά πλήκτρα και συνδυασμοί</string>
+    <string name="peripheral_stick_linear">Στόχευση γραμμικού ελεγκτή</string>
+    <string name="peripheral_stick_linear_summary">Αναλογική απόκριση ραβδιού αντί της προεπιλεγμένης τετραγωνικής καμπύλης. Ισχύει για αντιστοίχιση ελεγκτή Battly, όχι για εγγενείς λειτουργίες ελεγκτή.</string>
+    <string name="peripheral_stick_sensitivity">Ευαισθησία κάμερας ελεγκτή</string>
+    <string name="peripheral_reset_test">Επαναφορά της μέτρησης</string>
+    <string name="peripheral_add_binding">Προσθήκη κλειδιού δέσμευσης</string>
+    <string name="peripheral_source_key">Φυσικό κλειδί</string>
+    <string name="peripheral_target_key">Στείλτε αυτό το κλειδί στο Minecraft</string>
+    <string name="peripheral_press_key">Πατήστε και αφήστε ένα φυσικό πλήκτρο. Η επιλογή μιας υπάρχουσας βιβλιοδεσίας την καταργεί. Τα πλήκτρα τροποποίησης διατηρούν την κανονική τους συμπεριφορά.</string>
+    <string name="peripheral_invalid_key">Επιλέξτε ένα πλήκτρο πληκτρολογίου χωρίς τροποποίηση. Τα κλειδιά συστήματος Android δεν μπορούν να αντιστοιχιστούν εκ νέου.</string>
+    <string name="peripheral_mouse_ready">Κάντε κλικ στην περιοχή δοκιμής για να τραβήξετε το ποντίκι. Πατήστε Escape για να το απελευθερώσετε. Οι μετρήσεις είναι σχετική κίνηση που αναφέρεται από το Android, όχι DPI υλικού.</string>
+    <string name="peripheral_keyboard_ready">Πατήστε πλήκτρα ή συνδυασμούς στο φυσικό σας πληκτρολόγιο. Πατήστε Escape για να κλείσετε τη δοκιμή.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nΠαιχνίδι X / Y: %3$s\nΔείγματα: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nΚλειδί: %2$s · Σάρωση: %3$d · Επανάληψη: %4$d\nΔιαχείριση: %5$s</string>
 </resources>

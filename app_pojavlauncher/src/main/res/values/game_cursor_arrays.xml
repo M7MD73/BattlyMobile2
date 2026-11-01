@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_cursor_style_entries">
+        <item>@string/cursor_style_default</item>
+        <item>@string/cursor_style_dot</item>
+        <item>@string/cursor_style_crosshair</item>
+        <item>@string/cursor_style_custom</item>
+    </string-array>
+    <string-array name="game_cursor_style_values" translatable="false">
+        <item>default</item>
+        <item>dot</item>
+        <item>crosshair</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="game_cursor_hotspot_entries">
+        <item>@string/cursor_hotspot_top_left</item>
+        <item>@string/cursor_hotspot_center</item>
+    </string-array>
+    <string-array name="game_cursor_hotspot_values" translatable="false">
+        <item>top_left</item>
+        <item>center</item>
+    </string-array>
+</resources>

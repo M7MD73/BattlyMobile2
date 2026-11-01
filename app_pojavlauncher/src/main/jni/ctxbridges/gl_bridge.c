@@ -82,6 +82,7 @@ static void gl4esi_get_display_dimensions(int* width, int* height) {
 gl_render_window_t* gl_init_context(gl_render_window_t *share) {
     gl_render_window_t* bundle = malloc(sizeof(gl_render_window_t));
     memset(bundle, 0, sizeof(gl_render_window_t));
+    bundle->swapInterval = 1; // EGL's default until Minecraft explicitly chooses an interval.
     EGLint egl_attributes[] = { EGL_BLUE_SIZE, 8, EGL_GREEN_SIZE, 8, EGL_RED_SIZE, 8, EGL_ALPHA_SIZE, 8, EGL_DEPTH_SIZE, 24, EGL_SURFACE_TYPE, EGL_WINDOW_BIT|EGL_PBUFFER_BIT, EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT, EGL_NONE };
     EGLint num_configs = 0;
 
@@ -168,6 +169,7 @@ void gl_make_current(gl_render_window_t* bundle) {
     }
     if(eglMakeCurrent_p(g_EglDisplay, bundle->surface, bundle->surface, bundle->context)) {
         currentBundle = bundle;
+        gl_swap_interval(bundle->swapInterval);
     }else {
         if(hasSetMainWindow) {
             pojav_environ->mainWindowBundle->newNativeSurface = NULL;
@@ -183,7 +185,9 @@ void gl_swap_buffers() {
     if(currentBundle->state == STATE_RENDERER_NEW_WINDOW) {
         eglMakeCurrent_p(g_EglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT); //detach everything to destroy the old EGLSurface
         gl_swap_surface(currentBundle);
-        eglMakeCurrent_p(g_EglDisplay, currentBundle->surface, currentBundle->surface, currentBundle->context);
+        if (eglMakeCurrent_p(g_EglDisplay, currentBundle->surface, currentBundle->surface, currentBundle->context)) {
+            gl_swap_interval(currentBundle->swapInterval);
+        }
         currentBundle->state = STATE_RENDERER_ALIVE;
     }
     if(currentBundle->surface != NULL) {
@@ -194,7 +198,9 @@ void gl_swap_buffers() {
             eglMakeCurrent_p(g_EglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
             currentBundle->newNativeSurface = NULL;
             gl_swap_surface(currentBundle);
-            eglMakeCurrent_p(g_EglDisplay, currentBundle->surface, currentBundle->surface, currentBundle->context);
+            if (eglMakeCurrent_p(g_EglDisplay, currentBundle->surface, currentBundle->surface, currentBundle->context)) {
+                gl_swap_interval(currentBundle->swapInterval);
+            }
             LOGI("The window has died, awaiting window change");
         }
     }
@@ -215,9 +221,12 @@ void gl_setup_window() {
 }
 
 void gl_swap_interval(int swapInterval) {
+    if (currentBundle != NULL) currentBundle->swapInterval = swapInterval;
     if(pojav_environ->force_vsync) swapInterval = 1;
 
-    eglSwapInterval_p(g_EglDisplay, swapInterval);
+    if (!eglSwapInterval_p(g_EglDisplay, swapInterval)) {
+        LOGE("Failed to apply swap interval %d: %04x", swapInterval, eglGetError_p());
+    }
 }
 
 JNIEXPORT void JNICALL

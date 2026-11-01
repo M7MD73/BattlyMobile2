@@ -749,7 +749,7 @@
     <string name="credits_primary_development">Pembangunan utama</string>
     <string name="credits_section_title">Kredit</string>
     <string name="credits_unaffiliated">Apl ini tidak bergabung dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="credits_version">Versi 2.2.5</string>
+    <string name="credits_version">Versi 2.2.9</string>
     <string name="ctrl_applied_success">Kawalan "%1$s" berjaya digunakan.</string>
     <string name="ctrl_apply_btn">Guna kawalan</string>
     <string name="ctrl_apply_msg">Muat turun dan gunakan "%1$s" sebagai reka letak kawalan anda?</string>
@@ -943,7 +943,7 @@
     <string name="java_runtime_download_progress">Memuat turun Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Memasang Java 8</string>
     <string name="java_runtime_download_waiting">Menyediakan muat turun Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Pelancar berdasarkan PojavLauncher dan Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredit&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 dan komponen pihak ketiga disertakan dalam projek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j dan banyak lagi di bawah lesen asal mereka.&lt;br/&gt;&lt;br/&gt;
         Apl ini tidak bergabung dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Muat turun</string>
     <string name="launcher_download_modpack">Import modpack</string>
     <string name="launcher_execute">Main</string>
-    <string name="launcher_mobile_badge">Mudah Alih 2.2.5</string>
+    <string name="launcher_mobile_badge">Mudah Alih 2.2.9</string>
     <string name="launcher_nav_back">pergi balik</string>
     <string name="launcher_nav_home">Pulang ke rumah</string>
     <string name="launcher_nav_workspace">Battly Ruang Kerja</string>
@@ -1509,4 +1509,107 @@
     <string name="search_world_download_error">Gagal memuat turun metadata dunia</string>
     <string name="world_install_button">Pasang dunia</string>
     <string name="world_install_success">%1$s dipasang ke dalam contoh ini</string>
+
+    <string name="battly_whats_new_transition_desc">Contoh anda kekal di tempatnya. Benarkan pemalam luaran yang dipercayai dalam Tetapan sebelum menggunakannya.</string>
+    <string name="download_action_import_mods_title">Import mod luaran</string>
+    <string name="download_action_import_mods_subtitle">Pilih satu atau lebih fail `.jar` dan tambahkannya pada tika yang dipilih.</string>
+    <string name="library_installed_show_more">Tunjukkan %1$d lagi</string>
+    <string name="library_import_mods_replace_title">Gantikan mod sedia ada?</string>
+    <string name="library_import_mods_replace_message">%1$d fail mod terpilih sudah wujud dalam %2$s. Battly akan menggantikannya hanya selepas mengesahkan fail baharu.</string>
+    <string name="library_import_mods_invalid">Tiada fail mod `.jar` yang sah telah dipilih.</string>
+    <string name="library_import_mods_success">Mengimport mod %1$d ke dalam %2$s.</string>
+    <string name="library_import_mods_partial">Mod %1$d yang diimport ke dalam %2$s · Fail %3$d tidak dapat diimport.</string>
+    <string name="library_import_mods_error">Mod yang dipilih tidak dapat diimport.</string>
+    <string name="battly_whats_new_action_start">Teroka 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Respons log masuk mesti sepadan dengan permintaan yang belum selesai, tamat tempoh selepas masa yang singkat dan hanya boleh diterima sekali.</string>
+    <string name="battly_whats_new_compatibility_title">Log masuk Discord yang lebih selamat</string>
+    <string name="battly_whats_new_controllers_desc">Berkongsi satu folder tidak lagi membenarkan akses kepada folder lain di luar kebenaran yang anda berikan.</string>
+    <string name="battly_whats_new_controllers_title">Perkongsian fail yang dilindungi</string>
+    <string name="battly_whats_new_desc">Pemasangan modpack yang lebih selamat, perkongsian fail dan kebenaran pemalam luaran.</string>
+    <string name="battly_whats_new_instances_desc">Kandungan arkib dan fail yang dimuat turun kekal dalam contoh yang ditetapkan, tanpa mengubah suai kejadian lain.</string>
+    <string name="battly_whats_new_instances_title">Pemasangan modpack yang dilindungi</string>
+    <string name="battly_whats_new_recovery_desc">Analitis penggunaan diaktifkan apabila Battly bermula, kecuali dalam mod luar talian. Nota keluaran dan mesej pemalam telah diterjemahkan.</string>
+    <string name="battly_whats_new_recovery_title">Statistik dan terjemahan</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 sedia</string>
+    <string name="battly_whats_new_worlds_desc">Pemalam luaran memerlukan kebenaran sebelum digunakan. Pemalam yang dipasang sebelum ini mesti dibenarkan sekali lagi.</string>
+    <string name="battly_whats_new_worlds_title">Kebenaran pemalam anda</string>
+    <string name="battly_appearance_title">Kulit dan jubah Battly</string>
+    <string name="battly_appearance_subtitle">Pratonton dan urus penampilan Minecraft anda yang lengkap dari Mudah Alih.</string>
+    <string name="battly_capes_title">Jubah Battly</string>
+    <string name="battly_capes_description">Pilih jubah rasmi atau muat naik sendiri dengan Battly+. Jubah aktif ditunjukkan dalam pratonton 3D dan di dalam Minecraft.</string>
+    <string name="battly_capes_loading">Memuatkan jubah Battly...</string>
+    <string name="battly_capes_active">jubah aktif</string>
+    <string name="battly_capes_none">Tiada jubah aktif</string>
+    <string name="battly_capes_empty">Tiada jubah tersedia untuk akaun ini.</string>
+    <string name="battly_capes_upload">Muat naik tanjung</string>
+    <string name="battly_capes_upload_plus">Muat naik dengan Battly+</string>
+    <string name="battly_capes_plus_required">Jubah tersuai tersedia dengan Battly+. Anda masih boleh menggunakan jubah rasmi.</string>
+    <string name="battly_capes_disable">Tiada jubah</string>
+    <string name="battly_capes_disabled">Cape dilumpuhkan</string>
+    <string name="battly_capes_uploaded">Cape dimuat naik dan digunakan</string>
+    <string name="battly_capes_applied">Cape digunakan</string>
+    <string name="battly_capes_deleted">Cape dipadamkan</string>
+    <string name="battly_capes_previewing">Pratonton tanjung</string>
+    <string name="battly_capes_custom">Jubah tersuai</string>
+    <string name="battly_capes_official">Jubah rasmi</string>
+
+    <string name="battly_capes_unavailable">Jubah tidak tersedia buat sementara waktu. Kulit anda masih ada.</string>
+
+    <string name="native_plugins_bundled_category">Kebergantungan Android disertakan dengan Battly</string>
+    <string name="native_plugins_bundled_ready">Versi %1$s · Sedia</string>
+
+    <string name="battly_whats_new_native_title">Kebergantungan asli kekal tersedia</string>
+    <string name="battly_whats_new_native_desc">Perpustakaan terbina dalam berfungsi secara automatik. Kebenaran untuk pemalam luaran dipautkan kepada identiti tandatangan APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Aktiviti harian · Mudah alih</string>
+    <string name="battly_stats_history_notice">Waktu tempatan apabila dirakam. Sejarah bermula dengan kemas kini ini; jumlah sebelumnya kekal di bawah.</string>
+    <string name="battly_stats_history_unavailable">Sejarah harian belum tersedia pada pelayan lagi. Jumlah statistik anda ditunjukkan di bawah.</string>
+    <string name="battly_stats_period_label">Tempoh aktiviti</string>
+    <string name="battly_stats_day_label">Tarikh aktiviti</string>
+    <string name="battly_stats_period_days">%1$d hari terakhir</string>
+    <string name="battly_stats_period_summary">Hari aktif: %1$d · Minecraft: %2$s · Pelancar: %3$s</string>
+    <string name="battly_stats_time_range">Aktiviti pertama: %1$s · Aktiviti terakhir: %2$s</string>
+    <string name="battly_stats_day_modes">Dunia: %1$s · Pelayan: %2$s (Battly Worlds: %3$s) · Menu permainan: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Pelancar: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Jumlah sepanjang masa · PC + Mudah Alih</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Pelancar: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Buka papan kekunci secara automatik</string>
+
+    <string name="native_plugins_trust_warning">Pemalam luaran ini boleh menjalankan kod asli dengan akses kepada fail dan akaun Battly. Hanya benarkan pemalam daripada sumber yang anda percayai. Kebenaran dipautkan kepada identiti tandatangan APK.</string>
+    <string name="native_plugins_trust_action">Benarkan pemalam</string>
+
+    <string name="peripheral_title">Papan kekunci, tetikus dan pengawal</string>
+    <string name="peripheral_devices">Peranti bersambung</string>
+    <string name="peripheral_no_devices">Tiada peranti luaran dikesan</string>
+    <string name="peripheral_mouse">Tikus fizikal</string>
+    <string name="peripheral_pc_preset">Gunakan pratetap tetikus PC</string>
+    <string name="peripheral_pc_mode">Matlamat bebas resolusi</string>
+    <string name="peripheral_pc_mode_summary">Kepekaan linear malar tanpa mengira resolusi render. Battly tidak menambah pecutan atau pelicinan. Android 8 atau lebih baru.</string>
+    <string name="peripheral_mouse_x">Sensitiviti mendatar</string>
+    <string name="peripheral_mouse_y">Sensitiviti menegak</string>
+    <string name="peripheral_invert_x">Terbalikkan paksi mendatar</string>
+    <string name="peripheral_invert_y">Terbalikkan paksi menegak</string>
+    <string name="peripheral_mouse_test">Uji penentukuran tetikus</string>
+    <string name="peripheral_keyboard">Papan kekunci fizikal</string>
+    <string name="peripheral_bindings">Pengikatan kunci permainan</string>
+    <string name="peripheral_binding_count">pengikatan %1$d. Penaipan menu tidak berubah.</string>
+    <string name="peripheral_keyboard_test">Uji kekunci dan kombinasi</string>
+    <string name="peripheral_stick_linear">Pengawal linear bertujuan</string>
+    <string name="peripheral_stick_linear_summary">Respons kayu berkadar dan bukannya lengkung kuadratik lalai. Digunakan pada pemetaan pengawal Battly, bukan mod pengawal asli.</string>
+    <string name="peripheral_stick_sensitivity">Kepekaan kamera pengawal</string>
+    <string name="peripheral_reset_test">Tetapkan semula ukuran</string>
+    <string name="peripheral_add_binding">Tambah pengikat kunci</string>
+    <string name="peripheral_source_key">Kunci fizikal</string>
+    <string name="peripheral_target_key">Hantar kunci ini kepada Minecraft</string>
+    <string name="peripheral_press_key">Tekan dan lepaskan kekunci fizikal. Memilih pengikatan sedia ada mengalih keluarnya. Kekunci pengubah suai mengekalkan tingkah laku biasa mereka.</string>
+    <string name="peripheral_invalid_key">Pilih kekunci papan kekunci bukan pengubah suai. Kunci sistem Android tidak boleh dipetakan semula.</string>
+    <string name="peripheral_mouse_ready">Klik kawasan ujian untuk menangkap tetikus. Tekan Escape untuk melepaskannya. Pengukuran adalah gerakan relatif yang dilaporkan oleh Android, bukan DPI perkakasan.</string>
+    <string name="peripheral_keyboard_ready">Tekan kekunci atau kombinasi pada papan kekunci fizikal anda. Tekan Escape untuk menutup ujian.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nPermainan X / Y: %3$s\nSampel: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKunci: %2$s · Imbasan: %3$d · Ulang: %4$d\nDipegang: %5$s</string>
 </resources>

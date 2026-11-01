@@ -37,6 +37,7 @@ public class ZipUtils {
      * @throws IOException if it was not possible to create a directory or file extraction failed
      */
     public static void zipExtract(ZipFile zipFile, String dirName, File destination) throws IOException {
+        if (!dirName.isEmpty() && !dirName.endsWith("/")) dirName += "/";
         Enumeration<? extends ZipEntry> zipEntries = zipFile.entries();
 
         int dirNameLen = dirName.length();
@@ -44,7 +45,7 @@ public class ZipUtils {
             ZipEntry zipEntry = zipEntries.nextElement();
             String entryName = zipEntry.getName();
             if(!entryName.startsWith(dirName) || zipEntry.isDirectory()) continue;
-            File zipDestination = new File(destination, entryName.substring(dirNameLen));
+            File zipDestination = SafeFilePaths.resolveRelative(destination, entryName.substring(dirNameLen));
             FileUtils.ensureParentDirectory(zipDestination);
             try (InputStream inputStream = zipFile.getInputStream(zipEntry);
                  OutputStream outputStream = new FileOutputStream(zipDestination)) {

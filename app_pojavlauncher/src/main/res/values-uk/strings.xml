@@ -575,7 +575,7 @@
     <string name="crash_no_findings">У останніх журналах не знайдено відомого шаблону аварій.</string>
     <string name="crash_recovery_applied">Відновлювальна дія завершена</string>
     <string name="crash_recovery_manual">Ця проблема потребує ручної зміни. Відкрийте журнал для отримання деталей.</string>
-    <string name="credits_version">Версія 2.2.5</string>
+    <string name="credits_version">Версія 2.2.9</string>
     <string name="ctrl_like_btn">Подобається</string>
     <string name="ctrl_liked_added">Додано до вподобаних елементів керування.</string>
     <string name="ctrl_liked_btn">Вподобано</string>
@@ -636,8 +636,8 @@
     <string name="java_runtime_download_progress">Завантаження Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Встановлення Java 8</string>
     <string name="java_runtime_download_waiting">Підготовка до завантаження Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Мобільний 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Мобільний 2.2.9</string>
     <string name="launcher_status_battly">Обліковий запис Battly</string>
     <string name="launcher_status_battly_plus">Обліковий запис Battly+</string>
     <string name="library_analyze_mods">Аналіз</string>
@@ -1026,7 +1026,7 @@
     <string name="ctrl_upload_tags_label">Теги (розділені комами, необов’язково)</string>
     <string name="customctrl_button_name_hint">Назва кнопки</string>
     <string name="customctrl_display">Вміст кнопки</string>
-    <string name="customctrl_display_emoji">Emoji</string>
+    <string name="customctrl_display_emoji">Емодзі</string>
     <string name="customctrl_display_icon">значок</string>
     <string name="customctrl_display_text">текст</string>
     <string name="customctrl_display_value_hint">Текст або емодзі</string>
@@ -1107,7 +1107,7 @@
     <string name="installer_internal_fallback">Непідтримуваний інсталятор відкриває застарілий інтерфейс користувача Java</string>
     <string name="installer_internal_running">Аналіз програми встановлення…</string>
     <string name="installer_internal_success">%1$s встановлено безпосередньо в Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Пускач на основі PojavLauncher і Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Кредити&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1516,4 +1516,107 @@
     <string name="search_world_download_error">Не вдалося завантажити глобальні метадані</string>
     <string name="world_install_button">Встановити світ</string>
     <string name="world_install_success">%1$s встановлено в цей екземпляр</string>
+
+    <string name="battly_whats_new_transition_desc">Ваші екземпляри залишаються на місці. Авторизуйте надійні зовнішні плагіни в налаштуваннях перед їх використанням.</string>
+    <string name="download_action_import_mods_title">Імпорт зовнішніх модів</string>
+    <string name="download_action_import_mods_subtitle">Виберіть один або кілька файлів `.jar` і додайте їх до вибраного екземпляра.</string>
+    <string name="library_installed_show_more">Показати %1$d більше</string>
+    <string name="library_import_mods_replace_title">Замінити наявні моди?</string>
+    <string name="library_import_mods_replace_message">Вибрані файли модифікації %1$d уже існують у %2$s. Battly замінить їх лише після перевірки нових файлів.</string>
+    <string name="library_import_mods_invalid">Не вибрано жодного дійсного файлу модифікації `.jar`.</string>
+    <string name="library_import_mods_success">Імпортовано модифікації %1$d у %2$s.</string>
+    <string name="library_import_mods_partial">Імпортовані моди %1$d у %2$s · Файли %3$d не вдалося імпортувати.</string>
+    <string name="library_import_mods_error">Вибрані моди не вдалося імпортувати.</string>
+    <string name="battly_whats_new_action_start">Дослідити 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Відповіді на вхід мають відповідати запиту, що очікує на розгляд, закінчуватися через короткий час і можуть бути прийняті лише один раз.</string>
+    <string name="battly_whats_new_compatibility_title">Безпечніший вхід у систему Discord</string>
+    <string name="battly_whats_new_controllers_desc">Спільний доступ до однієї папки більше не дає доступу до інших папок за межами дозволу, який ви надали.</string>
+    <string name="battly_whats_new_controllers_title">Захищений обмін файлами</string>
+    <string name="battly_whats_new_desc">Безпечніше встановлення modpack, обмін файлами та зовнішня авторизація плагінів.</string>
+    <string name="battly_whats_new_instances_desc">Архівний вміст і завантажені файли залишаються в призначеному екземплярі, не змінюючи інші екземпляри.</string>
+    <string name="battly_whats_new_instances_title">Захищена установка modpack</string>
+    <string name="battly_whats_new_recovery_desc">Аналітика використання активується під час запуску Battly, за винятком офлайн-режиму. Примітки до випуску та повідомлення плагінів перекладено.</string>
+    <string name="battly_whats_new_recovery_title">Статистика та переклади</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 готовий</string>
+    <string name="battly_whats_new_worlds_desc">Перед використанням зовнішніх плагінів потрібна авторизація. Раніше встановлені плагіни необхідно ще раз авторизувати.</string>
+    <string name="battly_whats_new_worlds_title">Ваші дозволи плагіна</string>
+    <string name="battly_appearance_title">Шкіри та накидки Battly</string>
+    <string name="battly_appearance_subtitle">Попередньо переглядайте свій зовнішній вигляд Minecraft і керуйте ним із мобільного пристрою.</string>
+    <string name="battly_capes_title">Накидки Battly</string>
+    <string name="battly_capes_description">Виберіть офіційну накидку або завантажте власну за допомогою Battly+. Активна накидка показана в попередньому перегляді 3D і всередині Minecraft.</string>
+    <string name="battly_capes_loading">Завантаження накидок Battly...</string>
+    <string name="battly_capes_active">Активна накидка</string>
+    <string name="battly_capes_none">Немає активної накидки</string>
+    <string name="battly_capes_empty">Для цього облікового запису немає накидок.</string>
+    <string name="battly_capes_upload">Завантажити накидку</string>
+    <string name="battly_capes_upload_plus">Завантажте за допомогою Battly+</string>
+    <string name="battly_capes_plus_required">Спеціальні накидки доступні з Battly+. Ви все ще можете використовувати офіційні накидки.</string>
+    <string name="battly_capes_disable">Без накидки</string>
+    <string name="battly_capes_disabled">Плащ вимкнено</string>
+    <string name="battly_capes_uploaded">Накидку завантажено та застосовано</string>
+    <string name="battly_capes_applied">Накладена накидка</string>
+    <string name="battly_capes_deleted">Накидка видалена</string>
+    <string name="battly_capes_previewing">Попередній перегляд накидки</string>
+    <string name="battly_capes_custom">Накидка на замовлення</string>
+    <string name="battly_capes_official">Офіційна накидка</string>
+
+    <string name="battly_capes_unavailable">Накидки тимчасово недоступні. Ваші скіни все ще доступні.</string>
+
+    <string name="native_plugins_bundled_category">Залежності Android включені в Battly</string>
+    <string name="native_plugins_bundled_ready">Версія %1$s · Готова</string>
+
+    <string name="battly_whats_new_native_title">Рідні залежності залишаються доступними</string>
+    <string name="battly_whats_new_native_desc">Вбудовані бібліотеки працюють автоматично. Дозволи для зовнішніх плагінів пов’язані з ідентифікатором підпису APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Щоденна активність · Мобільний</string>
+    <string name="battly_stats_history_notice">Місцевий час під час запису. Історія починається з цього оновлення; попередні суми залишаються нижче.</string>
+    <string name="battly_stats_history_unavailable">Щоденна історія поки що недоступна на сервері. Ваша загальна статистика наведена нижче.</string>
+    <string name="battly_stats_period_label">Період діяльності</string>
+    <string name="battly_stats_day_label">Дата діяльності</string>
+    <string name="battly_stats_period_days">Останні %1$d днів</string>
+    <string name="battly_stats_period_summary">Дні активності: %1$d · Minecraft: %2$s · Лаунчер: %3$s</string>
+    <string name="battly_stats_time_range">Перша активність: %1$s · Остання активність: %2$s</string>
+    <string name="battly_stats_day_modes">Світи: %1$s · Сервери: %2$s (Battly Worlds: %3$s) · Ігрові меню: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Панель запуску: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Підсумки за весь час · ПК + мобільний</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Панель запуску: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Автоматично відкривати клавіатуру</string>
+
+    <string name="native_plugins_trust_warning">Цей зовнішній плагін може запускати рідний код із доступом до файлів і облікових записів Battly. Дозволяйте плагіни лише з джерела, якому ви довіряєте. Дозвіл пов’язано з ідентифікатором підпису APK.</string>
+    <string name="native_plugins_trust_action">Дозволити плагін</string>
+
+    <string name="peripheral_title">Клавіатура, миша та контролер</string>
+    <string name="peripheral_devices">Підключена периферія</string>
+    <string name="peripheral_no_devices">Зовнішніх периферійних пристроїв не виявлено</string>
+    <string name="peripheral_mouse">Фізична миша</string>
+    <string name="peripheral_pc_preset">Застосувати попередні налаштування миші ПК</string>
+    <string name="peripheral_pc_mode">Незалежне прицілювання</string>
+    <string name="peripheral_pc_mode_summary">Постійна лінійна чутливість незалежно від роздільної здатності візуалізації. Battly не додає прискорення чи згладжування. Android 8 або новішої версії.</string>
+    <string name="peripheral_mouse_x">Горизонтальна чутливість</string>
+    <string name="peripheral_mouse_y">Вертикальна чутливість</string>
+    <string name="peripheral_invert_x">Інвертувати горизонтальну вісь</string>
+    <string name="peripheral_invert_y">Інвертувати вертикальну вісь</string>
+    <string name="peripheral_mouse_test">Перевірте калібрування миші</string>
+    <string name="peripheral_keyboard">Фізична клавіатура</string>
+    <string name="peripheral_bindings">Прив\'язки клавіш гри</string>
+    <string name="peripheral_binding_count">Палітурки %1$d. Тип меню не змінено.</string>
+    <string name="peripheral_keyboard_test">Перевірте ключі та комбінації</string>
+    <string name="peripheral_stick_linear">Лінійний контролер прицілювання</string>
+    <string name="peripheral_stick_linear_summary">Пропорційна стикова відповідь замість стандартної квадратичної кривої. Застосовується до відображення контролера Battly, а не до модифікацій власного контролера.</string>
+    <string name="peripheral_stick_sensitivity">Контролер чутливості камери</string>
+    <string name="peripheral_reset_test">Скинути вимірювання</string>
+    <string name="peripheral_add_binding">Додайте прив’язку клавіш</string>
+    <string name="peripheral_source_key">Фізичний ключ</string>
+    <string name="peripheral_target_key">Надішліть цей ключ Minecraft</string>
+    <string name="peripheral_press_key">Натисніть і відпустіть фізичну клавішу. Вибір існуючої прив’язки видаляє її. Клавіші-модифікатори зберігають свою звичайну поведінку.</string>
+    <string name="peripheral_invalid_key">Виберіть клавішу клавіатури без модифікатора. Системні ключі Android не можна перепризначити.</string>
+    <string name="peripheral_mouse_ready">Натисніть тестову область, щоб захопити мишу. Натисніть Escape, щоб відпустити його. Вимірювання — це відносний рух, який повідомляє Android, а не апаратна роздільна здатність.</string>
+    <string name="peripheral_keyboard_ready">Натискайте клавіші або комбінації на фізичній клавіатурі. Натисніть Escape, щоб закрити тест.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nГра X / Y: %3$s\nЗразки: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nКлавіша: %2$s · Сканування: %3$d · Повтор: %4$d\nУтримання: %5$s</string>
 </resources>

@@ -567,7 +567,7 @@
     <string name="crash_no_findings">V nejnovějších protokolech nebyl nalezen žádný známý vzorec selhání.</string>
     <string name="crash_recovery_applied">Obnovení bylo dokončeno</string>
     <string name="crash_recovery_manual">Tento problém vyžaduje ruční změnu. Pro podrobnosti otevřete protokol.</string>
-    <string name="credits_version">Verze 2.2.5</string>
+    <string name="credits_version">Verze 2.2.9</string>
     <string name="ctrl_like_btn">Jako</string>
     <string name="ctrl_liked_added">Přidáno k oblíbeným ovládacím prvkům.</string>
     <string name="ctrl_liked_btn">Líbilo se</string>
@@ -628,8 +628,8 @@
     <string name="java_runtime_download_progress">Stahování Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instalace Java 8</string>
     <string name="java_runtime_download_waiting">Příprava stažení Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Účet Battly</string>
     <string name="launcher_status_battly_plus">Účet Battly+</string>
     <string name="library_analyze_mods">Analyzujte</string>
@@ -1099,7 +1099,7 @@
     <string name="installer_internal_fallback">Nepodporovaný instalační program, otevírá se starší uživatelské rozhraní Java</string>
     <string name="installer_internal_running">Probíhá analýza instalačního programu…</string>
     <string name="installer_internal_success">%1$s nainstalován přímo uvnitř Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher založený na PojavLauncher a Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredity&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1508,4 +1508,107 @@
     <string name="search_world_download_error">Stažení metadat světa se nezdařilo</string>
     <string name="world_install_button">Instalovat svět</string>
     <string name="world_install_success">Do této instance byl nainstalován %1$s</string>
+
+    <string name="battly_whats_new_transition_desc">Vaše instance zůstávají na svém místě. Před použitím důvěryhodné externí pluginy autorizujte v Nastavení.</string>
+    <string name="download_action_import_mods_title">Importujte externí mody</string>
+    <string name="download_action_import_mods_subtitle">Vyberte jeden nebo více souborů `.jar` a přidejte je do vybrané instance.</string>
+    <string name="library_installed_show_more">Zobrazit další %1$d</string>
+    <string name="library_import_mods_replace_title">Nahradit stávající mody?</string>
+    <string name="library_import_mods_replace_message">Vybrané soubory modu %1$d již v %2$s existují. Battly je nahradí až po ověření nových souborů.</string>
+    <string name="library_import_mods_invalid">Nebyly vybrány žádné platné mod soubory `.jar`.</string>
+    <string name="library_import_mods_success">Importované mody %1$d do %2$s.</string>
+    <string name="library_import_mods_partial">Importované mody %1$d do %2$s · Soubory %3$d nelze importovat.</string>
+    <string name="library_import_mods_error">Vybrané mody nelze importovat.</string>
+    <string name="battly_whats_new_action_start">Prozkoumat 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Odpovědi na přihlášení musí odpovídat nevyřízenému požadavku, jejich platnost po krátké době vyprší a lze je přijmout pouze jednou.</string>
+    <string name="battly_whats_new_compatibility_title">Bezpečnější přihlášení Discord</string>
+    <string name="battly_whats_new_controllers_desc">Sdílení jedné složky již neumožňuje přístup k jiným složkám mimo oprávnění, které jste udělili.</string>
+    <string name="battly_whats_new_controllers_title">Chráněné sdílení souborů</string>
+    <string name="battly_whats_new_desc">Bezpečnější instalace modpacku, sdílení souborů a externí autorizace pluginu.</string>
+    <string name="battly_whats_new_instances_desc">Obsah archivu a stažené soubory zůstávají ve své přiřazené instanci, aniž by se měnily jiné instance.</string>
+    <string name="battly_whats_new_instances_title">Chráněná instalace modpacku</string>
+    <string name="battly_whats_new_recovery_desc">Analýza využití se aktivuje při spuštění Battly, kromě režimu offline. Poznámky k vydání a zprávy pluginů byly přeloženy.</string>
+    <string name="battly_whats_new_recovery_title">Statistiky a překlady</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 je připraven</string>
+    <string name="battly_whats_new_worlds_desc">Externí pluginy vyžadují před použitím autorizaci. Dříve nainstalované pluginy musí být znovu autorizovány.</string>
+    <string name="battly_whats_new_worlds_title">Vaše oprávnění pluginu</string>
+    <string name="battly_appearance_title">Battly kůže a pláště</string>
+    <string name="battly_appearance_subtitle">Prohlédněte si a spravujte svůj kompletní vzhled Minecraft z Mobile.</string>
+    <string name="battly_capes_title">Pláště Battly</string>
+    <string name="battly_capes_description">Vyberte si oficiální plášť nebo nahrajte svůj vlastní pomocí Battly+. Aktivní plášť je zobrazen v 3D náhledu a uvnitř Minecraft.</string>
+    <string name="battly_capes_loading">Načítání pláštěnek Battly...</string>
+    <string name="battly_capes_active">Aktivní plášť</string>
+    <string name="battly_capes_none">Žádný aktivní plášť</string>
+    <string name="battly_capes_empty">Pro tento účet nejsou k dispozici žádné pláštěnky.</string>
+    <string name="battly_capes_upload">Nahrát pláštěnku</string>
+    <string name="battly_capes_upload_plus">Nahrajte pomocí Battly+</string>
+    <string name="battly_capes_plus_required">Vlastní pláště jsou k dispozici se Battly+. Stále můžete používat oficiální peleríny.</string>
+    <string name="battly_capes_disable">Bez pláštěnky</string>
+    <string name="battly_capes_disabled">Cape zakázán</string>
+    <string name="battly_capes_uploaded">Cape nahrán a použit</string>
+    <string name="battly_capes_applied">Cape aplikován</string>
+    <string name="battly_capes_deleted">Cape smazán</string>
+    <string name="battly_capes_previewing">Náhled pláštěnky</string>
+    <string name="battly_capes_custom">Vlastní plášť</string>
+    <string name="battly_capes_official">Oficiální plášť</string>
+
+    <string name="battly_capes_unavailable">Kapsy jsou dočasně nedostupné. Vaše skiny jsou stále k dispozici.</string>
+
+    <string name="native_plugins_bundled_category">Závislosti Android součástí Battly</string>
+    <string name="native_plugins_bundled_ready">Verze %1$s · Připraveno</string>
+
+    <string name="battly_whats_new_native_title">Nativní závislosti zůstávají dostupné</string>
+    <string name="battly_whats_new_native_desc">Vestavěné knihovny fungují automaticky. Oprávnění pro externí pluginy jsou propojena s identitou podpisu APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Denní aktivita · Mobil</string>
+    <string name="battly_stats_history_notice">Místní čas při záznamu. Historie začíná touto aktualizací; předchozí součty zůstávají níže.</string>
+    <string name="battly_stats_history_unavailable">Denní historie zatím není na serveru dostupná. Vaše celkové statistiky jsou uvedeny níže.</string>
+    <string name="battly_stats_period_label">Období činnosti</string>
+    <string name="battly_stats_day_label">Datum činnosti</string>
+    <string name="battly_stats_period_days">Posledních %1$d dní</string>
+    <string name="battly_stats_period_summary">Aktivní dny: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">První aktivita: %1$s · Poslední aktivita: %2$s</string>
+    <string name="battly_stats_day_modes">Světy: %1$s · Servery: %2$s (Battly Worlds: %3$s) · Herní menu: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Spouštěč: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Celkové celkové údaje · PC + mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Spouštěč: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Automaticky otevírat klávesnici</string>
+
+    <string name="native_plugins_trust_warning">Tento externí plugin může spouštět nativní kód s přístupem k souborům a účtům Battly. Povolte pouze pluginy ze zdroje, kterému důvěřujete. Oprávnění je spojeno s podpisovou identitou souboru APK.</string>
+    <string name="native_plugins_trust_action">Povolit plugin</string>
+
+    <string name="peripheral_title">Klávesnice, myš a ovladač</string>
+    <string name="peripheral_devices">Připojené periferie</string>
+    <string name="peripheral_no_devices">Nebyla zjištěna žádná externí periferie</string>
+    <string name="peripheral_mouse">Fyzická myš</string>
+    <string name="peripheral_pc_preset">Použít předvolbu PC myši</string>
+    <string name="peripheral_pc_mode">Zaměřování nezávislé na rozlišení</string>
+    <string name="peripheral_pc_mode_summary">Konstantní lineární citlivost bez ohledu na rozlišení renderu. Battly nepřidává žádné zrychlení ani vyhlazení. Android 8 nebo novější.</string>
+    <string name="peripheral_mouse_x">Horizontální citlivost</string>
+    <string name="peripheral_mouse_y">Vertikální citlivost</string>
+    <string name="peripheral_invert_x">Převrátit horizontální osu</string>
+    <string name="peripheral_invert_y">Převrátit vertikální osu</string>
+    <string name="peripheral_mouse_test">Testovací kalibrace myši</string>
+    <string name="peripheral_keyboard">Fyzická klávesnice</string>
+    <string name="peripheral_bindings">Herní vázání kláves</string>
+    <string name="peripheral_binding_count">Vázání %1$d. Typ nabídky je nezměněn.</string>
+    <string name="peripheral_keyboard_test">Testovací klávesy a kombinace</string>
+    <string name="peripheral_stick_linear">Zaměřování lineárního ovladače</string>
+    <string name="peripheral_stick_linear_summary">Proporcionální odezva kniplu namísto výchozí kvadratické křivky. Platí pro mapování řadiče Battly, nikoli pro nativní mody řadiče.</string>
+    <string name="peripheral_stick_sensitivity">Citlivost kamery ovladače</string>
+    <string name="peripheral_reset_test">Resetujte měření</string>
+    <string name="peripheral_add_binding">Přidejte klíčovou vazbu</string>
+    <string name="peripheral_source_key">Fyzický klíč</string>
+    <string name="peripheral_target_key">Pošlete tento klíč Minecraft</string>
+    <string name="peripheral_press_key">Stiskněte a uvolněte fyzickou klávesu. Výběrem existující vazby ji odstraníte. Modifikační klávesy si zachovají své normální chování.</string>
+    <string name="peripheral_invalid_key">Vyberte nemodifikační klávesu klávesnice. Systémové klíče Android nelze přemapovat.</string>
+    <string name="peripheral_mouse_ready">Kliknutím na testovací oblast zachytíte myš. Stisknutím Escape jej uvolníte. Měření jsou relativní pohyb hlášený Android, nikoli hardwarové DPI.</string>
+    <string name="peripheral_keyboard_ready">Stiskněte klávesy nebo kombinace na fyzické klávesnici. Stisknutím Escape test zavřete.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nHra X / Y: %3$s\nUkázky: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKlíč: %2$s · Skenovat: %3$d · Opakovat: %4$d\nZadrženo: %5$s</string>
 </resources>

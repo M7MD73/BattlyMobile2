@@ -14,6 +14,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.os.Build;
+import android.system.ErrnoException;
+import android.system.Os;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Display;
@@ -41,11 +43,14 @@ import net.kdt.pojavlaunch.customcontrols.gamepad.ControllerRemapperBridge;
 import net.kdt.pojavlaunch.customcontrols.gamepad.direct.DirectGamepad;
 import net.kdt.pojavlaunch.customcontrols.gamepad.direct.DirectGamepadEnableHandler;
 import net.kdt.pojavlaunch.customcontrols.mouse.AbstractTouchpad;
+import net.kdt.pojavlaunch.customcontrols.mouse.CursorCoordinates;
 import net.kdt.pojavlaunch.customcontrols.mouse.AndroidPointerCapture;
+import net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseButtons;
 import net.kdt.pojavlaunch.customcontrols.mouse.InGUIEventProcessor;
 import net.kdt.pojavlaunch.customcontrols.mouse.InGameEventProcessor;
 import net.kdt.pojavlaunch.customcontrols.mouse.TouchEventProcessor;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
+import net.kdt.pojavlaunch.utils.DisplayRefreshRateUtils;
 import net.kdt.pojavlaunch.utils.FramePacingPolicy;
 import net.kdt.pojavlaunch.utils.JREUtils;
 import net.kdt.pojavlaunch.utils.MCOptionUtils;
@@ -64,6 +69,41 @@ import fr.spse.gamepad_remapper.RemapperView;
  * Class dealing with showing minecraft surface and taking inputs to dispatch them to minecraft
  */
 public class MinecraftGLSurface extends View implements GrabListener, DirectGamepadEnableHandler {
+    private final net.kdt.pojavlaunch.customcontrols.keyboard.PhysicalKeyboardInput mPhysicalKeyboard =
+            new net.kdt.pojavlaunch.customcontrols.keyboard.PhysicalKeyboardInput();
+    private final android.hardware.input.InputManager.InputDeviceListener mKeyboardDevices =
+            new android.hardware.input.InputManager.InputDeviceListener() {
+                @Override public void onInputDeviceAdded(int id) {}
+                @Override public void onInputDeviceChanged(int id) {}
+                @Override public void onInputDeviceRemoved(int id) { mPhysicalKeyboard.releaseDevice(id); }
+            };
+
+    @Override protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        android.hardware.input.InputManager inputs = (android.hardware.input.InputManager)
+                getContext().getSystemService(Context.INPUT_SERVICE);
+        if (inputs != null) inputs.registerInputDeviceListener(mKeyboardDevices,
+                new android.os.Handler(android.os.Looper.getMainLooper()));
+    }
+
+    @Override protected void onDetachedFromWindow() {
+        android.hardware.input.InputManager inputs = (android.hardware.input.InputManager)
+                getContext().getSystemService(Context.INPUT_SERVICE);
+        if (inputs != null) inputs.unregisterInputDeviceListener(mKeyboardDevices);
+        mPhysicalKeyboard.releaseAll();
+        super.onDetachedFromWindow();
+    }
+    private static final PhysicalMouseButtons PHYSICAL_MOUSE =
+            new PhysicalMouseButtons(CallbackBridge::sendMouseButton);
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (!hasWindowFocus) {
+            PHYSICAL_MOUSE.releaseAll();
+            mPhysicalKeyboard.releaseAll();
+        }
+    }
     /* Gamepad object for gamepad inputs, instantiated on need */
     private GamepadHandler mGamepadHandler;
     /* The RemapperView.Builder object allows you to set which buttons to remap */
@@ -103,7 +143,7 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
     String TAG = "MinecraftGLSurface";
 
     private final InGameEventProcessor mIngameProcessor = new InGameEventProcessor(mSensitivityFactor);
-    private final InGUIEventProcessor mInGUIProcessor = new InGUIEventProcessor();
+    private final InGUIEventProcessor mInGUIProcessor = new InGUIEventProcessor(this);
     private TouchEventProcessor mCurrentTouchProcessor = mInGUIProcessor;
     private AndroidPointerCapture mPointerCapture;
     private boolean mLastGrabState = false;
@@ -119,6 +159,8 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
     public MinecraftGLSurface(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setFocusable(true);
+        // Launching from the touchscreen must not prevent the physical mouse from taking focus.
+        setFocusableInTouchMode(true);
         CallbackBridge.setDirectGamepadEnableHandler(this);
         SDLControllerManager.setDirectGamepadEnableHandler(this);
     }
@@ -279,12 +321,18 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
 
             // Mouse found
             if(CallbackBridge.isGrabbing()) return false;
-            CallbackBridge.sendCursorPos(   e.getX(i) * LauncherPreferences.PREF_SCALE_FACTOR, e.getY(i) * LauncherPreferences.PREF_SCALE_FACTOR);
+            sendMenuCursorPosition(e.getX(i), e.getY(i));
             return true; //mouse event handled successfully
         }
         TouchControllerUtils.processTouchEvent(e, this);
         if (mIngameProcessor == null || mInGUIProcessor == null) return true;
         return mCurrentTouchProcessor.processTouchEvent(e);
+    }
+
+    private void sendMenuCursorPosition(float x, float y) {
+        CallbackBridge.sendCursorPos(
+                CursorCoordinates.toGame(x, getWidth(), CallbackBridge.windowWidth, LauncherPreferences.PREF_SCALE_FACTOR),
+                CursorCoordinates.toGame(y, getHeight(), CallbackBridge.windowHeight, LauncherPreferences.PREF_SCALE_FACTOR));
     }
 
     private void createGamepad(View contextView, InputDevice inputDevice) {
@@ -356,24 +404,34 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
             mouseCursorIndex = i;
             break;
         }
+        if (mouseCursorIndex == -1 && event.getPointerCount() > 0
+                && net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseInput.isMouseSource(event.getSource())) {
+            mouseCursorIndex = 0;
+        }
         if(mouseCursorIndex == -1) return false; // we cant consoom that, theres no mice!
 
         // Make sure we grabbed the mouse if necessary
+        if (mPointerCapture != null && CallbackBridge.isGrabbing()) {
+            mPointerCapture.handleAutomaticCapture();
+        }
         updateGrabState(CallbackBridge.isGrabbing());
         switch(event.getActionMasked()) {
             case MotionEvent.ACTION_HOVER_MOVE:
             case MotionEvent.ACTION_MOVE:
-                CallbackBridge.mouseX = (event.getX(mouseCursorIndex) * LauncherPreferences.PREF_SCALE_FACTOR);
-                CallbackBridge.mouseY = (event.getY(mouseCursorIndex) * LauncherPreferences.PREF_SCALE_FACTOR);
-                CallbackBridge.sendCursorPos(CallbackBridge.mouseX, CallbackBridge.mouseY);
+                if (CallbackBridge.isGrabbing()) {
+                    CallbackBridge.sendCursorPos(event.getX(mouseCursorIndex) * LauncherPreferences.PREF_SCALE_FACTOR,
+                            event.getY(mouseCursorIndex) * LauncherPreferences.PREF_SCALE_FACTOR);
+                } else {
+                    sendMenuCursorPosition(event.getX(mouseCursorIndex), event.getY(mouseCursorIndex));
+                }
                 return true;
             case MotionEvent.ACTION_SCROLL:
                 CallbackBridge.sendScroll(event.getAxisValue(MotionEvent.AXIS_HSCROLL), event.getAxisValue(MotionEvent.AXIS_VSCROLL));
                 return true;
             case MotionEvent.ACTION_BUTTON_PRESS:
-                return sendMouseButtonUnconverted(event.getActionButton(),true);
+                return sendMouseButtonUnconverted(event.getDeviceId(), event.getActionButton(),true);
             case MotionEvent.ACTION_BUTTON_RELEASE:
-                return sendMouseButtonUnconverted(event.getActionButton(),false);
+                return sendMouseButtonUnconverted(event.getDeviceId(), event.getActionButton(),false);
             default:
                 return false;
         }
@@ -389,30 +447,41 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
         if(eventKeycode == KeyEvent.KEYCODE_UNKNOWN) return true;
         if(eventKeycode == KeyEvent.KEYCODE_VOLUME_DOWN) return false;
         if(eventKeycode == KeyEvent.KEYCODE_VOLUME_UP) return false;
-        if(event.getRepeatCount() != 0) return true;
+        if(event.getRepeatCount() != 0 && eventKeycode != KeyEvent.KEYCODE_DEL) return true;
         int action = event.getAction();
         if(action == KeyEvent.ACTION_MULTIPLE) return true;
         // Ignore the cancelled up events. They occur when the user switches layouts.
         // In accordance with https://developer.android.com/reference/android/view/KeyEvent#FLAG_CANCELED
         if(action == KeyEvent.ACTION_UP &&
-                (event.getFlags() & KeyEvent.FLAG_CANCELED) != 0) return true;
+                (event.getFlags() & KeyEvent.FLAG_CANCELED) != 0) {
+            mPhysicalKeyboard.process(event, false);
+            return true;
+        }
 
         //Sometimes, key events comes from SOME keys of the software keyboard
         //Even weirder, is is unknown why a key or another is selected to trigger a keyEvent
         if((event.getFlags() & KeyEvent.FLAG_SOFT_KEYBOARD) == KeyEvent.FLAG_SOFT_KEYBOARD){
-            if(eventKeycode == KeyEvent.KEYCODE_ENTER) return true; //We already listen to it.
+            if (eventKeycode == KeyEvent.KEYCODE_DEL && isSdlInputBridgeEnabled()) {
+                if (action == KeyEvent.ACTION_DOWN) SDLActivity.sendSoftBackspace();
+                return true;
+            }
+            if(eventKeycode == KeyEvent.KEYCODE_ENTER) {
+                if (isSdlInputBridgeEnabled()) {
+                    SDLActivity.submitSoftReturnKey();
+                }
+                return true;
+            }
             touchCharInput.dispatchKeyEvent(event);
             return true;
         }
 
         //Sometimes, key events may come from the mouse
-        if(event.getDevice() != null
-                && ( (event.getSource() & InputDevice.SOURCE_MOUSE_RELATIVE) == InputDevice.SOURCE_MOUSE_RELATIVE
+        if(( (event.getSource() & InputDevice.SOURCE_MOUSE_RELATIVE) == InputDevice.SOURCE_MOUSE_RELATIVE
                 ||   (event.getSource() & InputDevice.SOURCE_MOUSE) == InputDevice.SOURCE_MOUSE)  ){
-
-            if(eventKeycode == KeyEvent.KEYCODE_BACK){
-                sendMouseButton(LwjglGlfwKeycode.GLFW_MOUSE_BUTTON_RIGHT, event.getAction() == KeyEvent.ACTION_DOWN);
-                return true;
+            int mouseButton = PhysicalMouseButtons.fromKey(eventKeycode, event.getScanCode());
+            if (mouseButton != 0) {
+                return sendMouseButtonUnconverted(event.getDeviceId(), mouseButton,
+                        event.getAction() == KeyEvent.ACTION_DOWN);
             }
         }
         // Android bundles in garbage KeyEvents for compatibility with old apps
@@ -464,6 +533,7 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
             return true;
         }
 
+        if (mPhysicalKeyboard.process(event, CallbackBridge.isGrabbing())) return true;
         int index = EfficientAndroidLWJGLKeycode.getIndexByKey(eventKeycode);
         if(EfficientAndroidLWJGLKeycode.containsIndex(index)) {
             EfficientAndroidLWJGLKeycode.execKey(event, index);
@@ -478,21 +548,11 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
      * @return Whether the event was processed
      */
     public static boolean sendMouseButtonUnconverted(int button, boolean status) {
-        int glfwButton = -256;
-        switch (button) {
-            case MotionEvent.BUTTON_PRIMARY:
-                glfwButton = LwjglGlfwKeycode.GLFW_MOUSE_BUTTON_LEFT;
-                break;
-            case MotionEvent.BUTTON_TERTIARY:
-                glfwButton = LwjglGlfwKeycode.GLFW_MOUSE_BUTTON_MIDDLE;
-                break;
-            case MotionEvent.BUTTON_SECONDARY:
-                glfwButton = LwjglGlfwKeycode.GLFW_MOUSE_BUTTON_RIGHT;
-                break;
-        }
-        if(glfwButton == -256) return false;
-        sendMouseButton(glfwButton, status);
-        return true;
+        return sendMouseButtonUnconverted(-1, button, status);
+    }
+
+    public static boolean sendMouseButtonUnconverted(int deviceId, int button, boolean status) {
+        return PHYSICAL_MOUSE.send(deviceId, button, status);
     }
 
     /** Called when the size need to be set at any point during the surface lifecycle **/
@@ -549,17 +609,31 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
         // Initial size set. Request immedate refresh, otherwise the initial width and height for the game
         // may be broken/unknown.
         refreshSize(true);
-        // Ensures we run at correct refresh rate (should also NOT change the resolution being used)
+        // Report and request a real mode advertised by Android instead of the old fixed 60 Hz.
+        android.view.Display display = getDisplay();
+        android.view.Display.Mode mode = display == null ? null : display.getMode();
+        float currentHz = mode == null ? 0f : mode.getRefreshRate();
+        float targetHz;
+        if (getContext() instanceof Activity) {
+            targetHz = DisplayRefreshRateUtils.requestMaximumSupportedRefreshRate(
+                    (Activity) getContext());
+        } else {
+            targetHz = DisplayRefreshRateUtils.getMaximumSupportedRefreshRate(display);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            android.view.Display display = getDisplay();
-            android.view.Display.Mode mode = display == null ? null : display.getMode();
-            float currentHz = mode == null ? 0f : mode.getRefreshRate();
-            float[] alternatives = mode == null ? null : mode.getAlternativeRefreshRates();
-            float targetHz = FramePacingPolicy.selectSurfaceFrameRate(currentHz, alternatives);
             surface.setFrameRate(targetHz, Surface.FRAME_RATE_COMPATIBILITY_DEFAULT,
                     Surface.CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS);
-            Log.i(TAG, "Surface frame-rate target: " + targetHz + " Hz");
         }
+        try {
+            // Samsung may expose only 60 Hz while the game process is being prepared,
+            // then reveal the selected high-refresh mode once this surface exists.
+            // Update the inherited JVM environment at the last safe point before launch.
+            Os.setenv("BATTLY_DISPLAY_REFRESH_RATE", Float.toString(targetHz), true);
+        } catch (ErrnoException error) {
+            Log.w(TAG, "Unable to expose the display refresh rate to Minecraft", error);
+        }
+        Log.i(TAG, "Surface frame-rate: current=" + currentHz
+                + " Hz, requested=" + targetHz + " Hz");
 
         //Load Minecraft options:
         // Modern RenderPearl versions parse this strictly as a boolean.
@@ -567,6 +641,11 @@ public class MinecraftGLSurface extends View implements GrabListener, DirectGame
         MCOptionUtils.set("overrideWidth", String.valueOf(windowWidth));
         MCOptionUtils.set("overrideHeight", String.valueOf(windowHeight));
         MCOptionUtils.save();
+        Logger.appendToLog("Info: Frame pacing: surface=" + (useSurfaceView ? "SurfaceView" : "TextureView")
+                + ", displayTarget=" + targetHz + " Hz, forceVsync=" + LauncherPreferences.PREF_FORCE_VSYNC
+                + ", zinkVsync=" + LauncherPreferences.PREF_VSYNC_IN_ZINK
+                + ", gameVsync=" + MCOptionUtils.get("enableVsync")
+                + ", gameMaxFps=" + MCOptionUtils.get("maxFps"));
         getMcScale();
 
         JREUtils.setupBridgeWindow(surface);

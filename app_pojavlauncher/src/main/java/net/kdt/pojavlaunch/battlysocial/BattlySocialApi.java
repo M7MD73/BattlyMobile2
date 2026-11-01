@@ -232,6 +232,58 @@ public final class BattlySocialApi {
         updatePresence(context, state, version, server, false);
     }
 
+    public static final class UsageEntry {
+        public final String label;
+        public final long seconds;
+        public final int sessions;
+        public final String version;
+
+        UsageEntry(JSONObject json) {
+            label = json == null ? "" : json.optString("label", "");
+            seconds = json == null ? 0L : json.optLong("seconds", 0L);
+            sessions = json == null ? 0 : json.optInt("sessions", 0);
+            version = json == null ? "" : json.optString("version", "");
+        }
+    }
+
+    public static final class UsageStats {
+        public final UsageHistory history;
+        public final long playedSeconds;
+        public final long launcherSeconds;
+        public final long desktopPlayedSeconds;
+        public final long mobilePlayedSeconds;
+        public final long worldSeconds;
+        public final long serverSeconds;
+        public final long battlyWorldsSeconds;
+        public final long gameMenuSeconds;
+        public final int gameSessions;
+        public final List<UsageEntry> topServers;
+        public final List<UsageEntry> topWorlds;
+        public final List<UsageEntry> topVersions;
+
+        UsageStats(JSONObject response) {
+            JSONObject data = response == null ? null : response.optJSONObject("data");
+            history = new UsageHistory(data == null ? null : data.optJSONObject("history"));
+            JSONObject desktop = data == null ? null : data.optJSONObject("desktop");
+            JSONObject mobile = data == null ? null : data.optJSONObject("mobile");
+            JSONObject breakdown = data == null ? null : data.optJSONObject("breakdown");
+            playedSeconds = data == null ? 0L : data.optLong("tiempoJugado", 0L);
+            launcherSeconds = data == null ? 0L : data.optLong("tiempoLauncher", 0L);
+            desktopPlayedSeconds = desktop == null
+                    ? playedSeconds
+                    : desktop.optLong("tiempoJugado", 0L);
+            mobilePlayedSeconds = mobile == null ? 0L : mobile.optLong("tiempoJugado", 0L);
+            gameSessions = mobile == null ? 0 : mobile.optInt("sesionesJuego", 0);
+            gameMenuSeconds = breakdown == null ? 0L : breakdown.optLong("menuJuego", 0L);
+            worldSeconds = breakdown == null ? 0L : breakdown.optLong("mundos", 0L);
+            serverSeconds = breakdown == null ? 0L : breakdown.optLong("servidores", 0L);
+            battlyWorldsSeconds = breakdown == null ? 0L : breakdown.optLong("battlyWorlds", 0L);
+            topServers = parseUsageEntries(data == null ? null : data.optJSONArray("topServers"));
+            topWorlds = parseUsageEntries(data == null ? null : data.optJSONArray("topWorlds"));
+            topVersions = parseUsageEntries(data == null ? null : data.optJSONArray("topVersions"));
+        }
+    }
+
     public static void updatePresence(Context context, String state, String version, Server server,
                                       boolean battlyWorlds)
             throws IOException, JSONException {
@@ -276,6 +328,32 @@ public final class BattlySocialApi {
                         .put("clientVersion", BuildConfig.VERSION_NAME));
     }
 
+    public static void sendUsageHeartbeat(Context context, JSONObject payload)
+            throws IOException, JSONException {
+        sendUsageHeartbeat(context, payload, usageAccountToken(context));
+    }
+
+    static void sendUsageHeartbeat(Context context, JSONObject payload, String token)
+            throws IOException, JSONException {
+        request(context, "POST", "/api/v2/users/game-stats/mobile/heartbeat", payload, token);
+    }
+
+    public static String usageAccountToken(Context context) {
+        return usageAccountTokenFor(net.kdt.pojavlaunch.PojavProfile.getCurrentProfileContent(context, null));
+    }
+
+    static String usageAccountTokenFor(net.kdt.pojavlaunch.value.MinecraftAccount account) {
+        if (account == null || account.accessToken == null || account.accessToken.trim().length() < 32
+                || !account.isBattly()) return "";
+        return account.accessToken.trim();
+    }
+
+    public static UsageStats fetchUsageStats(Context context) throws IOException, JSONException {
+        int offset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis()) / 60000;
+        return new UsageStats(request(context, "GET",
+                "/api/v2/users/getUserStats?days=90&offsetMinutes=" + offset, null, usageAccountToken(context)));
+    }
+
     private static List<Friend> parseFriends(JSONArray array) {
         if (array == null) return Collections.emptyList();
         List<Friend> result = new ArrayList<>();
@@ -284,6 +362,16 @@ public final class BattlySocialApi {
             if (item != null) result.add(new Friend(item));
         }
         return result;
+    }
+
+    private static List<UsageEntry> parseUsageEntries(JSONArray array) {
+        if (array == null) return Collections.emptyList();
+        List<UsageEntry> result = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject item = array.optJSONObject(i);
+            if (item != null) result.add(new UsageEntry(item));
+        }
+        return Collections.unmodifiableList(result);
     }
 
     private static List<Request> parseRequests(JSONArray array) {
@@ -298,7 +386,11 @@ public final class BattlySocialApi {
 
     private static JSONObject request(Context context, String method, String path, JSONObject payload)
             throws IOException, JSONException {
-        String token = BattlyPlusManager.getToken(context);
+        return request(context, method, path, payload, BattlyPlusManager.getToken(context));
+    }
+
+    private static JSONObject request(Context context, String method, String path, JSONObject payload, String token)
+            throws IOException, JSONException {
         if (token == null || token.trim().isEmpty()) {
             throw new IOException("Inicia sesión con tu cuenta de Battly");
         }

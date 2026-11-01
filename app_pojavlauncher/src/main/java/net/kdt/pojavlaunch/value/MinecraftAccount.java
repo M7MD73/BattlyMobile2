@@ -171,11 +171,32 @@ public class MinecraftAccount {
             }
         }
 
-        return mFaceCache;
+        return isUsableSkinFace(mFaceCache) ? mFaceCache : null;
     }
 
     public static Bitmap getSkinFace(String username) {
-        return BitmapFactory.decodeFile(getSkinFaceFile(username).getAbsolutePath());
+        Bitmap bitmap = BitmapFactory.decodeFile(getSkinFaceFile(username).getAbsolutePath());
+        return isUsableSkinFace(bitmap) ? bitmap : null;
+    }
+
+    /** Rejects decoded but effectively empty faces returned by failed skin renders. */
+    public static boolean isUsableSkinFace(Bitmap bitmap) {
+        if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() < 8 || bitmap.getHeight() < 8) {
+            return false;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int total = width * height;
+        int[] pixels = new int[total];
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        int minimumVisiblePixels = Math.max(16, total / 10);
+        int visiblePixels = 0;
+        for (int pixel : pixels) {
+            if ((pixel >>> 24) > 32 && ++visiblePixels >= minimumVisiblePixels) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static File getSkinFaceFile(String username) {

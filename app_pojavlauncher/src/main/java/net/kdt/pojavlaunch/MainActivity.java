@@ -79,6 +79,7 @@ import net.kdt.pojavlaunch.customcontrols.CustomControls;
 import net.kdt.pojavlaunch.customcontrols.EditorExitable;
 import net.kdt.pojavlaunch.customcontrols.gamepad.Gamepad;
 import net.kdt.pojavlaunch.customcontrols.keyboard.LwjglCharSender;
+import net.kdt.pojavlaunch.customcontrols.keyboard.SdlCharSender;
 import net.kdt.pojavlaunch.customcontrols.keyboard.TouchCharInput;
 import net.kdt.pojavlaunch.customcontrols.mouse.GyroControl;
 import net.kdt.pojavlaunch.customcontrols.mouse.HotbarView;
@@ -282,7 +283,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         initializeSdlIntegration();
 
         setContentView(resId);
-        if (mSdlWindowBridgeRequired) {
+        if (mSdlWindowBridgeRequired || mSdlInputBridgeRequired) {
             SDLActivity.bindExternalHost(this, findViewById(R.id.content_frame));
         }
         bindValues();
@@ -298,7 +299,9 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             Logger.begin(latestLogFile.getAbsolutePath());
             // FIXME: is it safe for multi thread?
             GLOBAL_CLIPBOARD = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            touchCharInput.setCharacterSender(new LwjglCharSender());
+            touchCharInput.setCharacterSender(mSdlInputBridgeRequired
+                    ? new SdlCharSender()
+                    : new LwjglCharSender());
 
             setTitle("Minecraft " + minecraftProfile.lastVersionId);
 
@@ -337,7 +340,9 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             drawerLayout.closeDrawers();
 
             final String finalVersion = version;
-            minecraftGLView.setSurfaceReadyListener(() -> continueAfterGameMicrophonePermission(() -> {
+            minecraftGLView.setSurfaceReadyListener(() ->
+                    net.kdt.pojavlaunch.utils.BattlyAccessManager.guard(this,
+                    () -> continueAfterGameMicrophonePermission(() -> {
                 try {
                     updateGameStartingStage(R.string.launcher_starting_stage_profile, 28);
                     // Setup virtual mouse right before launching
@@ -349,7 +354,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                 }catch (Throwable e){
                     returnToLauncherAfterGameFailure(e);
                 }
-            }));
+            }), () -> {}));
         } catch (Throwable e) {
             Tools.showError(this, e, true);
         }
@@ -456,6 +461,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                 shaderRuntime.shaderEnabled,
                 compatibility.family.modern,
                 compatibility.family.requiresDesktopGl,
+                Architecture.is32BitsDevice(),
                 memoryMb,
                 configuredResolution,
                 configuredSustained,
@@ -489,7 +495,8 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     }
 
     private void initializeSdlIntegration() {
-        if (!mSdlWindowBridgeRequired && !LauncherPreferences.PREF_GAMEPAD_SDL_PASSTHRU) {
+        if (!mSdlWindowBridgeRequired && !mSdlInputBridgeRequired
+                && !LauncherPreferences.PREF_GAMEPAD_SDL_PASSTHRU) {
             return;
         }
         try {
@@ -566,6 +573,13 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     private void loadGameStartingAd() {
         if (mGameStartingAdContainer == null || mGameStartingNativeAd != null
                 || mGameStartingOverlay.getVisibility() != View.VISIBLE) return;
+        if (shouldSkipGameStartingAd()) {
+            mGameStartingAdContainer.setVisibility(View.GONE);
+            mGameStartingAdLoadComplete = true;
+            maybeFinishGameStartingOverlay();
+            Logger.appendToLog("Info: Startup ad skipped to preserve memory on a low-RAM device");
+            return;
+        }
         BattlyNativeAdHelper.load(this, getString(R.string.battly_starting_native_ad_unit_id),
                 new BattlyNativeAdHelper.Callback() {
                     @Override
@@ -594,6 +608,15 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                         maybeFinishGameStartingOverlay();
                     }
                 });
+    }
+
+    private boolean shouldSkipGameStartingAd() {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        if (manager == null) return false;
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        manager.getMemoryInfo(memoryInfo);
+        long totalMemoryMb = memoryInfo.totalMem / 1024L / 1024L;
+        return manager.isLowRamDevice() || (totalMemoryMb > 0 && totalMemoryMb < 3000L);
     }
 
     private void destroyGameStartingAd() {
@@ -684,6 +707,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     @Override
     public void onResume() {
         super.onResume();
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.checkOnResume(this);
         BattlyWorldsInvites.startInvitePolling(this);
         Tools.updateWindowSize(this);
         if (minecraftGLView != null) {
@@ -701,6 +725,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
     @Override
     protected void onPause() {
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.stopWatching(this);
         BattlyWorldsInvites.stopInvitePolling();
         mGyroControl.disable();
         if (CallbackBridge.isGrabbing()){
@@ -728,6 +753,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
     @Override
     protected void onDestroy() {
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.release(this);
         Tools.MAIN_HANDLER.removeCallbacks(mFinishGameStartingOverlay);
         destroyGameStartingAd();
         BattlySocialManager.stopGameHeartbeat(this);
@@ -825,9 +851,15 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
                 == android.content.pm.PackageManager.PERMISSION_GRANTED
                 || LauncherPreferences.DEFAULT_PREF.getBoolean(
                 PREF_GAME_MICROPHONE_PERMISSION_ASKED, false)) {
-            launchAction.run();
+            runGameLaunchAction(launchAction);
             return;
         }
+
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            Tools.MAIN_HANDLER.post(() -> continueAfterGameMicrophonePermission(launchAction));
+            return;
+        }
+        if (isFinishing() || isDestroyed()) return;
 
         mPendingGameLaunch = launchAction;
         LauncherPreferences.DEFAULT_PREF.edit()
@@ -851,7 +883,16 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     private void runPendingGameLaunch() {
         Runnable launchAction = mPendingGameLaunch;
         mPendingGameLaunch = null;
-        if (launchAction != null && !isFinishing() && !isDestroyed()) launchAction.run();
+        runGameLaunchAction(launchAction);
+    }
+
+    private void runGameLaunchAction(Runnable launchAction) {
+        if (launchAction == null || isFinishing() || isDestroyed()) return;
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            new Thread(launchAction, "JVM Main thread").start();
+        } else {
+            launchAction.run();
+        }
     }
 
     @Override
@@ -991,7 +1032,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         int requiredJavaVersion = 8;
         if(version.javaVersion != null) requiredJavaVersion = version.javaVersion.majorVersion;
         Telemetry.logGameLaunch(versionId, requiredJavaVersion, Tools.LOCAL_RENDERER);
-        VanillaPostShaderCompat.patchForAndroid(minecraftProfile, versionId);
+        VanillaPostShaderCompat.patchForAndroid(minecraftProfile, versionId, version.inheritsFrom);
         BattlyClientCompat.patchForAndroid(versionId);
         updateGameStartingStage(R.string.launcher_starting_stage_first_frame, 86);
         Tools.launchMinecraft(this, minecraftAccount, minecraftProfile, versionId, requiredJavaVersion);
@@ -1314,13 +1355,19 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             }
             return true;
         }
+        if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+            // Some IMEs only dispatch ACTION_DOWN for their send button.
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                SDLActivity.disableSDLEditKeyboard();
+            }
+            return minecraftGLView.processKeyEvent(event);
+        }
         return minecraftGLView.processKeyEvent(event);
     }
 
     private static boolean isMouseBackEvent(KeyEvent event) {
         int source = event.getSource();
-        return event.getDevice() != null
-                && ((source & InputDevice.SOURCE_MOUSE_RELATIVE) == InputDevice.SOURCE_MOUSE_RELATIVE
+        return ((source & InputDevice.SOURCE_MOUSE_RELATIVE) == InputDevice.SOURCE_MOUSE_RELATIVE
                 || (source & InputDevice.SOURCE_MOUSE) == InputDevice.SOURCE_MOUSE);
     }
 
@@ -1343,7 +1390,9 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         // Android does not dispatch joystick MotionEvents to MinecraftGLSurface and may instead
         // synthesize DPAD compatibility keys from a stick. Route controller motion at Activity
         // level so analog sticks always reach Battly's gamepad handler exactly once.
-        if (minecraftGLView != null && Gamepad.isGamepadEvent(event)) {
+        if (minecraftGLView != null && (Gamepad.isGamepadEvent(event)
+                || (!isInEditor && net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseInput.isMouseEvent(event)
+                && !drawerLayout.isDrawerOpen(navDrawer)))) {
             return minecraftGLView.dispatchGenericMotionEvent(event);
         }
         return super.dispatchGenericMotionEvent(event);
@@ -1351,6 +1400,24 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
     public static void switchKeyboardState() {
         if(touchCharInput != null) touchCharInput.switchKeyboardState();
+    }
+
+    public static void setGameTextInputActive(boolean active) {
+        final net.kdt.pojavlaunch.customcontrols.keyboard.TouchCharInput input = touchCharInput;
+        if (input == null) return;
+        input.post(() -> {
+            if (touchCharInput != input) return;
+            if (!net.kdt.pojavlaunch.customcontrols.keyboard.GameKeyboardPreferences
+                    .autoOpen(input.getContext())) return;
+            if (MinecraftGLSurface.isSdlInputBridgeEnabled()) {
+                SDLActivity.setGameTextInputActive(active);
+            } else if (active) {
+                input.showKeyboard();
+            } else {
+                Tools.hideKeyboard(input);
+                input.disable();
+            }
+        });
     }
 
     public static void switchKeyboardState(boolean panning) {
@@ -1478,13 +1545,11 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private boolean checkCaptureDispatchConditions(MotionEvent event) {
-        int eventSource = event.getSource();
         // On my device, the mouse sends events as a relative mouse device.
         // Not comparing with == here because apparently `eventSource` is a mask that can
         // sometimes indicate multiple sources, like in the case of InputDevice.SOURCE_TOUCHPAD
         // (which is *also* an InputDevice.SOURCE_MOUSE when controlling a cursor)
-        return (eventSource & InputDevice.SOURCE_MOUSE_RELATIVE) != 0 ||
-                (eventSource & InputDevice.SOURCE_MOUSE) != 0;
+        return net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseInput.isMouseEvent(event);
     }
 
     @Override

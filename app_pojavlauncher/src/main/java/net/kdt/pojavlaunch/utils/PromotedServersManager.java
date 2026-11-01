@@ -23,7 +23,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -36,7 +35,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 /** Keeps Battly promotions at the top of each instance's multiplayer server list. */
 public final class PromotedServersManager {
@@ -210,9 +208,15 @@ public final class PromotedServersManager {
         if (serversTag == null) {
             servers = new NbtList(NbtIo.COMPOUND, new ArrayList<>());
             document.rootCompound().put("servers", new NbtTag(NbtIo.LIST, servers));
-        } else if (serversTag.type == NbtIo.LIST
-                && ((NbtList) serversTag.value).elementType == NbtIo.COMPOUND) {
-            servers = (NbtList) serversTag.value;
+        } else if (serversTag.type == NbtIo.LIST) {
+            NbtList existingList = (NbtList) serversTag.value;
+            if (existingList.elementType != NbtIo.COMPOUND
+                    && !(existingList.elementType == NbtIo.END && existingList.values.isEmpty())) {
+                throw new IOException("servers.dat has an unsupported servers list type");
+            }
+            // Minecraft serializes an empty list as TAG_End, not TAG_Compound.
+            servers = new NbtList(NbtIo.COMPOUND, existingList.values);
+            document.rootCompound().put("servers", new NbtTag(NbtIo.LIST, servers));
         } else {
             throw new IOException("servers.dat has an unsupported servers tag");
         }
@@ -318,16 +322,14 @@ public final class PromotedServersManager {
     private static final class NbtDocument {
         final String rootName;
         final NbtTag root;
-        final boolean compressed;
 
-        NbtDocument(String rootName, NbtTag root, boolean compressed) {
+        NbtDocument(String rootName, NbtTag root) {
             this.rootName = rootName;
             this.root = root;
-            this.compressed = compressed;
         }
 
         static NbtDocument empty() {
-            return new NbtDocument("", new NbtTag(NbtIo.COMPOUND, new LinkedHashMap<>()), true);
+            return new NbtDocument("", new NbtTag(NbtIo.COMPOUND, new LinkedHashMap<>()));
         }
 
         @SuppressWarnings("unchecked")
@@ -384,7 +386,7 @@ public final class PromotedServersManager {
                 byte type = input.readByte();
                 if (type != COMPOUND) throw new IOException("Invalid servers.dat root tag " + type);
                 String name = input.readUTF();
-                return new NbtDocument(name, new NbtTag(type, readPayload(input, type, 0)), gzip);
+                return new NbtDocument(name, new NbtTag(type, readPayload(input, type, 0)));
             } catch (EOFException exception) {
                 throw new IOException("Truncated servers.dat", exception);
             }
@@ -399,15 +401,12 @@ public final class PromotedServersManager {
             File backup = new File(parent, target.getName() + ".battly.bak");
             if (temp.exists() && !temp.delete()) throw new IOException("Could not clear temporary servers.dat");
             try (FileOutputStream fileOutput = new FileOutputStream(temp)) {
-                GZIPOutputStream gzipOutput = document.compressed ? new GZIPOutputStream(fileOutput) : null;
-                OutputStream payloadOutput = gzipOutput == null ? fileOutput : gzipOutput;
-                DataOutputStream output = new DataOutputStream(payloadOutput);
+                // servers.dat uses uncompressed NBT, even when repairing our older gzip files.
+                DataOutputStream output = new DataOutputStream(fileOutput);
                 output.writeByte(document.root.type);
                 output.writeUTF(document.rootName);
                 writePayload(output, document.root);
                 output.flush();
-                if (gzipOutput != null) gzipOutput.finish();
-                payloadOutput.flush();
                 fileOutput.getFD().sync();
             }
             if (backup.exists() && !backup.delete()) throw new IOException("Could not clear servers.dat backup");

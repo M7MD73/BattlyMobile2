@@ -46,6 +46,7 @@ import net.kdt.pojavlaunch.utils.DownloadUtils;
 import net.kdt.pojavlaunch.utils.LocaleUtils;
 import net.kdt.pojavlaunch.utils.NewsLocalePolicy;
 import net.kdt.pojavlaunch.utils.BattlyHomeHubDialog;
+import net.kdt.pojavlaunch.utils.VersionInstallState;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsDiscovery;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsInvites;
 import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
@@ -163,9 +164,22 @@ public class MainMenuFragment extends Fragment {
                 return;
             }
             MinecraftProfile selectedProfile = LauncherProfiles.getCurrentProfile();
-            String selectedVersion = selectedProfile.lastVersionId;
-            net.kdt.pojavlaunch.JMinecraftVersionList.Version versionInfo =
-                    Tools.getVersionInfo(selectedVersion);
+            String selectedVersion = selectedProfile == null ? null : selectedProfile.lastVersionId;
+            if (!Tools.isValidString(selectedVersion)) {
+                Toast.makeText(launchActivity, R.string.error_no_version, Toast.LENGTH_LONG).show();
+                openFragment(DownloadVersionSelectorFragment.class,
+                        DownloadVersionSelectorFragment.TAG, null);
+                return;
+            }
+            net.kdt.pojavlaunch.JMinecraftVersionList.Version versionInfo = null;
+            if (VersionInstallState.hasLocalMetadata(new File(Tools.DIR_HOME_VERSION), selectedVersion)) {
+                try {
+                    versionInfo = Tools.getVersionInfo(selectedVersion);
+                } catch (RuntimeException metadataError) {
+                    Log.w(TAG, "Selected version metadata will be repaired before launch: "
+                            + selectedVersion, metadataError);
+                }
+            }
             String pluginMinecraftVersion = versionInfo != null
                     && Tools.isValidString(versionInfo.inheritsFrom)
                     ? versionInfo.inheritsFrom : selectedVersion;
@@ -426,6 +440,9 @@ public class MainMenuFragment extends Fragment {
                 null);
         MinecraftProfile profile = currentProfile == null ? null
                 : LauncherProfiles.mainProfileJson.profiles.get(currentProfile);
+        if (profile == null && !LauncherProfiles.mainProfileJson.profiles.isEmpty()) {
+            profile = LauncherProfiles.getCurrentProfile();
+        }
         String versionName = profile == null ? null : profile.lastVersionId;
 
         if (MinecraftProfile.LATEST_RELEASE.equalsIgnoreCase(versionName)) {
@@ -500,12 +517,23 @@ public class MainMenuFragment extends Fragment {
     private void refreshBattlyWorldsBadge() {
         if (!isAdded() || mBattlyWorldsNewBadge == null) return;
         BattlyWorldsDiscovery.updateBadge(mBattlyWorldsNewBadge);
+        showAppearanceBadge(mBattlyWorldsNewBadge);
     }
 
     private static void refreshBattlyWorldsBadge(FragmentActivity activity) {
         if (activity.isFinishing() || activity.isDestroyed()) return;
         View badge = activity.findViewById(R.id.battly_worlds_new_badge);
-        if (badge != null) BattlyWorldsDiscovery.updateBadge(badge);
+        if (badge != null) {
+            BattlyWorldsDiscovery.updateBadge(badge);
+            showAppearanceBadge(badge);
+        }
+    }
+
+    private static void showAppearanceBadge(View badge) {
+        if (net.kdt.pojavlaunch.utils.NewFeatureBadge.isCurrentRelease()) {
+            badge.clearAnimation();
+            badge.setVisibility(View.VISIBLE);
+        }
     }
 
     private void runInstallerWithConfirmation(boolean isCustomArgs) {

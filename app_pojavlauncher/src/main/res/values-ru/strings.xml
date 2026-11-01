@@ -761,7 +761,7 @@
     <string name="credits_primary_development">Основное развитие</string>
     <string name="credits_section_title">Кредиты</string>
     <string name="credits_unaffiliated">Это приложение не связано с Minecraft, Mojang или Microsoft.</string>
-    <string name="credits_version">Версия 2.2.5</string>
+    <string name="credits_version">Версия 2.2.9</string>
     <string name="ctrl_applied_success">Элемент управления «%1$s» успешно применен.</string>
     <string name="ctrl_apply_btn">Применить контроль</string>
     <string name="ctrl_apply_msg">Загрузите и примените «%1$s» в качестве макета управления?</string>
@@ -947,7 +947,7 @@
     <string name="instance_storage_calculating">Расчет хранилища…</string>
     <string name="instance_use">Использование</string>
     <string name="java_runtime_download_message">Battly загружает Java 8 после первой установки вместо того, чтобы отправлять его внутри приложения. Это уменьшает размер приложения и подготавливает более старые версии Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Лаунчер на базе PojavLauncher и Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Кредиты&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -958,11 +958,11 @@
         • GNU GPLv3 и компоненты сторонних производителей, включенные в проект.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j и другие по оригинальным лицензиям.&lt;br/&gt;&lt;br/&gt;
         Это приложение не связано с Minecraft, Mojang или Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Скачать</string>
     <string name="launcher_download_modpack">Импортировать модпак</string>
     <string name="launcher_execute">Играть</string>
-    <string name="launcher_mobile_badge">Мобильная версия 2.2.5</string>
+    <string name="launcher_mobile_badge">Мобильная версия 2.2.9</string>
     <string name="launcher_nav_back">Вернуться назад</string>
     <string name="launcher_nav_home">Вернуться домой</string>
     <string name="launcher_nav_workspace">Battly Рабочая область</string>
@@ -1507,19 +1507,107 @@
     <string name="world_install_button">Установить мир</string>
     <string name="world_install_success">%1$s установлен в этот экземпляр</string>
 
-    <string name="battly_whats_new_action_start">Обнаружить 2.2.5</string>
-    <string name="battly_whats_new_compatibility_desc">Battly распознаёт плагины нативных библиотек и позволяет запускать совместимые моды, такие как Distant Horizons, когда необходимый плагин установлен.</string>
-    <string name="battly_whats_new_compatibility_title">Нативные плагины и Distant Horizons</string>
-    <string name="battly_whats_new_controllers_desc">Battly обращается к API на языке устройства и обновляет свой кэш, когда изменяется содержимое сервера.</string>
-    <string name="battly_whats_new_controllers_title">Всегда обновляемые новинки</string>
-    <string name="battly_whats_new_desc">Лучшая совместимость с Minecraft 26.3, нативное аудио для модов, переведенные новинки и исправления экрана.</string>
-    <string name="battly_whats_new_instances_desc">Исправлены запуск, текстуры и рендеринг Minecraft 26.3 в Vanilla, Fabric и кастомных версиях.</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 исправлено</string>
-    <string name="battly_whats_new_recovery_desc">Улучшены Vulkan и ориентация, размер окна Minecraft, аргументы JVM и обнаружение нормального завершения.</string>
-    <string name="battly_whats_new_recovery_title">Более точный запуск и завершение</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">Ваши существующие экземпляры и настройки остаются без изменений.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 готов</string>
-    <string name="battly_whats_new_worlds_desc">Моды могут обнаруживать микрофон Android, выбирать из доступных входов и записывать голос без отправки аудио игры.</string>
-    <string name="battly_whats_new_worlds_title">Микрофон доступен для модов</string>
+    <string name="battly_whats_new_action_start">Исследуйте 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Ответы на вход должны соответствовать ожидающему запросу, срок действия истекает через короткое время и могут быть приняты только один раз.</string>
+    <string name="battly_whats_new_compatibility_title">Более безопасный вход в систему Discord</string>
+    <string name="battly_whats_new_controllers_desc">Совместное использование одной папки больше не обеспечивает доступ к другим папкам за пределами предоставленного вами разрешения.</string>
+    <string name="battly_whats_new_controllers_title">Защищенный обмен файлами</string>
+    <string name="battly_whats_new_desc">Более безопасная установка модпаков, обмен файлами и авторизация внешних плагинов.</string>
+    <string name="battly_whats_new_instances_desc">Содержимое архива и загруженные файлы остаются внутри назначенного им экземпляра без изменения других экземпляров.</string>
+    <string name="battly_whats_new_instances_title">Защищенная установка модпака</string>
+    <string name="battly_whats_new_recovery_desc">Аналитика использования активируется при запуске Battly, за исключением автономного режима. Примечания к выпуску и сообщения плагина были переведены.</string>
+    <string name="battly_whats_new_recovery_title">Статистика и переводы</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">Ваши экземпляры останутся на месте. Авторизуйте доверенные внешние плагины в настройках перед их использованием.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 готов</string>
+    <string name="battly_whats_new_worlds_desc">Внешние плагины требуют авторизации перед использованием. Ранее установленные плагины необходимо авторизовать еще раз.</string>
+    <string name="battly_whats_new_worlds_title">Разрешения вашего плагина</string>
+
+    <string name="download_action_import_mods_title">Импортировать внешние моды</string>
+    <string name="download_action_import_mods_subtitle">Выберите один или несколько файлов `.jar` и добавьте их в выбранный экземпляр.</string>
+    <string name="library_installed_show_more">Показать %1$d больше</string>
+    <string name="library_import_mods_replace_title">Заменить существующие моды?</string>
+    <string name="library_import_mods_replace_message">Выбранные файлы модов %1$d уже существуют в %2$s. Battly заменит их только после проверки новых файлов.</string>
+    <string name="library_import_mods_invalid">Не выбраны допустимые файлы модов `.jar`.</string>
+    <string name="library_import_mods_success">Импортированы моды %1$d в %2$s.</string>
+    <string name="library_import_mods_partial">Импортированные моды %1$d в %2$s · Файлы %3$d не удалось импортировать.</string>
+    <string name="library_import_mods_error">Не удалось импортировать выбранные моды.</string>
+    <string name="battly_appearance_title">Battly скины и накидки</string>
+    <string name="battly_appearance_subtitle">Предварительный просмотр и управление полным внешним видом Minecraft с мобильного устройства.</string>
+    <string name="battly_capes_title">накидки Battly</string>
+    <string name="battly_capes_description">Выберите официальный плащ или загрузите свой собственный с помощью Battly+. Активная накидка показана в 3D-превью и внутри Minecraft.</string>
+    <string name="battly_capes_loading">Загрузка накидок Battly...</string>
+    <string name="battly_capes_active">Активная накидка</string>
+    <string name="battly_capes_none">Нет активной накидки</string>
+    <string name="battly_capes_empty">Для этого аккаунта нет доступных накидок.</string>
+    <string name="battly_capes_upload">Загрузить плащ</string>
+    <string name="battly_capes_upload_plus">Загрузить с помощью Battly+</string>
+    <string name="battly_capes_plus_required">Специальные накидки доступны с Battly+. Вы все еще можете использовать официальные накидки.</string>
+    <string name="battly_capes_disable">Без плаща</string>
+    <string name="battly_capes_disabled">Мыс отключен</string>
+    <string name="battly_capes_uploaded">Кейп загружен и применен</string>
+    <string name="battly_capes_applied">Накидка приложена</string>
+    <string name="battly_capes_deleted">Накидка удалена</string>
+    <string name="battly_capes_previewing">Предварительный просмотр плаща</string>
+    <string name="battly_capes_custom">Накидка на заказ</string>
+    <string name="battly_capes_official">Официальный плащ</string>
+
+    <string name="battly_capes_unavailable">Кейпы временно недоступны. Ваши скины все еще доступны.</string>
+
+    <string name="native_plugins_bundled_category">Зависимости Android, включенные в Battly</string>
+    <string name="native_plugins_bundled_ready">Версия %1$s · Готово</string>
+
+    <string name="battly_whats_new_native_title">Собственные зависимости остаются доступными</string>
+    <string name="battly_whats_new_native_desc">Встроенные библиотеки работают автоматически. Разрешения для внешних плагинов связаны с идентификатором подписи APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Ежедневная активность · Мобильный</string>
+    <string name="battly_stats_history_notice">Местное время при записи. История начинается с этого обновления; предыдущие итоги остаются ниже.</string>
+    <string name="battly_stats_history_unavailable">Ежедневная история пока недоступна на сервере. Ваша общая статистика показана ниже.</string>
+    <string name="battly_stats_period_label">Период активности</string>
+    <string name="battly_stats_day_label">Дата активности</string>
+    <string name="battly_stats_period_days">Последние %1$d дней</string>
+    <string name="battly_stats_period_summary">Дни активности: %1$d · Minecraft: %2$s · Программа запуска: %3$s</string>
+    <string name="battly_stats_time_range">Первое действие: %1$s · Последнее действие: %2$s</string>
+    <string name="battly_stats_day_modes">Миры: %1$s · Серверы: %2$s (Battly Worlds: %3$s) · Игровые меню: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Средство запуска: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d с</string>
+    <string name="battly_stats_lifetime">Итоги за все время · ПК + мобильные устройства</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Средство запуска: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d ч</string>
+    <string name="automatic_game_keyboard_title">Автоматически открывать клавиатуру</string>
+
+    <string name="native_plugins_trust_warning">Этот внешний плагин может запускать собственный код с доступом к файлам и учетным записям Battly. Разрешайте использование плагинов только из источника, которому вы доверяете. Разрешение связано с идентификатором подписи APK.</string>
+    <string name="native_plugins_trust_action">Разрешить плагин</string>
+
+    <string name="peripheral_title">Клавиатура, мышь и контроллер</string>
+    <string name="peripheral_devices">Подключаемые периферийные устройства</string>
+    <string name="peripheral_no_devices">Внешние периферийные устройства не обнаружены</string>
+    <string name="peripheral_mouse">Физическая мышь</string>
+    <string name="peripheral_pc_preset">Применить настройки мыши ПК</string>
+    <string name="peripheral_pc_mode">Независимое от разрешения наведение</string>
+    <string name="peripheral_pc_mode_summary">Постоянная линейная чувствительность независимо от разрешения рендеринга. Battly не добавляет ускорения или сглаживания. Android 8 или новее.</string>
+    <string name="peripheral_mouse_x">Горизонтальная чувствительность</string>
+    <string name="peripheral_mouse_y">Вертикальная чувствительность</string>
+    <string name="peripheral_invert_x">Инвертировать горизонтальную ось</string>
+    <string name="peripheral_invert_y">Инвертировать вертикальную ось</string>
+    <string name="peripheral_mouse_test">Тестовая калибровка мыши</string>
+    <string name="peripheral_keyboard">Физическая клавиатура</string>
+    <string name="peripheral_bindings">Привязки клавиш игрового процесса</string>
+    <string name="peripheral_binding_count">Крепления %1$d. Тип меню не изменился.</string>
+    <string name="peripheral_keyboard_test">Тестовые клавиши и комбинации</string>
+    <string name="peripheral_stick_linear">Линейный контроллер прицеливания</string>
+    <string name="peripheral_stick_linear_summary">Пропорциональный отклик джойстика вместо квадратичной кривой по умолчанию. Применяется к сопоставлению контроллера Battly, а не к собственным модам контроллера.</string>
+    <string name="peripheral_stick_sensitivity">Чувствительность камеры контроллера</string>
+    <string name="peripheral_reset_test">Сбросить измерение</string>
+    <string name="peripheral_add_binding">Добавить привязку клавиш</string>
+    <string name="peripheral_source_key">Физический ключ</string>
+    <string name="peripheral_target_key">Отправьте этот ключ на Minecraft.</string>
+    <string name="peripheral_press_key">Нажмите и отпустите физическую клавишу. Выбор существующей привязки удаляет ее. Клавиши-модификаторы сохраняют свое обычное поведение.</string>
+    <string name="peripheral_invalid_key">Выберите клавишу клавиатуры, не являющуюся модификатором. Системные клавиши Android невозможно переназначить.</string>
+    <string name="peripheral_mouse_ready">Щелкните тестовую область, чтобы захватить мышь. Нажмите Escape, чтобы освободить его. Измерения представляют собой относительное движение, о котором сообщает Android, а не аппаратный DPI.</string>
+    <string name="peripheral_keyboard_ready">Нажимайте клавиши или комбинации на физической клавиатуре. Нажмите Escape, чтобы закрыть тест.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X/Y: %2$s\nИгра X/Y: %3$s\nПримеры: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nКлавиша: %2$s · Сканирование: %3$d · Повтор: %4$d\nУдержание: %5$s</string>
 </resources>

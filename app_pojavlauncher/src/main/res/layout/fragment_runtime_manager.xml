@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:scrollbars="none">
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,6 +43,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_battly_button_secondary"
+                android:minWidth="0dp"
                 android:text="Java 8"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFFFF" />
@@ -51,12 +52,20 @@
                 android:id="@+id/runtime_download_jre17"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_battly_button_secondary"
+                android:minWidth="0dp"
                 android:text="Java 17"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/runtime_download_jre21"
@@ -65,6 +74,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_battly_button_secondary"
+                android:minWidth="0dp"
                 android:text="Java 21"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFFFF" />
@@ -75,6 +85,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_battly_button_secondary"
+                android:minWidth="0dp"
                 android:text="Java 25"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFFFF" />
@@ -125,4 +136,4 @@
             android:nestedScrollingEnabled="false" />
 
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

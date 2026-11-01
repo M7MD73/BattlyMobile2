@@ -18,6 +18,7 @@ public final class AdaptiveGraphicsPolicy {
     public static final String PROFILE_CUSTOM = "custom";
 
     private static final String MOBILE_GLUES = "opengles_mobileglues";
+    private static final String LTW = "opengles3_ltw";
     private static final String FREEDRENO = "opengles3_desktopgl_freedreno";
     private static final String KOPPER = "opengles3_desktopgl_zink_kopper";
     private static final String ZINK = "vulkan_zink";
@@ -33,6 +34,7 @@ public final class AdaptiveGraphicsPolicy {
         public final boolean shaderEnabled;
         public final boolean modernMinecraft;
         public final boolean requiresDesktopGl;
+        public final boolean is32BitDevice;
         public final long memoryMb;
         public final int userResolutionPercent;
         public final boolean userSustainedPerformance;
@@ -42,7 +44,7 @@ public final class AdaptiveGraphicsPolicy {
 
         public Input(String profile, String gpu, boolean shaderEnabled,
                      boolean modernMinecraft, boolean requiresDesktopGl,
-                     long memoryMb, int userResolutionPercent,
+                     boolean is32BitDevice, long memoryMb, int userResolutionPercent,
                      boolean userSustainedPerformance, String baselineRenderer,
                      List<String> compatibleRenderers, List<String> blockedRenderers) {
             this.profile = normalizeProfile(profile);
@@ -50,6 +52,7 @@ public final class AdaptiveGraphicsPolicy {
             this.shaderEnabled = shaderEnabled;
             this.modernMinecraft = modernMinecraft;
             this.requiresDesktopGl = requiresDesktopGl;
+            this.is32BitDevice = is32BitDevice;
             this.memoryMb = memoryMb;
             this.userResolutionPercent = clamp(userResolutionPercent, 25, 100);
             this.userSustainedPerformance = userSustainedPerformance;
@@ -73,7 +76,15 @@ public final class AdaptiveGraphicsPolicy {
             boolean adapted = false;
             String reason = shaderEnabled ? "shader workload" : "standard workload";
 
-            if (shaderEnabled) {
+            if (shouldUseLowMemory32BitRenderer()) {
+                renderer = LTW;
+                resolution = Math.min(userResolutionPercent, 60);
+                sustained = true;
+                adapted = !equalsNullable(renderer, baselineRenderer)
+                        || resolution != userResolutionPercent
+                        || !userSustainedPerformance;
+                reason = "low-memory 32-bit workload";
+            } else if (shaderEnabled) {
                 String preferred = selectShaderRenderer();
                 if (preferred != null) renderer = preferred;
                 int cap = resolutionCap();
@@ -82,11 +93,34 @@ public final class AdaptiveGraphicsPolicy {
                 adapted = !equalsNullable(renderer, baselineRenderer)
                         || resolution != userResolutionPercent
                         || !userSustainedPerformance;
+            } else if (PROFILE_AUTO.equals(profile) && memoryMb > 0 && memoryMb < 2500) {
+                // 32-bit devices with about 2 GB of RAM run out of native address space
+                // while modern Minecraft uploads its initial resource set.
+                resolution = Math.min(userResolutionPercent, 60);
+                sustained = true;
+                adapted = resolution != userResolutionPercent || !userSustainedPerformance;
+                reason = "low-memory workload";
             }
             return new Decision(renderer, resolution, sustained, adapted, reason);
         }
 
+        private boolean shouldUseLowMemory32BitRenderer() {
+            return PROFILE_AUTO.equals(profile)
+                    && is32BitDevice
+                    && memoryMb > 0
+                    && memoryMb < 2500
+                    && modernMinecraft
+                    && !requiresDesktopGl
+                    && compatibleRenderers.contains(LTW)
+                    && !blockedRenderers.contains(LTW);
+        }
+
         private String selectShaderRenderer() {
+            // Open4ES packs target this wrapper specifically. Do not silently replace
+            // the manually selected renderer when the shader workload is detected.
+            if ("opengles3_krypton".equals(baselineRenderer)
+                    && compatibleRenderers.contains(baselineRenderer)
+                    && !blockedRenderers.contains(baselineRenderer)) return baselineRenderer;
             if (!modernMinecraft && !requiresDesktopGl) return baselineRenderer;
             List<String> order = new ArrayList<>();
             int adreno = adrenoModel(gpu);

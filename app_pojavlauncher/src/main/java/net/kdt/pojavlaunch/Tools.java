@@ -345,10 +345,11 @@ public final class Tools {
         if (mods == null) {
             return incompatibleMods;
         }
-        boolean distantHorizonsNativeSupport = context != null
-                && NativeLibraryPluginManager.supportsDistantHorizons(context, minecraftVersion);
+        java.util.Set<String> availableNativeCapabilities = context == null
+                ? java.util.Collections.emptySet()
+                : NativeLibraryPluginManager.availableCapabilities(context, minecraftVersion);
         for (File file : mods) {
-            if (AndroidNativeModDetector.isIncompatible(file, distantHorizonsNativeSupport)) {
+            if (AndroidNativeModDetector.isIncompatible(file, availableNativeCapabilities)) {
                 incompatibleMods.add(file);
             }
         }
@@ -518,7 +519,7 @@ public final class Tools {
         String pluginMinecraftVersion = versionInfo != null && isValidString(versionInfo.inheritsFrom)
                 ? versionInfo.inheritsFrom
                 : versionInfo != null && isValidString(versionInfo.id) ? versionInfo.id : versionId;
-        NativeLibraryPluginManager.prepareForLaunch(activity, pluginMinecraftVersion);
+        NativeLibraryPluginManager.prepareForLaunch(activity, pluginMinecraftVersion, gamedir);
 
 
         // Pre-process specific files
@@ -601,6 +602,17 @@ public final class Tools {
         }
         String lwjglClassPath = getLWJGL3ClassPath(
                 activity, launchClassPath, useAndroidNarratorAdapter);
+        List<File> nativeDependencyClasspath = NativeLibraryPluginManager.activeClasspathFiles();
+        if (!nativeDependencyClasspath.isEmpty()) {
+            StringBuilder dependencyClasspath = new StringBuilder();
+            for (File file : nativeDependencyClasspath) {
+                if (dependencyClasspath.length() > 0) dependencyClasspath.append(':');
+                dependencyClasspath.append(file.getAbsolutePath());
+            }
+            lwjglClassPath = dependencyClasspath + ":" + lwjglClassPath;
+            Logger.appendToLog("Info: Added " + nativeDependencyClasspath.size()
+                    + " Android dependency JAR(s) to the game classpath");
+        }
         // JavaSound discovers MixerProvider implementations from the initial
         // application classpath. Pojav's embedded JVM executes javaagents but
         // does not expose their service resources to Forge's class loader.
@@ -937,6 +949,7 @@ public final class Tools {
         File versionSpecificNativesDir = new File(Tools.DIR_CACHE, "natives/" + versionId);
         StringBuilder javaLibraryPath = new StringBuilder();
         javaLibraryPath.append(lwjglDir).append(":").append(Tools.NATIVE_LIB_DIR);
+        javaLibraryPath.append(":").append(new File(Tools.DIR_DATA, "app_runtime_mod").getAbsolutePath());
         if (versionSpecificNativesDir.exists()) {
             javaLibraryPath.append(":").append(versionSpecificNativesDir.getAbsolutePath());
         }

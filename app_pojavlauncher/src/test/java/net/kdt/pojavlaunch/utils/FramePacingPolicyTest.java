@@ -16,6 +16,14 @@ public class FramePacingPolicyTest {
     }
 
     @Test
+    public void requestsTheHighestRefreshRateActuallySupportedAtTheCurrentResolution() {
+        assertEquals(120f, FramePacingPolicy.selectSurfaceFrameRate(60f,
+                new float[0], new float[]{60f, 90f, 120f}), 0.01f);
+        assertEquals(90f, FramePacingPolicy.selectSurfaceFrameRate(60f,
+                new float[]{60f}, new float[]{60f, Float.NaN, 90f}), 0.01f);
+    }
+
+    @Test
     public void fallsBackToARealAlternativeWhenCurrentModeIsInvalid() {
         assertEquals(120f, FramePacingPolicy.selectSurfaceFrameRate(0f,
                 new float[]{60f, Float.NaN, 120f}), 0.01f);

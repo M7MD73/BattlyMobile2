@@ -49,8 +49,8 @@ public final class BattlyHomeHubDialog {
 
         View worlds = option(activity, R.drawable.logo, R.string.battlyworlds_title,
                 R.string.battly_hub_worlds_description, true);
-        View skins = option(activity, R.drawable.logo, R.string.battly_skins_title,
-                R.string.battly_hub_skins_description, false);
+        View skins = option(activity, R.drawable.logo, R.string.battly_appearance_title,
+                R.string.battly_appearance_subtitle, false);
         root.addView(worlds, optionParams(activity, 18));
         root.addView(skins, optionParams(activity, 9));
 
@@ -91,7 +91,9 @@ public final class BattlyHomeHubDialog {
         LinearLayout copy = new LinearLayout(activity);
         copy.setOrientation(LinearLayout.VERTICAL);
         copy.setPadding(dp(activity, 14), 0, dp(activity, 8), 0);
-        copy.addView(label(activity, titleRes, 16, true, Color.WHITE));
+        TextView title = label(activity, titleRes, 16, true, Color.WHITE);
+        if (titleRes == R.string.battly_appearance_title) NewFeatureBadge.apply(title);
+        copy.addView(title);
         copy.addView(label(activity, descriptionRes, 12, false, 0xFFC6D6E3));
         row.addView(copy, new LinearLayout.LayoutParams(0, -2, 1f));
         if (showNewBadge && BattlyWorldsDiscovery.shouldShowNew(activity)) {

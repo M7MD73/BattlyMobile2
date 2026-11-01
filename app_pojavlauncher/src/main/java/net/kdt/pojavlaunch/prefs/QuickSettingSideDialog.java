@@ -1,6 +1,7 @@
 package net.kdt.pojavlaunch.prefs;
 
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_DISABLE_GESTURES;
+import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_DISABLE_LONG_PRESS_DROP;
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_ENABLE_GYRO;
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_GYRO_INVERT_X;
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_GYRO_INVERT_Y;
@@ -32,11 +33,13 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
 
     private SharedPreferences.Editor mEditor;
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private Switch mGyroSwitch, mGyroXSwitch, mGyroYSwitch, mGestureSwitch, mMouseGrabSwitch;
+    private Switch mGyroSwitch, mGyroXSwitch, mGyroYSwitch, mGestureSwitch,
+            mLongPressDropSwitch, mMouseGrabSwitch;
     private CustomSeekbar mGyroSensitivityBar, mMouseSpeedBar, mGestureDelayBar, mResolutionBar;
     private TextView mGyroSensitivityText, mGyroSensitivityDisplayText, mMouseSpeedText, mGestureDelayText, mGestureDelayDisplayText, mResolutionText;
 
-    private boolean mOriginalGyroEnabled, mOriginalGyroXEnabled, mOriginalGyroYEnabled, mOriginalGestureDisabled, mOriginalMouseGrab;
+    private boolean mOriginalGyroEnabled, mOriginalGyroXEnabled, mOriginalGyroYEnabled,
+            mOriginalGestureDisabled, mOriginalLongPressDropDisabled, mOriginalMouseGrab;
     private float mOriginalGyroSensitivity, mOriginalMouseSpeed, mOriginalResolution;
     private int mOriginalGestureDelay;
 
@@ -66,6 +69,7 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
         mGyroXSwitch = mDialogContent.findViewById(R.id.checkboxGyroX);
         mGyroYSwitch = mDialogContent.findViewById(R.id.checkboxGyroY);
         mGestureSwitch = mDialogContent.findViewById(R.id.checkboxGesture);
+        mLongPressDropSwitch = mDialogContent.findViewById(R.id.checkboxLongPressDrop);
         mMouseGrabSwitch = mDialogContent.findViewById(R.id.always_grab_mouse_side_dialog);
 
         mGyroSensitivityBar = mDialogContent.findViewById(R.id.editGyro_seekbar);
@@ -88,6 +92,7 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
         mOriginalGyroXEnabled = PREF_GYRO_INVERT_X;
         mOriginalGyroYEnabled = PREF_GYRO_INVERT_Y;
         mOriginalGestureDisabled = PREF_DISABLE_GESTURES;
+        mOriginalLongPressDropDisabled = PREF_DISABLE_LONG_PRESS_DROP;
         mOriginalMouseGrab = PREF_MOUSE_GRAB_FORCE;
 
         mOriginalGyroSensitivity = PREF_GYRO_SENSITIVITY;
@@ -99,6 +104,7 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
         mGyroXSwitch.setChecked(mOriginalGyroXEnabled);
         mGyroYSwitch.setChecked(mOriginalGyroYEnabled);
         mGestureSwitch.setChecked(mOriginalGestureDisabled);
+        mLongPressDropSwitch.setChecked(mOriginalLongPressDropDisabled);
         mMouseGrabSwitch.setChecked(mOriginalMouseGrab);
 
         mGyroSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -124,6 +130,11 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
             PREF_DISABLE_GESTURES = isChecked;
             updateGestureVisibility(isChecked);
             mEditor.putBoolean("disableGestures", isChecked);
+        });
+
+        mLongPressDropSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            PREF_DISABLE_LONG_PRESS_DROP = isChecked;
+            mEditor.putBoolean("disableLongPressDrop", isChecked);
         });
 
         mMouseGrabSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -216,6 +227,7 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
         mGyroXSwitch.setOnCheckedChangeListener(null);
         mGyroYSwitch.setOnCheckedChangeListener(null);
         mGestureSwitch.setOnCheckedChangeListener(null);
+        mLongPressDropSwitch.setOnCheckedChangeListener(null);
         mMouseGrabSwitch.setOnCheckedChangeListener(null);
 
         mGyroSensitivityBar.setOnSeekBarChangeListener(null);
@@ -240,6 +252,7 @@ public abstract class QuickSettingSideDialog extends com.kdt.SideDialogView {
             PREF_GYRO_INVERT_X = mOriginalGyroXEnabled;
             PREF_GYRO_INVERT_Y = mOriginalGyroYEnabled;
             PREF_DISABLE_GESTURES = mOriginalGestureDisabled;
+            PREF_DISABLE_LONG_PRESS_DROP = mOriginalLongPressDropDisabled;
             PREF_MOUSE_GRAB_FORCE = mOriginalMouseGrab;
 
             PREF_GYRO_SENSITIVITY = mOriginalGyroSensitivity;

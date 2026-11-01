@@ -1,0 +1,4 @@
+{
+    global: Java_de_maxhenkel_*;
+    local: *;
+};

@@ -198,6 +198,11 @@ public class JREUtils {
         envMap.put("JAVA_HOME", jreHome);
         envMap.put("HOME", Tools.DIR_GAME_HOME);
         envMap.put("TMPDIR", Tools.DIR_CACHE.getAbsolutePath());
+        // YSM and other Android-native mods need an executable, app-private runtime directory.
+        File modRuntime = activity.getDir("runtime_mod", Context.MODE_PRIVATE);
+        FileUtils.ensureDirectory(modRuntime);
+        envMap.put("MOD_ANDROID_RUNTIME", modRuntime.getAbsolutePath());
+        LD_LIBRARY_PATH += ":" + modRuntime.getAbsolutePath();
         envMap.put("LIBGL_MIPMAP", "3");
 
         // Prevent OptiFine (and other error-reporting stuff in Minecraft) from balooning the log
@@ -236,6 +241,9 @@ public class JREUtils {
             // camera swipes; Battly's control layer owns mouse button gestures.
             envMap.put("SDL_TOUCH_MOUSE_EVENTS", "0");
             envMap.put("SDL_MOUSE_TOUCH_EVENTS", "0");
+            if (Tools.iLwjglVersion >= 342) {
+                envMap.put("BATTLY_SDL_STABLE_SURFACE", "1");
+            }
             // MobileGlues already presents Minecraft's SDR output in sRGB space.
             // Enabling SDL's framebuffer conversion applies gamma a second time
             // and makes the image look washed out and excessively bright.
@@ -251,6 +259,14 @@ public class JREUtils {
         if(LOCAL_RENDERER != null) {
             String runtimeRenderer = RendererPluginRegistry.runtimeRendererFor(activity, LOCAL_RENDERER);
             envMap.put("BATTLY_RENDERER", runtimeRenderer);
+            if (runtimeRenderer.equals("opengles3_krypton")) {
+                envMap.put("NGG_DIR_PATH", activity.getDir("krypton", Context.MODE_PRIVATE).getAbsolutePath());
+                envMap.put("LIBGL_ES", "3");
+                envMap.put("SDL_OPENGL_LIBRARY", "libng_gl4es.so");
+                // Krypton exports OpenGL, not EGL: context creation stays on Android EGL.
+                envMap.put("SDL_EGL_LIBRARY", "libEGL.so");
+                envMap.put("BATTLY_SDL_FORCE_GLES", "1");
+            }
             if(runtimeRenderer.equals("opengles3_ltw")) {
                 envMap.put("LIBGL_ES", "3");
                 envMap.put("POJAVEXEC_EGL", "libltw.so");
@@ -393,6 +409,8 @@ public class JREUtils {
         purgeArg(userArgs, "-Dorg.lwjgl.freetype.libname");
         // Overridden by us to specify the exact number of cores that the android system has
         purgeArg(userArgs, "-XX:ActiveProcessorCount");
+        purgeArg(userArgs, "-Dsodium.checks.issue2561");
+        purgeArg(userArgs, "-Dorg.lwjgl.util.NoHashChecks");
 
         //Add automatically generated args
         int effectiveMaximumHeapMb = JvmMemoryPolicy.maximumHeapMb(
@@ -435,8 +453,22 @@ public class JREUtils {
                     new File(Tools.lwjglNativesDir, "liblwjgl_vma.so"));
         }
 
-        // Some phones are not using the right number of cores, fix that
-        userArgs.add("-XX:ActiveProcessorCount=" + java.lang.Runtime.getRuntime().availableProcessors());
+        int totalMemoryMb = Tools.getTotalDeviceMemory(activity);
+        boolean lowMemoryWorkerLimits = JvmMemoryPolicy.useLowMemoryWorkerLimits(
+                Architecture.is32BitsDevice(), runtime.javaVersion, totalMemoryMb);
+        int activeProcessorCount = JvmMemoryPolicy.activeProcessorCount(
+                java.lang.Runtime.getRuntime().availableProcessors(), lowMemoryWorkerLimits);
+        userArgs.add("-XX:ActiveProcessorCount=" + activeProcessorCount);
+        if (lowMemoryWorkerLimits) {
+            userArgs.add("-Dmax.bg.threads=1");
+            userArgs.add("-Djava.util.concurrent.ForkJoinPool.common.parallelism=1");
+            Logger.appendToLog("Info: Low-memory worker limits enabled: processors="
+                    + activeProcessorCount + ", backgroundWorkers=1");
+        }
+        // Android uses a launcher-patched LWJGL build whose release identifier is
+        // intentionally different from Mojang's desktop artifact.
+        userArgs.add("-Dsodium.checks.issue2561=false");
+        userArgs.add("-Dorg.lwjgl.util.NoHashChecks=true");
         // The injector patches LWJGL 2 and is compiled for Java 8. Attaching it
         // to modern Java/LWJGL 3 launches can abort the VM before Minecraft starts.
         File lwjgl2Injector = new File(
@@ -465,6 +497,8 @@ public class JREUtils {
         purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.vma.libname");
         purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.freetype.libname");
         purgeArg(effectiveCustomArguments, "-XX:ActiveProcessorCount");
+        purgeArg(effectiveCustomArguments, "-Dsodium.checks.issue2561");
+        purgeArg(effectiveCustomArguments, "-Dorg.lwjgl.util.NoHashChecks");
 
         List<String> mergedJvmArgs = JvmArgumentMerger.removeOverriddenJvmOptions(
                 JVMArgs, effectiveCustomArguments);
@@ -477,8 +511,12 @@ public class JREUtils {
         if (usesDesktopErrorWindowLoader(JVMArgs)) {
             // Cacio may have added its own headless flag to JVMArgs. Apply this last so
             // Fabric and Forge cannot replace the native Battly error screen with AWT.
-            purgeArg(userArgs, "-Djava.awt.headless");
-            userArgs.add("-Djava.awt.headless=true");
+            // JVMArgs already contains Minecraft's main class and application
+            // arguments. Appending -D here sends it to Minecraft, not the JVM.
+            List<String> headlessArguments = JvmArgumentMerger.withLeadingJvmOption(
+                    userArgs, "-Djava.awt.headless=true");
+            userArgs.clear();
+            userArgs.addAll(headlessArguments);
             Logger.appendToLog("Battly: desktop mod-loader error windows disabled on Android");
         }
         activity.runOnUiThread(() -> Toast.makeText(activity, activity.getString(R.string.autoram_info_msg,LauncherPreferences.PREF_RAM_ALLOCATION), Toast.LENGTH_SHORT).show());
@@ -769,6 +807,7 @@ public class JREUtils {
             case "opengles3_desktopgl_zink_kopper": renderLibrary = "libglxshim.so"; break;
             case "opengles3_desktopgl_freedreno": renderLibrary = "libglxshim.so"; break;
             case "opengles3_ltw" : renderLibrary = "libltw.so"; break;
+            case "opengles3_krypton": renderLibrary = "libng_gl4es.so"; break;
             default:
                 Log.w("RENDER_LIBRARY", "No renderer selected, defaulting to opengles2");
                 renderLibrary = "libgl4es_114.so";

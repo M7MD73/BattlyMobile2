@@ -368,7 +368,7 @@
     <string name="crash_no_findings">Er is geen bekend crashpatroon gevonden in de nieuwste logboeken.</string>
     <string name="crash_recovery_applied">Herstelactie voltooid</string>
     <string name="crash_recovery_manual">Dit probleem vereist een handmatige wijziging. Open het logboek voor meer informatie.</string>
-    <string name="credits_version">Versie 2.2.5</string>
+    <string name="credits_version">Versie 2.2.9</string>
     <string name="ctrl_like_btn">Zoals</string>
     <string name="ctrl_liked_added">Toegevoegd aan \'gelikete\' besturingselementen.</string>
     <string name="ctrl_liked_btn">Vond ik leuk</string>
@@ -429,8 +429,8 @@
     <string name="java_runtime_download_progress">Java %1$d (%2$.1f MB / %3$.1f MB) downloaden</string>
     <string name="java_runtime_download_title">Java installeren 8</string>
     <string name="java_runtime_download_waiting">Java 8 downloaden voorbereiden...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobiel 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobiel 2.2.9</string>
     <string name="launcher_status_battly">Battly-rekening</string>
     <string name="launcher_status_battly_plus">Battly+-rekening</string>
     <string name="library_analyze_mods">Analyseer</string>
@@ -614,7 +614,7 @@
     <string name="battly_plus_install_queue_message">Battly+ wachtrij actief: installatie op de achtergrond. U kunt Battly blijven gebruiken en meer compatibele installaties starten.</string>
     <string name="battly_plus_welcome_title">Welkom bij Battly+</string>
     <string name="battly_plus_welcome_desc">Je account beschikt nu over premium tools die zijn gebouwd voor een snellere installatie, betere werelden en meer controle over Battly Mobile.</string>
-    <string name="battly_plus_welcome_worlds_title">BattlyWorlds Plus</string>
+    <string name="battly_plus_welcome_worlds_title">BattlyWorldsPlus</string>
     <string name="battly_plus_welcome_worlds_desc">Prioritaire kamers, meer gasten en persistente sessies.</string>
     <string name="battly_plus_welcome_cloud_title">Cloud-synchronisatie en back-ups</string>
     <string name="battly_plus_welcome_cloud_desc">Profielen, instellingen en launcher-instellingen gesynchroniseerd houden.</string>
@@ -908,7 +908,7 @@
     <string name="installer_internal_fallback">Niet-ondersteund installatieprogramma, waardoor de verouderde Java-gebruikersinterface wordt geopend</string>
     <string name="installer_internal_running">Installateur analyseren…</string>
     <string name="installer_internal_success">%1$s direct in de Battly geïnstalleerd</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher gebaseerd op PojavLauncher en Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Tegoeden&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1343,4 +1343,107 @@
     <string name="search_world_download_error">Kan wereldmetadata niet downloaden</string>
     <string name="world_install_button">Wereld installeren</string>
     <string name="world_install_success">%1$s geïnstalleerd in deze instantie</string>
+
+    <string name="battly_whats_new_transition_desc">Uw exemplaren blijven op hun plaats. Autoriseer vertrouwde externe plug-ins in Instellingen voordat u ze gebruikt.</string>
+    <string name="download_action_import_mods_title">Importeer externe mods</string>
+    <string name="download_action_import_mods_subtitle">Kies een of meer `.jar`-bestanden en voeg deze toe aan de geselecteerde instantie.</string>
+    <string name="library_installed_show_more">Laat %1$d meer zien</string>
+    <string name="library_import_mods_replace_title">Bestaande mods vervangen?</string>
+    <string name="library_import_mods_replace_message">%1$d geselecteerde mod-bestanden bestaan al in %2$s. Battly zal ze pas vervangen nadat de nieuwe bestanden zijn gevalideerd.</string>
+    <string name="library_import_mods_invalid">Er zijn geen geldige `.jar` mod-bestanden geselecteerd.</string>
+    <string name="library_import_mods_success">Geïmporteerde %1$d-mods in %2$s.</string>
+    <string name="library_import_mods_partial">Geïmporteerde %1$d-mods in %2$s · %3$d-bestanden konden niet worden geïmporteerd.</string>
+    <string name="library_import_mods_error">De geselecteerde mods konden niet worden geïmporteerd.</string>
+    <string name="battly_whats_new_action_start">Verken 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Inlogreacties moeten overeenkomen met een in behandeling zijnd verzoek, verlopen na korte tijd en kunnen slechts één keer worden geaccepteerd.</string>
+    <string name="battly_whats_new_compatibility_title">Veiliger inloggen bij Discord</string>
+    <string name="battly_whats_new_controllers_desc">Als u één map deelt, krijgt u niet langer toegang tot andere mappen buiten de toestemming die u heeft verleend.</string>
+    <string name="battly_whats_new_controllers_title">Beveiligd delen van bestanden</string>
+    <string name="battly_whats_new_desc">Veiligere modpack-installatie, bestandsdeling en autorisatie van externe plug-ins.</string>
+    <string name="battly_whats_new_instances_desc">Archiefinhoud en gedownloade bestanden blijven binnen hun toegewezen exemplaar, zonder andere exemplaren te wijzigen.</string>
+    <string name="battly_whats_new_instances_title">Beschermde modpack-installatie</string>
+    <string name="battly_whats_new_recovery_desc">Gebruiksanalyses worden geactiveerd wanneer Battly start, behalve in de offlinemodus. Releaseopmerkingen en plug-inberichten zijn vertaald.</string>
+    <string name="battly_whats_new_recovery_title">Statistieken en vertalingen</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 is klaar</string>
+    <string name="battly_whats_new_worlds_desc">Externe plug-ins hebben vóór gebruik autorisatie nodig. Eerder geïnstalleerde plug-ins moeten eenmalig opnieuw worden geautoriseerd.</string>
+    <string name="battly_whats_new_worlds_title">Uw plug-inrechten</string>
+    <string name="battly_appearance_title">Battly huiden en capes</string>
+    <string name="battly_appearance_subtitle">Bekijk en beheer uw volledige Minecraft-optreden vanaf mobiel.</string>
+    <string name="battly_capes_title">Battly-capes</string>
+    <string name="battly_capes_description">Kies een officiële cape of upload je eigen cape met Battly+. De actieve cape wordt weergegeven in het 3D-voorbeeld en in Minecraft.</string>
+    <string name="battly_capes_loading">Battly-capes laden...</string>
+    <string name="battly_capes_active">Actieve cape</string>
+    <string name="battly_capes_none">Geen actieve cape</string>
+    <string name="battly_capes_empty">Er zijn geen capes beschikbaar voor dit account.</string>
+    <string name="battly_capes_upload">Kaap uploaden</string>
+    <string name="battly_capes_upload_plus">Uploaden met Battly+</string>
+    <string name="battly_capes_plus_required">Aangepaste capes zijn verkrijgbaar met Battly+. Je kunt nog steeds de officiële capes gebruiken.</string>
+    <string name="battly_capes_disable">Geen cape</string>
+    <string name="battly_capes_disabled">Kaap uitgeschakeld</string>
+    <string name="battly_capes_uploaded">Cape geüpload en toegepast</string>
+    <string name="battly_capes_applied">Kaap toegepast</string>
+    <string name="battly_capes_deleted">Kaap verwijderd</string>
+    <string name="battly_capes_previewing">Kaap bekijken</string>
+    <string name="battly_capes_custom">Aangepaste cape</string>
+    <string name="battly_capes_official">Officiële cape</string>
+
+    <string name="battly_capes_unavailable">Capes zijn tijdelijk niet leverbaar. Je skins zijn nog steeds beschikbaar.</string>
+
+    <string name="native_plugins_bundled_category">Android-afhankelijkheden opgenomen in Battly</string>
+    <string name="native_plugins_bundled_ready">Versie %1$s · Klaar</string>
+
+    <string name="battly_whats_new_native_title">Native afhankelijkheden blijven beschikbaar</string>
+    <string name="battly_whats_new_native_desc">Ingebouwde bibliotheken werken automatisch. Machtigingen voor externe plug-ins zijn gekoppeld aan de APK-ondertekeningsidentiteit.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Dagelijkse activiteit · Mobiel</string>
+    <string name="battly_stats_history_notice">Lokale tijd wanneer opgenomen. De geschiedenis begint met deze update; eerdere totalen blijven hieronder.</string>
+    <string name="battly_stats_history_unavailable">De dagelijkse geschiedenis is nog niet beschikbaar op de server. Hieronder worden uw totale statistieken weergegeven.</string>
+    <string name="battly_stats_period_label">Activiteitsperiode</string>
+    <string name="battly_stats_day_label">Datum activiteit</string>
+    <string name="battly_stats_period_days">Laatste %1$d-dagen</string>
+    <string name="battly_stats_period_summary">Actieve dagen: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Eerste activiteit: %1$s · Laatste activiteit: %2$s</string>
+    <string name="battly_stats_day_modes">Werelden: %1$s · Servers: %2$s (Battly Worlds: %3$s) · Spelmenu\'s: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Startprogramma: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Totalen aller tijden · PC + mobiel</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Startprogramma: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Toetsenbord automatisch openen</string>
+
+    <string name="native_plugins_trust_warning">Deze externe plug-in kan native code uitvoeren met toegang tot Battly-bestanden en accounts. Sta alleen plug-ins toe van een bron die u vertrouwt. Toestemming is gekoppeld aan de APK-ondertekenidentiteit.</string>
+    <string name="native_plugins_trust_action">Plug-in toestaan</string>
+
+    <string name="peripheral_title">Toetsenbord, muis en controller</string>
+    <string name="peripheral_devices">Aangesloten randapparatuur</string>
+    <string name="peripheral_no_devices">Geen externe randapparatuur gedetecteerd</string>
+    <string name="peripheral_mouse">Fysieke muis</string>
+    <string name="peripheral_pc_preset">Pas de pc-muisvoorinstelling toe</string>
+    <string name="peripheral_pc_mode">Resolutie-onafhankelijk richten</string>
+    <string name="peripheral_pc_mode_summary">Constante lineaire gevoeligheid, ongeacht de renderresolutie. Battly voegt geen versnelling of afvlakking toe. Android 8 of hoger.</string>
+    <string name="peripheral_mouse_x">Horizontale gevoeligheid</string>
+    <string name="peripheral_mouse_y">Verticale gevoeligheid</string>
+    <string name="peripheral_invert_x">Horizontale as omkeren</string>
+    <string name="peripheral_invert_y">Verticale as omkeren</string>
+    <string name="peripheral_mouse_test">Muiskalibratie testen</string>
+    <string name="peripheral_keyboard">Fysiek toetsenbord</string>
+    <string name="peripheral_bindings">Gameplay-toetsbindingen</string>
+    <string name="peripheral_binding_count">%1$d-bindingen. Het typen van menu\'s is ongewijzigd.</string>
+    <string name="peripheral_keyboard_test">Testsleutels en combinaties</string>
+    <string name="peripheral_stick_linear">Lineair richten van de controller</string>
+    <string name="peripheral_stick_linear_summary">Proportionele stickrespons in plaats van de standaard kwadratische curve. Geldt voor Battly-controllertoewijzing, niet voor native controllermods.</string>
+    <string name="peripheral_stick_sensitivity">Gevoeligheid van controllercamera</string>
+    <string name="peripheral_reset_test">Meting opnieuw instellen</string>
+    <string name="peripheral_add_binding">Voeg sleutelbinding toe</string>
+    <string name="peripheral_source_key">Fysieke sleutel</string>
+    <string name="peripheral_target_key">Stuur deze sleutel naar Minecraft</string>
+    <string name="peripheral_press_key">Druk een fysieke toets in en laat deze weer los. Als u een bestaande binding selecteert, wordt deze verwijderd. Modificatietoetsen behouden hun normale gedrag.</string>
+    <string name="peripheral_invalid_key">Kies een toetsenbordtoets zonder wijziging. Android-systeemsleutels kunnen niet opnieuw worden toegewezen.</string>
+    <string name="peripheral_mouse_ready">Klik op het testgebied om de muis vast te leggen. Druk op Escape om deze los te laten. Metingen zijn relatieve beweging gerapporteerd door Android, geen hardware-DPI.</string>
+    <string name="peripheral_keyboard_ready">Druk op toetsen of combinaties op uw fysieke toetsenbord. Druk op Escape om de test te sluiten.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGame X / Y: %3$s\nVoorbeelden: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nToets: %2$s · Scannen: %3$d · Herhalen: %4$d\nGehouden: %5$s</string>
 </resources>

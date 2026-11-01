@@ -89,14 +89,25 @@ public class MultiRTUtils {
 
     public static void installRuntimeNamed(String nativeLibDir, InputStream runtimeInputStream, String name)
             throws IOException {
-        File dest = new File(RUNTIME_FOLDER, "/" + name);
-        if (dest.exists())
-            FileUtils.deleteDirectory(dest);
-        uncompressTarXZ(runtimeInputStream, dest);
-        runtimeInputStream.close();
-        unpack200(nativeLibDir, RUNTIME_FOLDER + "/" + name);
-        ProgressLayout.clearProgress(ProgressLayout.UNPACK_RUNTIME);
-        read(name);
+        File dest = new File(RUNTIME_FOLDER, name);
+        File staging = new File(RUNTIME_FOLDER, "." + name + ".installing");
+        File backup = new File(RUNTIME_FOLDER, "." + name + ".backup");
+        RuntimeInstallTransaction.recover(dest, backup);
+        if (staging.exists()) FileUtils.deleteDirectory(staging);
+        try {
+            uncompressTarXZ(runtimeInputStream, staging);
+            unpack200(nativeLibDir, staging.getAbsolutePath());
+            RuntimeInstallTransaction.validate(staging);
+            RuntimeInstallTransaction.promote(staging, dest, backup);
+            sCache.remove(name);
+            ProgressLayout.clearProgress(ProgressLayout.UNPACK_RUNTIME);
+            read(name);
+        } catch (IOException | RuntimeException exception) {
+            if (staging.exists()) FileUtils.deleteDirectory(staging);
+            throw exception;
+        } finally {
+            runtimeInputStream.close();
+        }
     }
 
     public static void installRuntimeAssetDirectory(AssetManager assetManager, String assetPath, String name)
@@ -236,7 +247,7 @@ public class MultiRTUtils {
      *                         unpack200 binary
      * @param runtimePath      The path to the runtime to walk into
      */
-    private static void unpack200(String nativeLibraryDir, String runtimePath) {
+    private static void unpack200(String nativeLibraryDir, String runtimePath) throws IOException {
 
         File basePath = new File(runtimePath);
         Collection<File> files = listFiles(basePath, new String[] { "pack" }, true);
@@ -248,9 +259,15 @@ public class MultiRTUtils {
             try {
                 Process process = processBuilder.command("./libunpack200.so", "-r", jarFile.getAbsolutePath(),
                         jarFile.getAbsolutePath().replace(".pack", "")).start();
-                process.waitFor();
-            } catch (InterruptedException | IOException e) {
-                Log.e("MULTIRT", "Failed to unpack the runtime !");
+                int exitCode = process.waitFor();
+                File unpackedJar = new File(jarFile.getAbsolutePath().replace(".pack", ""));
+                if (exitCode != 0 || !unpackedJar.isFile() || unpackedJar.length() == 0L) {
+                    throw new IOException("Failed to unpack " + jarFile.getName()
+                            + " (exit code " + exitCode + ")");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new IOException("Runtime extraction interrupted at " + jarFile.getName(), e);
             }
         }
     }
@@ -295,11 +312,12 @@ public class MultiRTUtils {
         net.kdt.pojavlaunch.utils.FileUtils.ensureDirectory(dest);
 
         byte[] buffer = new byte[8192];
-        TarArchiveInputStream tarIn = new TarArchiveInputStream(
-                new XZCompressorInputStream(tarFileInputStream));
-        TarArchiveEntry tarEntry = tarIn.getNextTarEntry();
-        // tarIn is a TarArchiveInputStream
-        while (tarEntry != null) {
+        final String rootPath = dest.getCanonicalPath() + File.separator;
+        long lastProgressUpdate = 0L;
+        try (TarArchiveInputStream tarIn = new TarArchiveInputStream(
+                new XZCompressorInputStream(tarFileInputStream))) {
+            TarArchiveEntry tarEntry = tarIn.getNextTarEntry();
+            while (tarEntry != null) {
 
             final String tarEntryName = tarEntry.getName();
             // Some runtime archives contain a root metadata entry named "./".
@@ -310,34 +328,36 @@ public class MultiRTUtils {
                 continue;
             }
             // publishProgress(null, "Unpacking " + tarEntry.getName());
-            ProgressLayout.setProgress(ProgressLayout.UNPACK_RUNTIME, 100, R.string.global_unpacking, tarEntryName);
-
-            File destPath = new File(dest, tarEntry.getName());
-            String rootPath = dest.getCanonicalPath() + File.separator;
-            if (!destPath.getCanonicalPath().startsWith(rootPath)) {
-                throw new IOException("Unsafe runtime archive path: " + tarEntry.getName());
-            }
-            net.kdt.pojavlaunch.utils.FileUtils.ensureParentDirectory(destPath);
-            if (tarEntry.isSymbolicLink()) {
-                validateSymbolicLinkTarget(dest, destPath, tarEntry.getLinkName());
-                try {
-                    // android.system.Os
-                    // Libcore one support all Android versions
-                    Os.symlink(tarEntry.getLinkName(), destPath.getAbsolutePath());
-                } catch (Throwable e) {
-                    Log.e("MultiRT", e.toString());
+                long now = System.nanoTime();
+                if (lastProgressUpdate == 0L || now - lastProgressUpdate >= 100_000_000L) {
+                    ProgressLayout.setProgress(ProgressLayout.UNPACK_RUNTIME, 100,
+                            R.string.global_unpacking, tarEntryName);
+                    lastProgressUpdate = now;
                 }
 
-            } else if (tarEntry.isDirectory()) {
-                net.kdt.pojavlaunch.utils.FileUtils.ensureDirectory(destPath);
-            } else if (!destPath.exists() || destPath.length() != tarEntry.getSize()) {
-                FileOutputStream os = new FileOutputStream(destPath);
-                IOUtils.copyLarge(tarIn, os, buffer);
-                os.close();
+                File destPath = new File(dest, tarEntry.getName());
+                if (!destPath.getCanonicalPath().startsWith(rootPath)) {
+                    throw new IOException("Unsafe runtime archive path: " + tarEntry.getName());
+                }
+                net.kdt.pojavlaunch.utils.FileUtils.ensureParentDirectory(destPath);
+                if (tarEntry.isSymbolicLink()) {
+                    validateSymbolicLinkTarget(dest, destPath, tarEntry.getLinkName());
+                    try {
+                        Os.symlink(tarEntry.getLinkName(), destPath.getAbsolutePath());
+                    } catch (Throwable e) {
+                        Log.e("MultiRT", e.toString());
+                    }
+
+                } else if (tarEntry.isDirectory()) {
+                    net.kdt.pojavlaunch.utils.FileUtils.ensureDirectory(destPath);
+                } else if (!destPath.exists() || destPath.length() != tarEntry.getSize()) {
+                    try (FileOutputStream os = new FileOutputStream(destPath)) {
+                        IOUtils.copyLarge(tarIn, os, buffer);
+                    }
+                }
+                tarEntry = tarIn.getNextTarEntry();
             }
-            tarEntry = tarIn.getNextTarEntry();
         }
-        tarIn.close();
     }
 
     private static boolean isArchiveRootEntry(String entryName) {

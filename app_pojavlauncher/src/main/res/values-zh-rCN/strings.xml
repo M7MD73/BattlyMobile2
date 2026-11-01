@@ -777,7 +777,7 @@
     <string name="credits_primary_development">主要发展</string>
     <string name="credits_section_title">制作人员</string>
     <string name="credits_unaffiliated">此应用程序不隶属于 Minecraft、Mojang 或 Microsoft。</string>
-    <string name="credits_version">版本2.2.5</string>
+    <string name="credits_version">版本2.2.9</string>
     <string name="ctrl_applied_success">控制“%1$s”应用成功。</string>
     <string name="ctrl_apply_btn">应用控制</string>
     <string name="ctrl_apply_msg">下载并应用“%1$s”作为您的控件布局？</string>
@@ -963,7 +963,7 @@
     <string name="instance_storage_calculating">正在计算存储...</string>
     <string name="instance_use">使用</string>
     <string name="java_runtime_download_message">Battly 在首次设置后下载 Java 8，而不是将其发送到应用程序内。这会减少应用程序大小并准备较旧的 Minecraft 版本。</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         基于 PojavLauncher 和 Boardwalk 的启动器。&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;致谢&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -974,11 +974,11 @@
         • 项目中包含GNU GPLv3 和第三方组件。&lt;br/&gt;
         • OpenJDK、LWJGL、GL4ES、LTW、Apache Commons、exp4j 等均已获得原始许可。&lt;br/&gt;&lt;br/&gt;
         此应用程序不隶属于 Minecraft、Mojang 或 Microsoft。</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">下载</string>
     <string name="launcher_download_modpack">导入模组包</string>
     <string name="launcher_execute">玩</string>
-    <string name="launcher_mobile_badge">移动版2.2.5</string>
+    <string name="launcher_mobile_badge">移动版2.2.9</string>
     <string name="launcher_nav_back">返回</string>
     <string name="launcher_nav_home">返回家中</string>
     <string name="launcher_nav_workspace">Battly 工作区</string>
@@ -1523,19 +1523,107 @@
     <string name="world_install_button">安装世界</string>
     <string name="world_install_success">%1$s 安装到此实例中</string>
 
-    <string name="battly_whats_new_action_start">发现 2.2.5</string>
-    <string name="battly_whats_new_compatibility_desc">Battly 识别本地库插件，并允许在安装了必要插件时启动兼容的模组，如 Distant Horizons。</string>
-    <string name="battly_whats_new_compatibility_title">本地插件与遥远地平线</string>
-    <string name="battly_whats_new_controllers_desc">Battly 会以设备的语言查询 API，并在服务器内容更改时更新其缓存。</string>
-    <string name="battly_whats_new_controllers_title">最新动态</string>
-    <string name="battly_whats_new_desc">与 Minecraft 26.3 的兼容性更好，mod 的原生音频，翻译的新功能和屏幕修正。</string>
-    <string name="battly_whats_new_instances_desc">已修正 Minecraft 26.3 在原版、Fabric 及自定义版本中的启动、纹理和渲染。</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 已更正</string>
-    <string name="battly_whats_new_recovery_desc">改进了 Vulkan 和方向，Minecraft 的窗口大小，JVM 参数以及正常关闭检测。</string>
-    <string name="battly_whats_new_recovery_title">更精确的启动和关闭</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">你现有的实例和设置保持不变。</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 已准备好</string>
-    <string name="battly_whats_new_worlds_desc">Mods 可以检测 Android 的麦克风，选择可用的输入并捕获语音，而不发送游戏音频。</string>
-    <string name="battly_whats_new_worlds_title">麦克风可供版主使用</string>
+    <string name="battly_whats_new_action_start">探索2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">登录响应必须与待处理的请求匹配，在短时间内过期并且只能接受一次。</string>
+    <string name="battly_whats_new_compatibility_title">更安全的Discord登录</string>
+    <string name="battly_whats_new_controllers_desc">共享一个文件夹不再允许访问您授予的权限之外的其他文件夹。</string>
+    <string name="battly_whats_new_controllers_title">受保护的文件共享</string>
+    <string name="battly_whats_new_desc">更安全的 modpack 安装、文件共享和外部插件授权。</string>
+    <string name="battly_whats_new_instances_desc">存档内容和下载的文件保留在其分配的实例中，而不修改其他实例。</string>
+    <string name="battly_whats_new_instances_title">受保护的模组包安装</string>
+    <string name="battly_whats_new_recovery_desc">使用情况分析在 Battly 启动时激活，离线模式除外。发行说明和插件消息已翻译。</string>
+    <string name="battly_whats_new_recovery_title">统计和翻译</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">您的实例仍然存在。使用受信任的外部插件之前，请先在“设置”中对其进行授权。</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 已准备就绪</string>
+    <string name="battly_whats_new_worlds_desc">外部插件需要授权才能使用。之前安装的插件必须再次授权一次。</string>
+    <string name="battly_whats_new_worlds_title">您的插件权限</string>
+
+    <string name="download_action_import_mods_title">导入外部模组</string>
+    <string name="download_action_import_mods_subtitle">选择一个或多个“.jar”文件并将它们添加到所选实例。</string>
+    <string name="library_installed_show_more">显示更多 %1$d</string>
+    <string name="library_import_mods_replace_title">替换现有模组？</string>
+    <string name="library_import_mods_replace_message">%1$d 选定的 mod 文件已存在于 %2$s 中。 Battly 仅在验证新文件后才会替换它们。</string>
+    <string name="library_import_mods_invalid">未选择有效的“.jar” mod 文件。</string>
+    <string name="library_import_mods_success">将 %1$d 模组导入 %2$s。</string>
+    <string name="library_import_mods_partial">将 %1$d mod 导入到 %2$s · 无法导入 %3$d 文件。</string>
+    <string name="library_import_mods_error">无法导入所选模组。</string>
+    <string name="battly_appearance_title">Battly 皮肤和斗篷</string>
+    <string name="battly_appearance_subtitle">从移动设备预览和管理您的完整 Minecraft 外观。</string>
+    <string name="battly_capes_title">Battly斗篷</string>
+    <string name="battly_capes_description">选择官方披风或使用 Battly+ 上传您自己的披风。活动斗篷显示在 3D 预览中和 Minecraft 内部。</string>
+    <string name="battly_capes_loading">正在加载 Battly 斗篷...</string>
+    <string name="battly_capes_active">活跃斗篷</string>
+    <string name="battly_capes_none">无活动斗篷</string>
+    <string name="battly_capes_empty">此帐户没有可用的斗篷。</string>
+    <string name="battly_capes_upload">上传斗篷</string>
+    <string name="battly_capes_upload_plus">使用Battly+上传</string>
+    <string name="battly_capes_plus_required">Battly+ 提供定制披风。您仍然可以使用官方披风。</string>
+    <string name="battly_capes_disable">无斗篷</string>
+    <string name="battly_capes_disabled">斗篷禁用</string>
+    <string name="battly_capes_uploaded">海角已上传并应用</string>
+    <string name="battly_capes_applied">披肩适用</string>
+    <string name="battly_capes_deleted">斗篷已删除</string>
+    <string name="battly_capes_previewing">预览斗篷</string>
+    <string name="battly_capes_custom">定制斗篷</string>
+    <string name="battly_capes_official">官方斗篷</string>
+
+    <string name="battly_capes_unavailable">斗篷暂时无法使用。您的皮肤仍然可用。</string>
+
+    <string name="native_plugins_bundled_category">Android 依赖项包含在 Battly 中</string>
+    <string name="native_plugins_bundled_ready">版本 %1$s · 就绪</string>
+
+    <string name="battly_whats_new_native_title">本机依赖项仍然可用</string>
+    <string name="battly_whats_new_native_desc">内置库自动工作。外部插件的权限与 APK 签名身份相关联。</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">日常活动·手机</string>
+    <string name="battly_stats_history_notice">记录时的当地时间。历史从这次更新开始；之前的总数仍然低于。</string>
+    <string name="battly_stats_history_unavailable">服务器上尚不提供每日历史记录。您的总统计数据如下所示。</string>
+    <string name="battly_stats_period_label">活动期间</string>
+    <string name="battly_stats_day_label">活动日期</string>
+    <string name="battly_stats_period_days">最后 %1$d 天</string>
+    <string name="battly_stats_period_summary">活跃天数：%1$d · Minecraft：%2$s · 启动器：%3$s</string>
+    <string name="battly_stats_time_range">第一个活动：%1$s · 最后一个活动：%2$s</string>
+    <string name="battly_stats_day_modes">世界：%1$s·服务器：%2$s（Battly Worlds：%3$s）·游戏菜单：%4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft：%3$s · 发射器：%4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d S</string>
+    <string name="battly_stats_lifetime">历史总计 · PC + 移动设备</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft：%2$s · 发射器：%3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">自动打开键盘</string>
+
+    <string name="native_plugins_trust_warning">该外部插件可以运行本机代码并访问 Battly 文件和帐户。仅允许来自您信任的来源的插件。权限与 APK 签名身份相关联。</string>
+    <string name="native_plugins_trust_action">允许插件</string>
+
+    <string name="peripheral_title">键盘、鼠标和控制器</string>
+    <string name="peripheral_devices">连接的外围设备</string>
+    <string name="peripheral_no_devices">未检测到外围设备</string>
+    <string name="peripheral_mouse">物理鼠标</string>
+    <string name="peripheral_pc_preset">应用 PC 鼠标预设</string>
+    <string name="peripheral_pc_mode">与分辨率无关的瞄准</string>
+    <string name="peripheral_pc_mode_summary">无论渲染分辨率如何，均保持恒定的线性灵敏度。 Battly 不添加加速或平滑。 Android 8 或更高版本。</string>
+    <string name="peripheral_mouse_x">水平灵敏度</string>
+    <string name="peripheral_mouse_y">垂直灵敏度</string>
+    <string name="peripheral_invert_x">反转水平轴</string>
+    <string name="peripheral_invert_y">反转垂直轴</string>
+    <string name="peripheral_mouse_test">测试鼠标校准</string>
+    <string name="peripheral_keyboard">物理键盘</string>
+    <string name="peripheral_bindings">游戏按键绑定</string>
+    <string name="peripheral_binding_count">%1$d 绑定。菜单输入未更改。</string>
+    <string name="peripheral_keyboard_test">测试按键和组合</string>
+    <string name="peripheral_stick_linear">线性控制器瞄准</string>
+    <string name="peripheral_stick_linear_summary">比例摇杆响应而不是默认的二次曲线。适用于 Battly 控制器映射，不适用于本机控制器模组。</string>
+    <string name="peripheral_stick_sensitivity">控制器相机灵敏度</string>
+    <string name="peripheral_reset_test">重置测量</string>
+    <string name="peripheral_add_binding">添加按键绑定</string>
+    <string name="peripheral_source_key">物理钥匙</string>
+    <string name="peripheral_target_key">将此密钥发送至 Minecraft</string>
+    <string name="peripheral_press_key">按下并释放物理键。选择现有绑定会将其删除。修饰键保持其正常行为。</string>
+    <string name="peripheral_invalid_key">选择一个非修饰键盘键。 Android 系统按键无法重新映射。</string>
+    <string name="peripheral_mouse_ready">单击测试区域以捕获鼠标。按 Esc 键将其释放。测量结果是 Android 报告的相对运动，而不是硬件 DPI。</string>
+    <string name="peripheral_keyboard_ready">按物理键盘上的按键或组合。按 Esc 键关闭测试。</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y：%2$s\n游戏 X / Y：%3$s\n样本：%4$d</string>
+    <string name="peripheral_key_result">%1$s\n按键：%2$s · 扫描：%3$d · 重复：%4$d\n保持：%5$s</string>
 </resources>

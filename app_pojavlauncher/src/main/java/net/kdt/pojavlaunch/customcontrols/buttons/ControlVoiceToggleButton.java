@@ -21,6 +21,7 @@ public final class ControlVoiceToggleButton extends ControlButton {
     private final Handler stateHandler = new Handler(Looper.getMainLooper());
     private final boolean microphone;
     private boolean pointerDown;
+    private Boolean displayedDisabled;
     private final Runnable stateRefresh = new Runnable() {
         @Override
         public void run() {
@@ -37,6 +38,12 @@ public final class ControlVoiceToggleButton extends ControlButton {
         setTextSize(12);
         setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         updateState();
+    }
+
+    @Override
+    public void setProperties(ControlData properties, boolean changePos) {
+        displayedDisabled = null;
+        super.setProperties(properties, changePos);
     }
 
     @Override
@@ -76,6 +83,8 @@ public final class ControlVoiceToggleButton extends ControlButton {
         boolean disabled = microphone
                 ? BattlyWorldsVoiceControls.isMicrophoneMuted(getContext())
                 : BattlyWorldsVoiceControls.isAudioMuted(getContext());
+        if (displayedDisabled != null && displayedDisabled == disabled) return;
+        displayedDisabled = disabled;
         setText(microphone
                 ? getContext().getString(disabled
                         ? R.string.customctrl_voice_microphone_off

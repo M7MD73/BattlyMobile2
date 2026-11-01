@@ -166,7 +166,7 @@
     <string name="crash_no_findings">Nulla nota ruinae exemplum in recentissimis lignis inventum est.</string>
     <string name="crash_recovery_applied">Recuperatio actio perficitur</string>
     <string name="crash_recovery_manual">Hic exitus manuali indiget mutatione. Aperi trabem in details.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_like_btn">sicut</string>
     <string name="ctrl_liked_added">Adiecit dominans probaverunt.</string>
     <string name="ctrl_liked_btn">probaverunt</string>
@@ -227,8 +227,8 @@
     <string name="java_runtime_download_progress">Downloading Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installing Java 8</string>
     <string name="java_runtime_download_waiting">Praeparans Java 8 download...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.9</string>
     <string name="launcher_status_battly">Battly propter</string>
     <string name="launcher_status_battly_plus">Battly+ propter</string>
     <string name="library_analyze_mods">Analyse</string>
@@ -712,7 +712,7 @@
     <string name="installer_internal_fallback">Installer destitutus aperiens legatum Java UI</string>
     <string name="installer_internal_running">Analyzing installer…</string>
     <string name="installer_internal_success">%1$s directe intus inauguratus Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launchere secundum PojavLauncher et Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Promeritum&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -756,7 +756,7 @@
     <string name="launcher_version_format">Versionem %1$s</string>
     <string name="launcher_version_unknown">Ignotum</string>
     <string name="launcher_versions_button">Versiones</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launchere Foreground Service</string>
     <string name="legacy_mixin_missing_message">Una e tuis Forge 1.7.10 modulorum postulatorum Spongia Mixin, sed provisor Mixin vel UniMixins non inauguratus est. Instrue UniMixins/Mixin ad 1.7.10 vel remove modum illum antequam Minecraft incipias.</string>
     <string name="legacy_mixin_missing_title">Legatum Mixin dependentia missing</string>
     <string name="library_button_desc">Aperta bibliotheca</string>
@@ -1151,4 +1151,107 @@
     <string name="search_world_download_error">Deficio ut download mundo metadata</string>
     <string name="world_install_button">Install mundi</string>
     <string name="world_install_success">%1$s installed in hoc casu</string>
+
+    <string name="battly_whats_new_transition_desc">instantiae tuae loco manent. Auctoritas confidebat plugins externa in Occasus ante utendo.</string>
+    <string name="download_action_import_mods_title">Inferre externum mods</string>
+    <string name="download_action_import_mods_subtitle">Elige unum vel plures `.jar` files et adde instantia selecta.</string>
+    <string name="library_installed_show_more">Monstrare %1$d more</string>
+    <string name="library_import_mods_replace_title">Mods reponere existentium?</string>
+    <string name="library_import_mods_replace_message">%1$d delectus modalis imaginum iam exsistentium in %2$s. Battly ea tantum restituet postquam novas tabulas confirmans.</string>
+    <string name="library_import_mods_invalid">Nulla valida `.jar` mod lima delecti sunt.</string>
+    <string name="library_import_mods_success">Importari %1$d mods in %2$s.</string>
+    <string name="library_import_mods_partial">Importari %1$d mods in %2$s · %3$d imagini importari non poterant.</string>
+    <string name="library_import_mods_error">Delectus mods importari non potuit.</string>
+    <string name="battly_whats_new_action_start">Explore 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Responsiones emissae respondere debent petitioni pendenti, post breve tempus exspirare et nonnisi semel recipi.</string>
+    <string name="battly_whats_new_compatibility_title">Tutius Discord sign-in</string>
+    <string name="battly_whats_new_controllers_desc">Socius unus folder non amplius permittit accessum ad alios folders extra licentiam concessae.</string>
+    <string name="battly_whats_new_controllers_title">Tutus file sharing</string>
+    <string name="battly_whats_new_desc">Tutius modpack institutionem, lima communicatio et auctoritas plugin externa.</string>
+    <string name="battly_whats_new_instances_desc">Archive contenta et imagini receptae intra instantiam assignatam manent, sine immutatione aliarum instantiarum.</string>
+    <string name="battly_whats_new_instances_title">Modpack installation protecta</string>
+    <string name="battly_whats_new_recovery_desc">Usum analyticorum excitant cum Battly incipit, excepto in offline modo. Dimittis notas et mandata plugin translata sunt.</string>
+    <string name="battly_whats_new_recovery_title">Statistics et translationes</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 paratum est</string>
+    <string name="battly_whats_new_worlds_desc">Externum tincidunt ante usum eget licentia. Prius inauguratus plugins iterum semel auctoritate debet.</string>
+    <string name="battly_whats_new_worlds_title">Your plugin permissions</string>
+    <string name="battly_appearance_title">Battly pellibus et palliis</string>
+    <string name="battly_appearance_subtitle">Praemonstrare et regere Minecraft integram speciem e Mobile.</string>
+    <string name="battly_capes_title">Battly cappis</string>
+    <string name="battly_capes_description">Promunturium officialem elige vel proprium tuum cum Battly inseres. Promunturium activum in 3D praevisis ostenditur et intus Minecraft.</string>
+    <string name="battly_capes_loading">Loading Battly pallia...</string>
+    <string name="battly_capes_active">Active promunturium</string>
+    <string name="battly_capes_none">Non active promunturium</string>
+    <string name="battly_capes_empty">Nulla capa huius rationis praesto sunt.</string>
+    <string name="battly_capes_upload">Index promunturium</string>
+    <string name="battly_capes_upload_plus">Upload cum Battly+</string>
+    <string name="battly_capes_plus_required">Consuetudines cappae in promptu sunt cum Battly+. Publicis etiam palliis uti potes.</string>
+    <string name="battly_capes_disable">Non promunturium</string>
+    <string name="battly_capes_disabled">Cape disabled</string>
+    <string name="battly_capes_uploaded">Cape uploaded et applicata</string>
+    <string name="battly_capes_applied">Promontorium applicari</string>
+    <string name="battly_capes_deleted">Promontorium deletum</string>
+    <string name="battly_capes_previewing">Promunturium Previewing</string>
+    <string name="battly_capes_custom">Custom promunturium</string>
+    <string name="battly_capes_official">Publica promunturium</string>
+
+    <string name="battly_capes_unavailable">Promontoria temporarie inaccessibile sunt. Pelles tuae adhuc in promptu sunt.</string>
+
+    <string name="native_plugins_bundled_category">Vincula Android inclusa cum Battly</string>
+    <string name="native_plugins_bundled_ready">Versione %1$s · Paratus</string>
+
+    <string name="battly_whats_new_native_title">Patria clientelae manent praesto</string>
+    <string name="battly_whats_new_native_desc">Instructa in bibliothecis automatice operantur. Permissiones plugins externae cum APK signandi identitatis coniunguntur.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Cotidiana actio · Mobile</string>
+    <string name="battly_stats_history_notice">Locus temporis quo notatur. Hoc renovatio incipit historia; prior summa manent infra.</string>
+    <string name="battly_stats_history_unavailable">Cotidiana historia in servo adhuc praesto non est. Your total statistics are shown below.</string>
+    <string name="battly_stats_period_label">Actio tempus</string>
+    <string name="battly_stats_day_label">Actio date</string>
+    <string name="battly_stats_period_days">Ultimus dies %1$d</string>
+    <string name="battly_stats_period_summary">Activa dies: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Actio prima: %1$s · Ultima actio: %2$s</string>
+    <string name="battly_stats_day_modes">Mundi: %1$s · Servers: %2$s (Battly Worlds: %3$s) · Ludus menus: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s-%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Omnia temporis summa · PC + Mobile</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Claviaturam automatice aperire</string>
+
+    <string name="native_plugins_trust_warning">Hoc plugin externum potest decurrere codicem nativum cum accessu ad tabellas Battly et rationes. Tantum permitte plugins ex fonte cui tu confidis. Licentia iungitur APK signandi identitatis.</string>
+    <string name="native_plugins_trust_action">Patitur plugin</string>
+
+    <string name="peripheral_title">Tincidunt, mus ac controller</string>
+    <string name="peripheral_devices">Coniuncta peripherals</string>
+    <string name="peripheral_no_devices">Nulla externa peripherals detecta</string>
+    <string name="peripheral_mouse">Mus corporalis</string>
+    <string name="peripheral_pc_preset">Applicare PC mus consectetur</string>
+    <string name="peripheral_pc_mode">Resolutio independens, intentum</string>
+    <string name="peripheral_pc_mode_summary">Constans linearis sensus cuiuscumque solutionis reddendae. Battly nullam accelerationem vel levationem addit. Android 8 vel postea.</string>
+    <string name="peripheral_mouse_x">Horizontalis sensus</string>
+    <string name="peripheral_mouse_y">Sensus verticalis</string>
+    <string name="peripheral_invert_x">Vertere axem horizontalem</string>
+    <string name="peripheral_invert_y">Verticali axis convertat</string>
+    <string name="peripheral_mouse_test">Test mus calibratiis</string>
+    <string name="peripheral_keyboard">Physica tincidunt</string>
+    <string name="peripheral_bindings">Clavis ligaturae lusionis</string>
+    <string name="peripheral_binding_count">ligaturae %1$d. Menu typing non mutatur.</string>
+    <string name="peripheral_keyboard_test">Test claves et accumsan</string>
+    <string name="peripheral_stick_linear">Linearibus moderatoris intento</string>
+    <string name="peripheral_stick_linear_summary">Responsio baculi proportionalis pro defectu curvae quadraticae. Battly moderatrix tabularum faciendarum, non moderatrix nativa mods applicat.</string>
+    <string name="peripheral_stick_sensitivity">Controller camera sensus</string>
+    <string name="peripheral_reset_test">Reset mensurae</string>
+    <string name="peripheral_add_binding">Addere key ligamen</string>
+    <string name="peripheral_source_key">Clavis corporalis</string>
+    <string name="peripheral_target_key">Hanc clavem mitte ad Minecraft</string>
+    <string name="peripheral_press_key">Torcular et clavis physicam dimittere. Diligens existens ligamen removet. Modifier claves suos mores consuetos servant.</string>
+    <string name="peripheral_invalid_key">Elige tincidunt key non-modifier. Claves systematis Android reparari non possunt.</string>
+    <string name="peripheral_mouse_ready">Click aream test capere murem. Torcular effugere dimittere eam. Mensurae sunt motus relativus ab Android relatus, non hardware DPI.</string>
+    <string name="peripheral_keyboard_ready">Press claves vel accumsan in tua corporis tincidunt. Torcular effugere claudere test.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGame X / Y: %3$s\nSamples: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKey: %2$s · Scan: %3$d · Repeat: %4$d\nHeld: %5$s</string>
 </resources>

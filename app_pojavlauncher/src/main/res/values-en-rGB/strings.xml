@@ -167,7 +167,7 @@
     <string name="crash_no_findings">No known crash pattern was found in the latest logs.</string>
     <string name="crash_recovery_applied">Recovery action completed</string>
     <string name="crash_recovery_manual">This issue needs a manual change. Open the log for details.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_like_btn">Like</string>
     <string name="ctrl_liked_added">Added to liked controls.</string>
     <string name="ctrl_liked_btn">Liked</string>
@@ -228,8 +228,8 @@
     <string name="java_runtime_download_progress">Downloading Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installing Java 8</string>
     <string name="java_runtime_download_waiting">Preparing Java 8 download...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.9</string>
     <string name="launcher_status_battly">Battly account</string>
     <string name="launcher_status_battly_plus">Battly+ account</string>
     <string name="library_analyze_mods">Analyze</string>
@@ -435,4 +435,22 @@
     <string name="battly_update_welcome_desc">A cleaner, faster and more complete Battly experience is ready for you.</string>
     <string name="battly_in_app_title">Battly</string>
     <string name="battly_in_app_open">Open</string>
+    <string name="automatic_game_keyboard_title">Open the keyboard automatically</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_desc">Safer modpack installation, file sharing and external plugin authorization.</string>
+    <string name="battly_whats_new_controllers_title">Protected file sharing</string>
+    <string name="battly_whats_new_controllers_desc">Sharing one folder no longer allows access to other folders outside the permission you granted.</string>
+    <string name="battly_whats_new_instances_title">Protected modpack installation</string>
+    <string name="battly_whats_new_instances_desc">Archive contents and downloaded files stay inside their assigned instance, without modifying other instances.</string>
+    <string name="battly_whats_new_worlds_title">Your plugin permissions</string>
+    <string name="battly_whats_new_worlds_desc">External plugins need authorization before use. Previously installed plugins must be authorized again once.</string>
+    <string name="battly_whats_new_compatibility_title">Safer Discord sign-in</string>
+    <string name="battly_whats_new_compatibility_desc">Login responses must match a pending request, expire after a short time and can only be accepted once.</string>
+    <string name="battly_whats_new_native_title">Native dependencies remain available</string>
+    <string name="battly_whats_new_native_desc">Built-in libraries work automatically. Permissions for external plugins are linked to the APK signing identity.</string>
+    <string name="battly_whats_new_recovery_title">Statistics and translations</string>
+    <string name="battly_whats_new_recovery_desc">Usage analytics activate when Battly starts, except in offline mode. Release notes and plugin messages have been translated.</string>
+    <string name="battly_whats_new_action_start">Explore 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 is ready</string>
+    <string name="battly_whats_new_transition_desc">Your instances remain in place. Authorize trusted external plugins in Settings before using them.</string>
 </resources>

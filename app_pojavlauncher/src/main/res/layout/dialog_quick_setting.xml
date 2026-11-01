@@ -164,6 +164,16 @@
         app:layout_constraintTop_toBottomOf="@id/editMouseSpeed_seekbar"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <Switch
+        android:id="@+id/checkboxLongPressDrop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:text="@string/mcl_disable_long_press_drop"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkboxGesture"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
     <!-- gesture settings -->
     <TextView
         android:id="@+id/editGestureDelay_textView"
@@ -175,7 +185,7 @@
         android:text="@string/mcl_setting_title_longpresstrigger"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkboxGesture" />
+        app:layout_constraintTop_toBottomOf="@id/checkboxLongPressDrop" />
 
     <com.kdt.CustomSeekbar
         android:id="@+id/editGestureDelay_seekbar"

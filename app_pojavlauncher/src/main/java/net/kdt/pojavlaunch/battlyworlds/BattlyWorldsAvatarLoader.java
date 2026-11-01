@@ -8,6 +8,7 @@ import net.kdt.pojavlaunch.PojavApplication;
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.utils.BattlySkinApi;
+import net.kdt.pojavlaunch.value.MinecraftAccount;
 
 public final class BattlyWorldsAvatarLoader {
     private static final int CACHE_SIZE_KB = 4 * 1024;
@@ -30,12 +31,12 @@ public final class BattlyWorldsAvatarLoader {
             target.setImageBitmap(cached);
             return;
         }
-        target.setImageResource(R.drawable.ic_battly_social);
+        target.setImageResource(R.drawable.ic_steve_face);
         if (key.isEmpty()) return;
         PojavApplication.sExecutorService.execute(() -> {
             try {
                 Bitmap bitmap = BattlySkinApi.downloadFaceBitmap(key);
-                if (bitmap == null || bitmap.isRecycled()) return;
+                if (!MinecraftAccount.isUsableSkinFace(bitmap)) return;
                 synchronized (CACHE) {
                     CACHE.put(key, bitmap);
                 }
@@ -43,6 +44,9 @@ public final class BattlyWorldsAvatarLoader {
                     if (key.equals(target.getTag())) target.setImageBitmap(bitmap);
                 });
             } catch (Throwable ignored) {
+                Tools.runOnUiThread(() -> {
+                    if (key.equals(target.getTag())) target.setImageResource(R.drawable.ic_steve_face);
+                });
             }
         });
     }

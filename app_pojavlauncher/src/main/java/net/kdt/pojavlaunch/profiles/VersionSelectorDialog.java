@@ -26,6 +26,8 @@ import net.kdt.pojavlaunch.JMinecraftVersionList;
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
+import net.kdt.pojavlaunch.extra.ExtraCore;
+import net.kdt.pojavlaunch.tasks.AsyncVersionList;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -166,6 +168,17 @@ public class VersionSelectorDialog {
             listener.onVersionSelected(option.id, option.snapshot);
             dialog.dismiss();
         });
+        if (getValue(ExtraConstants.RELEASE_TABLE) == null) {
+            new AsyncVersionList().getVersionList(versions -> {
+                if (versions == null) return;
+                ExtraCore.setValue(ExtraConstants.RELEASE_TABLE, versions);
+                Tools.runOnUiThread(() -> {
+                    if (dialog.isShowing()) {
+                        adapter.replaceOptions(buildOptions(context, hideCustomVersions));
+                    }
+                });
+            }, false);
+        }
     }
 
     private static List<VersionOption> buildOptions(Context context, boolean hideCustomVersions) {
@@ -258,7 +271,13 @@ public class VersionSelectorDialog {
 
         VersionOptionAdapter(Context context, List<VersionOption> allOptions) {
             this.context = context;
-            this.allOptions = allOptions;
+            this.allOptions = new ArrayList<>(allOptions);
+            applyFilters();
+        }
+
+        void replaceOptions(List<VersionOption> options) {
+            allOptions.clear();
+            allOptions.addAll(options);
             applyFilters();
         }
 

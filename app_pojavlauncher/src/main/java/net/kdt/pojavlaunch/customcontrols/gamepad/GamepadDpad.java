@@ -11,6 +11,9 @@ import android.view.KeyEvent;
 
 public class GamepadDpad {
     public static boolean isDpadEvent(KeyEvent event) {
+        if (net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseInput.isMouseSource(event.getSource())) {
+            return false;
+        }
         InputDevice device = event.getDevice();
         int sources = event.getSource() | (device == null ? 0 : device.getSources());
         int keyboardType = device == null ? InputDevice.KEYBOARD_TYPE_NONE : device.getKeyboardType();

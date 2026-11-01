@@ -10,9 +10,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class AdaptiveGraphicsPolicyTest {
+    @Test
+    public void manuallySelectedKryptonIsKeptForOpen4esShaders() {
+        String krypton = "opengles3_krypton";
+        AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
+                "auto", "Adreno 650", true, true, false, false, 8192, 100, false,
+                krypton, Arrays.asList(krypton, "opengles_mobileglues"),
+                Collections.emptyList()).decide();
+        assertEquals(krypton, decision.rendererId);
+    }
     private static final String MOBILE_GLUES = "opengles_mobileglues";
     private static final String FREEDRENO = "opengles3_desktopgl_freedreno";
     private static final String KOPPER = "opengles3_desktopgl_zink_kopper";
+    private static final String LTW = "opengles3_ltw";
 
     @Test
     public void adrenoSixWithShadersPrefersFreedreno() {
@@ -75,9 +85,44 @@ public class AdaptiveGraphicsPolicyTest {
     }
 
     @Test
+    public void lowMemoryAutoProfileReducesResolutionWithoutShaders() {
+        AdaptiveGraphicsPolicy.Decision decision = decide(
+                "auto", "PowerVR Rogue GE8300", false, true, false, 1794, 75,
+                Arrays.asList(MOBILE_GLUES, KOPPER));
+
+        assertEquals(MOBILE_GLUES, decision.rendererId);
+        assertEquals(60, decision.resolutionPercent);
+        assertTrue(decision.enableSustainedPerformance);
+        assertTrue(decision.adapted);
+    }
+
+    @Test
+    public void lowMemory32BitModernMinecraftUsesLtwWhenAvailable() {
+        AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
+                "auto", "PowerVR Rogue GE8300", false, true, false, true,
+                1794, 75, false, MOBILE_GLUES, Arrays.asList(MOBILE_GLUES, LTW),
+                Collections.emptyList()).decide();
+
+        assertEquals(LTW, decision.rendererId);
+        assertEquals(60, decision.resolutionPercent);
+        assertTrue(decision.enableSustainedPerformance);
+        assertTrue(decision.adapted);
+    }
+
+    @Test
+    public void lowMemory32BitDesktopGlVersionKeepsCompatibilityRenderer() {
+        AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
+                "auto", "PowerVR Rogue GE8300", false, true, true, true,
+                1794, 75, false, MOBILE_GLUES, Arrays.asList(MOBILE_GLUES, LTW),
+                Collections.emptyList()).decide();
+
+        assertEquals(MOBILE_GLUES, decision.rendererId);
+    }
+
+    @Test
     public void customModeNeverOverridesBaseline() {
         AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
-                "custom", "Adreno (TM) 640", true, true, false, 4096, 80,
+                "custom", "Adreno (TM) 640", true, true, false, false, 4096, 80,
                 false, KOPPER, Arrays.asList(MOBILE_GLUES, FREEDRENO, KOPPER),
                 Collections.emptyList()).decide();
 
@@ -89,7 +134,7 @@ public class AdaptiveGraphicsPolicyTest {
     @Test
     public void blockedRendererIsSkipped() {
         AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
-                "auto", "Adreno (TM) 640", true, true, false, 8192, 100,
+                "auto", "Adreno (TM) 640", true, true, false, false, 8192, 100,
                 false, MOBILE_GLUES, Arrays.asList(MOBILE_GLUES, FREEDRENO, KOPPER),
                 Collections.singletonList(FREEDRENO)).decide();
 
@@ -99,7 +144,7 @@ public class AdaptiveGraphicsPolicyTest {
     @Test
     public void legacyMinecraftKeepsCompatibilityRendererWithShaders() {
         AdaptiveGraphicsPolicy.Decision decision = new AdaptiveGraphicsPolicy.Input(
-                "auto", "Adreno (TM) 640", true, false, false, 4096, 100,
+                "auto", "Adreno (TM) 640", true, false, false, false, 4096, 100,
                 false, "opengles2", Arrays.asList("opengles2", MOBILE_GLUES, FREEDRENO),
                 Collections.emptyList()).decide();
 
@@ -112,7 +157,7 @@ public class AdaptiveGraphicsPolicyTest {
                                                             boolean desktop,
                                                             long ramMb, int resolution,
                                                             java.util.List<String> compatible) {
-        return new AdaptiveGraphicsPolicy.Input(profile, gpu, shaders, modern, desktop, ramMb,
+        return new AdaptiveGraphicsPolicy.Input(profile, gpu, shaders, modern, desktop, false, ramMb,
                 resolution, false, MOBILE_GLUES, compatible,
                 Collections.emptyList()).decide();
     }

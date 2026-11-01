@@ -1,6 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 HERE_PATH := $(LOCAL_PATH)
+BATTLY_BUILD_SHARED_LIBRARY := $(BUILD_SHARED_LIBRARY)
+BUILD_SHARED_LIBRARY := $(HERE_PATH)/sdl_android_device_bridge.mk
 include $(LOCAL_PATH)/SDL/Android.mk
+BUILD_SHARED_LIBRARY := $(BATTLY_BUILD_SHARED_LIBRARY)
 # include $(HERE_PATH)/crash_dump/libbase/Android.mk
 # include $(HERE_PATH)/crash_dump/libbacktrace/Android.mk
 # include $(HERE_PATH)/crash_dump/debuggerd/Android.mk

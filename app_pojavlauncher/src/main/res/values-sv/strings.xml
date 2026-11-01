@@ -212,7 +212,7 @@
     <string name="crash_no_findings">Ingen känd kraschmönster hittades i de senaste loggarna.</string>
     <string name="crash_recovery_applied">Återställningsåtgärd slutförd</string>
     <string name="crash_recovery_manual">Detta problem kräver en manuell ändring. Öppna loggen för detaljer.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_like_btn">Gilla</string>
     <string name="ctrl_liked_added">Tillagd i gillade kontroller.</string>
     <string name="ctrl_liked_btn">Gillad</string>
@@ -273,8 +273,8 @@
     <string name="java_runtime_download_progress">Laddar ner Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installera Java 8</string>
     <string name="java_runtime_download_waiting">Förbereder nedladdning av Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Battly konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analysera</string>
@@ -756,7 +756,7 @@
     <string name="installer_internal_fallback">Installationsprogram som inte stöds, öppnar det äldre användargränssnittet Java</string>
     <string name="installer_internal_running">Analyserar installationsprogrammet...</string>
     <string name="installer_internal_success">%1$s installerad direkt inuti Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher baserad på PojavLauncher och Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediter&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -800,7 +800,7 @@
     <string name="launcher_version_format">Version %1$s</string>
     <string name="launcher_version_unknown">Okänd</string>
     <string name="launcher_versions_button">Versioner</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launcher Förgrundsservice</string>
     <string name="legacy_mixin_missing_message">En av dina Forge 1.7.10 mods begär Sponge Mixin, men ingen Mixin- eller UniMixins-leverantör är installerad. Installera UniMixins/Mixin för 1.7.10 eller ta bort den moden innan du startar Minecraft.</string>
     <string name="legacy_mixin_missing_title">Äldre Mixin-beroende saknas</string>
     <string name="library_button_desc">Öppet bibliotek</string>
@@ -1195,4 +1195,107 @@
     <string name="search_world_download_error">Det gick inte att ladda ner världens metadata</string>
     <string name="world_install_button">Installera världen</string>
     <string name="world_install_success">%1$s installerad i den här instansen</string>
+
+    <string name="battly_whats_new_transition_desc">Dina instanser förblir på plats. Auktorisera betrodda externa plugins i Inställningar innan du använder dem.</string>
+    <string name="download_action_import_mods_title">Importera externa mods</string>
+    <string name="download_action_import_mods_subtitle">Välj en eller flera `.jar`-filer och lägg till dem i den valda instansen.</string>
+    <string name="library_installed_show_more">Visa %1$d mer</string>
+    <string name="library_import_mods_replace_title">Byta ut befintliga mods?</string>
+    <string name="library_import_mods_replace_message">%1$d valda mod-filer finns redan i %2$s. Battly kommer att ersätta dem först efter att de nya filerna har validerats.</string>
+    <string name="library_import_mods_invalid">Inga giltiga ".jar" mod-filer har valts.</string>
+    <string name="library_import_mods_success">Importerade %1$d mods till %2$s.</string>
+    <string name="library_import_mods_partial">Importerade %1$d-mods till %2$s · %3$d-filer kunde inte importeras.</string>
+    <string name="library_import_mods_error">De valda modsna kunde inte importeras.</string>
+    <string name="battly_whats_new_action_start">Utforska 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Inloggningssvar måste matcha en väntande begäran, upphöra efter en kort tid och kan endast accepteras en gång.</string>
+    <string name="battly_whats_new_compatibility_title">Säkrare Discord-inloggning</string>
+    <string name="battly_whats_new_controllers_desc">Att dela en mapp ger inte längre åtkomst till andra mappar utanför den behörighet du gav.</string>
+    <string name="battly_whats_new_controllers_title">Skyddad fildelning</string>
+    <string name="battly_whats_new_desc">Säkrare modpack-installation, fildelning och extern plugin-auktorisering.</string>
+    <string name="battly_whats_new_instances_desc">Arkivinnehåll och nedladdade filer stannar i sin tilldelade instans, utan att ändra andra instanser.</string>
+    <string name="battly_whats_new_instances_title">Skyddad modpack installation</string>
+    <string name="battly_whats_new_recovery_desc">Användningsanalys aktiveras när Battly startar, förutom i offlineläge. Releasenotes och pluginmeddelanden har översatts.</string>
+    <string name="battly_whats_new_recovery_title">Statistik och översättningar</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 är klar</string>
+    <string name="battly_whats_new_worlds_desc">Externa plugins behöver auktorisering före användning. Tidigare installerade plugins måste auktoriseras igen en gång.</string>
+    <string name="battly_whats_new_worlds_title">Dina plugin-behörigheter</string>
+    <string name="battly_appearance_title">Battly skinn och capes</string>
+    <string name="battly_appearance_subtitle">Förhandsgranska och hantera ditt kompletta Minecraft-utseende från Mobile.</string>
+    <string name="battly_capes_title">Battly kappor</string>
+    <string name="battly_capes_description">Välj en officiell cape eller ladda upp din egen med Battly+. Den aktiva capen visas i 3D-förhandsgranskningen och inuti Minecraft.</string>
+    <string name="battly_capes_loading">Laddar Battly capes...</string>
+    <string name="battly_capes_active">Aktiv cape</string>
+    <string name="battly_capes_none">Ingen aktiv cape</string>
+    <string name="battly_capes_empty">Inga kappor är tillgängliga för detta konto.</string>
+    <string name="battly_capes_upload">Ladda upp cape</string>
+    <string name="battly_capes_upload_plus">Ladda upp med Battly+</string>
+    <string name="battly_capes_plus_required">Anpassade capes är tillgängliga med Battly+. Du kan fortfarande använda de officiella kapporna.</string>
+    <string name="battly_capes_disable">Ingen cape</string>
+    <string name="battly_capes_disabled">Cape handikappad</string>
+    <string name="battly_capes_uploaded">Cape laddas upp och tillämpas</string>
+    <string name="battly_capes_applied">Cape tillämpas</string>
+    <string name="battly_capes_deleted">Kap utgår</string>
+    <string name="battly_capes_previewing">Förhandsvisning cape</string>
+    <string name="battly_capes_custom">Custom cape</string>
+    <string name="battly_capes_official">Officiell udde</string>
+
+    <string name="battly_capes_unavailable">Capes är tillfälligt otillgängliga. Dina skal är fortfarande tillgängliga.</string>
+
+    <string name="native_plugins_bundled_category">Android beroenden som ingår i Battly</string>
+    <string name="native_plugins_bundled_ready">Version %1$s · Klar</string>
+
+    <string name="battly_whats_new_native_title">Inbyggda beroenden förblir tillgängliga</string>
+    <string name="battly_whats_new_native_desc">Inbyggda bibliotek fungerar automatiskt. Behörigheter för externa plugins är kopplade till APK-signeringsidentiteten.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Daglig aktivitet · Mobil</string>
+    <string name="battly_stats_history_notice">Lokal tid vid inspelning. Historien börjar med den här uppdateringen; tidigare totalsummor förblir under.</string>
+    <string name="battly_stats_history_unavailable">Daglig historik är inte tillgänglig på servern ännu. Din totala statistik visas nedan.</string>
+    <string name="battly_stats_period_label">Aktivitetsperiod</string>
+    <string name="battly_stats_day_label">Aktivitetsdatum</string>
+    <string name="battly_stats_period_days">Senaste %1$d dagar</string>
+    <string name="battly_stats_period_summary">Aktiva dagar: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Första aktiviteten: %1$s · Senaste aktiviteten: %2$s</string>
+    <string name="battly_stats_day_modes">Världar: %1$s · Servrar: %2$s (Battly Worlds: %3$s) · Spelmenyer: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">All-time totals · PC + Mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Öppna tangentbordet automatiskt</string>
+
+    <string name="native_plugins_trust_warning">Denna externa plugin kan köra inbyggd kod med tillgång till Battly filer och konton. Tillåt endast plugins från en källa som du litar på. Behörigheten är kopplad till APK-signeringsidentiteten.</string>
+    <string name="native_plugins_trust_action">Tillåt plugin</string>
+
+    <string name="peripheral_title">Tangentbord, mus och kontroller</string>
+    <string name="peripheral_devices">Ansluten kringutrustning</string>
+    <string name="peripheral_no_devices">Ingen extern kringutrustning upptäcktes</string>
+    <string name="peripheral_mouse">Fysisk mus</string>
+    <string name="peripheral_pc_preset">Använd förinställning för PC-mus</string>
+    <string name="peripheral_pc_mode">Upplösningsoberoende inriktning</string>
+    <string name="peripheral_pc_mode_summary">Konstant linjär känslighet oavsett renderingsupplösning. Battly ger ingen acceleration eller utjämning. Android 8 eller senare.</string>
+    <string name="peripheral_mouse_x">Horisontell känslighet</string>
+    <string name="peripheral_mouse_y">Vertikal känslighet</string>
+    <string name="peripheral_invert_x">Invertera horisontell axel</string>
+    <string name="peripheral_invert_y">Invertera vertikal axel</string>
+    <string name="peripheral_mouse_test">Testa muskalibrering</string>
+    <string name="peripheral_keyboard">Fysiskt tangentbord</string>
+    <string name="peripheral_bindings">Spelnyckelbindningar</string>
+    <string name="peripheral_binding_count">%1$d bindningar. Menyinmatning är oförändrad.</string>
+    <string name="peripheral_keyboard_test">Testa nycklar och kombinationer</string>
+    <string name="peripheral_stick_linear">Linjär kontrollinriktning</string>
+    <string name="peripheral_stick_linear_summary">Proportionell stickrespons istället för standardkvadratkurvan. Gäller Battly-kontrollermappning, inte inbyggda kontrollermods.</string>
+    <string name="peripheral_stick_sensitivity">Kontrollens kamerakänslighet</string>
+    <string name="peripheral_reset_test">Återställ mätningen</string>
+    <string name="peripheral_add_binding">Lägg till nyckelbindning</string>
+    <string name="peripheral_source_key">Fysisk nyckel</string>
+    <string name="peripheral_target_key">Skicka denna nyckel till Minecraft</string>
+    <string name="peripheral_press_key">Tryck och släpp en fysisk nyckel. Om du väljer en befintlig bindning tas den bort. Modifieringsnycklar behåller sitt normala beteende.</string>
+    <string name="peripheral_invalid_key">Välj en icke-modifierande tangentbordstangent. Android-systemnycklar kan inte mappas om.</string>
+    <string name="peripheral_mouse_ready">Klicka på testområdet för att fånga musen. Tryck på Escape för att släppa den. Mätningar är relativ rörelse som rapporteras av Android, inte hårdvaru-DPI.</string>
+    <string name="peripheral_keyboard_ready">Tryck på tangenter eller kombinationer på ditt fysiska tangentbord. Tryck på Escape för att stänga testet.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nSpel X / Y: %3$s\nExempel: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nNyckel: %2$s · Skanna: %3$d · Upprepa: %4$d\nHold: %5$s</string>
 </resources>

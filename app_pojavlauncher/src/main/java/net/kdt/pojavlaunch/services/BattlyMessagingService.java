@@ -32,6 +32,10 @@ public class BattlyMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
         Telemetry.logMessageReceived(remoteMessage.getFrom());
+        if ("battly_access_changed".equals(remoteMessage.getData().get("type"))) {
+            net.kdt.pojavlaunch.utils.BattlyAccessManager.checkFromPush(this);
+            return;
+        }
 
         if (BattlyWorldsInvites.TYPE.equals(remoteMessage.getData().get(BattlyWorldsInvites.EXTRA_TYPE))) {
             if (!BattlyWorldsFeature.ENABLED) {

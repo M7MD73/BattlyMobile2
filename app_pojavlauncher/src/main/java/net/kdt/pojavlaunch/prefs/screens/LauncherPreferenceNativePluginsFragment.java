@@ -8,6 +8,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import net.kdt.pojavlaunch.R;
+import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.NativeDependencyCatalog;
 import net.kdt.pojavlaunch.utils.NativeLibraryPluginManager;
 
 import java.util.List;
@@ -17,6 +19,21 @@ public class LauncherPreferenceNativePluginsFragment extends LauncherPreferenceF
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(requireContext());
         setPreferenceScreen(screen);
+
+        PreferenceCategory bundledCategory = new PreferenceCategory(requireContext());
+        bundledCategory.setKey("bundled_native_dependencies");
+        bundledCategory.setTitle(R.string.native_plugins_bundled_category);
+        screen.addPreference(bundledCategory);
+        List<NativeDependencyCatalog.Dependency> bundledDependencies =
+                NativeLibraryPluginManager.bundledDependencies(requireContext());
+        for (NativeDependencyCatalog.Dependency dependency : bundledDependencies) {
+            Preference preference = new Preference(requireContext());
+            preference.setSelectable(false);
+            preference.setTitle(dependency.name);
+            preference.setSummary(getString(
+                    R.string.native_plugins_bundled_ready, dependency.version));
+            bundledCategory.addPreference(preference);
+        }
 
         PreferenceCategory category = new PreferenceCategory(requireContext());
         category.setTitle(R.string.native_plugins_category);
@@ -30,23 +47,33 @@ public class LauncherPreferenceNativePluginsFragment extends LauncherPreferenceF
             empty.setTitle(R.string.native_plugins_empty_title);
             empty.setSummary(R.string.native_plugins_empty_summary);
             category.addPreference(empty);
-            return;
-        }
-
-        for (NativeLibraryPluginManager.Plugin plugin : plugins) {
-            SwitchPreferenceCompat preference = new SwitchPreferenceCompat(requireContext());
-            preference.setKey("native_plugin_" + plugin.packageName);
-            preference.setPersistent(false);
-            preference.setTitle(plugin.appName);
-            preference.setSummary(buildSummary(plugin));
-            preference.setChecked(NativeLibraryPluginManager.isEnabled(
-                    requireContext(), plugin.packageName));
-            preference.setOnPreferenceChangeListener((ignored, newValue) -> {
-                NativeLibraryPluginManager.setEnabled(
-                        requireContext(), plugin.packageName, Boolean.TRUE.equals(newValue));
-                return true;
-            });
-            category.addPreference(preference);
+        } else {
+            for (NativeLibraryPluginManager.Plugin plugin : plugins) {
+                SwitchPreferenceCompat preference = new SwitchPreferenceCompat(requireContext());
+                preference.setKey("native_plugin_" + plugin.packageName);
+                preference.setPersistent(false);
+                preference.setTitle(plugin.appName);
+                preference.setSummary(buildSummary(plugin));
+                preference.setChecked(NativeLibraryPluginManager.isEnabled(
+                        requireContext(), plugin.packageName));
+                preference.setOnPreferenceChangeListener((ignored, newValue) -> {
+                    if (!Boolean.TRUE.equals(newValue)) {
+                        return NativeLibraryPluginManager.setEnabled(requireContext(), plugin.packageName,
+                                plugin.signingIdentity, false);
+                    }
+                    Tools.createStyledDialogBuilder(requireContext())
+                            .setTitle(plugin.appName)
+                            .setMessage(R.string.native_plugins_trust_warning)
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .setPositiveButton(R.string.native_plugins_trust_action, (dialog, which) -> {
+                                if (!isAdded()) return;
+                                preference.setChecked(NativeLibraryPluginManager.setEnabled(requireContext(),
+                                        plugin.packageName, plugin.signingIdentity, true));
+                            }).show();
+                    return false;
+                });
+                category.addPreference(preference);
+            }
         }
     }
 

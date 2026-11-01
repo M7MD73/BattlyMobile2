@@ -220,7 +220,7 @@
     <string name="crash_no_findings">Һуңғы журналдарҙа билдәле авария ҡалыбы табылмаған.</string>
     <string name="crash_recovery_applied">Һауыҡтырыу акцияһы тамамланды</string>
     <string name="crash_recovery_manual">Был мәсьәләне ҡул менән үҙгәртергә кәрәк. Ентекле мәғлүмәт өсөн журналды асығыҙ.</string>
-    <string name="credits_version">2.2.5 версияһы</string>
+    <string name="credits_version">2.2.9 версияһы</string>
     <string name="ctrl_like_btn">Оҡшай</string>
     <string name="ctrl_liked_added">Оҡшаған контроль элементтарға өҫтәлде.</string>
     <string name="ctrl_liked_btn">Оҡшаны</string>
@@ -281,8 +281,8 @@
     <string name="java_runtime_download_progress">Скачивание Java %1$d (%2$.1f МБ / %3$.1f МБ)</string>
     <string name="java_runtime_download_title">Установка Java 8</string>
     <string name="java_runtime_download_waiting">әҙерләү Java 8 скачать...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Мобиль 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Мобиль 2.2.9</string>
     <string name="launcher_status_battly">Battly иҫәбенә</string>
     <string name="launcher_status_battly_plus">Battly+ иҫәп яҙмаһы</string>
     <string name="library_analyze_mods">Анализлау</string>
@@ -765,7 +765,7 @@
     <string name="installer_internal_fallback">Ярҙам итмәгән ҡуйыусы, иҫке Java UI аса</string>
     <string name="installer_internal_running">Анализлау ҡуйыусы...</string>
     <string name="installer_internal_success">%1$s туранан-тура Battly эсендә ҡуйылған</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9
         ПоджавЛанчер һәм Бордволк нигеҙендә стартер.&lt;br/&gt;&lt;br/&gt;
         Кредиттар&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1204,4 +1204,107 @@
     <string name="search_world_download_error">Донъя метамағлүмәттәрен күсереп алыу мөмкин булманы</string>
     <string name="world_install_button">Донъя ҡуйыу</string>
     <string name="world_install_success">Был данаға %1$s ҡуйылған</string>
+
+    <string name="battly_whats_new_transition_desc">Һеҙҙең инстанциялар урынында ҡала. Ышаныслы тышҡы плагиндарҙы ҡулланыр алдынан Көйләүҙәрҙә рөхсәт итегеҙ.</string>
+    <string name="download_action_import_mods_title">Тышҡы модтарҙы импортлау</string>
+    <string name="download_action_import_mods_subtitle">Бер йәки бер нисә `.jar` файлын һайлағыҙ һәм уларҙы һайланған экземплярға өҫтәгеҙ.</string>
+    <string name="library_installed_show_more">%1$d күберәк күрһәтеү</string>
+    <string name="library_import_mods_replace_title">Булған модтарҙы алмаштырырғамы?</string>
+    <string name="library_import_mods_replace_message">%1$d һайланған мод файлдары инде %2$s бар. Battly уларҙы яңы файлдарҙы раҫлағандан һуң ғына алмаштырасаҡ.</string>
+    <string name="library_import_mods_invalid">Дөрөҫ `.jar` мод файлдары һайланмаған.</string>
+    <string name="library_import_mods_success">Импортированные моды %1$d в %2$s.</string>
+    <string name="library_import_mods_partial">Импортированные моды %1$d в %2$s · %3$d файлы импортироваться не удалось.</string>
+    <string name="library_import_mods_error">Һайланған модтарҙы импортлау мөмкин булманы.</string>
+    <string name="battly_whats_new_action_start">2.2.9 тикшерергә</string>
+    <string name="battly_whats_new_compatibility_desc">Логин яуаптары көтөлгән запросҡа тап килергә тейеш, ҡыҫҡа ваҡыттан һуң ваҡыты үтергә һәм бер тапҡыр ғына ҡабул ителә ала.</string>
+    <string name="battly_whats_new_compatibility_title">Хәүефһеҙерәк Discord инеү</string>
+    <string name="battly_whats_new_controllers_desc">Бер папканы бүлешеп, һеҙ биргән рөхсәттән тыш башҡа папкаларға инеү мөмкинлеген бирмәй.</string>
+    <string name="battly_whats_new_controllers_title">Һаҡланған файлдар менән бүлешеү</string>
+    <string name="battly_whats_new_desc">Хәүефһеҙерәк modpack ҡуйыу, файлдар менән бүлешергә һәм тышҡы плагин авторизация.</string>
+    <string name="battly_whats_new_instances_desc">Архив йөкмәткеһе һәм йөкмәтелгән файлдар үҙҙәренә тәғәйенләнгән экземпляр эсендә ҡала, башҡа экземплярҙарҙы үҙгәртмәйенсә.</string>
+    <string name="battly_whats_new_instances_title">Һаҡланған modpack ҡуйыу</string>
+    <string name="battly_whats_new_recovery_desc">Ҡулланыу аналитикаһы Battly башланғанда әүҙемләшә, офлайн режимдан башҡа. Релиз иҫкәрмәләр һәм плагин хәбәрҙәре тәржемә ителгән.</string>
+    <string name="battly_whats_new_recovery_title">Статистика һәм тәржемә</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 әҙер</string>
+    <string name="battly_whats_new_worlds_desc">Тышҡы плагиндарҙы ҡулланыр алдынан рөхсәт кәрәк. Элек ҡуйылған плагиндарҙы яңынан бер тапҡыр рөхсәт итергә кәрәк.</string>
+    <string name="battly_whats_new_worlds_title">Һеҙҙең плагин рөхсәттәре</string>
+    <string name="battly_appearance_title">Battly тире һәм плащтар</string>
+    <string name="battly_appearance_subtitle">Алдан ҡарау һәм идара итеү һеҙҙең тулы Minecraft тышҡы ҡиәфәте Мобиль.</string>
+    <string name="battly_capes_title">Battly плащтар</string>
+    <string name="battly_capes_description">Рәсми плащ һайлау йәки үҙ тейәп Battly +. Әүҙем плащ 3D алдан ҡарауҙа һәм Minecraft эсендә күрһәтелгән.</string>
+    <string name="battly_capes_loading">Загрузка Battly плащ...</string>
+    <string name="battly_capes_active">Әүҙем мыс</string>
+    <string name="battly_capes_none">Әүҙем мыс юҡ</string>
+    <string name="battly_capes_empty">Был иҫәп өсөн бер ниндәй ҙә плащтар юҡ.</string>
+    <string name="battly_capes_upload">Йөйләү мыс</string>
+    <string name="battly_capes_upload_plus">Battly+ менән тейәгеҙ</string>
+    <string name="battly_capes_plus_required">Ҡулланыусылар өсөн плащтар менән Battly + бар. Рәсми плащтарҙы һаман да ҡулланырға мөмкин.</string>
+    <string name="battly_capes_disable">Плащ юҡ</string>
+    <string name="battly_capes_disabled">Кап инвалид</string>
+    <string name="battly_capes_uploaded">Кейп тейәлгән һәм ҡулланылған</string>
+    <string name="battly_capes_applied">Кап ҡулланыла</string>
+    <string name="battly_capes_deleted">Кап юйылған</string>
+    <string name="battly_capes_previewing">Алдан ҡарау мыс</string>
+    <string name="battly_capes_custom">Ҡулланыусылар өсөн плащ</string>
+    <string name="battly_capes_official">Рәсми мыс</string>
+
+    <string name="battly_capes_unavailable">Капюшондар ваҡытлыса һатып алынмай. Һеҙҙең тиреләрегеҙ әле лә бар.</string>
+
+    <string name="native_plugins_bundled_category">Android бәйлелектәре Battly менән бергә инә</string>
+    <string name="native_plugins_bundled_ready">Версия %1$s · Әҙер</string>
+
+    <string name="battly_whats_new_native_title">Туған бәйлелектәр бар ҡала</string>
+    <string name="battly_whats_new_native_desc">Ҡоролған китапханалар автоматик рәүештә эшләй. Тышҡы плагиндар өсөн рөхсәттәр APK ҡул ҡуйыу идентификаторы менән бәйле.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Көндәлек эшмәкәрлек · Мобиль</string>
+    <string name="battly_stats_history_notice">Урындағы ваҡыт яҙылғанда. Тарих был яңыртыуҙан башлана; элекке дөйөм күрһәткестәр түбәнерәк ҡала.</string>
+    <string name="battly_stats_history_unavailable">Көндәлек тарих серверҙа әлегә юҡ. Һеҙҙең дөйөм статистика түбәндә күрһәтелгән.</string>
+    <string name="battly_stats_period_label">Эшмәкәрлек осоро .</string>
+    <string name="battly_stats_day_label">Эшмәкәрлек датаһы</string>
+    <string name="battly_stats_period_days">Һуңғы %1$d көндәре</string>
+    <string name="battly_stats_period_summary">Активные дни: %1$d · Minecraft: %2$s · Пуск: %3$s</string>
+    <string name="battly_stats_time_range">Беренсе эшмәкәрлек: %1$s · Һуңғы эшмәкәрлек: %2$s</string>
+    <string name="battly_stats_day_modes">Донъялар: %1$s · Серверҙар: %2$s (Battly Worlds: %3$s) · Уйын менюлары: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Запуск: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d с</string>
+    <string name="battly_stats_lifetime">Бөтә ваҡыттағы дөйөм һандар · ПК + Мобиль</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Запуск: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d ч</string>
+    <string name="automatic_game_keyboard_title">Клавиатураны автоматик асыу</string>
+
+    <string name="native_plugins_trust_warning">Был тышҡы плагин Battly файлдарына һәм иҫәп яҙмаларына инеү мөмкинлеге менән туған кодты эшләй ала. Һеҙ ышанған сығанаҡтан плагиндарҙы ғына рөхсәт итегеҙ. Рөхсәт APK ҡул ҡуйыу шәхес менән бәйле.</string>
+    <string name="native_plugins_trust_action">Рөхсәт плагин</string>
+
+    <string name="peripheral_title">Клавиатура, сысҡан һәм контроллер</string>
+    <string name="peripheral_devices">Тоташтырылған периферия</string>
+    <string name="peripheral_no_devices">Тышҡы периферия ҡоролмалары асыҡланмаған</string>
+    <string name="peripheral_mouse">Физик сысҡан</string>
+    <string name="peripheral_pc_preset">Ҡулланыу ПК сысҡан алдан ҡуйылған</string>
+    <string name="peripheral_pc_mode">Ҡарар-бойондороҡһоҙ маҡсат ҡуйыу</string>
+    <string name="peripheral_pc_mode_summary">Даими һыҙыҡлы һиҙгерлек рендер асыҡлығына ҡарамаҫтан. Battly тиҙләтеү йәки тигеҙләү өҫтәмәй. Android 8 йәки һуңыраҡ.</string>
+    <string name="peripheral_mouse_x">Горизонталь һиҙгерлек</string>
+    <string name="peripheral_mouse_y">Вертикаль һиҙгерлек</string>
+    <string name="peripheral_invert_x">Горизонталь күсәрҙе кире ҡайтарыу</string>
+    <string name="peripheral_invert_y">Вертикаль күсәрҙе кире ҡайтарыу</string>
+    <string name="peripheral_mouse_test">Һынау сысҡан калибровкаһы</string>
+    <string name="peripheral_keyboard">Физик клавиатура</string>
+    <string name="peripheral_bindings">Геймплей асҡыс бәйләүҙәре</string>
+    <string name="peripheral_binding_count">%1$d бәйләүҙәр. Меню яҙыу үҙгәрешһеҙ.</string>
+    <string name="peripheral_keyboard_test">Һынау асҡыстары һәм комбинациялары</string>
+    <string name="peripheral_stick_linear">Һыҙыҡлы контроллер йүнәлтелгән</string>
+    <string name="peripheral_stick_linear_summary">Пропорциональ таяҡ яуап урынына стандарт квадрат ҡойроғо. Battly контроллер картаһы ҡағыла, туған контроллер модтар түгел.</string>
+    <string name="peripheral_stick_sensitivity">Контроллер камераһы һиҙгерлеге</string>
+    <string name="peripheral_reset_test">Үлсәүҙе ҡабаттан тергеҙеү</string>
+    <string name="peripheral_add_binding">Асҡыс бәйләүен өҫтәү</string>
+    <string name="peripheral_source_key">Физик асҡыс</string>
+    <string name="peripheral_target_key">Был асҡысты Minecraft адресына ебәрегеҙ</string>
+    <string name="peripheral_press_key">Физик төймәгә баҫып ебәрегеҙ. Булған бәйләүҙе һайлау уны юя. Модификатор асҡыстары үҙҙәренең ғәҙәти тәртибен һаҡлай.</string>
+    <string name="peripheral_invalid_key">Модификаторһыҙ клавиатура төймәһен һайлағыҙ. Android система асҡыстарын яңынан картаға төшөрөп булмай.</string>
+    <string name="peripheral_mouse_ready">Сысҡанды тотоу өсөн һынау майҙанына баҫығыҙ. Уны сығарыу өсөн Escape баҫығыҙ. Үлсәүҙәр сағыштырмаса хәрәкәт тураһында хәбәр Android, аппарат түгел DPI.</string>
+    <string name="peripheral_keyboard_ready">Һеҙҙең физик клавиатурала төймәләргә йәки комбинацияларға баҫығыҙ. Тестты ябыу өсөн Escape баҫығыҙ.</string>
+    <string name="peripheral_mouse_result">%1$s\Android Х / Й: %2$s\нУйын Х / Й: %3$s\нӨлгөләр: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nАсҡыс: %2$s · Сканирование: %3$d · Ҡабатларға: %4$d\nҮткәрелгән: %5$s</string>
 </resources>

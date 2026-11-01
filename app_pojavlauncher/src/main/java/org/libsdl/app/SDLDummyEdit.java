@@ -32,6 +32,17 @@ public class SDLDummyEdit extends View implements View.OnKeyListener
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
+        if (!SdlImeController.isTextInputAccepted()) {
+            SdlImeController.requestHide(SdlImeController.Source.BACK);
+            return true;
+        }
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN
+                    || event.getAction() == KeyEvent.ACTION_UP) {
+                SDLActivity.submitSoftReturnKey();
+            }
+            return true;
+        }
         return SDLActivity.handleKeyEvent(v, keyCode, event, ic);
     }
 
@@ -45,8 +56,9 @@ public class SDLDummyEdit extends View implements View.OnKeyListener
         // FIXME: And determine the keyboard presence doing this: http://stackoverflow.com/questions/2150078/how-to-check-visibility-of-software-keyboard-in-android
         // FIXME: An even more effective way would be if Android provided this out of the box, but where would the fun be in that :)
         if (event.getAction()==KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-            if (SDLActivity.mTextEdit != null && SDLActivity.mTextEdit.getVisibility() == View.VISIBLE) {
+            if (SdlImeController.isKeyboardActive()) {
                 SDLActivity.onNativeKeyboardFocusLost();
+                SdlImeController.requestHide(SdlImeController.Source.BACK);
             }
         }
         return super.onKeyPreIme(keyCode, event);
@@ -57,7 +69,8 @@ public class SDLDummyEdit extends View implements View.OnKeyListener
         ic = new SDLInputConnection(this, true);
 
         outAttrs.inputType = input_type;
-        outAttrs.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI |
+        outAttrs.imeOptions = EditorInfo.IME_ACTION_SEND |
+                              EditorInfo.IME_FLAG_NO_EXTRACT_UI |
                               EditorInfo.IME_FLAG_NO_FULLSCREEN /* API 11 */;
 
         return ic;

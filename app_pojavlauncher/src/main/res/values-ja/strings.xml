@@ -623,7 +623,7 @@
     <string name="credits_primary_development">主な開発</string>
     <string name="credits_section_title">クレジット</string>
     <string name="credits_unaffiliated">このアプリはMinecraft、Mojang、またはMicrosoftとは提携していません。</string>
-    <string name="credits_version">バージョン2.2.5</string>
+    <string name="credits_version">バージョン2.2.9</string>
     <string name="ctrl_applied_success">コントロール「%1$s」が正常に適用されました。</string>
     <string name="ctrl_apply_btn">コントロールを適用する</string>
     <string name="ctrl_apply_msg">「%1$s」をダウンロードしてコントロール レイアウトとして適用しますか?</string>
@@ -810,7 +810,7 @@
     <string name="instance_storage_calculating">ストレージを計算しています…</string>
     <string name="instance_use">使用する</string>
     <string name="java_runtime_download_message">Battly は、アプリ内で配布するのではなく、最初のセットアップ後に Java 8 をダウンロードします。これにより、アプリのサイズが削減され、古い Minecraft バージョンが準備されます。</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher と Boardwalk に基づくランチャー。&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;クレジット&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -821,11 +821,11 @@
         • プロジェクトに含まれる GNU GPLv3 およびサードパーティ コンポーネント。&lt;br/&gt;
         • オリジナルのライセンスに基づく OpenJDK、LWJGL、GL4ES、LTW、Apache Commons、exp4j など。&lt;br/&gt;&lt;br/&gt;
         このアプリはMinecraft、Mojang、またはMicrosoftとは提携していません。</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">ダウンロード</string>
     <string name="launcher_download_modpack">MODパックをインポートする</string>
     <string name="launcher_execute">遊ぶ</string>
-    <string name="launcher_mobile_badge">モバイル 2.2.5</string>
+    <string name="launcher_mobile_badge">モバイル 2.2.9</string>
     <string name="launcher_nav_back">戻る</string>
     <string name="launcher_nav_home">家に戻る</string>
     <string name="launcher_nav_workspace">Battly ワークスペース</string>
@@ -1398,19 +1398,107 @@
     <string name="world_install_button">ワールドをインストールする</string>
     <string name="world_install_success">%1$s がこのインスタンスにインストールされました</string>
 
-    <string name="battly_whats_new_action_start">2.2.5 を発見する</string>
-    <string name="battly_whats_new_compatibility_desc">Battly はネイティブライブラリのプラグインを認識し、必要なプラグインがインストールされていると Distant Horizons のような互換性のあるモッドを起動できます。</string>
-    <string name="battly_whats_new_compatibility_title">ネイティブプラグインとディスタントホライゾンズ</string>
-    <string name="battly_whats_new_controllers_desc">Battlyはデバイスの言語でAPIに問い合わせ、サーバーの内容が変更されたときにキャッシュを更新します。</string>
-    <string name="battly_whats_new_controllers_title">常に更新されるニュース</string>
-    <string name="battly_whats_new_desc">Minecraft 26.3との互換性の向上、モッズ向けネイティブオーディオ、翻訳された新機能と画面の修正。</string>
-    <string name="battly_whats_new_instances_desc">Vanilla の Minecraft 26.3、Fabric およびカスタムバージョンで、起動、テクスチャ、およびレンダリングを修正しました。</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 修正済み</string>
-    <string name="battly_whats_new_recovery_desc">Vulkanと方向性、Minecraftのウィンドウサイズ、JVMの引数、正常な終了の検出が改善されました。</string>
-    <string name="battly_whats_new_recovery_title">より正確な開始と終了</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">あなたの既存のインスタンスと設定は変更されずに維持されます。</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 は準備ができています</string>
-    <string name="battly_whats_new_worlds_desc">モッズはAndroidのマイクを検出し、利用可能な入力から選択し、ゲームの音声を送信せずに音声をキャプチャできます。</string>
-    <string name="battly_whats_new_worlds_title">モッズ用にマイクが利用可能</string>
+    <string name="battly_whats_new_action_start">2.2.9 を探索する</string>
+    <string name="battly_whats_new_compatibility_desc">ログイン応答は保留中の要求と一致する必要があり、短期間で期限切れになり、一度しか受け入れられません。</string>
+    <string name="battly_whats_new_compatibility_title">より安全な Discord サインイン</string>
+    <string name="battly_whats_new_controllers_desc">1 つのフォルダーを共有すると、付与した権限以外の他のフォルダーにアクセスできなくなります。</string>
+    <string name="battly_whats_new_controllers_title">保護されたファイル共有</string>
+    <string name="battly_whats_new_desc">modpack のインストール、ファイル共有、外部プラグインの認証がより安全になりました。</string>
+    <string name="battly_whats_new_instances_desc">アーカイブ コンテンツとダウンロードされたファイルは、他のインスタンスを変更することなく、割り当てられたインスタンス内に残ります。</string>
+    <string name="battly_whats_new_instances_title">保護された modpack のインストール</string>
+    <string name="battly_whats_new_recovery_desc">使用状況分析は、オフライン モードを除き、Battly の開始時にアクティブになります。リリースノートとプラグインメッセージは翻訳されています。</string>
+    <string name="battly_whats_new_recovery_title">統計と翻訳</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">インスタンスはそのまま残ります。信頼できる外部プラグインを使用する前に、設定で認証してください。</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 が準備完了しました</string>
+    <string name="battly_whats_new_worlds_desc">外部プラグインは使用前に認証が必要です。以前にインストールしたプラグインは、もう一度認証する必要があります。</string>
+    <string name="battly_whats_new_worlds_title">プラグインの権限</string>
+
+    <string name="download_action_import_mods_title">外部MODをインポートする</string>
+    <string name="download_action_import_mods_subtitle">1 つ以上の「.jar」ファイルを選択し、選択したインスタンスに追加します。</string>
+    <string name="library_installed_show_more">見せる%1$dもっと</string>
+    <string name="library_import_mods_replace_title">既存の MOD を置き換えますか?</string>
+    <string name="library_import_mods_replace_message">%1$d 選択した MOD ファイルは既に %2$s に存在します。 Battly は、新しいファイルを検証した後にのみそれらを置き換えます。</string>
+    <string name="library_import_mods_invalid">有効な `.jar` mod ファイルが選択されていません。</string>
+    <string name="library_import_mods_success">%1$d の MOD を %2$s にインポートしました。</string>
+    <string name="library_import_mods_partial">%1$d MOD を %2$s ・ %3$d ファイルにインポートできませんでした。</string>
+    <string name="library_import_mods_error">選択した MOD をインポートできませんでした。</string>
+    <string name="battly_appearance_title">Battly スキンとケープ</string>
+    <string name="battly_appearance_subtitle">モバイルから完全な Minecraft の外観をプレビューして管理します。</string>
+    <string name="battly_capes_title">Battly ケープ</string>
+    <string name="battly_capes_description">公式のケープを選択するか、Battly+ を使用して独自のケープをアップロードします。アクティブなマントが 3D プレビューと Minecraft 内に表示されます。</string>
+    <string name="battly_capes_loading">Battly ケープを読み込み中...</string>
+    <string name="battly_capes_active">アクティブマント</string>
+    <string name="battly_capes_none">アクティブなケープはありません</string>
+    <string name="battly_capes_empty">このアカウントでは使用できるケープがありません。</string>
+    <string name="battly_capes_upload">アップロードケープ</string>
+    <string name="battly_capes_upload_plus">Battly+ でアップロード</string>
+    <string name="battly_capes_plus_required">カスタムケープはBattly+でご利用いただけます。公式マントは引き続きご利用いただけます。</string>
+    <string name="battly_capes_disable">マントなし</string>
+    <string name="battly_capes_disabled">ケープが無効になっています</string>
+    <string name="battly_capes_uploaded">ケープをアップロードして適用しました</string>
+    <string name="battly_capes_applied">ケープを適用した</string>
+    <string name="battly_capes_deleted">ケープが削除されました</string>
+    <string name="battly_capes_previewing">マントの下見</string>
+    <string name="battly_capes_custom">カスタムマント</string>
+    <string name="battly_capes_official">オフィシャルマント</string>
+
+    <string name="battly_capes_unavailable">ケープは一時的に利用できなくなります。スキンはまだ利用可能です。</string>
+
+    <string name="native_plugins_bundled_category">Android 依存関係は Battly に含まれています</string>
+    <string name="native_plugins_bundled_ready">バージョン %1$s · 準備完了</string>
+
+    <string name="battly_whats_new_native_title">ネイティブの依存関係は引き続き利用可能です</string>
+    <string name="battly_whats_new_native_desc">組み込みライブラリは自動的に動作します。外部プラグインの権限は、APK 署名 ID にリンクされています。</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">日常活動・モバイル</string>
+    <string name="battly_stats_history_notice">記録時の現地時間で表示します。この更新以降の利用履歴が記録され、これまでの合計は下に表示されます。</string>
+    <string name="battly_stats_history_unavailable">毎日の履歴はまだサーバー上で利用できません。合計統計を以下に示します。</string>
+    <string name="battly_stats_period_label">活動期間</string>
+    <string name="battly_stats_day_label">活動日</string>
+    <string name="battly_stats_period_days">過去 %1$d 日間</string>
+    <string name="battly_stats_period_summary">アクティブ日: %1$d · Minecraft: %2$s · ランチャー: %3$s</string>
+    <string name="battly_stats_time_range">最初のアクティビティ: %1$s · 最後のアクティビティ: %2$s</string>
+    <string name="battly_stats_day_modes">ワールド: %1$s · サーバー: %2$s (Battly Worlds: %3$s) · ゲームメニュー: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · ランチャー: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d</string>
+    <string name="battly_stats_lifetime">過去の合計 · PC + モバイル</string>
+
+    <string name="battly_stats_chart_value">%1$s ・ Minecraft: %2$s ・ ランチャー: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$dh</string>
+    <string name="automatic_game_keyboard_title">キーボードを自動的に開く</string>
+
+    <string name="native_plugins_trust_warning">この外部プラグインは、Battly ファイルとアカウントにアクセスしてネイティブ コードを実行できます。信頼できるソースからのプラグインのみを許可します。権限は APK 署名 ID にリンクされています。</string>
+    <string name="native_plugins_trust_action">プラグインを許可する</string>
+
+    <string name="peripheral_title">キーボード、マウス、コントローラー</string>
+    <string name="peripheral_devices">接続された周辺機器</string>
+    <string name="peripheral_no_devices">外付け周辺機器が検出されませんでした</string>
+    <string name="peripheral_mouse">物理的なマウス</string>
+    <string name="peripheral_pc_preset">PC マウスのプリセットを適用する</string>
+    <string name="peripheral_pc_mode">解像度に依存しない照準</string>
+    <string name="peripheral_pc_mode_summary">レンダリング解像度に関係なく、一定の線形感度。 Battly は加速や平滑化を追加しません。 Android 8以降。</string>
+    <string name="peripheral_mouse_x">水平感度</string>
+    <string name="peripheral_mouse_y">垂直感度</string>
+    <string name="peripheral_invert_x">横軸を反転</string>
+    <string name="peripheral_invert_y">縦軸を反転</string>
+    <string name="peripheral_mouse_test">マウスのキャリブレーションをテストする</string>
+    <string name="peripheral_keyboard">物理キーボード</string>
+    <string name="peripheral_bindings">ゲームプレイのキーバインディング</string>
+    <string name="peripheral_binding_count">%1$dのバインディング。メニューの入力は変更されません。</string>
+    <string name="peripheral_keyboard_test">キーと組み合わせをテストする</string>
+    <string name="peripheral_stick_linear">リニアコントローラーの照準</string>
+    <string name="peripheral_stick_linear_summary">デフォルトの二次曲線の代わりに比例スティック応答。ネイティブ コントローラー MOD ではなく、Battly コントローラー マッピングに適用されます。</string>
+    <string name="peripheral_stick_sensitivity">コントローラーのカメラ感度</string>
+    <string name="peripheral_reset_test">測定をリセットする</string>
+    <string name="peripheral_add_binding">キーバインドを追加する</string>
+    <string name="peripheral_source_key">物理キー</string>
+    <string name="peripheral_target_key">このキーを Minecraft に送信します</string>
+    <string name="peripheral_press_key">物理キーを押して放します。既存のバインディングを選択すると、それが削除されます。修飾キーは通常の動作を維持します。</string>
+    <string name="peripheral_invalid_key">修飾子のないキーボード キーを選択します。 Android システム キーは再マッピングできません。</string>
+    <string name="peripheral_mouse_ready">テスト領域をクリックしてマウスをキャプチャします。 Esc キーを押して解除します。測定値は、ハードウェア DPI ではなく、Android によって報告される相対運動です。</string>
+    <string name="peripheral_keyboard_ready">物理キーボードのキーまたは組み合わせを押します。 Esc キーを押してテストを閉じます。</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nゲーム X / Y: %3$s\nサンプル: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nキー: %2$s · スキャン: %3$d · リピート: %4$d\n保留: %5$s</string>
 </resources>

@@ -2,17 +2,29 @@ package net.kdt.pojavlaunch.prefs.screens;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.prefs.CustomSeekBarPreference;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
+import net.kdt.pojavlaunch.customcontrols.mouse.GameCursorManager;
+
+import java.io.IOException;
 
 public class LauncherPreferenceControlFragment extends LauncherPreferenceFragment {
     private boolean mGyroAvailable = false;
+    private final ActivityResultLauncher<String[]> mCursorImagePicker = registerForActivityResult(
+            new ActivityResultContracts.OpenDocument(), this::onCursorImagePicked);
 
     @Override
     public void onCreatePreferences(Bundle b, String str) {
@@ -45,6 +57,22 @@ public class LauncherPreferenceControlFragment extends LauncherPreferenceFragmen
                 CustomSeekBarPreference.class);
         seek4.setValue(mouseScale);
         seek4.setSuffix(" %");
+
+        CustomSeekBarPreference cursorOpacity = requirePreference("cursorOpacity",
+                CustomSeekBarPreference.class);
+        cursorOpacity.setValue(LauncherPreferences.PREF_CURSOR_OPACITY);
+        cursorOpacity.setSuffix(" %");
+
+        ListPreference cursorStyle = requirePreference("cursorStyle", ListPreference.class);
+        cursorStyle.setValue(LauncherPreferences.PREF_CURSOR_STYLE);
+        cursorStyle.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+        ListPreference cursorHotspot = requirePreference("cursorHotspot", ListPreference.class);
+        cursorHotspot.setValue(LauncherPreferences.PREF_CURSOR_HOTSPOT);
+        cursorHotspot.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+        requirePreference("cursorCustomImage").setOnPreferenceClickListener(preference -> {
+            mCursorImagePicker.launch(new String[]{"image/png", "image/webp", "image/*"});
+            return true;
+        });
 
         CustomSeekBarPreference seek6 = requirePreference("mousespeed",
                 CustomSeekBarPreference.class);
@@ -102,6 +130,32 @@ public class LauncherPreferenceControlFragment extends LauncherPreferenceFragmen
         requirePreference("gyroInvertX").setVisible(LauncherPreferences.PREF_ENABLE_GYRO);
         requirePreference("gyroInvertY").setVisible(LauncherPreferences.PREF_ENABLE_GYRO);
         requirePreference("gyroSmoothing").setVisible(LauncherPreferences.PREF_ENABLE_GYRO);
+        Preference customCursor = requirePreference("cursorCustomImage");
+        customCursor.setVisible(GameCursorManager.STYLE_CUSTOM.equals(
+                GameCursorManager.normalizeStyle(LauncherPreferences.PREF_CURSOR_STYLE)));
+        customCursor.setSummary(LauncherPreferences.PREF_CURSOR_CUSTOM_PATH == null
+                        || LauncherPreferences.PREF_CURSOR_CUSTOM_PATH.isEmpty()
+                ? R.string.cursor_custom_image_summary_empty
+                : R.string.cursor_custom_image_summary_selected);
+    }
+
+    private void onCursorImagePicked(@Nullable Uri uri) {
+        if (uri == null || !isAdded()) return;
+        try {
+            String path = GameCursorManager.importCustomCursor(requireContext(), uri);
+            LauncherPreferences.DEFAULT_PREF.edit()
+                    .putString("cursorStyle", GameCursorManager.STYLE_CUSTOM)
+                    .putString("cursorCustomPath", path)
+                    .apply();
+            LauncherPreferences.loadPreferences(requireContext());
+            ListPreference cursorStyle = requirePreference("cursorStyle", ListPreference.class);
+            cursorStyle.setValue(GameCursorManager.STYLE_CUSTOM);
+            computeVisibility();
+            Toast.makeText(requireContext(), R.string.cursor_custom_image_saved,
+                    Toast.LENGTH_SHORT).show();
+        } catch (IOException exception) {
+            Tools.showError(requireContext(), exception);
+        }
     }
 
 }

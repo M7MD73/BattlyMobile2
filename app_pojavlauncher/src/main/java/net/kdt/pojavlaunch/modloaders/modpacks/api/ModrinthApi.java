@@ -383,6 +383,10 @@ public class ModrinthApi implements ModpackApi{
                     Tools.read(ZipUtils.getEntryStream(modpackZipFile, "modrinth.index.json")),
                     ModrinthIndex.class);
             
+            for (ModrinthIndex.ModrinthIndexFile indexFile : modrinthIndex.files) {
+                if (indexFile.env != null && "unsupported".equals(indexFile.env.client)) continue;
+                net.kdt.pojavlaunch.utils.SafeFilePaths.resolveRelative(instanceDestination, indexFile.path);
+            }
             ModDownloader modDownloader = new ModDownloader(instanceDestination);
             for(ModrinthIndex.ModrinthIndexFile indexFile : modrinthIndex.files) {
                 if (indexFile.env != null && "unsupported".equals(indexFile.env.client)) continue;

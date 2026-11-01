@@ -358,6 +358,7 @@ public final class BattlyWorldsInvites {
             HttpURLConnection connection = (HttpURLConnection) new URL(API_BASE + "/api/v2/battlyworlds/entitlements").openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Authorization", "Bearer " + battlyToken);
+            net.kdt.pojavlaunch.utils.BattlyAccessManager.attachDeviceIdentity(connection);
             connection.setConnectTimeout(12000);
             connection.setReadTimeout(12000);
             try (InputStream inputStream = connection.getResponseCode() >= 400
@@ -1233,7 +1234,7 @@ public final class BattlyWorldsInvites {
                 .apply();
     }
 
-    private static JsonObject postJson(String endpoint, String token, JSONObject body) throws Exception {
+    static JsonObject postJson(String endpoint, String token, JSONObject body) throws Exception {
         return requestJson("POST", endpoint, token, body);
     }
 
@@ -1241,6 +1242,7 @@ public final class BattlyWorldsInvites {
         HttpURLConnection connection = (HttpURLConnection) new URL(endpoint).openConnection();
         connection.setRequestMethod(method);
         connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.attachDeviceIdentity(connection);
         if (!token.isEmpty()) {
             connection.setRequestProperty("Authorization", "Bearer " + token);
         }
@@ -1311,10 +1313,11 @@ public final class BattlyWorldsInvites {
         }
     }
 
-    private static JsonObject getAuthorizedJson(String endpoint, String token) throws Exception {
+    static JsonObject getAuthorizedJson(String endpoint, String token) throws Exception {
         HttpURLConnection connection = (HttpURLConnection) new URL(endpoint).openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Authorization", "Bearer " + token);
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.attachDeviceIdentity(connection);
         connection.setConnectTimeout(12000);
         connection.setReadTimeout(12000);
         try (InputStream inputStream = connection.getResponseCode() >= 400

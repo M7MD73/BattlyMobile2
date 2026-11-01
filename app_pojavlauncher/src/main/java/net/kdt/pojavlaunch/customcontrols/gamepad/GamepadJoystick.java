@@ -67,7 +67,8 @@ public class GamepadJoystick {
     }
 
     public static boolean isJoystickEvent(MotionEvent event){
-        return (event.getSource() & InputDevice.SOURCE_JOYSTICK) == InputDevice.SOURCE_JOYSTICK
+        return !net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseInput.isMouseEvent(event)
+                && (event.getSource() & InputDevice.SOURCE_JOYSTICK) == InputDevice.SOURCE_JOYSTICK
                 && event.getAction() == MotionEvent.ACTION_MOVE;
     }
 

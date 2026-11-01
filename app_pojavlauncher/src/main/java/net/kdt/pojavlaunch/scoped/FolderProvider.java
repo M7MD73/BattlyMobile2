@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import net.kdt.pojavlaunch.BuildConfig;
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.SafeFilePaths;
 
 import org.apache.commons.io.FileUtils;
 
@@ -78,7 +79,7 @@ public class FolderProvider extends DocumentsProvider {
     };
 
     @Override
-    public Cursor queryRoots(String[] projection) {
+    public Cursor queryRoots(String[] projection) throws FileNotFoundException {
         final MatrixCursor result = new MatrixCursor(projection != null ? projection : DEFAULT_ROOT_PROJECTION);
         final String applicationName = getContext().getString(R.string.app_short_name);
 
@@ -115,7 +116,8 @@ public class FolderProvider extends DocumentsProvider {
         final File[] children = parent.listFiles();
         if(children == null) throw new FileNotFoundException("Unable to list files in "+parent.getAbsolutePath());
         for (File file : children) {
-            includeFile(result, null, file);
+            try { includeFile(result, null, file); }
+            catch (FileNotFoundException outsideRoot) { /* Do not expose external symbolic links. */ }
         }
         // Set the notification URI as that's what the "Files" app will be listening to in case of file deletion
         result.setNotificationUri(mContentResolver, createUriForDocId(parentDocumentId));
@@ -151,10 +153,11 @@ public class FolderProvider extends DocumentsProvider {
 
     @Override
     public String createDocument(String parentDocumentId, String mimeType, String displayName) throws FileNotFoundException {
-        File newFile = new File(parentDocumentId, displayName);
+        File parent = getFileForDocId(parentDocumentId);
+        File newFile = childFile(parent, displayName);
         int noConflictId = 2;
         while (newFile.exists()) {
-            newFile = new File(parentDocumentId, displayName + " (" + noConflictId++ + ")");
+            newFile = childFile(parent, displayName + " (" + noConflictId++ + ")");
         }
         try {
             boolean succeeded;
@@ -177,9 +180,11 @@ public class FolderProvider extends DocumentsProvider {
     @Override
     public String renameDocument(String documentId, String displayName) throws FileNotFoundException {
         File sourceFile = getFileForDocId(documentId);
+        requireNotRoot(sourceFile);
         File sourceParent = sourceFile.getParentFile();
         if(sourceParent == null) throw new FileNotFoundException("Cannot rename root");
-        File targetFile = new File(getDocIdForFile(sourceParent) + "/" + displayName);
+        File targetFile = childFile(sourceParent, displayName);
+        if (targetFile.exists()) throw new FileNotFoundException("Document already exists");
         if(!sourceFile.renameTo(targetFile)){
             throw new FileNotFoundException("Couldn't rename the document with id" + documentId);
         }
@@ -188,8 +193,12 @@ public class FolderProvider extends DocumentsProvider {
 
     @Override
     public String moveDocument(String sourceDocumentId, String sourceParentDocumentId, String targetParentDocumentId) throws FileNotFoundException {
-        File sourceFile = getFileForDocId(sourceParentDocumentId + sourceDocumentId);
-        File targetFile = new File(targetParentDocumentId + sourceDocumentId);
+        File sourceFile = getFileForDocId(sourceDocumentId);
+        requireNotRoot(sourceFile);
+        File sourceParent = getFileForDocId(sourceParentDocumentId);
+        if (!sourceParent.equals(sourceFile.getParentFile())) throw new FileNotFoundException("Invalid source parent");
+        File targetFile = childFile(getFileForDocId(targetParentDocumentId), sourceFile.getName());
+        if (targetFile.exists()) throw new FileNotFoundException("Document already exists");
         if(!sourceFile.renameTo(targetFile)){
             throw new FileNotFoundException("Failed to move the document with id " + sourceFile.getPath());
         }
@@ -198,12 +207,15 @@ public class FolderProvider extends DocumentsProvider {
 
     @Override
     public void removeDocument(String documentId, String parentDocumentId) throws FileNotFoundException {
-        deleteDocument(parentDocumentId + "/" + documentId);
+        File file = getFileForDocId(documentId);
+        if (!getFileForDocId(parentDocumentId).equals(file.getParentFile())) throw new FileNotFoundException("Invalid parent");
+        deleteDocument(documentId);
     }
 
     @Override
     public void deleteDocument(String documentId) throws FileNotFoundException {
         File file = getFileForDocId(documentId);
+        requireNotRoot(file);
         if(file.isDirectory()){
             try {
                 FileUtils.deleteDirectory(file);
@@ -236,6 +248,7 @@ public class FolderProvider extends DocumentsProvider {
         // implementations might rank results and use other data about files, rather than the file
         // name, to produce a match.
         final LinkedList<File> pending = new LinkedList<>();
+        final java.util.Set<String> visited = new java.util.HashSet<>();
         pending.add(parent);
 
         final int MAX_SEARCH_RESULTS = 50;
@@ -245,9 +258,9 @@ public class FolderProvider extends DocumentsProvider {
             // through the whole SD card).
             boolean isInsideHome;
             try {
-                isInsideHome = file.getCanonicalPath().startsWith(Tools.DIR_GAME_HOME);
+                isInsideHome = SafeFilePaths.isInside(parent, file) && visited.add(file.getCanonicalPath());
             } catch (IOException e) {
-                isInsideHome = true;
+                isInsideHome = false;
             }
             if (isInsideHome) {
                 if (file.isDirectory()) {
@@ -266,7 +279,14 @@ public class FolderProvider extends DocumentsProvider {
 
     @Override
     public boolean isChildDocument(String parentDocumentId, String documentId) {
-        return documentId.startsWith(parentDocumentId);
+        try {
+            File parent = getFileForDocId(parentDocumentId);
+            File child = getFileForDocId(documentId);
+            return child.getAbsolutePath().startsWith(parent.getAbsolutePath() + File.separator)
+                    && SafeFilePaths.isInside(parent, child);
+        } catch (IOException | RuntimeException invalid) {
+            return false;
+        }
     }
 
     /**
@@ -275,17 +295,41 @@ public class FolderProvider extends DocumentsProvider {
      * <p/>
      * The reverse of @{link #getFileForDocId}.
      */
-    private static String getDocIdForFile(File file) {
-        return file.getAbsolutePath();
+    private String getDocIdForFile(File file) throws FileNotFoundException {
+        try {
+            SafeFilePaths.requireInside(BASE_DIR, file);
+            return file.getAbsolutePath();
+        }
+        catch (IOException invalid) { throw new FileNotFoundException("Document outside storage root"); }
     }
 
     /**
      * Get the file given a document id (the reverse of {@link #getDocIdForFile(File)}).
      */
-    private static File getFileForDocId(String docId) throws FileNotFoundException {
-        final File f = new File(docId);
+    private File getFileForDocId(String docId) throws FileNotFoundException {
+        if (docId == null) throw new FileNotFoundException("Missing document ID");
+        final File f;
+        try {
+            f = new File(docId).getAbsoluteFile();
+            SafeFilePaths.requireInside(BASE_DIR, f);
+        }
+        catch (IOException invalid) { throw new FileNotFoundException("Document outside storage root"); }
         if (!f.exists()) throw new FileNotFoundException(f.getAbsolutePath() + " not found");
         return f;
+    }
+
+    private File childFile(File parent, String name) throws FileNotFoundException {
+        try {
+            SafeFilePaths.requireFileName(name);
+            SafeFilePaths.resolveRelative(parent, name);
+            return new File(parent, name).getAbsoluteFile();
+        } catch (IOException invalid) { throw new FileNotFoundException("Invalid document name"); }
+    }
+
+    private void requireNotRoot(File file) throws FileNotFoundException {
+        try {
+            if (file.getCanonicalFile().equals(BASE_DIR.getCanonicalFile())) throw new FileNotFoundException("Cannot modify storage root");
+        } catch (IOException invalid) { throw new FileNotFoundException("Cannot modify storage root"); }
     }
 
     private static String getMimeType(File file) {
@@ -314,6 +358,7 @@ public class FolderProvider extends DocumentsProvider {
         throws FileNotFoundException {
         if (docId == null) {
             docId = getDocIdForFile(file);
+            file = getFileForDocId(docId);
         } else {
             file = getFileForDocId(docId);
         }
@@ -350,7 +395,10 @@ public class FolderProvider extends DocumentsProvider {
         if(parentDocumentId != null) source = getFileForDocId(parentDocumentId);
         File destination = getFileForDocId(childDocumentId);
         List<String> pathIds = new ArrayList<>();
-        while(!source.equals(destination) && destination != null) {
+        if (!source.equals(destination) && !isChildDocument(getDocIdForFile(source), childDocumentId)) {
+            throw new FileNotFoundException("Document is outside the requested parent");
+        }
+        while(destination != null && !source.equals(destination)) {
             pathIds.add(getDocIdForFile(destination));
             destination = destination.getParentFile();
         }
@@ -364,8 +412,8 @@ public class FolderProvider extends DocumentsProvider {
         return createUriForFile(getFileForDocId(documentId));
     }
 
-    private Uri createUriForFile(File file) {
-        return DocumentsContract.buildDocumentUri(mStorageProviderAuthortiy, file.getAbsolutePath());
+    private Uri createUriForFile(File file) throws FileNotFoundException {
+        return DocumentsContract.buildDocumentUri(mStorageProviderAuthortiy, getDocIdForFile(file));
     }
 
     private void notifyChange(Uri uri) {

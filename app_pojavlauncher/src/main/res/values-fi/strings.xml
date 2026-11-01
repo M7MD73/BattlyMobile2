@@ -175,7 +175,7 @@
     <string name="crash_no_findings">Uusimmista lokeista ei löytynyt tunnettua törmäyskuviota.</string>
     <string name="crash_recovery_applied">Palautustoimenpide suoritettu</string>
     <string name="crash_recovery_manual">Tämä ongelma vaatii manuaalisen muutoksen. Avaa loki lisätietoja varten.</string>
-    <string name="credits_version">Versio 2.2.5</string>
+    <string name="credits_version">Versio 2.2.9</string>
     <string name="ctrl_like_btn">Kuten</string>
     <string name="ctrl_liked_added">Lisätty tykättyihin säätimiin.</string>
     <string name="ctrl_liked_btn">Pidin</string>
@@ -236,8 +236,8 @@
     <string name="java_runtime_download_progress">Ladataan Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8:n asentaminen</string>
     <string name="java_runtime_download_waiting">Valmistellaan Java 8 latausta...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobiili 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobiili 2.2.9</string>
     <string name="launcher_status_battly">Battly-tili</string>
     <string name="launcher_status_battly_plus">Battly+ tili</string>
     <string name="library_analyze_mods">Analysoi</string>
@@ -722,7 +722,7 @@
     <string name="installer_internal_fallback">Asennusohjelma, jota ei tueta, avaa vanhan Java-käyttöliittymän</string>
     <string name="installer_internal_running">Analysoidaan asennusohjelmaa…</string>
     <string name="installer_internal_success">%1$s asennettu suoraan Battly:n sisään</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher perustuu PojavLauncheriin ja Boardwalkiin.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krevitykset&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -766,7 +766,7 @@
     <string name="launcher_version_format">Versio %1$s</string>
     <string name="launcher_version_unknown">Tuntematon</string>
     <string name="launcher_versions_button">Versiot</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launcher etualan palvelu</string>
     <string name="legacy_mixin_missing_message">Yksi Forge 1.7.10 -modeistasi pyytää Sponge Mixinia, mutta Mixin- tai UniMixins-toimittajaa ei ole asennettu. Asenna UniMixins/Mixin versiolle 1.7.10 tai poista kyseinen modi ennen Minecraft:n käynnistämistä.</string>
     <string name="legacy_mixin_missing_title">Vanha Mixin-riippuvuus puuttuu</string>
     <string name="library_button_desc">Avaa kirjasto</string>
@@ -1161,4 +1161,107 @@
     <string name="search_world_download_error">Maailman metatietojen lataaminen epäonnistui</string>
     <string name="world_install_button">Asenna maailma</string>
     <string name="world_install_success">%1$s asennettu tähän ilmentymään</string>
+
+    <string name="battly_whats_new_transition_desc">Esiintymäsi pysyvät paikoillaan. Valtuuta luotetut ulkoiset laajennukset asetuksissa ennen niiden käyttöä.</string>
+    <string name="download_action_import_mods_title">Tuo ulkoiset modit</string>
+    <string name="download_action_import_mods_subtitle">Valitse yksi tai useampi .jar-tiedosto ja lisää ne valittuun esiintymään.</string>
+    <string name="library_installed_show_more">Näytä %1$d lisää</string>
+    <string name="library_import_mods_replace_title">Korvaa nykyiset modit?</string>
+    <string name="library_import_mods_replace_message">%1$d valitut mod-tiedostot ovat jo olemassa %2$s:ssä. Battly korvaa ne vasta uusien tiedostojen vahvistamisen jälkeen.</string>
+    <string name="library_import_mods_invalid">Kelvollisia .jar mod -tiedostoja ei valittu.</string>
+    <string name="library_import_mods_success">Tuodut %1$d-modit %2$s:hen.</string>
+    <string name="library_import_mods_partial">Tuodut %1$d-modit kohteeseen %2$s · %3$d-tiedostoja ei voitu tuoda.</string>
+    <string name="library_import_mods_error">Valittuja modeja ei voitu tuoda.</string>
+    <string name="battly_whats_new_action_start">Tutustu 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Kirjautumisvastausten tulee vastata odottavaa pyyntöä, vanhentua lyhyen ajan kuluttua ja ne voidaan hyväksyä vain kerran.</string>
+    <string name="battly_whats_new_compatibility_title">Turvallisempi Discord-kirjautuminen</string>
+    <string name="battly_whats_new_controllers_desc">Yhden kansion jakaminen ei enää salli pääsyä muihin kansioihin myöntämäsi luvan ulkopuolella.</string>
+    <string name="battly_whats_new_controllers_title">Suojattu tiedostojen jakaminen</string>
+    <string name="battly_whats_new_desc">Turvallisempi modpack-asennus, tiedostojen jakaminen ja ulkoisen laajennuksen valtuutus.</string>
+    <string name="battly_whats_new_instances_desc">Arkiston sisältö ja ladatut tiedostot pysyvät niille osoitetussa ilmentymässä muuttamatta muita esiintymiä.</string>
+    <string name="battly_whats_new_instances_title">Suojattu modpack-asennus</string>
+    <string name="battly_whats_new_recovery_desc">Käyttöanalytiikka aktivoituu, kun Battly käynnistyy, paitsi offline-tilassa. Julkaisutiedot ja laajennusviestit on käännetty.</string>
+    <string name="battly_whats_new_recovery_title">Tilastot ja käännökset</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 on valmis</string>
+    <string name="battly_whats_new_worlds_desc">Ulkoiset laajennukset tarvitsevat valtuutuksen ennen käyttöä. Aiemmin asennetut laajennukset on valtuutettava uudelleen.</string>
+    <string name="battly_whats_new_worlds_title">Laajennuksesi käyttöoikeudet</string>
+    <string name="battly_appearance_title">Battly nahat ja viitat</string>
+    <string name="battly_appearance_subtitle">Esikatsele ja hallitse koko Minecraft-ulkoasi Mobilesta.</string>
+    <string name="battly_capes_title">Battly viitat</string>
+    <string name="battly_capes_description">Valitse virallinen viitta tai lataa omasi Battly+:lla. Aktiivinen viitta näkyy 3D-esikatselussa ja Minecraft:n sisällä.</string>
+    <string name="battly_capes_loading">Ladataan Battly-viitteitä...</string>
+    <string name="battly_capes_active">Aktiivinen viitta</string>
+    <string name="battly_capes_none">Ei aktiivista viittaa</string>
+    <string name="battly_capes_empty">Tälle tilille ei ole saatavilla viitata.</string>
+    <string name="battly_capes_upload">Lataa viitta</string>
+    <string name="battly_capes_upload_plus">Lataa Battly+:lla</string>
+    <string name="battly_capes_plus_required">Mukautetut viitat ovat saatavilla mallilla Battly+. Voit silti käyttää virallisia viittoja.</string>
+    <string name="battly_capes_disable">Ei viitta</string>
+    <string name="battly_capes_disabled">Cape pois käytöstä</string>
+    <string name="battly_capes_uploaded">Cape ladattu ja otettu käyttöön</string>
+    <string name="battly_capes_applied">Viitta kiinni</string>
+    <string name="battly_capes_deleted">Kappale poistettu</string>
+    <string name="battly_capes_previewing">Viitta esikatselu</string>
+    <string name="battly_capes_custom">Mukautettu viitta</string>
+    <string name="battly_capes_official">Virallinen viitta</string>
+
+    <string name="battly_capes_unavailable">Viittat ovat väliaikaisesti poissa käytöstä. Skinisi ovat edelleen saatavilla.</string>
+
+    <string name="native_plugins_bundled_category">Android-riippuvuudet sisältyvät Battly:hen</string>
+    <string name="native_plugins_bundled_ready">Versio %1$s · Valmis</string>
+
+    <string name="battly_whats_new_native_title">Alkuperäiset riippuvuudet ovat edelleen käytettävissä</string>
+    <string name="battly_whats_new_native_desc">Sisäänrakennetut kirjastot toimivat automaattisesti. Ulkoisten laajennusten käyttöoikeudet on linkitetty APK:n allekirjoitusidentiteettiin.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Päivittäinen toiminta · Mobiili</string>
+    <string name="battly_stats_history_notice">Paikallinen aika tallennettaessa. Historia alkaa tästä päivityksestä; aiemmat kokonaismäärät jäävät alle.</string>
+    <string name="battly_stats_history_unavailable">Päivittäinen historia ei ole vielä saatavilla palvelimella. Kokonaistilastot näkyvät alla.</string>
+    <string name="battly_stats_period_label">Toimintajakso</string>
+    <string name="battly_stats_day_label">Toiminnan päivämäärä</string>
+    <string name="battly_stats_period_days">Viimeiset %1$d päivää</string>
+    <string name="battly_stats_period_summary">Aktiiviset päivät: %1$d · Minecraft: %2$s · Laukaisulaite: %3$s</string>
+    <string name="battly_stats_time_range">Ensimmäinen aktiviteetti: %1$s · Viimeinen aktiviteetti: %2$s</string>
+    <string name="battly_stats_day_modes">Maailmat: %1$s · Palvelimet: %2$s (Battly Worlds: %3$s) · Pelivalikot: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Laukaisulaite: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Kaikkien aikojen kokonaismäärä · PC + mobiili</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Laukaisulaite: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Avaa näppäimistö automaattisesti</string>
+
+    <string name="native_plugins_trust_warning">Tämä ulkoinen laajennus voi suorittaa alkuperäistä koodia, jolla on pääsy Battly-tiedostoihin ja -tileihin. Salli vain laajennukset lähteestä, johon luotat. Lupa on linkitetty APK:n allekirjoitusidentiteettiin.</string>
+    <string name="native_plugins_trust_action">Salli laajennus</string>
+
+    <string name="peripheral_title">Näppäimistö, hiiri ja ohjain</string>
+    <string name="peripheral_devices">Kytketyt oheislaitteet</string>
+    <string name="peripheral_no_devices">Ulkoisia oheislaitteita ei havaittu</string>
+    <string name="peripheral_mouse">Fyysinen hiiri</string>
+    <string name="peripheral_pc_preset">Käytä PC-hiiren esiasetuksia</string>
+    <string name="peripheral_pc_mode">Resoluutiosta riippumaton tähtäys</string>
+    <string name="peripheral_pc_mode_summary">Jatkuva lineaarinen herkkyys renderöintiresoluutiosta riippumatta. Battly ei lisää kiihtyvyyttä tai tasoitusta. Android 8 tai uudempi.</string>
+    <string name="peripheral_mouse_x">Vaakasuuntainen herkkyys</string>
+    <string name="peripheral_mouse_y">Pystysuuntainen herkkyys</string>
+    <string name="peripheral_invert_x">Käännä vaaka-akseli ylösalaisin</string>
+    <string name="peripheral_invert_y">Käännä pystyakseli ylösalaisin</string>
+    <string name="peripheral_mouse_test">Testaa hiiren kalibrointia</string>
+    <string name="peripheral_keyboard">Fyysinen näppäimistö</string>
+    <string name="peripheral_bindings">Pelin avainten siteet</string>
+    <string name="peripheral_binding_count">%1$d siteet. Valikon kirjoitus ei muutu.</string>
+    <string name="peripheral_keyboard_test">Testaa näppäimiä ja yhdistelmiä</string>
+    <string name="peripheral_stick_linear">Lineaarinen ohjaimen tähtäys</string>
+    <string name="peripheral_stick_linear_summary">Suhteellinen sauvavaste oletusneliökäyrän sijaan. Koskee Battly-ohjainten kartoitusta, ei alkuperäisiä ohjainmoduuleja.</string>
+    <string name="peripheral_stick_sensitivity">Ohjaimen kameran herkkyys</string>
+    <string name="peripheral_reset_test">Nollaa mittaus</string>
+    <string name="peripheral_add_binding">Lisää avainsidonta</string>
+    <string name="peripheral_source_key">Fyysinen avain</string>
+    <string name="peripheral_target_key">Lähetä tämä avain numeroon Minecraft</string>
+    <string name="peripheral_press_key">Paina ja vapauta fyysinen näppäin. Olemassa olevan sidoksen valitseminen poistaa sen. Muokkausnäppäimet säilyttävät normaalin toimintansa.</string>
+    <string name="peripheral_invalid_key">Valitse muokkaamaton näppäimistönäppäin. Android-järjestelmäavaimia ei voi yhdistää uudelleen.</string>
+    <string name="peripheral_mouse_ready">Napsauta testialuetta kaapataksesi hiiren. Vapauta se painamalla Esc-näppäintä. Mittaukset ovat suhteellista liikettä, jonka raportoi Android, ei laitteiston DPI:tä.</string>
+    <string name="peripheral_keyboard_ready">Paina fyysisen näppäimistön näppäimiä tai yhdistelmiä. Sulje testi painamalla Esc-näppäintä.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nPeli X / Y: %3$s\nEsimerkit: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nAvain: %2$s · Skannaus: %3$d · Toisto: %4$d\nPidossa: %5$s</string>
 </resources>

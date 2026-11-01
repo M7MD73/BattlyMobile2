@@ -9,6 +9,8 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- A legacy SQLite manifest implies this permission; device security does not use telephony IDs. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -42,6 +44,8 @@
         android:process=":launcher"
         android:resizeableActivity="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false" />
+        <service android:name=".analytics.TelemetryService" android:exported="false" android:process=":launcher" />
         <property
             android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
             android:value="true" />
@@ -334,7 +338,6 @@
         <package android:name="net.kdt.pojavlaunch.ffmpeg"/>
         <intent>
             <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
         </intent>
     </queries>
 </manifest>

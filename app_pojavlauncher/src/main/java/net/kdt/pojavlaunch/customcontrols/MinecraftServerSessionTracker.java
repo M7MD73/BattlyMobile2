@@ -14,8 +14,14 @@ public final class MinecraftServerSessionTracker {
             "(?i)connecting to\\s+/?([^,\\s:]+)(?::|,\\s*)(\\d{1,5})");
     private static final Pattern HOST_ONLY = Pattern.compile(
             "(?i)connecting to\\s+/?([^,\\s:]+)(?:\\s|$)");
+    private static final Pattern PREPARING_LEVEL = Pattern.compile(
+            "(?i)preparing level\\s+[\"']([^\"']+)[\"']");
+    private static final Pattern LOADING_LEVEL = Pattern.compile(
+            "(?i)loading level\\s+[\"']?(?:serverlevel\\[)?([^'/\"]+)");
 
     private static volatile Endpoint endpoint;
+    private static volatile Mode mode = Mode.MENU;
+    private static volatile String worldName = "";
     private static String carry = "";
 
     private MinecraftServerSessionTracker() {
@@ -23,6 +29,8 @@ public final class MinecraftServerSessionTracker {
 
     public static synchronized void reset() {
         endpoint = null;
+        mode = Mode.MENU;
+        worldName = "";
         carry = "";
     }
 
@@ -42,10 +50,19 @@ public final class MinecraftServerSessionTracker {
     static synchronized void inspectLine(String line) {
         if (line == null) return;
         String lower = line.toLowerCase(Locale.ROOT);
-        if (isLocalWorldLine(lower) || isDisconnectLine(lower)) {
+        if (isLocalWorldLine(lower)) {
             endpoint = null;
+            mode = Mode.SINGLEPLAYER;
+            extractWorldName(line);
             return;
         }
+        if (isDisconnectLine(lower)) {
+            endpoint = null;
+            mode = Mode.MENU;
+            worldName = "";
+            return;
+        }
+        if (mode == Mode.SINGLEPLAYER) extractWorldName(line);
         if (!lower.contains("connecting to")) return;
 
         Matcher matcher = BRACKETED_ENDPOINT.matcher(line);
@@ -60,6 +77,14 @@ public final class MinecraftServerSessionTracker {
 
     public static Endpoint getEndpoint() {
         return endpoint;
+    }
+
+    public static Mode getMode() {
+        return mode;
+    }
+
+    public static String getWorldName() {
+        return worldName;
     }
 
     private static boolean isLocalWorldLine(String lower) {
@@ -90,8 +115,23 @@ public final class MinecraftServerSessionTracker {
         if (host == null) return;
         String cleanHost = host.trim();
         if (cleanHost.startsWith("/")) cleanHost = cleanHost.substring(1);
-        if (!cleanHost.isEmpty()) endpoint = new Endpoint(cleanHost, port);
+        if (!cleanHost.isEmpty()) {
+            endpoint = new Endpoint(cleanHost, port);
+            mode = Mode.MULTIPLAYER;
+            worldName = "";
+        }
     }
+
+    private static void extractWorldName(String line) {
+        Matcher matcher = PREPARING_LEVEL.matcher(line);
+        if (!matcher.find()) matcher = LOADING_LEVEL.matcher(line);
+        if (matcher.find(0)) {
+            String candidate = matcher.group(1).trim();
+            if (!candidate.isEmpty()) worldName = candidate;
+        }
+    }
+
+    public enum Mode { MENU, SINGLEPLAYER, MULTIPLAYER }
 
     public static final class Endpoint {
         public final String host;

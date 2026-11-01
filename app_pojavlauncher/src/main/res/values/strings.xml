@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="native_plugins_trust_warning">This external plugin can run native code with access to Battly files and accounts. Only allow plugins from a source you trust. Permission is linked to the APK signing identity.</string>
+    <string name="native_plugins_trust_action">Allow plugin</string>
+    <string name="battly_access_suspended">Access to Battly has been suspended for this account, device or connection. Contact Battly support if you believe this is a mistake.</string>
+    <string name="battly_device_privacy_title">Device security and privacy</string>
+    <string name="battly_device_privacy_message">To prevent ban evasion, Battly links a protected identifier of this device to the Battly accounts used on it. We do not read your IMEI or serial number, and the original Android identifier is not sent or stored. If an associated account is banned, access from this device may also be blocked, including for other accounts on a shared device. This association is kept until removed by Battly support. Contact support to request a review or deletion. Tap OK to accept, or Cancel to leave without registering the device.</string>
     <!-- App name part -->
     <string name="app_name">Battly Launcher</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.9</string>
     <string name="launcher_mobile_badge_dynamic">Mobile %1$s</string>
     <string name="credits_version_dynamic">Version %1$s</string>
     <string name="launcher_versions_button">Versions</string>
@@ -41,7 +46,7 @@
     <string name="launcher_version_unknown">Unknown</string>
     <string name="launcher_version_fallback">Version 1.21.9</string>
     <string name="launcher_download_modpack">Import modpack</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_news_title">Latest Battly news</string>
     <string name="launcher_news_battly">Battly news</string>
     <string name="launcher_news_minecraft">Minecraft news</string>
@@ -137,6 +142,8 @@
     <string name="download_action_browse_modpacks_subtitle">Search CurseForge and Modrinth modpacks and create a ready-to-play installation.</string>
     <string name="download_action_browse_mods_title">Browse mods</string>
     <string name="download_action_browse_mods_subtitle">Install `.jar` mods into the instance you choose.</string>
+    <string name="download_action_import_mods_title">Import external mods</string>
+    <string name="download_action_import_mods_subtitle">Choose one or more `.jar` files and add them to the selected instance.</string>
     <string name="download_action_browse_resourcepacks_title">Browse resource packs</string>
     <string name="download_action_browse_resourcepacks_subtitle">Download texture and resource packs for your profiles.</string>
     <string name="download_action_browse_shaders_title">Browse shaders</string>
@@ -163,6 +170,13 @@
     <string name="library_installed_datapacks">Datapacks</string>
     <string name="library_installed_empty">No files installed yet.</string>
     <string name="library_installed_more"> · +%1$d more</string>
+    <string name="library_installed_show_more">Show %1$d more</string>
+    <string name="library_import_mods_replace_title">Replace existing mods?</string>
+    <string name="library_import_mods_replace_message">%1$d selected mod files already exist in %2$s. Battly will replace them only after validating the new files.</string>
+    <string name="library_import_mods_invalid">No valid `.jar` mod files were selected.</string>
+    <string name="library_import_mods_success">Imported %1$d mods into %2$s.</string>
+    <string name="library_import_mods_partial">Imported %1$d mods into %2$s · %3$d files could not be imported.</string>
+    <string name="library_import_mods_error">The selected mods could not be imported.</string>
     <string name="library_installed_detail">%1$s installed.</string>
     <string name="library_installed_detail_with_folders">%1$s installed · %2$d folders.</string>
     <string name="library_content_open">Open</string>
@@ -226,7 +240,7 @@
     <string name="progresslayout_title">Downloads and installs</string>
     <string name="modloader_installing">Installing loader files...</string>
     <string name="launcher_credits_html"><![CDATA[
-        <b>Battly Launcher 2.2.5</b><br/><br/>
+        <b>Battly Launcher 2.2.9</b><br/><br/>
         Launcher based on PojavLauncher and Boardwalk.<br/><br/>
         <b>Credits</b><br/>
         &bull; Battly<br/>
@@ -238,7 +252,7 @@
         &bull; OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j and more under their original licenses.<br/><br/>
         This app is not affiliated with Minecraft, Mojang or Microsoft.
     ]]></string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="credits_based_on">Based on PojavLauncher and Boardwalk</string>
     <string name="credits_section_title">Credits</string>
     <string name="credits_primary_development">Main development</string>
@@ -310,6 +324,24 @@
     <string name="mcl_setting_subtitle_buttonscale">Upscale them if the buttons are too small.</string>
     <string name="mcl_setting_title_mousescale">Mouse scaling</string>
     <string name="mcl_setting_subtitle_mousescale">Change the size of the virtual mouse.</string>
+    <string name="cursor_style_title">Game cursor appearance</string>
+    <string name="cursor_style_summary">Choose the cursor shown when using the virtual mouse.</string>
+    <string name="cursor_style_default">Battly pointer</string>
+    <string name="cursor_style_dot">Dot</string>
+    <string name="cursor_style_crosshair">Crosshair</string>
+    <string name="cursor_style_custom">Custom image</string>
+    <string name="cursor_custom_image_title">Choose cursor image</string>
+    <string name="cursor_custom_image_summary_empty">Select a PNG or WebP image.</string>
+    <string name="cursor_custom_image_summary_selected">Custom image selected. Tap to replace it.</string>
+    <string name="cursor_custom_image_saved">Cursor image saved</string>
+    <string name="cursor_custom_invalid">The selected file is not a valid cursor image.</string>
+    <string name="cursor_custom_too_large">The cursor image cannot exceed 8 MB.</string>
+    <string name="cursor_opacity_title">Cursor opacity</string>
+    <string name="cursor_opacity_summary">Adjust how visible the cursor is in the game.</string>
+    <string name="cursor_hotspot_title">Cursor click point</string>
+    <string name="cursor_hotspot_summary">Choose which part of the image performs the click.</string>
+    <string name="cursor_hotspot_top_left">Top-left corner</string>
+    <string name="cursor_hotspot_center">Center</string>
     <string name="mcl_setting_title_javaargs">JVM Launch arguments</string>
     <string name="mcl_setting_subtitle_javaargs">Be careful, this may make game crash if modified without knowledge.</string>
     <string name="mcl_setting_title_renderer_settings">Extra Renderer Settings</string>
@@ -477,7 +509,9 @@
     <string name="mcl_gamepad_SDL">Enable SDL controller backend</string>
     <string name="mcl_gamepad_SDL_subtitle">Enables SDL controller backend. Has better mod support. Falls back to GLFW if not used.</string>
     <string name="mcl_disable_gestures">Disable gestures</string>
-    <string name="mcl_disable_gestures_subtitle">Disables gestures, such as hold to break block, and tap to place a block.</string>
+    <string name="mcl_disable_gestures_subtitle">Disables all touch gestures, including hold to break, tap to place, and hold a hotbar slot to drop items.</string>
+    <string name="mcl_disable_long_press_drop">Disable hold to drop items</string>
+    <string name="mcl_disable_long_press_drop_subtitle">Prevents dropping items by holding a slot in the hotbar. The Q key and custom controls still work.</string>
     <string name="mcl_disable_swap_hand">Disable double tap to swap hands</string>
     <string name="mcl_disable_swap_hand_subtitle">Disables double tapping on the hotbar item to swap it in the second hand.</string>
     <string name="mcl_setting_title_mousespeed">Mouse Speed</string>
@@ -872,6 +906,11 @@
     <string name="mcl_button_open_directory">Open game directory</string>
     <string name="discord_invite" translatable="false">https://discord.gg/5ptqkyZxEy</string>
     <string name="local_login_bad_username_title">Unsuitable username</string>
+    <string name="local_login_existing_account_title">Account already added</string>
+    <string name="local_version_missing_title">Incomplete modded installation</string>
+    <string name="local_version_missing_message">The local version file for %1$s is missing. Forge, Fabric and OptiFine versions are not in the vanilla catalog. Reinstall this exact loader version from Versions. Your instance, worlds, mods and settings have not been deleted.</string>
+    <string name="local_version_missing_versions">Open Versions</string>
+    <string name="local_login_existing_account_text">The account %1$s is already saved on this device. Select it in the account manager instead of creating it again.</string>
     <string name="local_login_bad_username_text">The username must be between 3–16 characters long, and must only contain latin letters, numbers 0–9 and underscores.</string>
     <string name="quick_setting_title">Quick settings</string>
     <string name="create_bta_profile">Create \"Better than Adventure!\" profile</string>
@@ -903,21 +942,23 @@
     <string name="onboarding_show_again">Show welcome again</string>
     <string name="onboarding_transition_title">Welcome to Battly</string>
     <string name="onboarding_transition_desc">Preparing your launcher...</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_desc">Better Minecraft 26.3 compatibility, native audio for mods, translated news and display fixes.</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 fixed</string>
-    <string name="battly_whats_new_instances_desc">Fixed startup, textures and rendering for Minecraft 26.3 across Vanilla, Fabric and custom versions.</string>
-    <string name="battly_whats_new_worlds_title">Microphone access for mods</string>
-    <string name="battly_whats_new_worlds_desc">Mods can detect the Android microphone, select an available input and capture voice without transmitting game audio.</string>
-    <string name="battly_whats_new_compatibility_title">Native plugins and Distant Horizons</string>
-    <string name="battly_whats_new_compatibility_desc">Battly detects native library plugins and starts compatible mods such as Distant Horizons when the required plugin is installed.</string>
-    <string name="battly_whats_new_controllers_title">News that stays up to date</string>
-    <string name="battly_whats_new_controllers_desc">Battly requests the API in the device language and updates its cache whenever the server content changes.</string>
-    <string name="battly_whats_new_recovery_title">More accurate startup and shutdown</string>
-    <string name="battly_whats_new_recovery_desc">Improved Vulkan and orientation handling, Minecraft window sizing, JVM arguments and detection of normal exits.</string>
-    <string name="battly_whats_new_action_start">Explore 2.2.5</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 is ready</string>
-    <string name="battly_whats_new_transition_desc">Your existing instances and settings remain unchanged.</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_desc">Safer modpack installation, file sharing and external plugin authorization.</string>
+    <string name="battly_whats_new_instances_title">Protected modpack installation</string>
+    <string name="battly_whats_new_instances_desc">Archive contents and downloaded files stay inside their assigned instance, without modifying other instances.</string>
+    <string name="battly_whats_new_worlds_title">Your plugin permissions</string>
+    <string name="battly_whats_new_worlds_desc">External plugins need authorization before use. Previously installed plugins must be authorized again once.</string>
+    <string name="battly_whats_new_compatibility_title">Safer Discord sign-in</string>
+    <string name="battly_whats_new_native_title">Native dependencies remain available</string>
+    <string name="battly_whats_new_native_desc">Built-in libraries work automatically. Permissions for external plugins are linked to the APK signing identity.</string>
+    <string name="battly_whats_new_compatibility_desc">Login responses must match a pending request, expire after a short time and can only be accepted once.</string>
+    <string name="battly_whats_new_controllers_title">Protected file sharing</string>
+    <string name="battly_whats_new_controllers_desc">Sharing one folder no longer allows access to other folders outside the permission you granted.</string>
+    <string name="battly_whats_new_recovery_title">Statistics and translations</string>
+    <string name="battly_whats_new_recovery_desc">Usage analytics activate when Battly starts, except in offline mode. Release notes and plugin messages have been translated.</string>
+    <string name="battly_whats_new_action_start">Explore 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 is ready</string>
+    <string name="battly_whats_new_transition_desc">Your instances remain in place. Authorize trusted external plugins in Settings before using them.</string>
     <!-- Vanilla installer strings -->
     <string name="vanilla_install_version_label">Minecraft version</string>
     <string name="vanilla_install_tap_to_select">Tap to select a version…</string>
@@ -1027,6 +1068,8 @@
     <string name="android_incompatible_mods_title">Incompatible mod detected</string>
     <string name="android_incompatible_mods_message">These mods include desktop Linux native libraries and cannot run on Android:\n\n%1$s\n\nBattly can disable them without deleting them.</string>
     <string name="android_incompatible_mods_disable">Disable and launch</string>
+    <string name="network_mod_conflict_title">Conflicting network mods detected</string>
+    <string name="network_mod_conflict_message">Krypton and e4mc are trying to modify the same Minecraft network system and will crash during startup:\n\n%1$s\n%2$s\n\nBattly can disable Krypton without deleting it and keep e4mc enabled.</string>
     <string name="mod_conflict_optifine_embeddium_title">Conflicting graphics mods</string>
     <string name="mod_conflict_optifine_embeddium_message">OptiFine and Embeddium modify the same Minecraft renderer and cannot start together. Battly can disable Embeddium without deleting it.</string>
     <string name="mod_conflict_disable_embeddium">Disable Embeddium and launch</string>
@@ -1367,6 +1410,26 @@
     <string name="download_action_battly_skins_subtitle">Upload, preview and apply your Battly skins.</string>
     <string name="battly_skins_title">Battly skins</string>
     <string name="battly_skins_subtitle">Upload PNG skins to your Battly account and apply them directly from Mobile.</string>
+    <string name="battly_appearance_title">Battly skins and capes</string>
+    <string name="battly_appearance_subtitle">Preview and manage your complete Minecraft appearance from Mobile.</string>
+    <string name="battly_capes_title">Battly capes</string>
+    <string name="battly_capes_description">Choose an official cape or upload your own with Battly+. The active cape is shown in the 3D preview and inside Minecraft.</string>
+    <string name="battly_capes_loading">Loading Battly capes...</string>
+    <string name="battly_capes_active">Active cape</string>
+    <string name="battly_capes_none">No active cape</string>
+    <string name="battly_capes_empty">No capes are available for this account.</string>
+    <string name="battly_capes_upload">Upload cape</string>
+    <string name="battly_capes_upload_plus">Upload with Battly+</string>
+    <string name="battly_capes_plus_required">Custom capes are available with Battly+. You can still use the official capes.</string>
+    <string name="battly_capes_disable">No cape</string>
+    <string name="battly_capes_disabled">Cape disabled</string>
+    <string name="battly_capes_uploaded">Cape uploaded and applied</string>
+    <string name="battly_capes_applied">Cape applied</string>
+    <string name="battly_capes_deleted">Cape deleted</string>
+    <string name="battly_capes_previewing">Previewing cape</string>
+    <string name="battly_capes_custom">Custom cape</string>
+    <string name="battly_capes_official">Official cape</string>
+    <string name="battly_capes_unavailable">Capes are temporarily unavailable. Your skins are still available.</string>
     <string name="battly_skins_current">Current skin</string>
     <string name="battly_skins_library">Your Battly library</string>
     <string name="battly_skins_upload">Upload skin</string>
@@ -1565,6 +1628,39 @@
     <string name="battly_social_title">Battly Social</string>
     <string name="battly_social_subtitle">See what your friends are playing, join their servers and manage invitations.</string>
     <string name="battly_social_refresh">Refresh Battly Social</string>
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="battly_stats_history_title">Daily activity · Mobile</string>
+    <string name="battly_stats_history_notice">Local time when recorded. History starts with this update; previous totals remain below.</string>
+    <string name="battly_stats_history_unavailable">Daily history is not available on the server yet. Your total statistics are shown below.</string>
+    <string name="battly_stats_period_label">Activity period</string>
+    <string name="battly_stats_day_label">Activity date</string>
+    <string name="battly_stats_period_days">Last %1$d days</string>
+    <string name="battly_stats_period_summary">Active days: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_time_range">First activity: %1$s · Last activity: %2$s</string>
+    <string name="battly_stats_day_modes">Worlds: %1$s · Servers: %2$s (Battly Worlds: %3$s) · Game menus: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">All-time totals · PC + Mobile</string>
+    <string name="battly_stats_title">Game statistics</string>
+    <string name="battly_stats_subtitle">Your combined Battly activity on PC and Mobile.</string>
+    <string name="battly_stats_total_game">TOTAL IN MINECRAFT</string>
+    <string name="battly_stats_launcher">IN THE LAUNCHER</string>
+    <string name="battly_stats_worlds">LOCAL WORLDS</string>
+    <string name="battly_stats_servers">SERVERS</string>
+    <string name="battly_stats_sessions">%1$d Mobile game sessions</string>
+    <string name="battly_stats_platform_split">PC: %1$s · Mobile: %2$s</string>
+    <string name="battly_stats_worlds_network">Battly Worlds: %1$s</string>
+    <string name="battly_stats_top_servers">Most played servers</string>
+    <string name="battly_stats_top_worlds">Most played local worlds</string>
+    <string name="battly_stats_top_versions">Most played versions</string>
+    <string name="battly_stats_empty">No activity recorded yet.</string>
+    <string name="battly_stats_duration_days">%1$d d %2$d h</string>
+    <string name="battly_stats_duration_hours">%1$d h %2$d min</string>
+    <string name="battly_stats_duration_minutes">%1$d min</string>
+    <string name="battly_stats_entry">%1$s · %2$s · %3$d sessions</string>
+    <string name="battly_stats_account_required">Sign in with a Battly account to view your statistics.</string>
     <string name="battly_social_friends">Friends</string>
     <string name="battly_social_requests">Requests</string>
     <string name="battly_social_search">Find friends</string>
@@ -1807,8 +1903,53 @@
     <string name="native_plugins_title">Native library plugins</string>
     <string name="native_plugins_summary">Use installed Android native libraries required by mods such as Distant Horizons.</string>
     <string name="native_plugins_category">Installed native library plugins</string>
+    <string name="native_plugins_bundled_category">Android dependencies included with Battly</string>
+    <string name="native_plugins_bundled_ready">Version %1$s · Ready</string>
     <string name="native_plugins_empty_title">No native plugins detected</string>
     <string name="native_plugins_empty_summary">Install an Android app compatible with the FCLNativePlugin format, then reopen this screen.</string>
     <string name="native_plugins_version">Version %1$s</string>
     <string name="native_plugins_minecraft_range">Minecraft %1$s to %2$s</string>
+<string name="battly_analytics_title">Share usage statistics</string>
+<string name="battly_analytics_summary">Optional: shares app sessions, Minecraft versions, launches and exits with Firebase Analytics for aggregate reports. Google estimates country from the connection. No account names, chat, server addresses or worlds. Local history works independently. Disable at any time.</string>
+    <string name="battlyworlds_report">Report</string>
+    <string name="battlyworlds_report_room">Report this room</string>
+    <string name="battlyworlds_report_description">Describe what happened (10–2000 characters)</string>
+    <string name="battlyworlds_report_privacy">Battly staff will review this report. Do not include passwords or private information.</string>
+    <string name="battlyworlds_report_send">Send report</string>
+    <string name="battlyworlds_report_minimum">Enter at least 10 characters</string>
+    <string name="battlyworlds_report_sent">Report sent. Reference:</string>
+    <string name="battlyworlds_report_failed">Could not send the report</string>
+    <string name="battlyworlds_restricted_title">Battly Worlds restriction</string>
+    <string name="battlyworlds_moderation_unavailable">Could not check Worlds access. Try again.</string>
+    <string-array name="battlyworlds_report_categories"><item>Harassment</item><item>Hate or discrimination</item><item>Cheating or abuse</item><item>Inappropriate content</item><item>Privacy</item><item>Other</item></string-array>
+    <string name="automatic_game_keyboard_title">Open the keyboard automatically</string>
+    <string name="peripheral_title">Keyboard, mouse and controller</string>
+    <string name="peripheral_devices">Connected peripherals</string>
+    <string name="peripheral_no_devices">No external peripherals detected</string>
+    <string name="peripheral_mouse">Physical mouse</string>
+    <string name="peripheral_pc_preset">Apply PC mouse preset</string>
+    <string name="peripheral_pc_mode">Resolution-independent aiming</string>
+    <string name="peripheral_pc_mode_summary">Constant linear sensitivity regardless of render resolution. Battly adds no acceleration or smoothing. Android 8 or later.</string>
+    <string name="peripheral_mouse_x">Horizontal sensitivity</string>
+    <string name="peripheral_mouse_y">Vertical sensitivity</string>
+    <string name="peripheral_invert_x">Invert horizontal axis</string>
+    <string name="peripheral_invert_y">Invert vertical axis</string>
+    <string name="peripheral_mouse_test">Test mouse calibration</string>
+    <string name="peripheral_keyboard">Physical keyboard</string>
+    <string name="peripheral_bindings">Gameplay key bindings</string>
+    <string name="peripheral_binding_count">%1$d bindings. Menu typing is unchanged.</string>
+    <string name="peripheral_keyboard_test">Test keys and combinations</string>
+    <string name="peripheral_stick_linear">Linear controller aiming</string>
+    <string name="peripheral_stick_linear_summary">Proportional stick response instead of the default quadratic curve. Applies to Battly controller mapping, not native controller mods.</string>
+    <string name="peripheral_stick_sensitivity">Controller camera sensitivity</string>
+    <string name="peripheral_reset_test">Reset measurement</string>
+    <string name="peripheral_add_binding">Add key binding</string>
+    <string name="peripheral_source_key">Physical key</string>
+    <string name="peripheral_target_key">Send this key to Minecraft</string>
+    <string name="peripheral_press_key">Press and release a physical key. Selecting an existing binding removes it. Modifier keys keep their normal behavior.</string>
+    <string name="peripheral_invalid_key">Choose a non-modifier keyboard key. Android system keys cannot be remapped.</string>
+    <string name="peripheral_mouse_ready">Click the test area to capture the mouse. Press Escape to release it. Measurements are relative motion reported by Android, not hardware DPI.</string>
+    <string name="peripheral_keyboard_ready">Press keys or combinations on your physical keyboard. Press Escape to close the test.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGame X / Y: %3$s\nSamples: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKey: %2$s · Scan: %3$d · Repeat: %4$d\nHeld: %5$s</string>
 </resources>

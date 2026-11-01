@@ -37,6 +37,10 @@ public class LauncherPreferences {
 	public static int PREF_NOTCH_SIZE = 0;
 	public static float PREF_BUTTONSIZE = 100f;
 	public static float PREF_MOUSESCALE = 1f;
+    public static String PREF_CURSOR_STYLE = "default";
+    public static String PREF_CURSOR_CUSTOM_PATH = "";
+    public static int PREF_CURSOR_OPACITY = 100;
+    public static String PREF_CURSOR_HOTSPOT = "top_left";
 	public static int PREF_LONGPRESS_TRIGGER = 300;
 	public static String PREF_DEFAULTCTRL_PATH = Tools.CTRLDEF_FILE;
 	public static String PREF_CUSTOM_JAVA_ARGS;
@@ -44,6 +48,7 @@ public class LauncherPreferences {
     public static final String PREF_VERSION_REPOS = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json";
     public static boolean PREF_CHECK_LIBRARY_SHA = true;
     public static boolean PREF_DISABLE_GESTURES = false;
+    public static boolean PREF_DISABLE_LONG_PRESS_DROP = false;
     public static boolean PREF_GAMEPAD_SDL_PASSTHRU = false;
     public static boolean PREF_GAMEPAD_FORCEDSDL_PASSTHRU = false;
     public static boolean PREF_DISABLE_SWAP_HAND = false;
@@ -104,6 +109,10 @@ public class LauncherPreferences {
 
         PREF_BUTTONSIZE = DEFAULT_PREF.getInt("buttonscale", 100);
         PREF_MOUSESCALE = DEFAULT_PREF.getInt("mousescale", 100)/100f;
+        PREF_CURSOR_STYLE = DEFAULT_PREF.getString("cursorStyle", "default");
+        PREF_CURSOR_CUSTOM_PATH = DEFAULT_PREF.getString("cursorCustomPath", "");
+        PREF_CURSOR_OPACITY = clamp(DEFAULT_PREF.getInt("cursorOpacity", 100), 20, 100);
+        PREF_CURSOR_HOTSPOT = DEFAULT_PREF.getString("cursorHotspot", "top_left");
         PREF_MOUSESPEED = ((float)DEFAULT_PREF.getInt("mousespeed",100))/100f;
         PREF_TOUCHSCREEN_SENSITIVITY = ((float) DEFAULT_PREF.getInt(
                 "touchscreenSensitivity", 100)) / 100f;
@@ -114,6 +123,7 @@ public class LauncherPreferences {
         PREF_FORCE_ENGLISH = DEFAULT_PREF.getBoolean("force_english", false);
         PREF_CHECK_LIBRARY_SHA = DEFAULT_PREF.getBoolean("checkLibraries",true);
         PREF_DISABLE_GESTURES = DEFAULT_PREF.getBoolean("disableGestures",false);
+        PREF_DISABLE_LONG_PRESS_DROP = DEFAULT_PREF.getBoolean("disableLongPressDrop", false);
         PREF_GAMEPAD_SDL_PASSTHRU = DEFAULT_PREF.getBoolean("gamepadPassthru",false);
         PREF_GAMEPAD_FORCEDSDL_PASSTHRU = DEFAULT_PREF.getBoolean("gamepadPassthruForced",false);
         PREF_DISABLE_SWAP_HAND = DEFAULT_PREF.getBoolean("disableDoubleTap", false);
@@ -142,6 +152,7 @@ public class LauncherPreferences {
         PREF_GAMEPAD_CAMERA_SENSITIVITY = DEFAULT_PREF.getInt("gamepadCameraSensitivity", 100) / 100f;
         PREF_GAMEPAD_CAMERA_INVERT_X = DEFAULT_PREF.getBoolean("gamepadCameraInvertX", false);
         PREF_GAMEPAD_CAMERA_INVERT_Y = DEFAULT_PREF.getBoolean("gamepadCameraInvertY", false);
+        net.kdt.pojavlaunch.customcontrols.PeripheralInputSettings.load(DEFAULT_PREF);
         PREF_BIG_CORE_AFFINITY = DEFAULT_PREF.getBoolean("bigCoreAffinity", false);
         PREF_ZINK_PREFER_SYSTEM_DRIVER = DEFAULT_PREF.getBoolean("zinkPreferSystemDriver", false);
         PREF_DOWNLOAD_SOURCE = "default";

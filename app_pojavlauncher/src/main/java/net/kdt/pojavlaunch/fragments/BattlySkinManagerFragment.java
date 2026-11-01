@@ -32,6 +32,7 @@ import net.kdt.pojavlaunch.PojavApplication;
 import net.kdt.pojavlaunch.PojavProfile;
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.BattlyCapeApi;
 import net.kdt.pojavlaunch.utils.BattlySkinApi;
 import net.kdt.pojavlaunch.utils.BattlySkinPreviewRenderer;
 import net.kdt.pojavlaunch.utils.OfflineSkinManager;
@@ -41,12 +42,21 @@ public class BattlySkinManagerFragment extends Fragment {
     public static final String TAG = "BattlySkinManagerFragment";
 
     private ActivityResultLauncher<String[]> mSkinPicker;
+    private ActivityResultLauncher<String[]> mCapePicker;
     private LinearLayout mRoot;
     private LinearLayout mSkinListContainer;
+    private LinearLayout mCapeListContainer;
+    private View mCapePanel;
     private WebView mSkin3dPreview;
     private TextView mCurrentStatus;
+    private TextView mCapeStatus;
     private ProgressBar mProgressBar;
     private Button mUploadButton;
+    private Button mCapeUploadButton;
+    private String mCurrentSkinDataUri;
+    private String mCurrentCapeDataUri;
+    private boolean mCapeUploadAllowed;
+    private boolean mCapeServiceAvailable;
     private int mRequestId;
 
     public BattlySkinManagerFragment() {
@@ -57,6 +67,7 @@ public class BattlySkinManagerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSkinPicker = registerForActivityResult(new ActivityResultContracts.OpenDocument(), this::onSkinPicked);
+        mCapePicker = registerForActivityResult(new ActivityResultContracts.OpenDocument(), this::onCapePicked);
     }
 
     @Nullable
@@ -78,6 +89,7 @@ public class BattlySkinManagerFragment extends Fragment {
         buildHeader();
         buildCurrentSkinPanel();
         buildSkinListPanel();
+        buildCapePanel();
         return scrollView;
     }
 
@@ -106,10 +118,10 @@ public class BattlySkinManagerFragment extends Fragment {
         textParams.setMargins(dp(14), 0, 0, 0);
         header.addView(textBlock, textParams);
 
-        TextView title = titleText(R.string.battly_skins_title, 22);
+        TextView title = titleText(R.string.battly_appearance_title, 22);
         textBlock.addView(title);
 
-        TextView subtitle = bodyText(R.string.battly_skins_subtitle);
+        TextView subtitle = bodyText(R.string.battly_appearance_subtitle);
         subtitle.setPadding(0, dp(4), 0, 0);
         textBlock.addView(subtitle);
 
@@ -152,7 +164,10 @@ public class BattlySkinManagerFragment extends Fragment {
         Button slimButton = secondaryButton(R.string.battly_skins_slim);
         LinearLayout.LayoutParams slimParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, dp(44));
         actions.addView(slimButton, slimParams);
-        slimButton.setOnClickListener(v -> runMutation(() -> BattlySkinApi.toggleSlim(requireContext()), R.string.battly_skins_slim_done));
+        slimButton.setOnClickListener(v -> {
+            Context appContext = requireContext().getApplicationContext();
+            runMutation(() -> BattlySkinApi.toggleSlim(appContext), R.string.battly_skins_slim_done);
+        });
 
         mProgressBar = new ProgressBar(requireContext());
         mProgressBar.setVisibility(View.GONE);
@@ -202,6 +217,60 @@ public class BattlySkinManagerFragment extends Fragment {
         addWithTopMargin(card, dp(12));
     }
 
+    private void buildCapePanel() {
+        LinearLayout card = panel();
+        mCapePanel = card;
+        card.setOrientation(LinearLayout.VERTICAL);
+
+        LinearLayout heading = new LinearLayout(requireContext());
+        heading.setOrientation(LinearLayout.HORIZONTAL);
+        heading.setGravity(Gravity.CENTER_VERTICAL);
+
+        LinearLayout textBlock = new LinearLayout(requireContext());
+        textBlock.setOrientation(LinearLayout.VERTICAL);
+        heading.addView(textBlock, new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+        TextView capeTitle = titleText(R.string.battly_capes_title, 18);
+        net.kdt.pojavlaunch.utils.NewFeatureBadge.apply(capeTitle);
+        textBlock.addView(capeTitle);
+        mCapeStatus = bodyText(R.string.battly_capes_loading);
+        mCapeStatus.setPadding(0, dp(4), 0, 0);
+        textBlock.addView(mCapeStatus);
+
+        Button clearButton = secondaryButton(R.string.battly_capes_disable);
+        heading.addView(clearButton, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, dp(44)));
+        clearButton.setOnClickListener(v -> {
+            Context appContext = requireContext().getApplicationContext();
+            runMutation(() -> BattlyCapeApi.clearCape(appContext), R.string.battly_capes_disabled);
+        });
+
+        mCapeUploadButton = primaryButton(R.string.battly_capes_upload);
+        LinearLayout.LayoutParams uploadParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, dp(44));
+        uploadParams.setMargins(dp(8), 0, 0, 0);
+        heading.addView(mCapeUploadButton, uploadParams);
+        mCapeUploadButton.setOnClickListener(v -> {
+            if (!mCapeUploadAllowed) {
+                toast(getString(R.string.battly_capes_plus_required));
+                return;
+            }
+            mCapePicker.launch(new String[]{"image/png"});
+        });
+        card.addView(heading);
+
+        TextView help = bodyText(R.string.battly_capes_description);
+        help.setPadding(0, dp(10), 0, 0);
+        card.addView(help);
+
+        mCapeListContainer = new LinearLayout(requireContext());
+        mCapeListContainer.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams listParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        listParams.setMargins(0, dp(12), 0, 0);
+        card.addView(mCapeListContainer, listParams);
+
+        addWithTopMargin(card, dp(12));
+    }
+
     private void onSkinPicked(Uri uri) {
         if (uri == null) {
             return;
@@ -239,25 +308,51 @@ public class BattlySkinManagerFragment extends Fragment {
         });
     }
 
+    private void onCapePicked(Uri uri) {
+        if (uri == null) return;
+        Context appContext = requireContext().getApplicationContext();
+        setLoading(true);
+        PojavApplication.sExecutorService.execute(() -> {
+            try {
+                BattlyCapeApi.UploadResult result = BattlyCapeApi.uploadCape(appContext, uri);
+                BattlyCapeApi.setCape(appContext, result.capeId);
+                Tools.runOnUiThread(() -> {
+                    if (!isAdded()) return;
+                    toast(getString(R.string.battly_capes_uploaded));
+                    refreshLibrary();
+                });
+            } catch (Exception exception) {
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) showError(exception);
+                });
+            }
+        });
+    }
+
     private void refreshLibrary() {
         if (!isAdded()) {
             return;
         }
         int requestId = ++mRequestId;
         setLoading(true);
-        MinecraftAccount currentAccount = PojavProfile.getCurrentProfileContent(requireContext(), null);
+        Context appContext = requireContext().getApplicationContext();
+        MinecraftAccount currentAccount = PojavProfile.getCurrentProfileContent(appContext, null);
         if (currentAccount != null && currentAccount.isLocal()) {
             bindLocalOfflineSkin(currentAccount);
             return;
         }
+        if (mCapePanel != null) mCapePanel.setVisibility(View.VISIBLE);
         mCurrentStatus.setText(R.string.battly_skins_loading);
+        mCapeStatus.setText(R.string.battly_capes_loading);
         PojavApplication.sExecutorService.execute(() -> {
             try {
-                BattlySkinApi.SkinLibrary library = BattlySkinApi.loadLibrary(requireContext());
+                BattlySkinApi.SkinLibrary library = BattlySkinApi.loadLibrary(appContext);
+                CapeLoadResult capeResult = loadCapeLibrarySafely(appContext);
                 String currentSkin = safeLoadCurrentSkin(library.username);
+                String currentCape = capeResult.library == null ? null : safeLoadCurrentCape(capeResult.library);
                 Tools.runOnUiThread(() -> {
                     if (!isAdded() || requestId != mRequestId) return;
-                    bindLibrary(library, currentSkin);
+                    bindLibrary(library, currentSkin, capeResult, currentCape);
                     setLoading(false);
                 });
             } catch (Exception e) {
@@ -266,7 +361,9 @@ public class BattlySkinManagerFragment extends Fragment {
                     setLoading(false);
                     showError(e);
                     mCurrentStatus.setText(R.string.battly_skins_auth_required);
+                    mCapeStatus.setText(R.string.battly_skins_auth_required);
                     mSkinListContainer.removeAllViews();
+                    mCapeListContainer.removeAllViews();
                     addEmptyState();
                 });
             }
@@ -275,6 +372,7 @@ public class BattlySkinManagerFragment extends Fragment {
 
     private void bindLocalOfflineSkin(MinecraftAccount account) {
         setLoading(false);
+        if (mCapePanel != null) mCapePanel.setVisibility(View.GONE);
         mSkinListContainer.removeAllViews();
         java.io.File skinFile = OfflineSkinManager.getSkinFile(account.username);
         if (skinFile.isFile()) {
@@ -314,9 +412,36 @@ public class BattlySkinManagerFragment extends Fragment {
         }
     }
 
-    private void bindLibrary(BattlySkinApi.SkinLibrary library, String currentSkin) {
+    private String safeLoadCurrentCape(BattlyCapeApi.CapeLibrary library) {
+        if (!Tools.isValidString(library.establishedCapeId)) return null;
+        for (BattlyCapeApi.CapeEntry entry : library.capes) {
+            if (entry.selected) {
+                try {
+                    return BattlyCapeApi.downloadCapeDataUri(entry.url);
+                } catch (Exception ignored) {
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    private CapeLoadResult loadCapeLibrarySafely(Context context) {
+        try {
+            return new CapeLoadResult(BattlyCapeApi.loadLibrary(context), null);
+        } catch (Exception exception) {
+            String message = Tools.isValidString(exception.getMessage())
+                    ? exception.getMessage() : null;
+            return new CapeLoadResult(null, message);
+        }
+    }
+
+    private void bindLibrary(BattlySkinApi.SkinLibrary library, String currentSkin,
+                             CapeLoadResult capeResult, String currentCape) {
+        mCurrentSkinDataUri = currentSkin;
+        mCurrentCapeDataUri = currentCape;
         if (currentSkin != null) {
-            loadSkin3dPreview(currentSkin);
+            loadSkin3dPreview(currentSkin, currentCape);
         } else {
             loadSkin3dPlaceholder();
         }
@@ -326,6 +451,11 @@ public class BattlySkinManagerFragment extends Fragment {
                 : getString(R.string.battly_skins_no_selected);
         mCurrentStatus.setText(current);
         mSkinListContainer.removeAllViews();
+        if (capeResult.library != null) {
+            bindCapeLibrary(capeResult.library);
+        } else {
+            bindCapeError(capeResult.error);
+        }
         if (library.skins.isEmpty()) {
             addEmptyState();
             return;
@@ -338,6 +468,127 @@ public class BattlySkinManagerFragment extends Fragment {
             grid.addView(createSkinCard(library.username, entry));
         }
         mSkinListContainer.addView(grid);
+    }
+
+    private void bindCapeError(String error) {
+        mCapeServiceAvailable = false;
+        mCapeUploadAllowed = false;
+        mCapeUploadButton.setText(R.string.battly_capes_upload);
+        mCapeUploadButton.setEnabled(false);
+        mCapeStatus.setText(R.string.battly_capes_unavailable);
+        mCapeListContainer.removeAllViews();
+        TextView message = bodyText(R.string.battly_capes_unavailable);
+        if (Tools.isValidString(error) && !error.contains("HTTP 404")) {
+            message.setText(error);
+        }
+        message.setGravity(Gravity.CENTER);
+        message.setPadding(dp(16), dp(22), dp(16), dp(22));
+        message.setBackgroundResource(R.drawable.bg_battly_form_section);
+        mCapeListContainer.addView(message);
+    }
+
+    private void bindCapeLibrary(BattlyCapeApi.CapeLibrary library) {
+        mCapeServiceAvailable = true;
+        mCapeUploadAllowed = library.premium;
+        mCapeUploadButton.setText(library.premium
+                ? R.string.battly_capes_upload : R.string.battly_capes_upload_plus);
+        mCapeStatus.setText(Tools.isValidString(library.establishedCapeId)
+                ? R.string.battly_capes_active : R.string.battly_capes_none);
+        mCapeListContainer.removeAllViews();
+        if (library.capes.isEmpty()) {
+            TextView empty = bodyText(R.string.battly_capes_empty);
+            empty.setGravity(Gravity.CENTER);
+            empty.setPadding(dp(16), dp(22), dp(16), dp(22));
+            empty.setBackgroundResource(R.drawable.bg_battly_form_section);
+            mCapeListContainer.addView(empty);
+            return;
+        }
+
+        GridLayout grid = new GridLayout(requireContext());
+        grid.setColumnCount(4);
+        grid.setUseDefaultMargins(true);
+        for (BattlyCapeApi.CapeEntry entry : library.capes) {
+            grid.addView(createCapeCard(entry));
+        }
+        mCapeListContainer.addView(grid);
+    }
+
+    private View createCapeCard(BattlyCapeApi.CapeEntry entry) {
+        LinearLayout card = new LinearLayout(requireContext());
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setBackgroundResource(R.drawable.bg_battly_form_section);
+        card.setPadding(dp(10), dp(10), dp(10), dp(10));
+        card.setClickable(true);
+        card.setFocusable(true);
+        card.setOnClickListener(v -> previewCape(entry));
+        GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+        params.width = 0;
+        params.height = GridLayout.LayoutParams.WRAP_CONTENT;
+        params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+        params.setMargins(dp(4), dp(4), dp(4), dp(10));
+        card.setLayoutParams(params);
+
+        ImageView preview = new ImageView(requireContext());
+        preview.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        preview.setAdjustViewBounds(false);
+        preview.setPadding(dp(18), dp(8), dp(18), dp(8));
+        card.addView(preview, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(112)));
+        PojavApplication.sExecutorService.execute(() -> {
+            try {
+                Bitmap bitmap = BattlyCapeApi.downloadCapeBitmap(entry.url);
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) preview.setImageBitmap(bitmap);
+                });
+            } catch (Exception ignored) {
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) preview.setImageResource(R.drawable.logo);
+                });
+            }
+        });
+
+        TextView name = new TextView(requireContext());
+        name.setText(Tools.isValidString(entry.name) ? entry.name : readableCapeName(entry.id));
+        name.setTextSize(13);
+        name.setTextColor(entry.selected ? 0xFF8DEEDC : 0xFFFFFFFF);
+        name.setTypeface(Typeface.DEFAULT_BOLD);
+        name.setGravity(Gravity.CENTER);
+        name.setSingleLine(true);
+        card.addView(name);
+
+        LinearLayout actions = new LinearLayout(requireContext());
+        actions.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
+        actions.setOrientation(LinearLayout.HORIZONTAL);
+        actions.setPadding(0, dp(8), 0, 0);
+        Button apply = secondaryButton(R.string.battly_skins_apply);
+        apply.setEnabled(!entry.selected);
+        actions.addView(apply, new LinearLayout.LayoutParams(0, dp(42), 1));
+        apply.setOnClickListener(v -> {
+            Context appContext = requireContext().getApplicationContext();
+            runMutation(() -> BattlyCapeApi.setCape(appContext, entry.id), R.string.battly_capes_applied);
+        });
+        if (entry.deletable) {
+            ImageButton delete = new ImageButton(requireContext());
+            delete.setImageResource(android.R.drawable.ic_menu_delete);
+            delete.setBackgroundResource(R.drawable.bg_battly_profile_icon);
+            delete.setColorFilter(0xFFFFFFFF);
+            LinearLayout.LayoutParams deleteParams = new LinearLayout.LayoutParams(dp(42), dp(42));
+            deleteParams.setMargins(dp(8), 0, 0, 0);
+            actions.addView(delete, deleteParams);
+            delete.setOnClickListener(v -> {
+                Context appContext = requireContext().getApplicationContext();
+                runMutation(() -> BattlyCapeApi.deleteCape(appContext, entry.id), R.string.battly_capes_deleted);
+            });
+        }
+        card.addView(actions);
+        return card;
+    }
+
+    private String readableCapeName(String id) {
+        if (!Tools.isValidString(id)) return getString(R.string.battly_capes_custom);
+        if (id.endsWith("_custom")) return getString(R.string.battly_capes_custom);
+        String normalized = id.replace('-', ' ').replace('_', ' ').trim();
+        if (normalized.isEmpty()) return getString(R.string.battly_capes_official);
+        return Character.toUpperCase(normalized.charAt(0)) + normalized.substring(1);
     }
 
     private View createSkinCard(String username, BattlySkinApi.SkinEntry entry) {
@@ -384,10 +635,13 @@ public class BattlySkinManagerFragment extends Fragment {
         Button apply = secondaryButton(R.string.battly_skins_apply);
         apply.setEnabled(!entry.selected);
         actions.addView(apply, new LinearLayout.LayoutParams(0, dp(42), 1));
-        apply.setOnClickListener(v -> runMutation(() -> {
-            BattlySkinApi.setSkin(requireContext(), entry.id);
-            OfflineSkinManager.saveSkin(requireContext(), username, BattlySkinApi.downloadSkinBytes(username, entry.id));
-        }, R.string.battly_skins_applied_offline));
+        apply.setOnClickListener(v -> {
+            Context appContext = requireContext().getApplicationContext();
+            runMutation(() -> {
+                BattlySkinApi.setSkin(appContext, entry.id);
+                OfflineSkinManager.saveSkin(appContext, username, BattlySkinApi.downloadSkinBytes(username, entry.id));
+            }, R.string.battly_skins_applied_offline);
+        });
 
         ImageButton delete = new ImageButton(requireContext());
         delete.setImageResource(android.R.drawable.ic_menu_delete);
@@ -396,7 +650,10 @@ public class BattlySkinManagerFragment extends Fragment {
         LinearLayout.LayoutParams deleteParams = new LinearLayout.LayoutParams(dp(42), dp(42));
         deleteParams.setMargins(dp(8), 0, 0, 0);
         actions.addView(delete, deleteParams);
-        delete.setOnClickListener(v -> runMutation(() -> BattlySkinApi.deleteSkin(requireContext(), entry.id), R.string.battly_skins_deleted));
+        delete.setOnClickListener(v -> {
+            Context appContext = requireContext().getApplicationContext();
+            runMutation(() -> BattlySkinApi.deleteSkin(appContext, entry.id), R.string.battly_skins_deleted);
+        });
 
         card.addView(actions);
         return card;
@@ -440,10 +697,14 @@ public class BattlySkinManagerFragment extends Fragment {
     }
 
     private void loadSkin3dPreview(String skinDataUri) {
-        loadSkin3dPreview(mSkin3dPreview, skinDataUri, false);
+        loadSkin3dPreview(skinDataUri, mCurrentCapeDataUri);
     }
 
-    private void loadSkin3dPreview(WebView targetWebView, String skinDataUri, boolean compact) {
+    private void loadSkin3dPreview(String skinDataUri, String capeDataUri) {
+        loadSkin3dPreview(mSkin3dPreview, skinDataUri, capeDataUri, false);
+    }
+
+    private void loadSkin3dPreview(WebView targetWebView, String skinDataUri, String capeDataUri, boolean compact) {
         if (targetWebView == null) {
             return;
         }
@@ -452,6 +713,7 @@ public class BattlySkinManagerFragment extends Fragment {
             return;
         }
         String skin = escapeJs(skinDataUri);
+        String cape = escapeJs(capeDataUri);
         String loading = escapeJs(getString(R.string.battly_skins_3d_loading));
         String error = escapeJs(getString(R.string.battly_skins_3d_error));
         String hint = "";
@@ -464,14 +726,15 @@ public class BattlySkinManagerFragment extends Fragment {
                 "#hint{display:none;}" +
                 "</style><script src=\"file:///android_asset/skinview3d/skinview3d.bundle.js\"></script></head><body>" +
                 "<canvas id=\"skin\"></canvas><div id=\"status\">" + loading + "</div><div id=\"hint\">" + hint + "</div>" +
-                "<script>(function(){const skin='" + skin + "';const status=document.getElementById('status');" +
+                "<script>(function(){const skin='" + skin + "';const cape='" + cape + "';const status=document.getElementById('status');" +
                 "function fail(){status.textContent='" + error + "';status.style.display='flex';}" +
                 "function resize(viewer){const w=Math.max(240,document.body.clientWidth||320);const h=Math.max(240,document.body.clientHeight||320);viewer.setSize(w,h);}" +
                 "function boot(){try{if(!window.skinview3d){fail();return;}const canvas=document.getElementById('skin');" +
                 "const viewer=new skinview3d.SkinViewer({canvas:canvas,width:320,height:320});" +
                 camera + "viewer.camera.lookAt(0,2,0);viewer.controls.target.set(0,2,0);viewer.controls.enableRotate=true;viewer.controls.enableZoom=true;viewer.controls.enablePan=false;viewer.controls.update();" +
                 animation + "resize(viewer);window.addEventListener('resize',()=>resize(viewer));" +
-                "Promise.resolve(viewer.loadSkin(skin)).then(()=>{status.style.display='none';}).catch(fail);" +
+                "const loads=[Promise.resolve(viewer.loadSkin(skin))];if(cape){loads.push(Promise.resolve(viewer.loadCape(cape)));}" +
+                "Promise.all(loads).then(()=>{status.style.display='none';}).catch(fail);" +
                 "}catch(e){fail();}}" +
                 "if(document.readyState==='complete'){boot();}else{window.addEventListener('load',boot);}" +
                 "})();</script></body></html>";
@@ -485,12 +748,35 @@ public class BattlySkinManagerFragment extends Fragment {
                 String dataUri = BattlySkinApi.downloadSkinDataUri(username, entry.id);
                 Tools.runOnUiThread(() -> {
                     if (!isAdded()) return;
-                    loadSkin3dPreview(dataUri);
+                    mCurrentSkinDataUri = dataUri;
+                    loadSkin3dPreview(dataUri, mCurrentCapeDataUri);
                     mCurrentStatus.setText(getString(R.string.battly_skins_previewing_clean));
                     setLoading(false);
                 });
             } catch (Exception e) {
-                Tools.runOnUiThread(() -> showError(e));
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) showError(e);
+                });
+            }
+        });
+    }
+
+    private void previewCape(BattlyCapeApi.CapeEntry entry) {
+        if (!Tools.isValidString(mCurrentSkinDataUri)) return;
+        setLoading(true);
+        PojavApplication.sExecutorService.execute(() -> {
+            try {
+                String capeDataUri = BattlyCapeApi.downloadCapeDataUri(entry.url);
+                Tools.runOnUiThread(() -> {
+                    if (!isAdded()) return;
+                    loadSkin3dPreview(mCurrentSkinDataUri, capeDataUri);
+                    mCapeStatus.setText(R.string.battly_capes_previewing);
+                    setLoading(false);
+                });
+            } catch (Exception exception) {
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) showError(exception);
+                });
             }
         });
     }
@@ -501,11 +787,14 @@ public class BattlySkinManagerFragment extends Fragment {
             try {
                 mutation.run();
                 Tools.runOnUiThread(() -> {
+                    if (!isAdded()) return;
                     toast(getString(successTextRes));
                     refreshLibrary();
                 });
             } catch (Exception e) {
-                Tools.runOnUiThread(() -> showError(e));
+                Tools.runOnUiThread(() -> {
+                    if (isAdded()) showError(e);
+                });
             }
         });
     }
@@ -578,6 +867,9 @@ public class BattlySkinManagerFragment extends Fragment {
         if (mUploadButton != null) {
             mUploadButton.setEnabled(!loading);
         }
+        if (mCapeUploadButton != null) {
+            mCapeUploadButton.setEnabled(!loading && mCapeServiceAvailable);
+        }
     }
 
     private void showError(Exception e) {
@@ -620,5 +912,15 @@ public class BattlySkinManagerFragment extends Fragment {
 
     private interface Mutation {
         void run() throws Exception;
+    }
+
+    private static final class CapeLoadResult {
+        final BattlyCapeApi.CapeLibrary library;
+        final String error;
+
+        CapeLoadResult(BattlyCapeApi.CapeLibrary library, String error) {
+            this.library = library;
+            this.error = error;
+        }
     }
 }

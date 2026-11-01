@@ -1,7 +1,5 @@
 package net.kdt.pojavlaunch.customcontrols.mouse;
 
-import static net.kdt.pojavlaunch.Tools.currentDisplayMetrics;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -11,10 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
-
 import net.kdt.pojavlaunch.GrabListener;
-import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
 
 import org.lwjgl.glfw.CallbackBridge;
@@ -40,7 +35,7 @@ public class Touchpad extends View implements GrabListener, AbstractTouchpad {
     /** Enable the touchpad */
     private void _enable(){
         setVisibility(VISIBLE);
-        placeMouseAt(currentDisplayMetrics.widthPixels / 2f, currentDisplayMetrics.heightPixels / 2f);
+        placeMouseAt(getWidth() / 2f, getHeight() / 2f);
     }
 
     /** Disable the touchpad and hides the mouse */
@@ -65,7 +60,9 @@ public class Touchpad extends View implements GrabListener, AbstractTouchpad {
     }
 
     private void sendMousePosition() {
-        CallbackBridge.sendCursorPos((mMouseX * LauncherPreferences.PREF_SCALE_FACTOR), (mMouseY * LauncherPreferences.PREF_SCALE_FACTOR));
+        CallbackBridge.sendCursorPos(
+                CursorCoordinates.toGame(mMouseX, getWidth(), CallbackBridge.windowWidth, LauncherPreferences.PREF_SCALE_FACTOR),
+                CursorCoordinates.toGame(mMouseY, getHeight(), CallbackBridge.windowHeight, LauncherPreferences.PREF_SCALE_FACTOR));
     }
 
     private void updateMousePosition() {
@@ -84,15 +81,10 @@ public class Touchpad extends View implements GrabListener, AbstractTouchpad {
 
     private void init(){
         // Setup mouse pointer
-        mMousePointerDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_mouse_pointer, getContext().getTheme());
-        // For some reason it's annotated as Nullable even though it doesn't seem to actually
-        // ever return null
-        assert mMousePointerDrawable != null;
-        mMousePointerDrawable.setBounds(
-                0, 0,
-                (int) (36 * LauncherPreferences.PREF_MOUSESCALE),
-                (int) (54 * LauncherPreferences.PREF_MOUSESCALE)
-        );
+        mMousePointerDrawable = GameCursorManager.createDrawable(getContext());
+        GameCursorManager.applyBounds(mMousePointerDrawable,
+                LauncherPreferences.PREF_MOUSESCALE,
+                LauncherPreferences.PREF_CURSOR_HOTSPOT);
         setFocusable(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setDefaultFocusHighlightEnabled(false);
@@ -123,8 +115,8 @@ public class Touchpad extends View implements GrabListener, AbstractTouchpad {
 
     @Override
     public void applyMotionVector(float x, float y) {
-        mMouseX = Math.max(0, Math.min(currentDisplayMetrics.widthPixels, mMouseX + x * LauncherPreferences.PREF_MOUSESPEED));
-        mMouseY = Math.max(0, Math.min(currentDisplayMetrics.heightPixels, mMouseY + y * LauncherPreferences.PREF_MOUSESPEED));
+        mMouseX = Math.max(0, Math.min(getWidth(), mMouseX + x * LauncherPreferences.PREF_MOUSESPEED));
+        mMouseY = Math.max(0, Math.min(getHeight(), mMouseY + y * LauncherPreferences.PREF_MOUSESPEED));
         updateMousePosition();
     }
 

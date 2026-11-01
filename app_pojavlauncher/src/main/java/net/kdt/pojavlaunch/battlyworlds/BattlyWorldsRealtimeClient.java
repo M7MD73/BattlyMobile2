@@ -90,7 +90,12 @@ final class BattlyWorldsRealtimeClient {
         appContext = activity.getApplicationContext();
         roomCode = normalized;
         try {
+            java.util.Map<String, String> deviceAuth = new java.util.HashMap<>();
+            String deviceClaim = net.kdt.pojavlaunch.utils.BattlyAccessManager.deviceClaim(appContext);
+            if (!deviceClaim.isEmpty()) deviceAuth.put("device", deviceClaim);
             IO.Options options = IO.Options.builder()
+                    .setForceNew(true)
+                    .setAuth(deviceAuth)
                     .setReconnection(true)
                     .setReconnectionAttempts(Integer.MAX_VALUE)
                     .setReconnectionDelay(1000)
@@ -104,6 +109,20 @@ final class BattlyWorldsRealtimeClient {
     }
 
     private static void bindEvents(Activity activity, Socket target) {
+        target.on("battly_banned", args -> {
+            if (socket != target || args.length == 0) return;
+            net.kdt.pojavlaunch.utils.BattlyAccessManager.checkFromPush(appContext);
+        });
+        target.on("room_closed", args -> MAIN.post(() -> {
+            if (socket != target) return;
+            BattlyWorldsManager.setWaiting(appContext, true);
+            BattlyWorldsInvites.stopPublicRoomHeartbeat();
+            BattlyWorldsPreferences.clearActiveRoomCode(appContext);
+        }));
+        target.on("worlds_restricted", args -> {
+            if(socket!=target || args.length==0 || !(args[0] instanceof JSONObject))return;
+            MAIN.post(() -> { if (socket == target) BattlyWorldsModeration.receive(currentActivity(activity), (JSONObject) args[0]); });
+        });
         target.on(Socket.EVENT_CONNECT, args -> {
             authenticated = false;
             notifyConnectionState("");
@@ -315,6 +334,8 @@ final class BattlyWorldsRealtimeClient {
     static List<Member> getMembers() {
         return Collections.unmodifiableList(new ArrayList<>(MEMBERS));
     }
+
+    static String getRoomCode() { return roomCode; }
 
     static String getCurrentUserId() {
         return currentUserId;

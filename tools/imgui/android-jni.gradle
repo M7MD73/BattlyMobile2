@@ -1,0 +1,18 @@
+// Generate upstream JNI sources only; Android compilation is handled by CMake.
+gradle.projectsEvaluated {
+    def binding = gradle.rootProject.findProject(':imgui-binding')
+    if (binding == null) return
+    binding.tasks.register('generateAndroidJni') {
+        dependsOn binding.tasks.named('classes')
+        inputs.files(binding.fileTree('src/generated/java'))
+        inputs.files(binding.fileTree('build/classes/java/main'))
+        outputs.dir(binding.file('build/android-jni'))
+        doLast {
+            def generator = binding.tasks.named('generateLibs').get().class.classLoader
+                .loadClass('com.badlogic.gdx.jnigen.NativeCodeGenerator').getDeclaredConstructor().newInstance()
+            generator.generate(binding.file('src/generated/java').absolutePath,
+                binding.file('build/classes/java/main').absolutePath,
+                binding.file('build/android-jni').absolutePath)
+        }
+    }
+}

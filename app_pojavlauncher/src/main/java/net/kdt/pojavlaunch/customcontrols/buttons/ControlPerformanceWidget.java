@@ -16,6 +16,8 @@ public final class ControlPerformanceWidget extends ControlButton {
     private static final long REFRESH_INTERVAL_MS = 500;
 
     private final Handler refreshHandler = new Handler(Looper.getMainLooper());
+    private int displayedFps = Integer.MIN_VALUE;
+    private int displayedPing = Integer.MIN_VALUE;
     private final Runnable refreshRunnable = new Runnable() {
         @Override
         public void run() {
@@ -32,6 +34,13 @@ public final class ControlPerformanceWidget extends ControlButton {
         setSingleLine(true);
         setContentDescription(getContext().getString(R.string.customctrl_performance_widget));
         updateStatsText();
+    }
+
+    @Override
+    public void setProperties(ControlData properties, boolean changePos) {
+        displayedFps = Integer.MIN_VALUE;
+        displayedPing = Integer.MIN_VALUE;
+        super.setProperties(properties, changePos);
     }
 
     @Override
@@ -66,6 +75,9 @@ public final class ControlPerformanceWidget extends ControlButton {
     private void updateStatsText() {
         int fps = PerformanceHudStats.getFps();
         int ping = PerformanceHudStats.getPingMs();
+        if (displayedFps == fps && displayedPing == ping) return;
+        displayedFps = fps;
+        displayedPing = ping;
         String fpsText = fps > 0 ? Integer.toString(fps) : "--";
         if (ping >= 0) {
             setText(getContext().getString(

@@ -772,7 +772,7 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
     <string name="credits_primary_development">Hauptentwicklung</string>
     <string name="credits_section_title">Credits</string>
     <string name="credits_unaffiliated">Diese App ist nicht mit Minecraft, Mojang oder Microsoft verbunden.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_applied_success">Steuerung „%1$s“ erfolgreich angewendet.</string>
     <string name="ctrl_apply_btn">Kontrolle anwenden</string>
     <string name="ctrl_apply_msg">„%1$s“ herunterladen und als Steuerelementlayout anwenden?</string>
@@ -958,7 +958,7 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
     <string name="instance_storage_calculating">Speicher wird berechnet…</string>
     <string name="instance_use">Benutzen</string>
     <string name="java_runtime_download_message">Battly lädt Java 8 nach der ersten Einrichtung herunter, anstatt es innerhalb der App zu versenden. Dadurch wird die App-Größe reduziert und ältere Minecraft-Versionen vorbereitet.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher basierend auf PojavLauncher und Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Credits&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -969,11 +969,11 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
         • GNU GPLv3 und Komponenten von Drittanbietern im Projekt enthalten.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j und mehr unter ihren Originallizenzen.&lt;br/&gt;&lt;br/&gt;
         Diese App ist nicht mit Minecraft, Mojang oder Microsoft verbunden.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Herunterladen</string>
     <string name="launcher_download_modpack">Modpack importieren</string>
     <string name="launcher_execute">Spielen</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_nav_back">Geh zurück</string>
     <string name="launcher_nav_home">Rückkehr nach Hause</string>
     <string name="launcher_nav_workspace">Battly Arbeitsbereich</string>
@@ -1518,19 +1518,107 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
     <string name="world_install_button">Welt installieren</string>
     <string name="world_install_success">%1$s wurde in dieser Instanz installiert</string>
 
-    <string name="battly_whats_new_action_start">Entdecken Sie die 2.2.5</string>
-    <string name="battly_whats_new_compatibility_desc">Battly erkennt Plugins von nativen Bibliotheken und ermöglicht das Starten kompatibler Mods wie Distant Horizons, wenn das erforderliche Plugin installiert ist.</string>
-    <string name="battly_whats_new_compatibility_title">Native Plugins und Distant Horizons</string>
-    <string name="battly_whats_new_controllers_desc">Battly fragt die API in der Sprache des Geräts ab und aktualisiert seinen Cache, wenn sich der Inhalt des Servers ändert.</string>
-    <string name="battly_whats_new_controllers_title">Immer aktualisierte Neuheiten</string>
-    <string name="battly_whats_new_desc">Bessere Kompatibilität mit Minecraft 26.3, nativer Sound für Mods, übersetzte Neuheiten und Bildschirmkorrekturen.</string>
-    <string name="battly_whats_new_instances_desc">Korrigiert wurden der Anfang, die Texturen und das Rendering von Minecraft 26.3 in Vanilla, Fabric und benutzerdefinierten Versionen.</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 korrigiert</string>
-    <string name="battly_whats_new_recovery_desc">Verbessert Vulkan und die Ausrichtung, die Fenstergröße von Minecraft, die Argumente JVM und die Erkennung normaler Schließungen.</string>
-    <string name="battly_whats_new_recovery_title">Genauere Start- und Stoppfunktionen</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">Ihre bestehenden Instanzen und Einstellungen bleiben unverändert.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 ist bereit</string>
-    <string name="battly_whats_new_worlds_desc">Mods können das Mikrofon von Android erkennen, zwischen den verfügbaren Eingängen wählen und Sprache aufnehmen, ohne das Spiel-Audio zu senden.</string>
-    <string name="battly_whats_new_worlds_title">Mikrofon für die Mods verfügbar</string>
+    <string name="battly_whats_new_action_start">Entdecken Sie 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Anmeldeantworten müssen mit einer ausstehenden Anfrage übereinstimmen, verfallen nach kurzer Zeit und können nur einmal akzeptiert werden.</string>
+    <string name="battly_whats_new_compatibility_title">Sicherere Discord-Anmeldung</string>
+    <string name="battly_whats_new_controllers_desc">Durch die Freigabe eines Ordners ist der Zugriff auf andere Ordner außerhalb der von Ihnen erteilten Berechtigung nicht mehr möglich.</string>
+    <string name="battly_whats_new_controllers_title">Geschützte Dateifreigabe</string>
+    <string name="battly_whats_new_desc">Sicherere Modpack-Installation, Dateifreigabe und externe Plugin-Autorisierung.</string>
+    <string name="battly_whats_new_instances_desc">Archivinhalte und heruntergeladene Dateien bleiben in ihrer zugewiesenen Instanz, ohne andere Instanzen zu ändern.</string>
+    <string name="battly_whats_new_instances_title">Geschützte Modpack-Installation</string>
+    <string name="battly_whats_new_recovery_desc">Die Nutzungsanalyse wird beim Start von Battly aktiviert, außer im Offline-Modus. Versionshinweise und Plugin-Meldungen wurden übersetzt.</string>
+    <string name="battly_whats_new_recovery_title">Statistiken und Übersetzungen</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">Ihre Instanzen bleiben bestehen. Autorisieren Sie vertrauenswürdige externe Plugins in den Einstellungen, bevor Sie sie verwenden.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 ist fertig</string>
+    <string name="battly_whats_new_worlds_desc">Externe Plugins benötigen vor der Verwendung eine Autorisierung. Zuvor installierte Plugins müssen einmalig erneut autorisiert werden.</string>
+    <string name="battly_whats_new_worlds_title">Ihre Plugin-Berechtigungen</string>
+
+    <string name="download_action_import_mods_title">Externe Mods importieren</string>
+    <string name="download_action_import_mods_subtitle">Wählen Sie eine oder mehrere „.jar“-Dateien aus und fügen Sie sie der ausgewählten Instanz hinzu.</string>
+    <string name="library_installed_show_more">Zeige mehr %1$d</string>
+    <string name="library_import_mods_replace_title">Vorhandene Mods ersetzen?</string>
+    <string name="library_import_mods_replace_message">%1$d ausgewählte Mod-Dateien sind bereits in %2$s vorhanden. Battly ersetzt sie erst nach der Validierung der neuen Dateien.</string>
+    <string name="library_import_mods_invalid">Es wurden keine gültigen „.jar“-Moddateien ausgewählt.</string>
+    <string name="library_import_mods_success">Importierte %1$d-Mods in %2$s.</string>
+    <string name="library_import_mods_partial">Importierte %1$d-Mods in %2$s · %3$d-Dateien konnten nicht importiert werden.</string>
+    <string name="library_import_mods_error">Die ausgewählten Mods konnten nicht importiert werden.</string>
+    <string name="battly_appearance_title">Battly Skins und Umhänge</string>
+    <string name="battly_appearance_subtitle">Zeigen Sie eine Vorschau Ihres gesamten Minecraft-Auftritts von Mobile aus an und verwalten Sie ihn.</string>
+    <string name="battly_capes_title">Battly Umhänge</string>
+    <string name="battly_capes_description">Wählen Sie einen offiziellen Umhang oder laden Sie Ihren eigenen mit Battly+ hoch. Der aktive Umhang wird in der 3D-Vorschau und im Inneren Minecraft angezeigt.</string>
+    <string name="battly_capes_loading">Laden der Umhänge Battly...</string>
+    <string name="battly_capes_active">Aktiver Umhang</string>
+    <string name="battly_capes_none">Kein aktiver Umhang</string>
+    <string name="battly_capes_empty">Für dieses Konto sind keine Umhänge verfügbar.</string>
+    <string name="battly_capes_upload">Umhang hochladen</string>
+    <string name="battly_capes_upload_plus">Hochladen mit Battly+</string>
+    <string name="battly_capes_plus_required">Maßgeschneiderte Umhänge sind mit Battly+ erhältlich. Sie können weiterhin die offiziellen Umhänge verwenden.</string>
+    <string name="battly_capes_disable">Kein Umhang</string>
+    <string name="battly_capes_disabled">Kap deaktiviert</string>
+    <string name="battly_capes_uploaded">Cape hochgeladen und angewendet</string>
+    <string name="battly_capes_applied">Umhang aufgetragen</string>
+    <string name="battly_capes_deleted">Kap gelöscht</string>
+    <string name="battly_capes_previewing">Vorschau auf den Umhang</string>
+    <string name="battly_capes_custom">Maßgeschneiderter Umhang</string>
+    <string name="battly_capes_official">Offizieller Umhang</string>
+
+    <string name="battly_capes_unavailable">Umhänge sind vorübergehend nicht verfügbar. Ihre Skins sind noch verfügbar.</string>
+
+    <string name="native_plugins_bundled_category">Android-Abhängigkeiten sind in Battly enthalten</string>
+    <string name="native_plugins_bundled_ready">Version %1$s · Bereit</string>
+
+    <string name="battly_whats_new_native_title">Native Abhängigkeiten bleiben verfügbar</string>
+    <string name="battly_whats_new_native_desc">Integrierte Bibliotheken funktionieren automatisch. Berechtigungen für externe Plugins sind mit der APK-Signaturidentität verknüpft.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Tägliche Aktivität · Mobil</string>
+    <string name="battly_stats_history_notice">Ortszeit bei der Aufzeichnung. Der Verlauf beginnt mit diesem Update; die bisherigen Gesamtwerte bleiben unten erhalten.</string>
+    <string name="battly_stats_history_unavailable">Der Tagesverlauf ist noch nicht auf dem Server verfügbar. Ihre Gesamtstatistik wird unten angezeigt.</string>
+    <string name="battly_stats_period_label">Aktivitätszeitraum</string>
+    <string name="battly_stats_day_label">Aktivitätsdatum</string>
+    <string name="battly_stats_period_days">Letzte %1$d Tage</string>
+    <string name="battly_stats_period_summary">Aktive Tage: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Erste Aktivität: %1$s · Letzte Aktivität: %2$s</string>
+    <string name="battly_stats_day_modes">Welten: %1$s · Server: %2$s (Battly Worlds: %3$s) · Spielmenüs: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Allzeit-Gesamtwerte · PC + Mobile</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Tastatur automatisch öffnen</string>
+
+    <string name="native_plugins_trust_warning">Dieses externe Plugin kann nativen Code mit Zugriff auf Battly-Dateien und -Konten ausführen. Erlauben Sie nur Plugins von einer Quelle, der Sie vertrauen. Die Berechtigung ist mit der APK-Signaturidentität verknüpft.</string>
+    <string name="native_plugins_trust_action">Plugin zulassen</string>
+
+    <string name="peripheral_title">Tastatur, Maus und Controller</string>
+    <string name="peripheral_devices">Angeschlossene Peripheriegeräte</string>
+    <string name="peripheral_no_devices">Keine externen Peripheriegeräte erkannt</string>
+    <string name="peripheral_mouse">Physische Maus</string>
+    <string name="peripheral_pc_preset">PC-Maus-Voreinstellung anwenden</string>
+    <string name="peripheral_pc_mode">Auflösungsunabhängiges Zielen</string>
+    <string name="peripheral_pc_mode_summary">Konstante lineare Empfindlichkeit unabhängig von der Renderauflösung. Battly fügt keine Beschleunigung oder Glättung hinzu. Android 8 oder höher.</string>
+    <string name="peripheral_mouse_x">Horizontale Empfindlichkeit</string>
+    <string name="peripheral_mouse_y">Vertikale Empfindlichkeit</string>
+    <string name="peripheral_invert_x">Horizontale Achse umkehren</string>
+    <string name="peripheral_invert_y">Vertikale Achse umkehren</string>
+    <string name="peripheral_mouse_test">Testen Sie die Mauskalibrierung</string>
+    <string name="peripheral_keyboard">Physische Tastatur</string>
+    <string name="peripheral_bindings">Gameplay-Tastenkombinationen</string>
+    <string name="peripheral_binding_count">%1$d-Bindungen. Die Menüeingabe bleibt unverändert.</string>
+    <string name="peripheral_keyboard_test">Testen Sie Tasten und Kombinationen</string>
+    <string name="peripheral_stick_linear">Lineares Controller-Zielen</string>
+    <string name="peripheral_stick_linear_summary">Proportionale Knüppelreaktion anstelle der standardmäßigen quadratischen Kurve. Gilt für die Battly-Controller-Zuordnung, nicht für native Controller-Mods.</string>
+    <string name="peripheral_stick_sensitivity">Kameraempfindlichkeit des Controllers</string>
+    <string name="peripheral_reset_test">Messung zurücksetzen</string>
+    <string name="peripheral_add_binding">Schlüsselbindung hinzufügen</string>
+    <string name="peripheral_source_key">Physischer Schlüssel</string>
+    <string name="peripheral_target_key">Senden Sie diesen Schlüssel an Minecraft</string>
+    <string name="peripheral_press_key">Drücken Sie eine physische Taste und lassen Sie sie wieder los. Wenn Sie eine vorhandene Bindung auswählen, wird diese entfernt. Zusatztasten behalten ihr normales Verhalten.</string>
+    <string name="peripheral_invalid_key">Wählen Sie eine Tastaturtaste ohne Modifikator. Android-Systemschlüssel können nicht neu zugeordnet werden.</string>
+    <string name="peripheral_mouse_ready">Klicken Sie auf den Testbereich, um die Maus zu erfassen. Drücken Sie Escape, um es freizugeben. Bei den Messungen handelt es sich um relative Bewegungen, die von Android gemeldet werden, nicht um Hardware-DPI.</string>
+    <string name="peripheral_keyboard_ready">Drücken Sie Tasten oder Kombinationen auf Ihrer physischen Tastatur. Drücken Sie Escape, um den Test zu schließen.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nSpiel X / Y: %3$s\nBeispiele: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nSchlüssel: %2$s · Scannen: %3$d · Wiederholen: %4$d\nAngehalten: %5$s</string>
 </resources>

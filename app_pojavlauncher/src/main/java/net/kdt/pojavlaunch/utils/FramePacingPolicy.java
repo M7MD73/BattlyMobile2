@@ -13,19 +13,21 @@ public final class FramePacingPolicy {
 
     public static float selectSurfaceFrameRate(float currentRefreshRate,
                                                @Nullable float[] alternativeRefreshRates) {
+        return selectSurfaceFrameRate(currentRefreshRate, alternativeRefreshRates, null);
+    }
+
+    public static float selectSurfaceFrameRate(float currentRefreshRate,
+                                               @Nullable float[] alternativeRefreshRates,
+                                               @Nullable float[] supportedRefreshRates) {
+        float bestSupported = highestValidRefreshRate(supportedRefreshRates);
+        if (bestSupported > 0f) {
+            return bestSupported;
+        }
         if (isValidRefreshRate(currentRefreshRate)) {
             return currentRefreshRate;
         }
 
-        float bestFallback = 0f;
-        if (alternativeRefreshRates != null) {
-            for (float refreshRate : alternativeRefreshRates) {
-                if (isValidRefreshRate(refreshRate)) {
-                    bestFallback = Math.max(bestFallback, refreshRate);
-                }
-            }
-        }
-        return bestFallback;
+        return highestValidRefreshRate(alternativeRefreshRates);
     }
 
     public static boolean useSurfaceView(boolean alternateSurfaceEnabled) {
@@ -68,5 +70,16 @@ public final class FramePacingPolicy {
         return !Float.isNaN(refreshRate)
                 && !Float.isInfinite(refreshRate)
                 && refreshRate > 0f;
+    }
+
+    private static float highestValidRefreshRate(@Nullable float[] refreshRates) {
+        float best = 0f;
+        if (refreshRates == null) return best;
+        for (float refreshRate : refreshRates) {
+            if (isValidRefreshRate(refreshRate)) {
+                best = Math.max(best, refreshRate);
+            }
+        }
+        return best;
     }
 }

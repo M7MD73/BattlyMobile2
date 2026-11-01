@@ -172,7 +172,7 @@
     <string name="crash_no_findings">Der blev ikke fundet noget kendt nedbrudsmønster i de seneste logfiler.</string>
     <string name="crash_recovery_applied">Gendannelseshandling fuldført</string>
     <string name="crash_recovery_manual">Dette problem kræver en manuel ændring. Åbn loggen for detaljer.</string>
-    <string name="credits_version">Version 2.2.5</string>
+    <string name="credits_version">Version 2.2.9</string>
     <string name="ctrl_like_btn">Ligesom</string>
     <string name="ctrl_liked_added">Tilføjet til kontrolelementer, der kunne lide.</string>
     <string name="ctrl_liked_btn">Synes godt om</string>
@@ -233,8 +233,8 @@
     <string name="java_runtime_download_progress">Downloader Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installation af Java 8</string>
     <string name="java_runtime_download_waiting">Forbereder Java 8 download...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Battly konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analyser</string>
@@ -585,7 +585,7 @@
     <string name="credits_license_title">Licens</string>
     <string name="credits_pojav_founder">PojavLauncher grundlægger</string>
     <string name="credits_primary_development">Hovedudvikling</string>
-    <string name="credits_section_title">Credits</string>
+    <string name="credits_section_title">Kreditter</string>
     <string name="credits_unaffiliated">Denne app er ikke tilknyttet Minecraft, Mojang eller Microsoft.</string>
     <string name="ctrl_applied_success">Kontrol "%1$s" blev anvendt.</string>
     <string name="ctrl_apply_btn">Anvend kontrol</string>
@@ -718,7 +718,7 @@
     <string name="installer_internal_fallback">Ikke-understøttet installationsprogram, åbner den ældre Java-brugergrænseflade</string>
     <string name="installer_internal_running">Analyserer installationsprogrammet...</string>
     <string name="installer_internal_success">%1$s installeret direkte inde i Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher baseret på PojavLauncher og Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredit&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -741,7 +741,7 @@
     <string name="launcher_news_title">Seneste Battly nyheder</string>
     <string name="launcher_news_unavailable">Kunne ikke indlæse nyheder.</string>
     <string name="launcher_news_unknown_author">Battly personale</string>
-    <string name="launcher_open_credits">Credits</string>
+    <string name="launcher_open_credits">Kreditter</string>
     <string name="launcher_open_tools">Værktøjer</string>
     <string name="launcher_select_instance">Vælg forekomst</string>
     <string name="launcher_starting_hint">Forbereder Minecraft</string>
@@ -1116,7 +1116,7 @@
     <string name="battlyworlds_voice_overlay_preview">Stemmeforhåndsvisning</string>
     <string name="battlyworlds_voice_notification_channel">Battly Verdens stemme</string>
     <string name="battlyworlds_voice_notification_channel_description">Voice chat status og hurtig kontrol.</string>
-    <string name="battlyworlds_voice_notification_title">Battly Worlds voice chat</string>
+    <string name="battlyworlds_voice_notification_title">Battly Worlds stemmechat</string>
     <string name="battlyworlds_voice_notification_connecting">Opretter forbindelse til talechat...</string>
     <string name="battlyworlds_voice_notification_connected">Tilsluttet · mikrofon aktiv</string>
     <string name="battlyworlds_voice_notification_muted">Tilsluttet · mikrofonen er slået fra</string>
@@ -1157,4 +1157,107 @@
     <string name="search_world_download_error">Det lykkedes ikke at downloade verdensmetadata</string>
     <string name="world_install_button">Installer verden</string>
     <string name="world_install_success">%1$s installeret i denne instans</string>
+
+    <string name="battly_whats_new_transition_desc">Dine forekomster forbliver på plads. Godkend betroede eksterne plugins i Indstillinger, før du bruger dem.</string>
+    <string name="download_action_import_mods_title">Importer eksterne mods</string>
+    <string name="download_action_import_mods_subtitle">Vælg en eller flere `.jar`-filer og føj dem til den valgte instans.</string>
+    <string name="library_installed_show_more">Vis %1$d mere</string>
+    <string name="library_import_mods_replace_title">Vil du udskifte eksisterende mods?</string>
+    <string name="library_import_mods_replace_message">%1$d udvalgte mod-filer findes allerede i %2$s. Battly erstatter dem kun efter validering af de nye filer.</string>
+    <string name="library_import_mods_invalid">Der blev ikke valgt nogen gyldige `.jar` mod-filer.</string>
+    <string name="library_import_mods_success">Importerede %1$d mods til %2$s.</string>
+    <string name="library_import_mods_partial">Importerede %1$d-mods til %2$s · %3$d-filer kunne ikke importeres.</string>
+    <string name="library_import_mods_error">De valgte mods kunne ikke importeres.</string>
+    <string name="battly_whats_new_action_start">Udforsk 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Login-svar skal matche en afventende anmodning, udløbe efter kort tid og kan kun accepteres én gang.</string>
+    <string name="battly_whats_new_compatibility_title">Sikrere Discord-logon</string>
+    <string name="battly_whats_new_controllers_desc">Deling af én mappe giver ikke længere adgang til andre mapper uden for den tilladelse, du har givet.</string>
+    <string name="battly_whats_new_controllers_title">Beskyttet fildeling</string>
+    <string name="battly_whats_new_desc">Sikker modpack-installation, fildeling og ekstern plugin-godkendelse.</string>
+    <string name="battly_whats_new_instances_desc">Arkivindhold og downloadede filer forbliver i deres tildelte forekomst uden at ændre andre forekomster.</string>
+    <string name="battly_whats_new_instances_title">Beskyttet modpack installation</string>
+    <string name="battly_whats_new_recovery_desc">Brugsanalyse aktiveres, når Battly starter, undtagen i offlinetilstand. Udgivelsesbemærkninger og plugin-meddelelser er blevet oversat.</string>
+    <string name="battly_whats_new_recovery_title">Statistik og oversættelser</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 er klar</string>
+    <string name="battly_whats_new_worlds_desc">Eksterne plugins skal godkendes før brug. Tidligere installerede plugins skal godkendes igen én gang.</string>
+    <string name="battly_whats_new_worlds_title">Dine plugin-tilladelser</string>
+    <string name="battly_appearance_title">Battly skind og kapper</string>
+    <string name="battly_appearance_subtitle">Forhåndsvis og administrer dit komplette Minecraft-udseende fra Mobile.</string>
+    <string name="battly_capes_title">Battly kapper</string>
+    <string name="battly_capes_description">Vælg en officiel kappe eller upload din egen med Battly+. Den aktive kappe vises i 3D-previewet og inde i Minecraft.</string>
+    <string name="battly_capes_loading">Indlæser Battly kapper...</string>
+    <string name="battly_capes_active">Aktiv kappe</string>
+    <string name="battly_capes_none">Ingen aktiv kappe</string>
+    <string name="battly_capes_empty">Ingen kapper er tilgængelige for denne konto.</string>
+    <string name="battly_capes_upload">Upload kappe</string>
+    <string name="battly_capes_upload_plus">Upload med Battly+</string>
+    <string name="battly_capes_plus_required">Brugerdefinerede kapper fås med Battly+. Du kan stadig bruge de officielle kapper.</string>
+    <string name="battly_capes_disable">Ingen kappe</string>
+    <string name="battly_capes_disabled">Cape handicappet</string>
+    <string name="battly_capes_uploaded">Cape uploadet og anvendt</string>
+    <string name="battly_capes_applied">Kap anvendt</string>
+    <string name="battly_capes_deleted">Kap slettet</string>
+    <string name="battly_capes_previewing">Forhåndsvisning af kappe</string>
+    <string name="battly_capes_custom">Brugerdefineret kappe</string>
+    <string name="battly_capes_official">Officiel kappe</string>
+
+    <string name="battly_capes_unavailable">Kapper er midlertidigt utilgængelige. Dine skins er stadig tilgængelige.</string>
+
+    <string name="native_plugins_bundled_category">Android-afhængigheder inkluderet i Battly</string>
+    <string name="native_plugins_bundled_ready">Version %1$s · Klar</string>
+
+    <string name="battly_whats_new_native_title">Indbyggede afhængigheder forbliver tilgængelige</string>
+    <string name="battly_whats_new_native_desc">Indbyggede biblioteker fungerer automatisk. Tilladelser til eksterne plugins er knyttet til APK-signeringsidentiteten.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Daglig aktivitet · Mobil</string>
+    <string name="battly_stats_history_notice">Lokal tid, når optaget. Historien starter med denne opdatering; tidligere totaler forbliver under.</string>
+    <string name="battly_stats_history_unavailable">Daglig historik er endnu ikke tilgængelig på serveren. Din samlede statistik er vist nedenfor.</string>
+    <string name="battly_stats_period_label">Aktivitetsperiode</string>
+    <string name="battly_stats_day_label">Aktivitetsdato</string>
+    <string name="battly_stats_period_days">Sidste %1$d dage</string>
+    <string name="battly_stats_period_summary">Aktive dage: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Første aktivitet: %1$s · Sidste aktivitet: %2$s</string>
+    <string name="battly_stats_day_modes">Verdener: %1$s · Servere: %2$s (Battly Worlds: %3$s) · Spilmenuer: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">All-time totaler · PC + Mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Åbn tastaturet automatisk</string>
+
+    <string name="native_plugins_trust_warning">Dette eksterne plugin kan køre indbygget kode med adgang til Battly filer og konti. Tillad kun plugins fra en kilde, du har tillid til. Tilladelsen er knyttet til APK-signeringsidentiteten.</string>
+    <string name="native_plugins_trust_action">Tillad plugin</string>
+
+    <string name="peripheral_title">Tastatur, mus og controller</string>
+    <string name="peripheral_devices">Tilsluttede perifere enheder</string>
+    <string name="peripheral_no_devices">Ingen eksterne enheder fundet</string>
+    <string name="peripheral_mouse">Fysisk mus</string>
+    <string name="peripheral_pc_preset">Anvend forudindstilling af pc-mus</string>
+    <string name="peripheral_pc_mode">Opløsningsuafhængig sigtning</string>
+    <string name="peripheral_pc_mode_summary">Konstant lineær følsomhed uanset gengivelsesopløsning. Battly tilføjer ingen acceleration eller udjævning. Android 8 eller nyere.</string>
+    <string name="peripheral_mouse_x">Horisontal følsomhed</string>
+    <string name="peripheral_mouse_y">Lodret følsomhed</string>
+    <string name="peripheral_invert_x">Vend vandret akse</string>
+    <string name="peripheral_invert_y">Vend lodret akse</string>
+    <string name="peripheral_mouse_test">Test musens kalibrering</string>
+    <string name="peripheral_keyboard">Fysisk tastatur</string>
+    <string name="peripheral_bindings">Gameplay nøglebindinger</string>
+    <string name="peripheral_binding_count">%1$d bindinger. Menuindtastning er uændret.</string>
+    <string name="peripheral_keyboard_test">Test nøgler og kombinationer</string>
+    <string name="peripheral_stick_linear">Lineær controller sigte</string>
+    <string name="peripheral_stick_linear_summary">Proportional stick-respons i stedet for den kvadratiske standardkurve. Gælder for Battly controller mapping, ikke native controller mods.</string>
+    <string name="peripheral_stick_sensitivity">Controllerens kamerafølsomhed</string>
+    <string name="peripheral_reset_test">Nulstil måling</string>
+    <string name="peripheral_add_binding">Tilføj nøglebinding</string>
+    <string name="peripheral_source_key">Fysisk nøgle</string>
+    <string name="peripheral_target_key">Send denne nøgle til Minecraft</string>
+    <string name="peripheral_press_key">Tryk og slip en fysisk tast. Valg af en eksisterende binding fjerner den. Modifikationstaster bevarer deres normale adfærd.</string>
+    <string name="peripheral_invalid_key">Vælg en ikke-modificerende tastaturtast. Android systemnøgler kan ikke gentilknyttes.</string>
+    <string name="peripheral_mouse_ready">Klik på testområdet for at fange musen. Tryk på Escape for at frigive den. Målinger er relativ bevægelse rapporteret af Android, ikke hardware DPI.</string>
+    <string name="peripheral_keyboard_ready">Tryk på taster eller kombinationer på dit fysiske tastatur. Tryk på Escape for at lukke testen.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nSpil X / Y: %3$s\nEksempler: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nNøgle: %2$s · Scan: %3$d · Gentag: %4$d\nHold: %5$s</string>
 </resources>

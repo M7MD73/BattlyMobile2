@@ -79,6 +79,11 @@ TOKEN_PATTERN = re.compile(
     r"%(?:\d+\$)?[-#+ 0,(<]*\d*(?:\.\d+)?[a-zA-Z%]"
 )
 BRANDS = (
+    "Battly Launcher",
+    "Battly Mobile",
+    "Battly Workspace",
+    "Battly Worlds",
+    "Battly+",
     "BattlyWorlds",
     "Battly",
     "Minecraft",
@@ -100,6 +105,14 @@ BRANDS = (
     "LWJGL",
     "Mesa",
     "MobileGlues",
+    "Krypton Wrapper",
+    "LTW",
+    "SDL",
+    "VSync",
+    "Distant Horizons",
+    "Zstd",
+    "SQLite",
+    "ImGui",
     "Zink",
     "Freedreno",
     "Turnip",
@@ -179,15 +192,25 @@ def restore_tokens(value: str, replacements: dict[str, str]) -> str:
 
 def translate_preserving_tokens(source: str, target: str) -> str:
     """Translate text around protected values when a provider drops placeholders."""
+    def translate_plain(value: str) -> str:
+        if not re.search(r"[A-Za-z]", value):
+            return value
+        leading = value[: len(value) - len(value.lstrip())]
+        trailing = value[len(value.rstrip()):]
+        core = value.strip()
+        if not core:
+            return value
+        return leading + translate_request(core, target) + trailing
+
     output: list[str] = []
     cursor = 0
     for match in PROTECTED_PATTERN.finditer(source):
         plain = source[cursor:match.start()]
-        output.append(translate_request(plain, target) if re.search(r"[A-Za-z]", plain) else plain)
+        output.append(translate_plain(plain))
         output.append(match.group(0))
         cursor = match.end()
     plain = source[cursor:]
-    output.append(translate_request(plain, target) if re.search(r"[A-Za-z]", plain) else plain)
+    output.append(translate_plain(plain))
     return "".join(output).strip()
 
 
@@ -262,7 +285,7 @@ def translate_values(values: dict[str, str], target: str, cache: dict[str, str])
     pending: list[tuple[str, str, dict[str, str]]] = []
     aliases = translated_brand_aliases(target, cache)
     for key, source in values.items():
-        cache_key = f"v11:{target}:{key}:{source}"
+        cache_key = f"v12:{target}:{key}:{source}"
         if cache_key in cache:
             translated[key] = cache[cache_key]
             continue
@@ -295,7 +318,7 @@ def translate_values(values: dict[str, str], target: str, cache: dict[str, str])
                 value = translate_preserving_tokens(values[key], target)
             value = normalize_brands(value, values[key], aliases)
             translated[key] = value
-            cache[f"v11:{target}:{key}:{values[key]}"] = value
+            cache[f"v12:{target}:{key}:{values[key]}"] = value
         save_cache(cache)
         batch = []
         batch_size = 0
@@ -323,6 +346,7 @@ def update_locale(
     base_elements: dict[str, ET.Element],
     cache: dict[str, str],
     refresh_branded: bool,
+    force_keys: set[str],
 ) -> None:
     path = RES_DIR / f"values-{qualifier}" / "strings.xml"
     if not path.is_file():
@@ -342,6 +366,7 @@ def update_locale(
         if key not in current
         or current[key] == base[key]
         or (refresh_branded and BRAND_PATTERN.search(base[key]))
+        or key in force_keys
     }
     if not needed:
         print(f"{qualifier}: complete")
@@ -399,6 +424,12 @@ def main() -> int:
         action="store_true",
         help="retranslate strings containing protected product or technology names",
     )
+    parser.add_argument(
+        "--force-keys",
+        nargs="*",
+        default=[],
+        help="retranslate the listed keys even when a locale already has a value",
+    )
     args = parser.parse_args()
 
     keys = [
@@ -421,6 +452,7 @@ def main() -> int:
             base_elements,
             cache,
             args.refresh_branded,
+            set(args.force_keys),
         )
     return 0
 

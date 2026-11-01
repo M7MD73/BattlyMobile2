@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_battly_launcher_chip"
+                android:padding="6dp"
+                android:src="@drawable/ic_battly_stats_line" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <net.kdt.pojavlaunch.utils.NewFeatureLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/battly_stats_title"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/battly_stats_subtitle"
+                    android:textColor="#C7D4DF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/battly_stats_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp" />
+
+        <LinearLayout
+            android:id="@+id/battly_stats_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <net.kdt.pojavlaunch.utils.NewFeatureLabel android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/battly_stats_history_title" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
+            <Spinner android:id="@+id/battly_stats_period" android:layout_width="match_parent" android:layout_height="48dp" android:contentDescription="@string/battly_stats_period_label" />
+            <TextView android:id="@+id/battly_stats_history_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#83E3D0" android:textSize="13sp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/battly_stats_total_game" android:textColor="#5CE7D6" android:textSize="11sp" />
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/battly_stats_launcher" android:textColor="#FFC263" android:textSize="11sp" android:gravity="end" />
+            </LinearLayout>
+            <net.kdt.pojavlaunch.battlysocial.UsageChartView android:id="@+id/battly_stats_daily_chart" android:layout_width="match_parent" android:layout_height="180dp" />
+            <TextView android:id="@+id/battly_stats_chart_selection" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="#D8E4EA" android:textSize="12sp" android:accessibilityLiveRegion="polite" />
+            <Spinner android:id="@+id/battly_stats_day" android:layout_width="match_parent" android:layout_height="48dp" android:contentDescription="@string/battly_stats_day_label" />
+            <TextView android:id="@+id/battly_stats_day_detail" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#D8E4EA" android:textSize="12sp" />
+            <net.kdt.pojavlaunch.battlysocial.UsageChartView android:id="@+id/battly_stats_hourly_chart" android:layout_width="match_parent" android:layout_height="180dp" android:layout_marginTop="10dp" />
+            <TextView android:id="@+id/battly_stats_hour_selection" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="#D8E4EA" android:textSize="12sp" android:accessibilityLiveRegion="polite" />
+            <TextView android:id="@+id/battly_stats_history_notice" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/battly_stats_history_notice" android:textColor="#B9CAD5" android:textSize="12sp" android:layout_marginTop="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:layout_marginBottom="8dp" android:text="@string/battly_stats_lifetime" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_battly_form_section"
+                    android:orientation="vertical"
+                    android:padding="13dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/battly_stats_total_game" android:textColor="#B9CAD5" android:textSize="11sp" />
+                    <TextView android:id="@+id/battly_stats_total_game_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/noto_sans_bold" android:textColor="#FFFFFFFF" android:textSize="19sp" />
+                    <TextView android:id="@+id/battly_stats_total_game_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:textColor="#83E3D0" android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_battly_form_section"
+                    android:orientation="vertical"
+                    android:padding="13dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/battly_stats_launcher" android:textColor="#B9CAD5" android:textSize="11sp" />
+                    <TextView android:id="@+id/battly_stats_launcher_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/noto_sans_bold" android:textColor="#FFFFFFFF" android:textSize="19sp" />
+                    <TextView android:id="@+id/battly_stats_sessions_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:textColor="#83E3D0" android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_battly_form_section"
+                    android:orientation="vertical"
+                    android:padding="13dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/battly_stats_worlds" android:textColor="#B9CAD5" android:textSize="11sp" />
+                    <TextView android:id="@+id/battly_stats_worlds_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/noto_sans_bold" android:textColor="#FFFFFFFF" android:textSize="19sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_battly_form_section"
+                    android:orientation="vertical"
+                    android:padding="13dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/battly_stats_servers" android:textColor="#B9CAD5" android:textSize="11sp" />
+                    <TextView android:id="@+id/battly_stats_servers_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/noto_sans_bold" android:textColor="#FFFFFFFF" android:textSize="19sp" />
+                    <TextView android:id="@+id/battly_stats_worlds_network_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:textColor="#83E3D0" android:textSize="10sp" />
+                </LinearLayout>
+            </GridLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:fontFamily="@font/noto_sans_bold" android:text="@string/battly_stats_top_servers" android:textColor="#FFFFFFFF" android:textSize="13sp" />
+            <TextView android:id="@+id/battly_stats_top_servers_value" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:background="@drawable/bg_battly_form_section" android:padding="12dp" android:textColor="#D8E4EA" android:textSize="12sp" />
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:fontFamily="@font/noto_sans_bold" android:text="@string/battly_stats_top_worlds" android:textColor="#FFFFFFFF" android:textSize="13sp" />
+            <TextView android:id="@+id/battly_stats_top_worlds_value" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:background="@drawable/bg_battly_form_section" android:padding="12dp" android:textColor="#D8E4EA" android:textSize="12sp" />
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:fontFamily="@font/noto_sans_bold" android:text="@string/battly_stats_top_versions" android:textColor="#FFFFFFFF" android:textSize="13sp" />
+            <TextView android:id="@+id/battly_stats_top_versions_value" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:background="@drawable/bg_battly_form_section" android:padding="12dp" android:textColor="#D8E4EA" android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/battly_stats_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:textColor="#FFFF8A9A"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

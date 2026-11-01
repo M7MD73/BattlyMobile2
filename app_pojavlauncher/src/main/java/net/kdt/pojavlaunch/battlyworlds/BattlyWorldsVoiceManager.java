@@ -100,6 +100,10 @@ final class BattlyWorldsVoiceManager implements BattlyWorldsRealtimeClient.Liste
     private WeakReference<Activity> pendingActivity = new WeakReference<>(null);
 
     static void join(Activity activity) {
+        BattlyWorldsModeration.authorize(activity,"voice",()->joinAuthorized(activity));
+    }
+
+    private static void joinAuthorized(Activity activity) {
         if (INSTANCE.joined || INSTANCE.joining) {
             BattlyWorldsRealtimeClient.ensureAuthenticated();
             return;

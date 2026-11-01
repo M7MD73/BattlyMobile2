@@ -749,7 +749,7 @@
     <string name="credits_primary_development">Perkembangan utama</string>
     <string name="credits_section_title">Kredit</string>
     <string name="credits_unaffiliated">Aplikasi ini tidak berafiliasi dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="credits_version">Versi 2.2.5</string>
+    <string name="credits_version">Versi 2.2.9</string>
     <string name="ctrl_applied_success">Kontrol "%1$s" berhasil diterapkan.</string>
     <string name="ctrl_apply_btn">Terapkan kontrol</string>
     <string name="ctrl_apply_msg">Unduh dan terapkan "%1$s" sebagai tata letak kontrol Anda?</string>
@@ -943,7 +943,7 @@
     <string name="java_runtime_download_progress">Mengunduh Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Menginstal Java 8</string>
     <string name="java_runtime_download_waiting">Mempersiapkan unduhan Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Peluncur berdasarkan PojavLauncher dan Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kredit&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -954,11 +954,11 @@
         • GNU GPLv3 dan komponen pihak ketiga disertakan dalam proyek.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j, dan lainnya di bawah lisensi aslinya.&lt;br/&gt;&lt;br/&gt;
         Aplikasi ini tidak berafiliasi dengan Minecraft, Mojang atau Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">Unduh</string>
     <string name="launcher_download_modpack">Impor modpack</string>
     <string name="launcher_execute">Mainkan</string>
-    <string name="launcher_mobile_badge">Seluler 2.2.5</string>
+    <string name="launcher_mobile_badge">Seluler 2.2.9</string>
     <string name="launcher_nav_back">Kembali</string>
     <string name="launcher_nav_home">Kembali ke rumah</string>
     <string name="launcher_nav_workspace">Ruang Kerja Battly</string>
@@ -1510,19 +1510,107 @@
     <string name="world_install_button">Instal dunia</string>
     <string name="world_install_success">%1$s diinstal ke dalam instance ini</string>
 
-    <string name="battly_whats_new_action_start">Menemukan 2.2.5</string>
-    <string name="battly_whats_new_compatibility_desc">Battly mengenali plugin dari perpustakaan asli dan memungkinkan memulai mod yang kompatibel seperti Distant Horizons ketika plugin yang diperlukan telah diinstal.</string>
-    <string name="battly_whats_new_compatibility_title">Plugin asli dan Distant Horizons</string>
-    <string name="battly_whats_new_controllers_desc">Battly memanggil API dalam bahasa perangkat dan memperbarui cache-nya ketika konten server berubah.</string>
-    <string name="battly_whats_new_controllers_title">Berita terbaru selalu diperbarui</string>
-    <string name="battly_whats_new_desc">Kompatibilitas lebih baik dengan Minecraft 26.3, audio asli untuk mod, pembaruan diterjemahkan dan perbaikan layar.</string>
-    <string name="battly_whats_new_instances_desc">Diperbaiki awal, tekstur, dan perenderan Minecraft 26.3 di Vanilla, Fabric, dan versi kustom.</string>
-    <string name="battly_whats_new_instances_title">Minecraft 26.3 diperbaiki</string>
-    <string name="battly_whats_new_recovery_desc">Ditingkatkan Vulkan dan orientasi, ukuran jendela Minecraft, argumen JVM dan deteksi penutupan normal.</string>
-    <string name="battly_whats_new_recovery_title">Mulai dan berhenti lebih tepat</string>
-    <string name="battly_whats_new_title">Battly Mobile 2.2.5</string>
-    <string name="battly_whats_new_transition_desc">Instansi dan pengaturan Anda yang ada tetap tidak berubah.</string>
-    <string name="battly_whats_new_transition_title">Battly 2.2.5 siap</string>
-    <string name="battly_whats_new_worlds_desc">Mod dapat mendeteksi mikrofon Android, memilih dari input yang tersedia, dan menangkap suara tanpa mengirimkan audio permainan.</string>
-    <string name="battly_whats_new_worlds_title">Mikrofon tersedia untuk mod</string>
+    <string name="battly_whats_new_action_start">Jelajahi 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Respons login harus sesuai dengan permintaan yang tertunda, akan habis masa berlakunya dalam waktu singkat dan hanya dapat diterima satu kali.</string>
+    <string name="battly_whats_new_compatibility_title">Proses masuk Discord lebih aman</string>
+    <string name="battly_whats_new_controllers_desc">Berbagi satu folder tidak lagi mengizinkan akses ke folder lain di luar izin yang Anda berikan.</string>
+    <string name="battly_whats_new_controllers_title">Berbagi file yang dilindungi</string>
+    <string name="battly_whats_new_desc">Instalasi modpack, berbagi file, dan otorisasi plugin eksternal yang lebih aman.</string>
+    <string name="battly_whats_new_instances_desc">Konten arsip dan file yang diunduh tetap berada di dalam instance yang ditetapkan, tanpa mengubah instance lainnya.</string>
+    <string name="battly_whats_new_instances_title">Instalasi modpack terlindungi</string>
+    <string name="battly_whats_new_recovery_desc">Analisis penggunaan diaktifkan ketika Battly dimulai, kecuali dalam mode offline. Catatan rilis dan pesan plugin telah diterjemahkan.</string>
+    <string name="battly_whats_new_recovery_title">Statistik dan terjemahan</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_desc">Instance Anda tetap ada. Otorisasi plugin eksternal tepercaya di Pengaturan sebelum menggunakannya.</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 sudah siap</string>
+    <string name="battly_whats_new_worlds_desc">Plugin eksternal memerlukan otorisasi sebelum digunakan. Plugin yang diinstal sebelumnya harus diotorisasi lagi satu kali.</string>
+    <string name="battly_whats_new_worlds_title">Izin plugin Anda</string>
+
+    <string name="download_action_import_mods_title">Impor mod eksternal</string>
+    <string name="download_action_import_mods_subtitle">Pilih satu atau lebih file `.jar` dan tambahkan ke instance yang dipilih.</string>
+    <string name="library_installed_show_more">Tampilkan %1$d selengkapnya</string>
+    <string name="library_import_mods_replace_title">Ganti mod yang ada?</string>
+    <string name="library_import_mods_replace_message">%1$d file mod yang dipilih sudah ada di %2$s. Battly akan menggantinya hanya setelah memvalidasi file baru.</string>
+    <string name="library_import_mods_invalid">Tidak ada file mod `.jar` yang valid yang dipilih.</string>
+    <string name="library_import_mods_success">Mod %1$d diimpor ke %2$s.</string>
+    <string name="library_import_mods_partial">Mod %1$d yang diimpor ke %2$s · File %3$d tidak dapat diimpor.</string>
+    <string name="library_import_mods_error">Mod yang dipilih tidak dapat diimpor.</string>
+    <string name="battly_appearance_title">Battly kulit dan jubah</string>
+    <string name="battly_appearance_subtitle">Pratinjau dan kelola tampilan lengkap Minecraft Anda dari Seluler.</string>
+    <string name="battly_capes_title">jubah Battly</string>
+    <string name="battly_capes_description">Pilih jubah resmi atau unggah jubah Anda sendiri dengan Battly+. Jubah aktif ditampilkan dalam pratinjau 3D dan di dalam Minecraft.</string>
+    <string name="battly_capes_loading">Memuat jubah Battly...</string>
+    <string name="battly_capes_active">Tanjung aktif</string>
+    <string name="battly_capes_none">Tidak ada jubah aktif</string>
+    <string name="battly_capes_empty">Tidak ada jubah yang tersedia untuk akun ini.</string>
+    <string name="battly_capes_upload">Unggah jubah</string>
+    <string name="battly_capes_upload_plus">Unggah dengan Battly+</string>
+    <string name="battly_capes_plus_required">Jubah khusus tersedia dengan Battly+. Anda masih bisa menggunakan jubah resmi.</string>
+    <string name="battly_capes_disable">Tanpa jubah</string>
+    <string name="battly_capes_disabled">Tanjung dinonaktifkan</string>
+    <string name="battly_capes_uploaded">Cape diunggah dan diterapkan</string>
+    <string name="battly_capes_applied">Jubah diterapkan</string>
+    <string name="battly_capes_deleted">Tanjung dihapus</string>
+    <string name="battly_capes_previewing">Pratinjau jubah</string>
+    <string name="battly_capes_custom">Jubah khusus</string>
+    <string name="battly_capes_official">Jubah resmi</string>
+
+    <string name="battly_capes_unavailable">Jubah untuk sementara tidak tersedia. Kulit Anda masih tersedia.</string>
+
+    <string name="native_plugins_bundled_category">Dependensi Android disertakan dengan Battly</string>
+    <string name="native_plugins_bundled_ready">Versi %1$s · Siap</string>
+
+    <string name="battly_whats_new_native_title">Ketergantungan asli tetap tersedia</string>
+    <string name="battly_whats_new_native_desc">Perpustakaan bawaan bekerja secara otomatis. Izin untuk plugin eksternal ditautkan ke identitas penandatanganan APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Aktivitas sehari-hari · Seluler</string>
+    <string name="battly_stats_history_notice">Waktu setempat saat direkam. Sejarah dimulai dengan pembaruan ini; total sebelumnya tetap di bawah.</string>
+    <string name="battly_stats_history_unavailable">Riwayat harian belum tersedia di server. Statistik total Anda ditampilkan di bawah.</string>
+    <string name="battly_stats_period_label">Periode aktivitas</string>
+    <string name="battly_stats_day_label">Tanggal kegiatan</string>
+    <string name="battly_stats_period_days">%1$d hari terakhir</string>
+    <string name="battly_stats_period_summary">Hari aktif: %1$d · Minecraft: %2$s · Peluncur: %3$s</string>
+    <string name="battly_stats_time_range">Aktivitas pertama: %1$s · Aktivitas terakhir: %2$s</string>
+    <string name="battly_stats_day_modes">Dunia: %1$s · Server: %2$s (Battly Worlds: %3$s) · Menu permainan: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Peluncur: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d dtk</string>
+    <string name="battly_stats_lifetime">Total sepanjang masa · PC + Seluler</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Peluncur: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d jam</string>
+    <string name="automatic_game_keyboard_title">Buka keyboard secara otomatis</string>
+
+    <string name="native_plugins_trust_warning">Plugin eksternal ini dapat menjalankan kode asli dengan akses ke file dan akun Battly. Hanya izinkan plugin dari sumber yang Anda percaya. Izin terkait dengan identitas penandatanganan APK.</string>
+    <string name="native_plugins_trust_action">Izinkan plugin</string>
+
+    <string name="peripheral_title">Keyboard, mouse, dan pengontrol</string>
+    <string name="peripheral_devices">Periferal yang terhubung</string>
+    <string name="peripheral_no_devices">Tidak ada periferal eksternal yang terdeteksi</string>
+    <string name="peripheral_mouse">Tikus fisik</string>
+    <string name="peripheral_pc_preset">Terapkan preset mouse PC</string>
+    <string name="peripheral_pc_mode">Sasaran yang tidak bergantung pada resolusi</string>
+    <string name="peripheral_pc_mode_summary">Sensitivitas linier yang konstan, apa pun resolusi rendernya. Battly tidak menambahkan akselerasi atau penghalusan. Android 8 atau lebih baru.</string>
+    <string name="peripheral_mouse_x">Sensitivitas horisontal</string>
+    <string name="peripheral_mouse_y">Sensitivitas vertikal</string>
+    <string name="peripheral_invert_x">Balikkan sumbu horizontal</string>
+    <string name="peripheral_invert_y">Balikkan sumbu vertikal</string>
+    <string name="peripheral_mouse_test">Uji kalibrasi mouse</string>
+    <string name="peripheral_keyboard">Papan ketik fisik</string>
+    <string name="peripheral_bindings">Ikatan kunci gameplay</string>
+    <string name="peripheral_binding_count">Ikatan %1$d. Pengetikan menu tidak berubah.</string>
+    <string name="peripheral_keyboard_test">Uji kunci dan kombinasinya</string>
+    <string name="peripheral_stick_linear">Pengontrol linier bertujuan</string>
+    <string name="peripheral_stick_linear_summary">Respon tongkat proporsional, bukan kurva kuadrat default. Berlaku untuk pemetaan pengontrol Battly, bukan mod pengontrol asli.</string>
+    <string name="peripheral_stick_sensitivity">Sensitivitas kamera pengontrol</string>
+    <string name="peripheral_reset_test">Atur ulang pengukuran</string>
+    <string name="peripheral_add_binding">Tambahkan pengikatan kunci</string>
+    <string name="peripheral_source_key">Kunci fisik</string>
+    <string name="peripheral_target_key">Kirim kunci ini ke Minecraft</string>
+    <string name="peripheral_press_key">Tekan dan lepaskan kunci fisik. Memilih pengikatan yang ada akan menghapusnya. Tombol pengubah mempertahankan perilaku normalnya.</string>
+    <string name="peripheral_invalid_key">Pilih tombol keyboard non-pengubah. Kunci sistem Android tidak dapat dipetakan ulang.</string>
+    <string name="peripheral_mouse_ready">Klik area pengujian untuk menangkap mouse. Tekan Escape untuk melepaskannya. Pengukuran adalah gerakan relatif yang dilaporkan oleh Android, bukan DPI perangkat keras.</string>
+    <string name="peripheral_keyboard_ready">Tekan tombol atau kombinasi pada keyboard fisik Anda. Tekan Escape untuk menutup tes.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGame X / Y: %3$s\nContoh: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKunci: %2$s · Pindai: %3$d · Ulangi: %4$d\nDitahan: %5$s</string>
 </resources>

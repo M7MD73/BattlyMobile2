@@ -418,7 +418,7 @@ public class mcAccountSpinner extends AppCompatSpinner implements AdapterView.On
                     mHeadDrawable = new BitmapDrawable(getResources(), bitmap);
                     view.setCompoundDrawables(mHeadDrawable, null, null, null);
                 }else{
-                    view.setCompoundDrawables(ResourcesCompat.getDrawable(getResources(), R.drawable.bg_battly_launcher_avatar, null), null, null, null);
+                    view.setCompoundDrawables(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_steve_face, null), null, null, null);
                 }
                 view.postProcessDrawables();
             }
@@ -458,7 +458,7 @@ public class mcAccountSpinner extends AppCompatSpinner implements AdapterView.On
                 if (accountHead == null){
                     accountHead = new BitmapDrawable(parent.getResources(), MinecraftAccount.getSkinFace(username));
                     if (((BitmapDrawable) accountHead).getBitmap() == null) {
-                        accountHead = ResourcesCompat.getDrawable(parent.getResources(), R.drawable.bg_battly_launcher_avatar, null);
+                        accountHead = ResourcesCompat.getDrawable(parent.getResources(), R.drawable.ic_steve_face, null);
                     }
                     mImageCache.put(username, accountHead);
                 }
@@ -480,23 +480,14 @@ public class mcAccountSpinner extends AppCompatSpinner implements AdapterView.On
         private CharSequence getStyledAccountText(String username) {
             MinecraftAccount account = net.kdt.pojavlaunch.value.MinecraftAccount.load(username);
             String status;
-            if (account == null || account.isLocal()) {
-                String battlyUsername = getContext()
-                        .getSharedPreferences("battly_account", android.content.Context.MODE_PRIVATE)
-                        .getString("battly_username", "");
-                if (!battlyUsername.isEmpty() && battlyUsername.equalsIgnoreCase(username)) {
-                    status = BattlyPlusManager.isPlus(getContext())
-                            ? getContext().getString(R.string.launcher_status_battly_plus)
-                            : getContext().getString(R.string.launcher_status_battly);
-                } else {
-                    status = getContext().getString(R.string.launcher_status_local);
-                }
-            } else if (!account.isMicrosoft) {
-                status = BattlyPlusManager.isPlus(getContext())
+            if (account != null && account.isBattly()) {
+                status = BattlyPlusManager.isPlus(getContext(), account)
                         ? getContext().getString(R.string.launcher_status_battly_plus)
                         : getContext().getString(R.string.launcher_status_battly);
-            } else {
+            } else if (account != null && account.isMicrosoft) {
                 status = getContext().getString(R.string.launcher_status_microsoft);
+            } else {
+                status = getContext().getString(R.string.launcher_status_local);
             }
             SpannableStringBuilder textBuilder = new SpannableStringBuilder(username);
             textBuilder.append('\n').append(status);
@@ -510,7 +501,7 @@ public class mcAccountSpinner extends AppCompatSpinner implements AdapterView.On
             MinecraftAccount account = MinecraftAccount.load(username);
             boolean isBattlyAccount = account != null && account.isBattly();
             view.setBackgroundResource(R.drawable.bg_battly_launcher_account);
-            if (!isBattlyAccount || !BattlyPlusManager.isPlus(getContext())) {
+            if (!isBattlyAccount || !BattlyPlusManager.isPlus(getContext(), account)) {
                 view.animate().cancel();
                 clearPlusTextAnimation(view, textview);
                 view.setAlpha(1f);

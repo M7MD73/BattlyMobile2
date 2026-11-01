@@ -752,7 +752,7 @@
     <string name="credits_primary_development">주요 개발</string>
     <string name="credits_section_title">크레딧</string>
     <string name="credits_unaffiliated">이 앱은 Minecraft, Mojang 또는 Microsoft와 관련이 없습니다.</string>
-    <string name="credits_version">버전 2.2.5</string>
+    <string name="credits_version">버전 2.2.9</string>
     <string name="ctrl_applied_success">컨트롤 "%1$s"이(가) 성공적으로 적용되었습니다.</string>
     <string name="ctrl_apply_btn">제어 적용</string>
     <string name="ctrl_apply_msg">"%1$s"을 다운로드하여 컨트롤 레이아웃으로 적용하시겠습니까?</string>
@@ -938,7 +938,7 @@
     <string name="instance_storage_calculating">저장용량 계산 중…</string>
     <string name="instance_use">사용</string>
     <string name="java_runtime_download_message">Battly는 앱 내부로 배송하는 대신 첫 번째 설정 후 Java 8을 다운로드합니다. 이렇게 하면 앱 크기가 줄어들고 이전 Minecraft 버전이 준비됩니다.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher 및 Boardwalk를 기반으로 한 실행기입니다.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;크레딧&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -949,11 +949,11 @@
         • 프로젝트에 포함된 GNU GPLv3 및 타사 구성요소.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j 등은 원래 라이선스에 따라 제공됩니다.&lt;br/&gt;&lt;br/&gt;
         이 앱은 Minecraft, Mojang 또는 Microsoft와 관련이 없습니다.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">다운로드</string>
     <string name="launcher_download_modpack">모드팩 가져오기</string>
     <string name="launcher_execute">플레이</string>
-    <string name="launcher_mobile_badge">모바일 2.2.5</string>
+    <string name="launcher_mobile_badge">모바일 2.2.9</string>
     <string name="launcher_nav_back">돌아가기</string>
     <string name="launcher_nav_home">집으로 돌아가기</string>
     <string name="launcher_nav_workspace">Battly 작업 공간</string>
@@ -1502,4 +1502,107 @@
     <string name="search_world_download_error">월드 메타데이터를 다운로드하지 못했습니다.</string>
     <string name="world_install_button">설치세계</string>
     <string name="world_install_success">이 인스턴스에 설치된 %1$s</string>
+
+    <string name="battly_whats_new_transition_desc">인스턴스는 그대로 유지됩니다. 신뢰할 수 있는 외부 플러그인을 사용하기 전에 설정에서 승인하세요.</string>
+    <string name="download_action_import_mods_title">외부 모드 가져오기</string>
+    <string name="download_action_import_mods_subtitle">하나 이상의 `.jar` 파일을 선택하고 선택한 인스턴스에 추가합니다.</string>
+    <string name="library_installed_show_more">%1$d 더 보기</string>
+    <string name="library_import_mods_replace_title">기존 모드를 교체하시겠습니까?</string>
+    <string name="library_import_mods_replace_message">%1$d 선택한 모드 파일이 이미 %2$s에 있습니다. Battly는 새 파일의 유효성을 확인한 후에만 파일을 교체합니다.</string>
+    <string name="library_import_mods_invalid">유효한 `.jar` 모드 파일을 선택하지 않았습니다.</string>
+    <string name="library_import_mods_success">%1$d 모드를 %2$s로 가져왔습니다.</string>
+    <string name="library_import_mods_partial">%1$d 모드를 %2$s로 가져왔습니다. · %3$d 파일을 가져올 수 없습니다.</string>
+    <string name="library_import_mods_error">선택한 모드를 가져올 수 없습니다.</string>
+    <string name="battly_whats_new_action_start">2.2.9 탐색</string>
+    <string name="battly_whats_new_compatibility_desc">로그인 응답은 보류 중인 요청과 일치해야 하며 짧은 시간 후에 만료되며 한 번만 수락할 수 있습니다.</string>
+    <string name="battly_whats_new_compatibility_title">더욱 안전한 Discord 로그인</string>
+    <string name="battly_whats_new_controllers_desc">하나의 폴더를 공유하면 더 이상 부여한 권한 이외의 다른 폴더에 액세스할 수 없습니다.</string>
+    <string name="battly_whats_new_controllers_title">보호된 파일 공유</string>
+    <string name="battly_whats_new_desc">더욱 안전한 모드팩 설치, 파일 공유 및 외부 플러그인 인증.</string>
+    <string name="battly_whats_new_instances_desc">아카이브 콘텐츠와 다운로드한 파일은 다른 인스턴스를 수정하지 않고도 할당된 인스턴스 내에 유지됩니다.</string>
+    <string name="battly_whats_new_instances_title">보호된 모드팩 설치</string>
+    <string name="battly_whats_new_recovery_desc">오프라인 모드를 제외하고 Battly가 시작되면 사용량 분석이 활성화됩니다. 릴리스 노트와 플러그인 메시지가 번역되었습니다.</string>
+    <string name="battly_whats_new_recovery_title">통계 및 번역</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9가 준비되었습니다</string>
+    <string name="battly_whats_new_worlds_desc">외부 플러그인을 사용하려면 승인이 필요합니다. 이전에 설치된 플러그인은 한 번 더 승인을 받아야 합니다.</string>
+    <string name="battly_whats_new_worlds_title">귀하의 플러그인 권한</string>
+    <string name="battly_appearance_title">Battly 스킨과 망토</string>
+    <string name="battly_appearance_subtitle">모바일에서 전체 Minecraft 모양을 미리 보고 관리하세요.</string>
+    <string name="battly_capes_title">Battly 케이프</string>
+    <string name="battly_capes_description">공식 케이프를 선택하거나 Battly+를 사용하여 나만의 케이프를 업로드하세요. 활성 케이프는 3D 미리보기와 Minecraft 내부에 표시됩니다.</string>
+    <string name="battly_capes_loading">Battly 망토 로드 중...</string>
+    <string name="battly_capes_active">액티브 케이프</string>
+    <string name="battly_capes_none">활성 케이프 없음</string>
+    <string name="battly_capes_empty">이 계정에는 망토를 사용할 수 없습니다.</string>
+    <string name="battly_capes_upload">케이프 업로드</string>
+    <string name="battly_capes_upload_plus">Battly+로 업로드</string>
+    <string name="battly_capes_plus_required">맞춤형 케이프는 Battly+와 함께 사용할 수 있습니다. 공식 망토를 계속 사용할 수 있습니다.</string>
+    <string name="battly_capes_disable">케이프 없음</string>
+    <string name="battly_capes_disabled">케이프 비활성화됨</string>
+    <string name="battly_capes_uploaded">케이프 업로드 및 적용</string>
+    <string name="battly_capes_applied">케이프 적용</string>
+    <string name="battly_capes_deleted">케이프가 삭제되었습니다.</string>
+    <string name="battly_capes_previewing">케이프 미리보기</string>
+    <string name="battly_capes_custom">맞춤형 케이프</string>
+    <string name="battly_capes_official">공식 망토</string>
+
+    <string name="battly_capes_unavailable">망토는 일시적으로 사용할 수 없습니다. 귀하의 스킨은 여전히 ​​사용 가능합니다.</string>
+
+    <string name="native_plugins_bundled_category">Battly에 포함된 Android 종속성</string>
+    <string name="native_plugins_bundled_ready">버전 %1$s · 준비됨</string>
+
+    <string name="battly_whats_new_native_title">기본 종속성을 계속 사용할 수 있습니다.</string>
+    <string name="battly_whats_new_native_desc">내장 라이브러리는 자동으로 작동합니다. 외부 플러그인에 대한 권한은 APK 서명 ID에 연결됩니다.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">일일 활동 · 모바일</string>
+    <string name="battly_stats_history_notice">녹음된 현지 시간입니다. 이 업데이트로 역사가 시작됩니다. 이전 합계는 아래에 남아 있습니다.</string>
+    <string name="battly_stats_history_unavailable">일일 기록은 아직 서버에서 사용할 수 없습니다. 총 통계가 아래에 표시됩니다.</string>
+    <string name="battly_stats_period_label">활동기간</string>
+    <string name="battly_stats_day_label">활동 날짜</string>
+    <string name="battly_stats_period_days">지난 %1$d일</string>
+    <string name="battly_stats_period_summary">활동일: %1$d · Minecraft: %2$s · 런처: %3$s</string>
+    <string name="battly_stats_time_range">첫 번째 활동: %1$s · 마지막 활동: %2$s</string>
+    <string name="battly_stats_day_modes">월드: %1$s · 서버: %2$s (Battly Worlds: %3$s) · 게임 메뉴: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · 실행기: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d</string>
+    <string name="battly_stats_lifetime">통산 · PC + 모바일</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · 실행기: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$dh</string>
+    <string name="automatic_game_keyboard_title">키보드 자동 열기</string>
+
+    <string name="native_plugins_trust_warning">이 외부 플러그인은 Battly 파일 및 계정에 액세스하여 기본 코드를 실행할 수 있습니다. 신뢰할 수 있는 소스의 플러그인만 허용하세요. 권한은 APK 서명 ID에 연결됩니다.</string>
+    <string name="native_plugins_trust_action">플러그인 허용</string>
+
+    <string name="peripheral_title">키보드, 마우스 및 컨트롤러</string>
+    <string name="peripheral_devices">연결된 주변기기</string>
+    <string name="peripheral_no_devices">외부 주변 장치가 감지되지 않았습니다.</string>
+    <string name="peripheral_mouse">물리적 마우스</string>
+    <string name="peripheral_pc_preset">PC 마우스 사전 설정 적용</string>
+    <string name="peripheral_pc_mode">해상도 독립적 조준</string>
+    <string name="peripheral_pc_mode_summary">렌더링 해상도에 관계없이 일정한 선형 감도. Battly는 가속이나 스무딩을 추가하지 않습니다. Android 8 이상.</string>
+    <string name="peripheral_mouse_x">수평 감도</string>
+    <string name="peripheral_mouse_y">수직 감도</string>
+    <string name="peripheral_invert_x">가로축 반전</string>
+    <string name="peripheral_invert_y">수직축 반전</string>
+    <string name="peripheral_mouse_test">마우스 교정 테스트</string>
+    <string name="peripheral_keyboard">물리적 키보드</string>
+    <string name="peripheral_bindings">게임플레이 키 바인딩</string>
+    <string name="peripheral_binding_count">%1$d 바인딩. 메뉴 입력은 변경되지 않습니다.</string>
+    <string name="peripheral_keyboard_test">테스트 키 및 조합</string>
+    <string name="peripheral_stick_linear">선형 컨트롤러 조준</string>
+    <string name="peripheral_stick_linear_summary">기본 2차 곡선 대신 비례 스틱 응답. 기본 컨트롤러 모드가 아닌 Battly 컨트롤러 매핑에 적용됩니다.</string>
+    <string name="peripheral_stick_sensitivity">컨트롤러 카메라 감도</string>
+    <string name="peripheral_reset_test">측정 재설정</string>
+    <string name="peripheral_add_binding">키 바인딩 추가</string>
+    <string name="peripheral_source_key">물리적 키</string>
+    <string name="peripheral_target_key">이 키를 Minecraft로 보내세요</string>
+    <string name="peripheral_press_key">물리적 키를 눌렀다 놓습니다. 기존 바인딩을 선택하면 제거됩니다. 수정자 키는 정상적인 동작을 유지합니다.</string>
+    <string name="peripheral_invalid_key">수정자가 아닌 키보드 키를 선택하십시오. Android 시스템 키는 다시 매핑할 수 없습니다.</string>
+    <string name="peripheral_mouse_ready">마우스를 캡처하려면 테스트 영역을 클릭하십시오. Esc를 눌러 해제하세요. 측정값은 하드웨어 DPI가 아닌 Android에서 보고한 상대 동작입니다.</string>
+    <string name="peripheral_keyboard_ready">실제 키보드에서 키나 조합을 누르세요. 테스트를 닫으려면 Esc를 누르세요.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\n게임 X / Y: %3$s\n샘플: %4$d</string>
+    <string name="peripheral_key_result">%1$s\n키: %2$s · 스캔: %3$d · 반복: %4$d\n보류: %5$s</string>
 </resources>

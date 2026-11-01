@@ -25,30 +25,33 @@ import java.io.IOException;
 
 /** Class getting the version list, and that's all really */
 public class AsyncVersionList {
+    private static final Object VERSION_LIST_LOCK = new Object();
 
     public void getVersionList(@Nullable VersionDoneListener listener, boolean secondPass){
         sExecutorService.execute(() -> {
-            File versionFile = new File(Tools.DIR_CACHE + "/version_list.json");
             JMinecraftVersionList versionList = null;
-            try{
-                boolean offline = BattlyOfflineMode.isOffline(PojavApplication.getAppContext());
-                if(!offline && (!versionFile.exists()
-                        || System.currentTimeMillis() > versionFile.lastModified() + 86400000)){
-                    versionList = downloadVersionList(LauncherPreferences.PREF_VERSION_REPOS);
-                }
-            }catch (Exception e){
-                Log.e("AsyncVersionList", "Refreshing version list failed :" + e);
-                e.printStackTrace();
-            }
-
-            // Fallback when no network or not needed
-            if (versionList == null) {
-                try {
-                    versionList = Tools.GLOBAL_GSON.fromJson(new JsonReader(new FileReader(versionFile)), JMinecraftVersionList.class);
-                } catch (FileNotFoundException e) {
+            synchronized (VERSION_LIST_LOCK) {
+                File versionFile = new File(Tools.DIR_CACHE + "/version_list.json");
+                try{
+                    boolean offline = BattlyOfflineMode.isOffline(PojavApplication.getAppContext());
+                    if(!offline && (!versionFile.exists()
+                            || System.currentTimeMillis() > versionFile.lastModified() + 86400000)){
+                        versionList = downloadVersionList(LauncherPreferences.PREF_VERSION_REPOS);
+                    }
+                }catch (Exception e){
+                    Log.e("AsyncVersionList", "Refreshing version list failed :" + e);
                     e.printStackTrace();
-                } catch (JsonIOException | JsonSyntaxException e) {
-                    Log.e("AsyncVersionList", "Saved version list is invalid; preserving it for recovery", e);
+                }
+
+                // Fallback when no network or not needed
+                if (versionList == null) {
+                    try {
+                        versionList = Tools.GLOBAL_GSON.fromJson(new JsonReader(new FileReader(versionFile)), JMinecraftVersionList.class);
+                    } catch (FileNotFoundException e) {
+                        Log.w("AsyncVersionList", "No cached version list is available yet");
+                    } catch (JsonIOException | JsonSyntaxException e) {
+                        Log.e("AsyncVersionList", "Saved version list is invalid; preserving it for recovery", e);
+                    }
                 }
             }
 

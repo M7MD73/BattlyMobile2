@@ -539,7 +539,10 @@ public class GLFW
         memPutInt(mGLFWVideoMode.address() + mGLFWVideoMode.REDBITS, 8);
         memPutInt(mGLFWVideoMode.address() + mGLFWVideoMode.GREENBITS, 8);
         memPutInt(mGLFWVideoMode.address() + mGLFWVideoMode.BLUEBITS, 8);
-        memPutInt(mGLFWVideoMode.address() + mGLFWVideoMode.REFRESHRATE, 60);
+        int displayRefreshRate = getAndroidDisplayRefreshRate();
+        memPutInt(mGLFWVideoMode.address() + mGLFWVideoMode.REFRESHRATE,
+                displayRefreshRate);
+        System.out.println("Info: GLFW display refresh rate: " + displayRefreshRate + " Hz");
 
         // A way to generate key code names
         Field[] thisFieldArr = GLFW.class.getFields();
@@ -627,8 +630,19 @@ public class GLFW
 
     @SuppressWarnings("unused") // Used by pojavexec
     public static void internalChangeMonitorSize(int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        int previousWidth = mGLFWWindowWidth;
+        int previousHeight = mGLFWWindowHeight;
         mGLFWWindowWidth = width;
         mGLFWWindowHeight = height;
+        for (int i = 0; i < mGLFWWindowMap.size(); i++) {
+            GLFWWindowProperties window = mGLFWWindowMap.valueAt(i);
+            if ((window.width == previousWidth && window.height == previousHeight)
+                    || window.windowAttribs.getOrDefault(GLFW_VISIBLE, 0) == 1) {
+                window.width = width;
+                window.height = height;
+            }
+        }
         if (mGLFWVideoMode == null) return;
         memPutInt(mGLFWVideoMode.address() + (long) mGLFWVideoMode.WIDTH, mGLFWWindowWidth);
         memPutInt(mGLFWVideoMode.address() + (long) mGLFWVideoMode.HEIGHT, mGLFWWindowHeight);
@@ -866,8 +880,8 @@ public class GLFW
             checkSafe(width, 1);
             checkSafe(height, 1);
         }
-        width.put(internalGetWindow(window).width);
-        height.put(internalGetWindow(window).height);
+        if (width != null) width.put(width.position(), internalGetWindow(window).width);
+        if (height != null) height.put(height.position(), internalGetWindow(window).height);
     }
 
     @Nullable
@@ -964,6 +978,26 @@ public class GLFW
     }
 
     private static native void nativeInitializeGLFWNativeBridge();
+
+    public static void setAndroidTextInputActive(boolean active) {
+        nativeSetAndroidTextInputActive(active);
+    }
+
+    private static int getAndroidDisplayRefreshRate() {
+        String configuredRate = System.getenv("BATTLY_DISPLAY_REFRESH_RATE");
+        if (configuredRate != null) {
+            try {
+                float rate = Float.parseFloat(configuredRate);
+                if (!Float.isNaN(rate) && !Float.isInfinite(rate) && rate > 0f) {
+                    return Math.max(1, Math.round(rate));
+                }
+            } catch (NumberFormatException ignored) {
+            }
+        }
+        return 60;
+    }
+
+    private static native void nativeSetAndroidTextInputActive(boolean active);
 
     @Nullable
     public static GLFWVidMode glfwGetVideoMode(long monitor) {
@@ -1083,8 +1117,8 @@ public class GLFW
     }
 
     public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
-        if (width != null) width.put(internalGetWindow(window).width);
-        if (height != null) height.put(internalGetWindow(window).height);
+        if (width != null) width.put(width.position(), internalGetWindow(window).width);
+        if (height != null) height.put(height.position(), internalGetWindow(window).height);
     }
 
     public static void glfwSetWindowSizeLimits(@NativeType("GLFWwindow *") long window, int minwidth, int minheight, int maxwidth, int maxheight) {
@@ -1436,8 +1470,8 @@ public class GLFW
             checkSafe(width, 1);
             checkSafe(height, 1);
         }
-        width[0] = internalGetWindow(window).width;
-        height[0] = internalGetWindow(window).height;
+        if (width != null) width[0] = internalGetWindow(window).width;
+        if (height != null) height[0] = internalGetWindow(window).height;
     }
 
     /** Array version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
@@ -1447,8 +1481,8 @@ public class GLFW
             checkSafe(width, 1);
             checkSafe(height, 1);
         }
-        width[0] = internalGetWindow(window).width;
-        height[0] = internalGetWindow(window).height;
+        if (width != null) width[0] = internalGetWindow(window).width;
+        if (height != null) height[0] = internalGetWindow(window).height;
     }
 
     /** Array version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
@@ -1466,15 +1500,23 @@ public class GLFW
     }
 
     /** Array version of: {@link #glfwGetWindowContentScale GetWindowContentScale} */
-/*
     public static void glfwGetWindowContentScale(@NativeType("GLFWwindow *") long window, @Nullable @NativeType("float *") float[] xscale, @Nullable @NativeType("float *") float[] yscale) {
-        long __functionAddress = Functions.GetWindowContentScale;
         if (CHECKS) {
-            // check(window);
             checkSafe(xscale, 1);
             checkSafe(yscale, 1);
         }
-        invokePPPV(window, xscale, yscale, __functionAddress);
+        // Android window and framebuffer sizes are already expressed in the same game pixels.
+        if (xscale != null) xscale[0] = 1f;
+        if (yscale != null) yscale[0] = 1f;
+    }
+
+    public static void glfwGetWindowContentScale(@NativeType("GLFWwindow *") long window, @Nullable @NativeType("float *") FloatBuffer xscale, @Nullable @NativeType("float *") FloatBuffer yscale) {
+        if (CHECKS) {
+            checkSafe(xscale, 1);
+            checkSafe(yscale, 1);
+        }
+        if (xscale != null) xscale.put(xscale.position(), 1f);
+        if (yscale != null) yscale.put(yscale.position(), 1f);
     }
 
 

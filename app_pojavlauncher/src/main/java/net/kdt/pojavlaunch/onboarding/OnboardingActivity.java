@@ -19,6 +19,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import androidx.recyclerview.widget.RecyclerView;
 
 import net.kdt.pojavlaunch.LauncherActivity;
+import net.kdt.pojavlaunch.BuildConfig;
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
 import net.kdt.pojavlaunch.utils.BattlyBackgrounds;
@@ -28,7 +29,11 @@ import java.util.List;
 
 public class OnboardingActivity extends AppCompatActivity {
     public static final String EXTRA_WHATS_NEW = "battly_whats_new";
-    public static final String PREF_WHATS_NEW_SEEN = "battly_whats_new_seen_2_2_5_v1";
+    private static final String PREF_WHATS_NEW_SEEN_PREFIX = "battly_whats_new_seen_";
+
+    public static String getWhatsNewSeenPreferenceKey() {
+        return PREF_WHATS_NEW_SEEN_PREFIX + BuildConfig.VERSION_CODE;
+    }
 
     private ViewPager2 viewPager;
     private OnboardingAdapter adapter;
@@ -121,6 +126,8 @@ public class OnboardingActivity extends AppCompatActivity {
                     R.string.battly_whats_new_instances_desc, R.drawable.minecraft_chest));
             slides.add(new OnboardingSlide(R.string.battly_whats_new_compatibility_title,
                     R.string.battly_whats_new_compatibility_desc, R.drawable.minecraft_book));
+            slides.add(new OnboardingSlide(R.string.battly_whats_new_native_title,
+                    R.string.battly_whats_new_native_desc, R.drawable.minecraft_bookshelf));
             slides.add(new OnboardingSlide(R.string.battly_whats_new_worlds_title,
                     R.string.battly_whats_new_worlds_desc, R.drawable.minecraft_filled_map));
             slides.add(new OnboardingSlide(R.string.battly_whats_new_recovery_title,
@@ -248,7 +255,9 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private void doFinishOnboarding() {
         if (whatsNewMode) {
-            LauncherPreferences.DEFAULT_PREF.edit().putBoolean(PREF_WHATS_NEW_SEEN, true).apply();
+            LauncherPreferences.DEFAULT_PREF.edit()
+                    .putBoolean(getWhatsNewSeenPreferenceKey(), true)
+                    .apply();
             setResult(RESULT_OK);
             finish();
             return;

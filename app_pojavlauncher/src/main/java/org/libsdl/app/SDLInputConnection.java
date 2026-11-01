@@ -14,7 +14,7 @@ class SDLInputConnection extends BaseInputConnection
 
     SDLInputConnection(View targetView, boolean fullEditor) {
         super(targetView, fullEditor);
-        mEditText = new EditText(SDL.getContext());
+        mEditText = new EditText(targetView.getContext());
     }
 
     @Override
@@ -24,6 +24,10 @@ class SDLInputConnection extends BaseInputConnection
 
     @Override
     public boolean sendKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_DEL) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) deleteSurroundingTextInCodePoints(1, 0);
+            return true;
+        }
         /*
          * This used to handle the keycodes from soft keyboard (and IME-translated input from hardkeyboard)
          * However, as of Ice Cream Sandwich and later, almost all soft keyboard doesn't generate key presses
@@ -37,12 +41,27 @@ class SDLInputConnection extends BaseInputConnection
          */
 
         if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-            if (SDLActivity.onNativeSoftReturnKey()) {
-                return true;
+            // Some IMEs emit only ACTION_DOWN, while others emit both actions
+            // and performEditorAction. submitReturn() deduplicates those forms.
+            if (event.getAction() == KeyEvent.ACTION_DOWN
+                    || event.getAction() == KeyEvent.ACTION_UP) {
+                submitAndCloseKeyboard();
             }
+            return true;
         }
 
         return super.sendKeyEvent(event);
+    }
+
+    @Override
+    public boolean performEditorAction(int actionCode) {
+        if (actionCode == android.view.inputmethod.EditorInfo.IME_ACTION_SEND
+                || actionCode == android.view.inputmethod.EditorInfo.IME_ACTION_DONE
+                || actionCode == android.view.inputmethod.EditorInfo.IME_ACTION_GO
+                || actionCode == android.view.inputmethod.EditorInfo.IME_ACTION_UNSPECIFIED) {
+            return submitAndCloseKeyboard();
+        }
+        return super.performEditorAction(actionCode);
     }
 
     @Override
@@ -68,9 +87,10 @@ class SDLInputConnection extends BaseInputConnection
         // Workaround to capture backspace key. Ref: http://stackoverflow.com/questions>/14560344/android-backspace-in-webview-baseinputconnection
         // and https://bugzilla.libsdl.org/show_bug.cgi?id=2265
         if (beforeLength > 0 && afterLength == 0) {
-            // backspace(s)
+            if (!super.deleteSurroundingText(beforeLength, afterLength)) return false;
+            mCommittedText = getEditable().toString();
             while (beforeLength-- > 0) {
-                nativeGenerateScancodeForUnichar('\b');
+                emitScancode('\b');
             }
             return true;
        }
@@ -81,6 +101,22 @@ class SDLInputConnection extends BaseInputConnection
         updateText();
         return true;
     }
+
+    @Override
+    public boolean deleteSurroundingTextInCodePoints(int beforeLength, int afterLength) {
+        if (beforeLength > 0 && afterLength == 0) {
+            if (!super.deleteSurroundingTextInCodePoints(beforeLength, afterLength)) return false;
+            mCommittedText = getEditable().toString();
+            for (int i = 0; i < beforeLength; i++) emitScancode('\b');
+            return true;
+        }
+        boolean changed = super.deleteSurroundingTextInCodePoints(beforeLength, afterLength);
+        if (changed) updateText();
+        return changed;
+    }
+
+    protected void emitScancode(char character) { nativeGenerateScancodeForUnichar(character); }
+    protected void emitText(String text) { nativeCommitText(text, 0); }
 
     protected void updateText() {
         final Editable content = getEditable();
@@ -103,7 +139,7 @@ class SDLInputConnection extends BaseInputConnection
         /* FIXME: This doesn't handle graphemes, like '🌬️' */
         for (offset = matchLength; offset < mCommittedText.length(); ) {
             int codePoint = mCommittedText.codePointAt(offset);
-            nativeGenerateScancodeForUnichar('\b');
+            emitScancode('\b');
             offset += Character.charCount(codePoint);
         }
 
@@ -113,20 +149,27 @@ class SDLInputConnection extends BaseInputConnection
                 for (offset = 0; offset < pendingText.length(); ) {
                     int codePoint = pendingText.codePointAt(offset);
                     if (codePoint == '\n') {
-                        if (SDLActivity.onNativeSoftReturnKey()) {
-                            return;
-                        }
+                        submitAndCloseKeyboard();
+                        return;
                     }
                     /* Higher code points don't generate simulated scancodes */
                     if (codePoint > 0 && codePoint < 128) {
-                        nativeGenerateScancodeForUnichar((char)codePoint);
+                        emitScancode((char)codePoint);
                     }
                     offset += Character.charCount(codePoint);
                 }
             }
-            SDLInputConnection.nativeCommitText(pendingText, 0);
+            emitText(pendingText);
         }
         mCommittedText = text;
+    }
+
+    private boolean submitAndCloseKeyboard() {
+        SDLActivity.submitSoftReturnKey();
+        Editable content = getEditable();
+        if (content != null) content.clear();
+        mCommittedText = "";
+        return true;
     }
 
     public static native void nativeCommitText(String text, int newCursorPosition);

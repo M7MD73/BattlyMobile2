@@ -284,7 +284,7 @@
     <string name="crash_no_findings">Viimastest logidest teadaolevat krahhimustrit ei leitud.</string>
     <string name="crash_recovery_applied">Taastetoiming lõpetatud</string>
     <string name="crash_recovery_manual">See probleem vajab käsitsi muutmist. Üksikasjade vaatamiseks avage logi.</string>
-    <string name="credits_version">Versioon 2.2.5</string>
+    <string name="credits_version">Versioon 2.2.9</string>
     <string name="ctrl_like_btn">meeldib</string>
     <string name="ctrl_liked_added">Lisatud meeldinud juhtnuppudele.</string>
     <string name="ctrl_liked_btn">Meeldis</string>
@@ -345,8 +345,8 @@
     <string name="java_runtime_download_progress">Java %1$d (%2$.1f MB / %3$.1f MB) allalaadimine</string>
     <string name="java_runtime_download_title">Java 8 installimine</string>
     <string name="java_runtime_download_waiting">Java 8 allalaadimise ettevalmistamine...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobiil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobiil 2.2.9</string>
     <string name="launcher_status_battly">Battly konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analüüsida</string>
@@ -828,7 +828,7 @@
     <string name="installer_internal_fallback">Toetamata installiprogramm avab pärandkasutajaliidese Java</string>
     <string name="installer_internal_running">Installeri analüüsimine…</string>
     <string name="installer_internal_success">%1$s, mis on paigaldatud otse Battly sisse</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Käivitusprogramm, mis põhineb PojavLauncheril ja Boardwalkil.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Krediidid&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1265,4 +1265,107 @@
     <string name="search_world_download_error">Maailma metaandmete allalaadimine ebaõnnestus</string>
     <string name="world_install_button">Installimaailm</string>
     <string name="world_install_success">Sellesse eksemplari installitud %1$s</string>
+
+    <string name="battly_whats_new_transition_desc">Teie eksemplarid jäävad paika. Enne nende kasutamist lubage usaldusväärsed välised pistikprogrammid seadetes.</string>
+    <string name="download_action_import_mods_title">Importige väliseid modifikatsioone</string>
+    <string name="download_action_import_mods_subtitle">Valige üks või mitu ".jar" faili ja lisage need valitud eksemplari.</string>
+    <string name="library_installed_show_more">Kuva %1$d rohkem</string>
+    <string name="library_import_mods_replace_title">Kas asendada olemasolevad modifikatsioonid?</string>
+    <string name="library_import_mods_replace_message">%1$d valitud mod-failid on %2$s-s juba olemas. Battly asendab need alles pärast uute failide kinnitamist.</string>
+    <string name="library_import_mods_invalid">Ühtegi kehtivat .jar mod-faili ei valitud.</string>
+    <string name="library_import_mods_success">Imporditud %1$d modifikatsioonid seadmesse %2$s.</string>
+    <string name="library_import_mods_partial">Kaubasse %2$s imporditud %1$d modifikatsioonid · %3$d faile ei saanud importida.</string>
+    <string name="library_import_mods_error">Valitud modifikatsioone ei saanud importida.</string>
+    <string name="battly_whats_new_action_start">Uurige 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Sisselogimisvastused peavad vastama ootel olevale päringule, aeguma lühikese aja pärast ja neid saab vastu võtta ainult üks kord.</string>
+    <string name="battly_whats_new_compatibility_title">Turvalisem Discord sisselogimine</string>
+    <string name="battly_whats_new_controllers_desc">Ühe kausta jagamine ei võimalda enam juurdepääsu teistele kaustadele väljaspool teie antud luba.</string>
+    <string name="battly_whats_new_controllers_title">Kaitstud failide jagamine</string>
+    <string name="battly_whats_new_desc">Ohutum modpacki installimine, failide jagamine ja välise pistikprogrammi autoriseerimine.</string>
+    <string name="battly_whats_new_instances_desc">Arhiivi sisu ja allalaaditud failid jäävad neile määratud eksemplaridesse ilma teisi eksemplare muutmata.</string>
+    <string name="battly_whats_new_instances_title">Kaitstud modpacki paigaldamine</string>
+    <string name="battly_whats_new_recovery_desc">Kasutusanalüütika aktiveeritakse Battly käivitumisel, välja arvatud võrguühenduseta režiimis. Väljalaskemärkmed ja pistikprogrammide teated on tõlgitud.</string>
+    <string name="battly_whats_new_recovery_title">Statistika ja tõlked</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 on valmis</string>
+    <string name="battly_whats_new_worlds_desc">Välised pistikprogrammid vajavad enne kasutamist autoriseerimist. Varem installitud pistikprogrammid tuleb üks kord uuesti volitada.</string>
+    <string name="battly_whats_new_worlds_title">Teie pistikprogrammi load</string>
+    <string name="battly_appearance_title">Battly nahad ja keebid</string>
+    <string name="battly_appearance_subtitle">Vaadake ja hallake oma täielikku Minecraft välimust mobiilist.</string>
+    <string name="battly_capes_title">Battly keebid</string>
+    <string name="battly_capes_description">Valige ametlik keeb või laadige üles oma neem rakendusega Battly+. Aktiivne kate on näidatud 3D-eelvaates ja Minecraft sees.</string>
+    <string name="battly_capes_loading">Battly keebide laadimine...</string>
+    <string name="battly_capes_active">Aktiivne keep</string>
+    <string name="battly_capes_none">Aktiivne neem puudub</string>
+    <string name="battly_capes_empty">Selle konto jaoks pole keebid saadaval.</string>
+    <string name="battly_capes_upload">Laadi üles keep</string>
+    <string name="battly_capes_upload_plus">Laadige üles rakendusega Battly+</string>
+    <string name="battly_capes_plus_required">Kohandatud keebid on saadaval mudeliga Battly+. Võite endiselt kasutada ametlikke keepe.</string>
+    <string name="battly_capes_disable">Ei mingit keebi</string>
+    <string name="battly_capes_disabled">Cape keelatud</string>
+    <string name="battly_capes_uploaded">Cape laaditi üles ja rakendati</string>
+    <string name="battly_capes_applied">Cape peale pandud</string>
+    <string name="battly_capes_deleted">Neem kustutatud</string>
+    <string name="battly_capes_previewing">Neeme eelvaade</string>
+    <string name="battly_capes_custom">Kohandatud keeb</string>
+    <string name="battly_capes_official">Ametlik neem</string>
+
+    <string name="battly_capes_unavailable">Keebid ei ole ajutiselt saadaval. Teie nahad on endiselt saadaval.</string>
+
+    <string name="native_plugins_bundled_category">Android sõltuvused on kaasas Battly-ga</string>
+    <string name="native_plugins_bundled_ready">Versioon %1$s · Valmis</string>
+
+    <string name="battly_whats_new_native_title">Natiivsed sõltuvused jäävad kättesaadavaks</string>
+    <string name="battly_whats_new_native_desc">Sisseehitatud teegid töötavad automaatselt. Väliste pistikprogrammide load on lingitud APK allkirjastamise identiteediga.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Igapäevane tegevus · Mobiilne</string>
+    <string name="battly_stats_history_notice">Salvestamise kohalik aeg. Ajalugu algab selle värskendusega; varasemad kogusummad jäävad allapoole.</string>
+    <string name="battly_stats_history_unavailable">Päevalugu pole serveris veel saadaval. Teie kogustatistika on näidatud allpool.</string>
+    <string name="battly_stats_period_label">Tegevusperiood</string>
+    <string name="battly_stats_day_label">Tegevuse kuupäev</string>
+    <string name="battly_stats_period_days">Viimased %1$d päevad</string>
+    <string name="battly_stats_period_summary">Aktiivsed päevad: %1$d · Minecraft: %2$s · Käivitusseade: %3$s</string>
+    <string name="battly_stats_time_range">Esimene tegevus: %1$s · Viimane tegevus: %2$s</string>
+    <string name="battly_stats_day_modes">Maailmad: %1$s · Serverid: %2$s (Battly Worlds: %3$s) · Mängumenüüd: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Käivitusseade: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Kõigi aegade kogusummad · PC + mobiil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Käivitusseade: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Ava klaviatuur automaatselt</string>
+
+    <string name="native_plugins_trust_warning">See väline pistikprogramm võib käitada omakoodi, millel on juurdepääs Battly failidele ja kontodele. Only allow plugins from a source you trust. Luba on lingitud APK allkirjastamise identiteediga.</string>
+    <string name="native_plugins_trust_action">Allow plugin</string>
+
+    <string name="peripheral_title">Klaviatuur, hiir ja kontroller</string>
+    <string name="peripheral_devices">Ühendatud välisseadmed</string>
+    <string name="peripheral_no_devices">Väliseid välisseadmeid ei tuvastatud</string>
+    <string name="peripheral_mouse">Füüsiline hiir</string>
+    <string name="peripheral_pc_preset">Rakenda arvutihiire eelseadistus</string>
+    <string name="peripheral_pc_mode">Resolutsioonist sõltumatu sihtimine</string>
+    <string name="peripheral_pc_mode_summary">Pidev lineaarne tundlikkus sõltumata renderduseraldusvõimest. Battly ei lisa kiirendust ega silumist. Android 8 või uuem.</string>
+    <string name="peripheral_mouse_x">Horisontaalne tundlikkus</string>
+    <string name="peripheral_mouse_y">Vertikaalne tundlikkus</string>
+    <string name="peripheral_invert_x">Horisontaaltelje ümberpööramine</string>
+    <string name="peripheral_invert_y">Pöörake vertikaaltelg ümber</string>
+    <string name="peripheral_mouse_test">Testige hiire kalibreerimist</string>
+    <string name="peripheral_keyboard">Füüsiline klaviatuur</string>
+    <string name="peripheral_bindings">Mängu klahvide sidumine</string>
+    <string name="peripheral_binding_count">%1$d köited. Menüü sisestamine on muutumatu.</string>
+    <string name="peripheral_keyboard_test">Testi võtmeid ja kombinatsioone</string>
+    <string name="peripheral_stick_linear">Lineaarne kontrolleri sihtimine</string>
+    <string name="peripheral_stick_linear_summary">Proportsionaalne pulgavastus vaikimisi ruutkõvera asemel. Kehtib Battly kontrolleri kaardistamise, mitte kontrolleri natiivsete modifikatsioonide kohta.</string>
+    <string name="peripheral_stick_sensitivity">Kontrolleri kaamera tundlikkus</string>
+    <string name="peripheral_reset_test">Lähtesta mõõtmine</string>
+    <string name="peripheral_add_binding">Lisa võtme sidumine</string>
+    <string name="peripheral_source_key">Füüsiline võti</string>
+    <string name="peripheral_target_key">Saada see võti aadressile Minecraft</string>
+    <string name="peripheral_press_key">Vajutage ja vabastage füüsiline võti. Olemasoleva köite valimine eemaldab selle. Modifikaatoriklahvid säilitavad oma tavapärase käitumise.</string>
+    <string name="peripheral_invalid_key">Valige muuteta klaviatuuriklahv. Süsteemivõtmeid Android ei saa uuesti vastendada.</string>
+    <string name="peripheral_mouse_ready">Hiire jäädvustamiseks klõpsake katsealal. Selle vabastamiseks vajutage paoklahvi. Mõõtmised on suhteline liikumine, mida teatab Android, mitte riistvaraline DPI.</string>
+    <string name="peripheral_keyboard_ready">Vajutage oma füüsilisel klaviatuuril klahve või kombinatsioone. Testi sulgemiseks vajutage paoklahvi.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nMäng X / Y: %3$s\nNäidised: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nVõti: %2$s · Skannimine: %3$d · Kordus: %4$d\nHoival: %5$s</string>
 </resources>

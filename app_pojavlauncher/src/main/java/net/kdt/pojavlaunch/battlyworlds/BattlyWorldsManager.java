@@ -81,6 +81,7 @@ public final class BattlyWorldsManager {
         });
         sInitialized = true;
         startPolling();
+        BattlyWorldsModeration.startMonitoring();
         setWaiting(activity, false);
     }
 
@@ -151,6 +152,12 @@ public final class BattlyWorldsManager {
             return;
         }
         ensureInitialized();
+        BattlyWorldsModeration.authorize(activity,"host",()->startAuthorizedHost(player,nodes));
+    }
+
+    private static void startAuthorizedHost(String player, List<String> nodes) {
+        Activity activity = sActivity.get();
+        if(activity==null || activity.isFinishing())return;
         sMode = Mode.HOST;
         sLastNodes = nodes;
         BattlyWorldsPresenceOverlay.setConnectionInProgress(activity, true);
@@ -163,10 +170,13 @@ public final class BattlyWorldsManager {
             return false;
         }
         ensureInitialized();
-        sMode = Mode.GUEST;
-        sLastNodes = nodes;
-        BattlyWorldsPresenceOverlay.setConnectionInProgress(activity, true);
-        return TerracottaAndroidAPI.setGuesting(code, player, nodes);
+        BattlyWorldsModeration.authorize(activity,"join",()->{
+            sMode = Mode.GUEST;
+            sLastNodes = nodes;
+            BattlyWorldsPresenceOverlay.setConnectionInProgress(activity, true);
+            if(!TerracottaAndroidAPI.setGuesting(code, player, nodes))setWaiting(activity,false);
+        });
+        return true;
     }
 
     @Nullable
@@ -178,6 +188,7 @@ public final class BattlyWorldsManager {
     }
 
     public static void setWaiting(Context context, boolean stopVpn) {
+        BattlyWorldsModeration.invalidatePendingAuthorizations();
         if (!sInitialized) {
             return;
         }

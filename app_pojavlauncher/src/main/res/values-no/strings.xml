@@ -236,7 +236,7 @@
     <string name="crash_no_findings">Det ble ikke funnet noe kjent krasjmønster i de siste loggene.</string>
     <string name="crash_recovery_applied">Gjenopprettingshandling fullført</string>
     <string name="crash_recovery_manual">Dette problemet må endres manuelt. Åpne loggen for detaljer.</string>
-    <string name="credits_version">Versjon 2.2.5</string>
+    <string name="credits_version">Versjon 2.2.9</string>
     <string name="ctrl_like_btn">Liker</string>
     <string name="ctrl_liked_added">Lagt til likte kontroller.</string>
     <string name="ctrl_liked_btn">Likte</string>
@@ -297,8 +297,8 @@
     <string name="java_runtime_download_progress">Laster ned Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Installere Java 8</string>
     <string name="java_runtime_download_waiting">Forbereder Java 8-nedlasting...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Battly-konto</string>
     <string name="launcher_status_battly_plus">Battly+ konto</string>
     <string name="library_analyze_mods">Analyser</string>
@@ -780,7 +780,7 @@
     <string name="installer_internal_fallback">Installasjonsprogram som ikke støttes, åpner det eldre brukergrensesnittet for Java</string>
     <string name="installer_internal_running">Analyserer installasjonsprogrammet …</string>
     <string name="installer_internal_success">%1$s installert direkte inne i Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher basert på PojavLauncher og Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditt&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1219,4 +1219,107 @@
     <string name="search_world_download_error">Kunne ikke laste ned verdensmetadata</string>
     <string name="world_install_button">Installer verden</string>
     <string name="world_install_success">%1$s installert i denne forekomsten</string>
+
+    <string name="battly_whats_new_transition_desc">Dine forekomster forblir på plass. Autoriser pålitelige eksterne plugins i Innstillinger før du bruker dem.</string>
+    <string name="download_action_import_mods_title">Importer eksterne mods</string>
+    <string name="download_action_import_mods_subtitle">Velg én eller flere `.jar`-filer og legg dem til i den valgte forekomsten.</string>
+    <string name="library_installed_show_more">Vis %1$d mer</string>
+    <string name="library_import_mods_replace_title">Bytte ut eksisterende mods?</string>
+    <string name="library_import_mods_replace_message">%1$d valgte mod-filer finnes allerede i %2$s. Battly erstatter dem bare etter å ha validert de nye filene.</string>
+    <string name="library_import_mods_invalid">Ingen gyldige ".jar" mod-filer ble valgt.</string>
+    <string name="library_import_mods_success">Importerte %1$d mods til %2$s.</string>
+    <string name="library_import_mods_partial">Importerte %1$d mods til %2$s · %3$d filer kunne ikke importeres.</string>
+    <string name="library_import_mods_error">De valgte modsene kunne ikke importeres.</string>
+    <string name="battly_whats_new_action_start">Utforsk 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Påloggingssvar må samsvare med en ventende forespørsel, utløpe etter kort tid og kan bare godtas én gang.</string>
+    <string name="battly_whats_new_compatibility_title">Tryggere Discord-pålogging</string>
+    <string name="battly_whats_new_controllers_desc">Deling av én mappe gir ikke lenger tilgang til andre mapper utenfor tillatelsen du har gitt.</string>
+    <string name="battly_whats_new_controllers_title">Beskyttet fildeling</string>
+    <string name="battly_whats_new_desc">Sikrere modpack-installasjon, fildeling og ekstern plugin-autorisasjon.</string>
+    <string name="battly_whats_new_instances_desc">Arkivinnhold og nedlastede filer forblir i den tilordnede forekomsten, uten å endre andre forekomster.</string>
+    <string name="battly_whats_new_instances_title">Beskyttet modpack installasjon</string>
+    <string name="battly_whats_new_recovery_desc">Bruksanalyse aktiveres når Battly starter, bortsett fra i frakoblet modus. Versjonsnotater og plugin-meldinger er oversatt.</string>
+    <string name="battly_whats_new_recovery_title">Statistikk og oversettelser</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 er klar</string>
+    <string name="battly_whats_new_worlds_desc">Eksterne plugins trenger autorisasjon før bruk. Tidligere installerte plugins må autoriseres på nytt én gang.</string>
+    <string name="battly_whats_new_worlds_title">Dine plugin-tillatelser</string>
+    <string name="battly_appearance_title">Battly skinn og kapper</string>
+    <string name="battly_appearance_subtitle">Forhåndsvis og administrer ditt komplette Minecraft-utseende fra mobil.</string>
+    <string name="battly_capes_title">Battly kapper</string>
+    <string name="battly_capes_description">Velg en offisiell kappe eller last opp din egen med Battly+. Den aktive kappen vises i 3D-forhåndsvisningen og inne i Minecraft.</string>
+    <string name="battly_capes_loading">Laster inn Battly-kapper...</string>
+    <string name="battly_capes_active">Aktiv kappe</string>
+    <string name="battly_capes_none">Ingen aktiv kappe</string>
+    <string name="battly_capes_empty">Ingen kapper er tilgjengelige for denne kontoen.</string>
+    <string name="battly_capes_upload">Last opp kappe</string>
+    <string name="battly_capes_upload_plus">Last opp med Battly+</string>
+    <string name="battly_capes_plus_required">Tilpassede kapper er tilgjengelige med Battly+. Du kan fortsatt bruke de offisielle kappene.</string>
+    <string name="battly_capes_disable">Ingen kappe</string>
+    <string name="battly_capes_disabled">Kapp deaktivert</string>
+    <string name="battly_capes_uploaded">Cape lastet opp og brukt</string>
+    <string name="battly_capes_applied">Kapp søkt</string>
+    <string name="battly_capes_deleted">Kapp slettet</string>
+    <string name="battly_capes_previewing">Forhåndsvisning av kappe</string>
+    <string name="battly_capes_custom">Tilpasset kappe</string>
+    <string name="battly_capes_official">Offisiell kappe</string>
+
+    <string name="battly_capes_unavailable">Kapper er midlertidig utilgjengelige. Skinnene dine er fortsatt tilgjengelige.</string>
+
+    <string name="native_plugins_bundled_category">Android-avhengigheter inkludert i Battly</string>
+    <string name="native_plugins_bundled_ready">Versjon %1$s · Klar</string>
+
+    <string name="battly_whats_new_native_title">Innfødte avhengigheter forblir tilgjengelige</string>
+    <string name="battly_whats_new_native_desc">Innebygde biblioteker fungerer automatisk. Tillatelser for eksterne plugins er knyttet til APK-signeringsidentiteten.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Daglig aktivitet · Mobil</string>
+    <string name="battly_stats_history_notice">Lokal tid når det er registrert. Historien starter med denne oppdateringen; tidligere totaler forblir under.</string>
+    <string name="battly_stats_history_unavailable">Daglig historikk er ikke tilgjengelig på serveren ennå. Din totale statistikk vises nedenfor.</string>
+    <string name="battly_stats_period_label">Aktivitetsperiode</string>
+    <string name="battly_stats_day_label">Aktivitetsdato</string>
+    <string name="battly_stats_period_days">Siste %1$d dager</string>
+    <string name="battly_stats_period_summary">Aktive dager: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Første aktivitet: %1$s · Siste aktivitet: %2$s</string>
+    <string name="battly_stats_day_modes">Verdener: %1$s · Servere: %2$s (Battly Worlds: %3$s) · Spillmenyer: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Alle tiders totaler · PC + mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Åpne tastaturet automatisk</string>
+
+    <string name="native_plugins_trust_warning">Denne eksterne plugin-en kan kjøre innfødt kode med tilgang til Battly-filer og kontoer. Tillat bare plugins fra en kilde du stoler på. Tillatelsen er knyttet til APK-signeringsidentiteten.</string>
+    <string name="native_plugins_trust_action">Tillat plugin</string>
+
+    <string name="peripheral_title">Tastatur, mus og kontroller</string>
+    <string name="peripheral_devices">Tilkoblet periferiutstyr</string>
+    <string name="peripheral_no_devices">Ingen eksterne periferiutstyr oppdaget</string>
+    <string name="peripheral_mouse">Fysisk mus</string>
+    <string name="peripheral_pc_preset">Bruk forhåndsinnstilling for PC-mus</string>
+    <string name="peripheral_pc_mode">Oppløsningsuavhengig sikting</string>
+    <string name="peripheral_pc_mode_summary">Konstant lineær følsomhet uavhengig av gjengivelsesoppløsning. Battly legger ingen akselerasjon eller utjevning. Android 8 eller nyere.</string>
+    <string name="peripheral_mouse_x">Horisontal følsomhet</string>
+    <string name="peripheral_mouse_y">Vertikal følsomhet</string>
+    <string name="peripheral_invert_x">Inverter horisontal akse</string>
+    <string name="peripheral_invert_y">Inverter vertikal akse</string>
+    <string name="peripheral_mouse_test">Test musekalibrering</string>
+    <string name="peripheral_keyboard">Fysisk tastatur</string>
+    <string name="peripheral_bindings">Nøkkelbindinger i spillet</string>
+    <string name="peripheral_binding_count">%1$d bindinger. Menyskriving er uendret.</string>
+    <string name="peripheral_keyboard_test">Test nøkler og kombinasjoner</string>
+    <string name="peripheral_stick_linear">Lineær kontrollersikting</string>
+    <string name="peripheral_stick_linear_summary">Proporsjonal pinnerespons i stedet for standard kvadratisk kurve. Gjelder Battly kontrollerkartlegging, ikke native kontrollermods.</string>
+    <string name="peripheral_stick_sensitivity">Kontrollerens kamerafølsomhet</string>
+    <string name="peripheral_reset_test">Tilbakestill målingen</string>
+    <string name="peripheral_add_binding">Legg til nøkkelbinding</string>
+    <string name="peripheral_source_key">Fysisk nøkkel</string>
+    <string name="peripheral_target_key">Send denne nøkkelen til Minecraft</string>
+    <string name="peripheral_press_key">Trykk og slipp en fysisk tast. Hvis du velger en eksisterende binding, fjernes den. Modifikatortaster beholder sin normale oppførsel.</string>
+    <string name="peripheral_invalid_key">Velg en ikke-modifikatortast. Android systemnøkler kan ikke tilordnes på nytt.</string>
+    <string name="peripheral_mouse_ready">Klikk på testområdet for å fange musen. Trykk Escape for å slippe den. Målinger er relativ bevegelse rapportert av Android, ikke hardware DPI.</string>
+    <string name="peripheral_keyboard_ready">Trykk på taster eller kombinasjoner på det fysiske tastaturet. Trykk Escape for å lukke testen.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nSpill X / Y: %3$s\nEksempler: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nNøkkel: %2$s · Skanning: %3$d · Gjenta: %4$d\nHoldt: %5$s</string>
 </resources>

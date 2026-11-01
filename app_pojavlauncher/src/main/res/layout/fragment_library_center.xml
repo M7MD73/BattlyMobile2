@@ -120,6 +120,25 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/download_panel_import_mods"
+                style="@style/Widget_Battly_LibraryCard">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_add_modded" />
+
+                <TextView
+                    style="@style/Widget_Battly_LibraryCardTitle"
+                    android:text="@string/download_action_import_mods_title" />
+
+                <TextView
+                    style="@style/Widget_Battly_LibraryCardSubtitle"
+                    android:text="@string/download_action_import_mods_subtitle" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/download_panel_browse_resourcepacks"
                 style="@style/Widget_Battly_LibraryCard">
 
@@ -202,11 +221,11 @@
 
                 <TextView
                     style="@style/Widget_Battly_LibraryCardTitle"
-                    android:text="@string/download_action_battly_skins_title" />
+                    android:text="@string/battly_appearance_title" />
 
                 <TextView
                     style="@style/Widget_Battly_LibraryCardSubtitle"
-                    android:text="@string/download_action_battly_skins_subtitle" />
+                    android:text="@string/battly_appearance_subtitle" />
             </LinearLayout>
 
             <LinearLayout

@@ -384,7 +384,7 @@
     <string name="crash_no_findings">Naujausiuose žurnaluose nerasta jokio žinomo strigčių modelio.</string>
     <string name="crash_recovery_applied">Atkūrimo veiksmas baigtas</string>
     <string name="crash_recovery_manual">Šią problemą reikia pakeisti rankiniu būdu. Norėdami gauti daugiau informacijos, atidarykite žurnalą.</string>
-    <string name="credits_version">2.2.5 versija</string>
+    <string name="credits_version">2.2.9 versija</string>
     <string name="ctrl_like_btn">Patinka</string>
     <string name="ctrl_liked_added">Pridėta prie patikusių valdiklių.</string>
     <string name="ctrl_liked_btn">Patiko</string>
@@ -445,8 +445,8 @@
     <string name="java_runtime_download_progress">Atsisiunčiamas Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8 diegimas</string>
     <string name="java_runtime_download_waiting">Ruošiamas Java 8 atsisiuntimas...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobilusis 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobilusis 2.2.9</string>
     <string name="launcher_status_battly">Battly sąskaitą</string>
     <string name="launcher_status_battly_plus">Battly+ paskyra</string>
     <string name="library_analyze_mods">Analizuoti</string>
@@ -787,7 +787,7 @@
     <string name="credits_based_on">Remiantis „PojavLauncher“ ir „Boardwalk“.</string>
     <string name="credits_game_engine">Žaidimo variklis</string>
     <string name="credits_inspiration">Įkvėpimas</string>
-    <string name="credits_license_text">GNU GPLv3 and third-party components included in the project. OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j and more under their original licenses.</string>
+    <string name="credits_license_text">GNU GPLv3 ir trečiųjų šalių komponentai, įtraukti į projektą. OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j ir daugiau pagal jų originalias licencijas.</string>
     <string name="credits_license_title">Licencija</string>
     <string name="credits_pojav_founder">PojavLauncher įkūrėjas</string>
     <string name="credits_primary_development">Pagrindinė plėtra</string>
@@ -923,7 +923,7 @@
     <string name="installer_internal_fallback">Nepalaikoma diegimo programa, atidaranti senąją Java vartotojo sąsają</string>
     <string name="installer_internal_running">Analizuojama diegimo programa…</string>
     <string name="installer_internal_success">%1$s sumontuotas tiesiai Battly viduje</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Paleidimo priemonė, pagrįsta „PojavLauncher“ ir „Boardwalk“.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Kreditai&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1358,4 +1358,107 @@
     <string name="search_world_download_error">Nepavyko atsisiųsti pasaulio metaduomenų</string>
     <string name="world_install_button">Įdiegti pasaulį</string>
     <string name="world_install_success">Į šį egzempliorių įdiegtas %1$s</string>
+
+    <string name="battly_whats_new_transition_desc">Jūsų atvejai lieka vietoje. Prieš naudodami, skiltyje „Nustatymai“ patvirtinkite patikimus išorinius papildinius.</string>
+    <string name="download_action_import_mods_title">Importuokite išorinius modifikacijas</string>
+    <string name="download_action_import_mods_subtitle">Pasirinkite vieną ar daugiau „.jar“ failų ir pridėkite juos prie pasirinkto egzemplioriaus.</string>
+    <string name="library_installed_show_more">Rodyti %1$d daugiau</string>
+    <string name="library_import_mods_replace_title">Pakeisti esamas modifikacijas?</string>
+    <string name="library_import_mods_replace_message">%1$d pasirinkti mod failai jau yra %2$s. Battly juos pakeis tik patvirtinus naujus failus.</string>
+    <string name="library_import_mods_invalid">Nebuvo pasirinkta tinkamų .jar mod failų.</string>
+    <string name="library_import_mods_success">Importuoti %1$d modifikacijos į %2$s.</string>
+    <string name="library_import_mods_partial">Importuotų %1$d modifikacijų į %2$s · %3$d failų importuoti nepavyko.</string>
+    <string name="library_import_mods_error">Nepavyko importuoti pasirinktų modifikacijų.</string>
+    <string name="battly_whats_new_action_start">Naršyti 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Prisijungimo atsakymai turi atitikti laukiančią užklausą, pasibaigti po trumpo laiko ir gali būti priimti tik vieną kartą.</string>
+    <string name="battly_whats_new_compatibility_title">Saugesnis Discord prisijungimas</string>
+    <string name="battly_whats_new_controllers_desc">Bendrinant vieną aplanką nebegalima prieiti prie kitų aplankų, kuriems netaikomas jūsų leidimas.</string>
+    <string name="battly_whats_new_controllers_title">Apsaugotas failų bendrinimas</string>
+    <string name="battly_whats_new_desc">Saugesnis modpack diegimas, failų bendrinimas ir išorinio papildinio autorizavimas.</string>
+    <string name="battly_whats_new_instances_desc">Archyvo turinys ir atsisiųsti failai lieka priskirtuose egzemplioriuose, nekeičiant kitų egzempliorių.</string>
+    <string name="battly_whats_new_instances_title">Apsaugotas modpack diegimas</string>
+    <string name="battly_whats_new_recovery_desc">Naudojimo analizė suaktyvinama paleidus Battly, išskyrus neprisijungus. Išleidimo pastabos ir papildinių pranešimai buvo išversti.</string>
+    <string name="battly_whats_new_recovery_title">Statistika ir vertimai</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 paruoštas</string>
+    <string name="battly_whats_new_worlds_desc">Prieš naudojant išorinius įskiepius reikia autorizuoti. Anksčiau įdiegti papildiniai turi būti patvirtinti dar kartą.</string>
+    <string name="battly_whats_new_worlds_title">Jūsų papildinio leidimai</string>
+    <string name="battly_appearance_title">Battly odos ir pelerinos</string>
+    <string name="battly_appearance_subtitle">Peržiūrėkite ir valdykite visą Minecraft išvaizdą iš mobiliojo telefono.</string>
+    <string name="battly_capes_title">Battly pelerinos</string>
+    <string name="battly_capes_description">Pasirinkite oficialų apsiaustą arba įkelkite savo su Battly+. Aktyvus gaubtas rodomas 3D peržiūroje ir Minecraft viduje.</string>
+    <string name="battly_capes_loading">Įkeliami Battly pelerinos...</string>
+    <string name="battly_capes_active">Aktyvus apsiaustas</string>
+    <string name="battly_capes_none">Nėra aktyvaus kapo</string>
+    <string name="battly_capes_empty">Šioje paskyroje nėra jokių pelerinų.</string>
+    <string name="battly_capes_upload">Įkelti peleriną</string>
+    <string name="battly_capes_upload_plus">Įkelkite naudodami Battly+</string>
+    <string name="battly_capes_plus_required">Individualizuotos pelerinos galimos su Battly+. Vis dar galite naudoti oficialius apsiaustus.</string>
+    <string name="battly_capes_disable">Jokio pelerinos</string>
+    <string name="battly_capes_disabled">Cape išjungtas</string>
+    <string name="battly_capes_uploaded">Cape įkeltas ir pritaikytas</string>
+    <string name="battly_capes_applied">Uždėtas kyšulys</string>
+    <string name="battly_capes_deleted">Cape ištrintas</string>
+    <string name="battly_capes_previewing">Peržiūra pelerina</string>
+    <string name="battly_capes_custom">Individualus pelerinas</string>
+    <string name="battly_capes_official">Oficialus kapas</string>
+
+    <string name="battly_capes_unavailable">Kabinos laikinai nepasiekiamos. Jūsų skinai vis dar galimi.</string>
+
+    <string name="native_plugins_bundled_category">Android priklausomybės įtrauktos į Battly</string>
+    <string name="native_plugins_bundled_ready">Versija %1$s · Paruošta</string>
+
+    <string name="battly_whats_new_native_title">Vietinės priklausomybės išlieka prieinamos</string>
+    <string name="battly_whats_new_native_desc">Integruotos bibliotekos veikia automatiškai. Išorinių papildinių leidimai susieti su APK pasirašymo tapatybe.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Kasdienė veikla · Mobilus</string>
+    <string name="battly_stats_history_notice">Įrašyta vietos laikas. Istorija prasideda nuo šio atnaujinimo; ankstesnės sumos lieka žemiau.</string>
+    <string name="battly_stats_history_unavailable">Dienos istorija dar nepasiekiama serveryje. Jūsų bendra statistika rodoma žemiau.</string>
+    <string name="battly_stats_period_label">Veiklos laikotarpis</string>
+    <string name="battly_stats_day_label">Veiklos data</string>
+    <string name="battly_stats_period_days">Paskutinės %1$d dienos</string>
+    <string name="battly_stats_period_summary">Aktyvios dienos: %1$d · Minecraft: %2$s · Paleidimo priemonė: %3$s</string>
+    <string name="battly_stats_time_range">Pirma veikla: %1$s · Paskutinė veikla: %2$s</string>
+    <string name="battly_stats_day_modes">Pasauliai: %1$s · Serveriai: %2$s (Battly Worlds: %3$s) · Žaidimų meniu: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Paleidimo priemonė: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Visų laikų sumos · PC + mobilusis</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Paleidimo priemonė: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Automatiškai atverti klaviatūrą</string>
+
+    <string name="native_plugins_trust_warning">Šis išorinis papildinys gali paleisti savąjį kodą su prieiga prie Battly failų ir paskyrų. Leiskite papildinius tik iš šaltinio, kuriuo pasitikite. Leidimas susietas su APK pasirašymo tapatybe.</string>
+    <string name="native_plugins_trust_action">Leisti papildinį</string>
+
+    <string name="peripheral_title">Klaviatūra, pelė ir valdiklis</string>
+    <string name="peripheral_devices">Prijungti periferiniai įrenginiai</string>
+    <string name="peripheral_no_devices">Neaptikta jokių išorinių periferinių įrenginių</string>
+    <string name="peripheral_mouse">Fizinė pelė</string>
+    <string name="peripheral_pc_preset">Taikykite kompiuterio pelės išankstinį nustatymą</string>
+    <string name="peripheral_pc_mode">Nuo raiškos nepriklausomas taikymas</string>
+    <string name="peripheral_pc_mode_summary">Nuolatinis linijinis jautrumas, neatsižvelgiant į atvaizdavimo skiriamąją gebą. Battly neprideda pagreičio ar išlyginimo. Android 8 arba naujesnė versija.</string>
+    <string name="peripheral_mouse_x">Horizontalus jautrumas</string>
+    <string name="peripheral_mouse_y">Vertikalus jautrumas</string>
+    <string name="peripheral_invert_x">Apverskite horizontalią ašį</string>
+    <string name="peripheral_invert_y">Apverskite vertikalią ašį</string>
+    <string name="peripheral_mouse_test">Išbandykite pelės kalibravimą</string>
+    <string name="peripheral_keyboard">Fizinė klaviatūra</string>
+    <string name="peripheral_bindings">Žaidimo klavišų apkaustai</string>
+    <string name="peripheral_binding_count">%1$d apkaustai. Meniu rašymas nesikeičia.</string>
+    <string name="peripheral_keyboard_test">Išbandykite klavišus ir derinius</string>
+    <string name="peripheral_stick_linear">Linijinis valdiklio taikymas</string>
+    <string name="peripheral_stick_linear_summary">Proporcingas lazdos atsakas vietoj numatytosios kvadratinės kreivės. Taikoma Battly valdiklio atvaizdavimui, o ne vietiniams valdiklio modifikacijoms.</string>
+    <string name="peripheral_stick_sensitivity">Valdiklio kameros jautrumas</string>
+    <string name="peripheral_reset_test">Iš naujo nustatyti matavimą</string>
+    <string name="peripheral_add_binding">Pridėkite rakto įrišimą</string>
+    <string name="peripheral_source_key">Fizinis raktas</string>
+    <string name="peripheral_target_key">Nusiųskite šį raktą į Minecraft</string>
+    <string name="peripheral_press_key">Paspauskite ir atleiskite fizinį klavišą. Pasirinkus esamą įrišimą, jis pašalinamas. Modifikatoriaus klavišai išlaiko įprastą veikimą.</string>
+    <string name="peripheral_invalid_key">Pasirinkite nekeičiantį klaviatūros klavišą. Android sistemos raktų negalima perjungti.</string>
+    <string name="peripheral_mouse_ready">Spustelėkite bandomąją sritį, kad užfiksuotumėte pelę. Norėdami jį atleisti, paspauskite „Escape“. Matavimai yra santykinis judėjimas, kurį praneša Android, o ne aparatinės įrangos DPI.</string>
+    <string name="peripheral_keyboard_ready">Paspauskite fizinės klaviatūros klavišus arba derinius. Norėdami uždaryti testą, paspauskite „Escape“.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nŽaidimas X / Y: %3$s\nPavyzdžiai: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nRaktas: %2$s · Nuskaitymas: %3$d · Pakartojimas: %4$d\nLaikomas: %5$s</string>
 </resources>

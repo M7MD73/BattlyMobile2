@@ -131,7 +131,7 @@
     <string name="arc_capes_title">Capes galing sa Cosmetica</string>
     <string name="arc_capes_desc">Pinapagana ang mga kapa mula sa Cosmetica (ang dating Arc). Para sa karagdagang impormasyon mangyaring bisitahin ang https://cosmetica.cc  Kinagangailangan ng OptiFine.</string>
     <string name="notif_channel_name">Pangkalahatan</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launcher Serbisyo sa Foreground</string>
     <string name="mcl_setting_veroption_installed">Naka-Install</string>
     <string name="of_dl_progress">Nagda-download %s</string>
     <string name="preference_category_java_tweaks">Mga tweaks sa Java</string>
@@ -466,7 +466,7 @@
     <string name="credits_primary_development">Pangunahing pag-unlad</string>
     <string name="credits_section_title">Mga kredito</string>
     <string name="credits_unaffiliated">Ang app na ito ay hindi kaakibat sa Minecraft, Mojang o Microsoft.</string>
-    <string name="credits_version">Bersyon 2.2.5</string>
+    <string name="credits_version">Bersyon 2.2.9</string>
     <string name="ctrl_applied_success">Matagumpay na nailapat ang kontrol na "%1$s".</string>
     <string name="ctrl_apply_btn">Ilapat ang kontrol</string>
     <string name="ctrl_apply_msg">I-download at ilapat ang "%1$s" bilang iyong control layout?</string>
@@ -661,7 +661,7 @@
     <string name="java_runtime_download_progress">Dina-download ang Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Ini-install ang Java 8</string>
     <string name="java_runtime_download_waiting">Inihahanda ang pag-download ng Java 8...</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher batay sa PojavLauncher at Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Mga Kredito&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -672,11 +672,11 @@
         • GNU GPLv3 at mga bahagi ng third-party na kasama sa proyekto.&lt;br/&gt;
         • OpenJDK, LWJGL, GL4ES, LTW, Apache Commons, exp4j at higit pa sa ilalim ng kanilang mga orihinal na lisensya.&lt;br/&gt;&lt;br/&gt;
         Ang app na ito ay hindi kaakibat sa Minecraft, Mojang o Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">I-download</string>
     <string name="launcher_download_modpack">Mag-import ng modpack</string>
     <string name="launcher_execute">Maglaro</string>
-    <string name="launcher_mobile_badge">Mobile 2.2.5</string>
+    <string name="launcher_mobile_badge">Mobile 2.2.9</string>
     <string name="launcher_nav_back">Bumalik ka</string>
     <string name="launcher_nav_home">Bumalik sa bahay</string>
     <string name="launcher_nav_workspace">Battly Workspace</string>
@@ -1263,4 +1263,107 @@
     <string name="search_world_download_error">Nabigong i-download ang metadata ng mundo</string>
     <string name="world_install_button">I-install ang mundo</string>
     <string name="world_install_success">%1$s na naka-install sa pagkakataong ito</string>
+
+    <string name="battly_whats_new_transition_desc">Ang iyong mga pagkakataon ay nananatili sa lugar. Pahintulutan ang mga pinagkakatiwalaang panlabas na plugin sa Mga Setting bago gamitin ang mga ito.</string>
+    <string name="download_action_import_mods_title">Mag-import ng mga panlabas na mod</string>
+    <string name="download_action_import_mods_subtitle">Pumili ng isa o higit pang `.jar` file at idagdag ang mga ito sa napiling instance.</string>
+    <string name="library_installed_show_more">Ipakita ang %1$d pa</string>
+    <string name="library_import_mods_replace_title">Palitan ang mga kasalukuyang mods?</string>
+    <string name="library_import_mods_replace_message">Ang %1$d ay mayroon nang mga napiling mod file sa %2$s. Papalitan lamang sila ng Battly pagkatapos ma-validate ang mga bagong file.</string>
+    <string name="library_import_mods_invalid">Walang napiling wastong `.jar` mod file.</string>
+    <string name="library_import_mods_success">Nag-import ng %1$d mods sa %2$s.</string>
+    <string name="library_import_mods_partial">Mga na-import na %1$d mod sa %2$s · Hindi ma-import ang mga %3$d na file.</string>
+    <string name="library_import_mods_error">Hindi ma-import ang mga napiling mod.</string>
+    <string name="battly_whats_new_action_start">I-explore ang 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Ang mga tugon sa pag-login ay dapat tumugma sa isang nakabinbing kahilingan, mag-expire pagkalipas ng maikling panahon at maaari lamang tanggapin nang isang beses.</string>
+    <string name="battly_whats_new_compatibility_title">Mas ligtas na Discord na pag-sign in</string>
+    <string name="battly_whats_new_controllers_desc">Ang pagbabahagi ng isang folder ay hindi na nagbibigay-daan sa pag-access sa iba pang mga folder sa labas ng pahintulot na iyong ibinigay.</string>
+    <string name="battly_whats_new_controllers_title">Protektadong pagbabahagi ng file</string>
+    <string name="battly_whats_new_desc">Mas ligtas na pag-install ng modpack, pagbabahagi ng file at awtorisasyon ng panlabas na plugin.</string>
+    <string name="battly_whats_new_instances_desc">Ang mga nilalaman ng archive at mga na-download na file ay mananatili sa loob ng kanilang itinalagang instance, nang hindi binabago ang iba pang mga instance.</string>
+    <string name="battly_whats_new_instances_title">Protektadong pag-install ng modpack</string>
+    <string name="battly_whats_new_recovery_desc">I-activate ang analytics ng paggamit kapag nagsimula ang Battly, maliban sa offline mode. Ang mga tala sa paglabas at mga mensahe ng plugin ay naisalin na.</string>
+    <string name="battly_whats_new_recovery_title">Mga istatistika at pagsasalin</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Handa na ang Battly 2.2.9</string>
+    <string name="battly_whats_new_worlds_desc">Ang mga panlabas na plugin ay nangangailangan ng pahintulot bago gamitin. Ang mga dating naka-install na plugin ay dapat pahintulutan muli nang isang beses.</string>
+    <string name="battly_whats_new_worlds_title">Ang iyong mga pahintulot sa plugin</string>
+    <string name="battly_appearance_title">Battly na mga balat at kapa</string>
+    <string name="battly_appearance_subtitle">I-preview at pamahalaan ang iyong kumpletong Minecraft na hitsura mula sa Mobile.</string>
+    <string name="battly_capes_title">Battly kapa</string>
+    <string name="battly_capes_description">Pumili ng opisyal na kapa o mag-upload ng sarili mo gamit ang Battly+. Ang aktibong kapa ay ipinapakita sa 3D preview at sa loob ng Minecraft.</string>
+    <string name="battly_capes_loading">Nilo-load ang Battly capes...</string>
+    <string name="battly_capes_active">Aktibong kapa</string>
+    <string name="battly_capes_none">Walang aktibong kapa</string>
+    <string name="battly_capes_empty">Walang magagamit na mga kapa para sa account na ito.</string>
+    <string name="battly_capes_upload">Mag-upload ng kapa</string>
+    <string name="battly_capes_upload_plus">Mag-upload gamit ang Battly+</string>
+    <string name="battly_capes_plus_required">Available ang mga custom na kapa sa Battly+. Maaari mo pa ring gamitin ang mga opisyal na kapa.</string>
+    <string name="battly_capes_disable">Walang kapa</string>
+    <string name="battly_capes_disabled">Naka-disable ang Cape</string>
+    <string name="battly_capes_uploaded">Na-upload at inilapat ang Cape</string>
+    <string name="battly_capes_applied">Inilapat ang kapa</string>
+    <string name="battly_capes_deleted">Tinanggal ang Cape</string>
+    <string name="battly_capes_previewing">Pini-preview ang kapa</string>
+    <string name="battly_capes_custom">Custom na kapa</string>
+    <string name="battly_capes_official">Opisyal na kapa</string>
+
+    <string name="battly_capes_unavailable">Pansamantalang hindi available ang mga kapa. Available pa rin ang mga skin mo.</string>
+
+    <string name="native_plugins_bundled_category">Android dependency na kasama sa Battly</string>
+    <string name="native_plugins_bundled_ready">Bersyon %1$s · Handa na</string>
+
+    <string name="battly_whats_new_native_title">Nananatiling available ang mga native na dependency</string>
+    <string name="battly_whats_new_native_desc">Awtomatikong gumagana ang mga built-in na aklatan. Ang mga pahintulot para sa mga panlabas na plugin ay naka-link sa pagkakakilanlan sa pag-sign ng APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Pang-araw-araw na aktibidad · Mobile</string>
+    <string name="battly_stats_history_notice">Lokal na oras kapag naitala. Nagsisimula ang kasaysayan sa update na ito; nananatili sa ibaba ang mga nakaraang kabuuan.</string>
+    <string name="battly_stats_history_unavailable">Ang pang-araw-araw na kasaysayan ay hindi pa magagamit sa server. Ang iyong kabuuang istatistika ay ipinapakita sa ibaba.</string>
+    <string name="battly_stats_period_label">Panahon ng aktibidad</string>
+    <string name="battly_stats_day_label">Petsa ng aktibidad</string>
+    <string name="battly_stats_period_days">Huling %1$d araw</string>
+    <string name="battly_stats_period_summary">Mga aktibong araw: %1$d · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_time_range">Unang aktibidad: %1$s · Huling aktibidad: %2$s</string>
+    <string name="battly_stats_day_modes">Mga Mundo: %1$s · Mga Server: %2$s (Battly Worlds: %3$s) · Mga menu ng laro: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Launcher: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Mga kabuuan sa lahat ng oras · PC + Mobile</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Launcher: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Awtomatikong buksan ang keyboard</string>
+
+    <string name="native_plugins_trust_warning">Ang panlabas na plugin na ito ay maaaring magpatakbo ng native code na may access sa Battly na mga file at account. Payagan lang ang mga plugin mula sa pinagkakatiwalaan mo. Naka-link ang pahintulot sa pagkakakilanlan sa pag-sign ng APK.</string>
+    <string name="native_plugins_trust_action">Payagan ang plugin</string>
+
+    <string name="peripheral_title">Keyboard, mouse at controller</string>
+    <string name="peripheral_devices">Mga konektadong peripheral</string>
+    <string name="peripheral_no_devices">Walang nakitang mga panlabas na peripheral</string>
+    <string name="peripheral_mouse">Pisikal na mouse</string>
+    <string name="peripheral_pc_preset">Ilapat ang preset ng PC mouse</string>
+    <string name="peripheral_pc_mode">Resolution-independent na pagpuntirya</string>
+    <string name="peripheral_pc_mode_summary">Patuloy na linear sensitivity anuman ang resolution ng pag-render. Ang Battly ay hindi nagdaragdag ng acceleration o smoothing. Android 8 o mas bago.</string>
+    <string name="peripheral_mouse_x">Horizontal sensitivity</string>
+    <string name="peripheral_mouse_y">Vertical sensitivity</string>
+    <string name="peripheral_invert_x">Baligtarin ang pahalang na axis</string>
+    <string name="peripheral_invert_y">Baligtarin ang patayong axis</string>
+    <string name="peripheral_mouse_test">Subukan ang pagkakalibrate ng mouse</string>
+    <string name="peripheral_keyboard">Pisikal na keyboard</string>
+    <string name="peripheral_bindings">Gameplay key bindings</string>
+    <string name="peripheral_binding_count">%1$d na mga binding. Ang pag-type ng menu ay hindi nagbabago.</string>
+    <string name="peripheral_keyboard_test">Subukan ang mga key at kumbinasyon</string>
+    <string name="peripheral_stick_linear">Linear controller pagpuntirya</string>
+    <string name="peripheral_stick_linear_summary">Proporsyonal na tugon ng stick sa halip na ang default na quadratic curve. Nalalapat sa Battly controller mapping, hindi native controller mods.</string>
+    <string name="peripheral_stick_sensitivity">Ang sensitivity ng camera ng controller</string>
+    <string name="peripheral_reset_test">I-reset ang pagsukat</string>
+    <string name="peripheral_add_binding">Magdagdag ng key binding</string>
+    <string name="peripheral_source_key">Pisikal na susi</string>
+    <string name="peripheral_target_key">Ipadala ang key na ito sa Minecraft</string>
+    <string name="peripheral_press_key">Pindutin at bitawan ang isang pisikal na key. Ang pagpili ng isang umiiral na umiiral ay nag-aalis nito. Pinapanatili ng mga modifier key ang kanilang normal na pag-uugali.</string>
+    <string name="peripheral_invalid_key">Pumili ng key na hindi modifier sa keyboard. Ang Android na mga system key ay hindi maaaring i-remap.</string>
+    <string name="peripheral_mouse_ready">I-click ang lugar ng pagsubok upang makuha ang mouse. Pindutin ang Escape para bitawan ito. Ang mga sukat ay relatibong paggalaw na iniulat ng Android, hindi ng hardware DPI.</string>
+    <string name="peripheral_keyboard_ready">Pindutin ang mga key o kumbinasyon sa iyong pisikal na keyboard. Pindutin ang Escape para isara ang pagsubok.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nLaro X / Y: %3$s\nMga Sample: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKey: %2$s · I-scan: %3$d · Ulitin: %4$d\nHinawakan: %5$s</string>
 </resources>

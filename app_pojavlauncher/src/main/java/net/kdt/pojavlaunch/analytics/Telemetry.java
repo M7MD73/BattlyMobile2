@@ -1,7 +1,6 @@
 package net.kdt.pojavlaunch.analytics;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -28,6 +27,9 @@ public final class Telemetry {
     public static final String PREFS_NAME = "battly_telemetry";
     public static final String PREF_FCM_TOKEN = "fcm_token";
     private static final int MAX_PARAM_LENGTH = 100;
+    private static volatile boolean sEnabled;
+    private static long sGameStarted;
+    private static String sGameVersion;
     private static volatile FirebaseAnalytics sAnalytics;
     private static volatile FirebaseCrashlytics sCrashlytics;
 
@@ -47,6 +49,7 @@ public final class Telemetry {
                 return;
             }
             sAnalytics = FirebaseAnalytics.getInstance(appContext);
+            updateCollectionState(appContext);
             sCrashlytics = FirebaseCrashlytics.getInstance();
             sCrashlytics.setCustomKey("launcher_process", context.getPackageName());
             sCrashlytics.setCustomKey("notifications_enabled",
@@ -59,13 +62,13 @@ public final class Telemetry {
 
     public static void logProfileSelected(String profileKey) {
         Bundle bundle = new Bundle();
-        bundle.putString("profile_key", sanitize(profileKey));
+
         logEvent("profile_selected", bundle);
     }
 
     public static void logLaunchRequested(String profileKey, String versionId) {
         Bundle bundle = new Bundle();
-        bundle.putString("profile_key", sanitize(profileKey));
+
         bundle.putString("version_id", sanitize(versionId));
         logEvent("launch_requested", bundle);
     }
@@ -98,6 +101,8 @@ public final class Telemetry {
     }
 
     public static void logGameLaunch(String versionId, int javaVersion, String renderer) {
+        sGameStarted = android.os.SystemClock.elapsedRealtime();
+        sGameVersion = versionId;
         Bundle bundle = new Bundle();
         bundle.putString("version_id", sanitize(versionId));
         bundle.putLong("java_version", javaVersion);
@@ -114,6 +119,9 @@ public final class Telemetry {
     public static void logGameExit(int exitCode, boolean unexpected) {
         String reason = unexpected ? inferGameExitReason(exitCode) : "clean_exit";
         Bundle bundle = new Bundle();
+        bundle.putString("version_id", sanitize(sGameVersion));
+        if (sGameStarted > 0) bundle.putLong("game_duration_seconds", Math.max(0, (android.os.SystemClock.elapsedRealtime()-sGameStarted)/1000));
+        sGameStarted = 0;
         bundle.putLong("exit_code", exitCode);
         bundle.putString("reason", reason);
         bundle.putBoolean("unexpected", unexpected);
@@ -193,12 +201,32 @@ public final class Telemetry {
     }
 
     private static void logEvent(String name, Bundle bundle) {
-        FirebaseAnalytics analytics = sAnalytics;
-        if (analytics == null) {
+        Context context = net.kdt.pojavlaunch.PojavApplication.getAppContext();
+        if (context == null || BattlyOfflineMode.isOffline(context)) return;
+        if (!FirebaseProcessGuard.isLauncherProcess(context)) {
+            // Explicit non-exported service keeps Firebase out of Minecraft's VM process.
+            if (name.equals("game_launch") || name.equals("game_exit")) try {
+                context.startService(new android.content.Intent(context, TelemetryService.class)
+                        .putExtra("event", name).putExtra("params", bundle));
+            } catch (RuntimeException unavailable) { Log.w(TAG, "Game analytics relay unavailable"); }
             return;
         }
+        FirebaseAnalytics analytics = sAnalytics;
+        if (analytics == null || !sEnabled) return;
         Log.d(TAG, "Logging event: " + name);
         analytics.logEvent(name, bundle);
+    }
+
+    static void receiveGameEvent(String name, Bundle params) {
+        if (("game_launch".equals(name) || "game_exit".equals(name)) && params != null) logEvent(name, params);
+    }
+
+    private static void updateCollectionState(Context context) {
+        sEnabled = !BattlyOfflineMode.isOffline(context);
+        if (sAnalytics != null) {
+            sAnalytics.setAnalyticsCollectionEnabled(sEnabled);
+            if (!sEnabled) sAnalytics.resetAnalyticsData();
+        }
     }
 
     private static String contentTypeName(int contentType) {

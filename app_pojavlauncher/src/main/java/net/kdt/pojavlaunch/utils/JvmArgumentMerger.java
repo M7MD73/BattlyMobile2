@@ -14,6 +14,13 @@ public final class JvmArgumentMerger {
     private JvmArgumentMerger() {
     }
 
+    public static List<String> withLeadingJvmOption(List<String> arguments, String option) {
+        List<String> result = new ArrayList<>();
+        result.add(option);
+        result.addAll(removeOverriddenJvmOptions(arguments, java.util.Collections.singletonList(option)));
+        return result;
+    }
+
     public static List<String> removeOverriddenJvmOptions(
             List<String> launchArguments,
             List<String> customArguments) {

@@ -277,7 +277,7 @@
     <string name="crash_no_findings">No s\'ha trobat cap patró d\'error conegut als darrers registres.</string>
     <string name="crash_recovery_applied">Acció de recuperació completada</string>
     <string name="crash_recovery_manual">Aquest problema necessita un canvi manual. Obriu el registre per obtenir més informació.</string>
-    <string name="credits_version">Versió 2.2.5</string>
+    <string name="credits_version">Versió 2.2.9</string>
     <string name="ctrl_like_btn">M\'agrada</string>
     <string name="ctrl_liked_added">S\'ha afegit als controls que m\'agraden.</string>
     <string name="ctrl_liked_btn">M\'ha agradat</string>
@@ -338,8 +338,8 @@
     <string name="java_runtime_download_progress">S\'està baixant Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Instal·lació de Java 8</string>
     <string name="java_runtime_download_waiting">S\'està preparant la baixada de Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mòbil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mòbil 2.2.9</string>
     <string name="launcher_status_battly">Compte Battly</string>
     <string name="launcher_status_battly_plus">Compte Battly+</string>
     <string name="library_analyze_mods">Analitzar</string>
@@ -820,7 +820,7 @@
     <string name="installer_internal_fallback">Instal·lador no compatible, que obre la interfície d\'usuari Java heretada</string>
     <string name="installer_internal_running">S\'està analitzant l\'instal·lador...</string>
     <string name="installer_internal_success">%1$s instal·lat directament dins de Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Llançador basat en PojavLauncher i Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Crèdits&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1256,4 +1256,107 @@
     <string name="search_world_download_error">No s\'han pogut baixar les metadades mundials</string>
     <string name="world_install_button">Instal·leu el món</string>
     <string name="world_install_success">%1$s instal·lat en aquesta instància</string>
+
+    <string name="battly_whats_new_transition_desc">Les vostres instàncies continuen al seu lloc. Autoritzeu connectors externs de confiança a Configuració abans d\'utilitzar-los.</string>
+    <string name="download_action_import_mods_title">Importa modificacions externes</string>
+    <string name="download_action_import_mods_subtitle">Trieu un o més fitxers `.jar` i afegiu-los a la instància seleccionada.</string>
+    <string name="library_installed_show_more">Mostra més %1$d</string>
+    <string name="library_import_mods_replace_title">Voleu substituir les modificacions existents?</string>
+    <string name="library_import_mods_replace_message">Els fitxers de modificació seleccionats de %1$d ja existeixen a %2$s. Battly només els substituirà després de validar els fitxers nous.</string>
+    <string name="library_import_mods_invalid">No s\'ha seleccionat cap fitxer de modificació `.jar` vàlid.</string>
+    <string name="library_import_mods_success">Modificacions %1$d importades a %2$s.</string>
+    <string name="library_import_mods_partial">Modificacions %1$d importades a %2$s · No s\'han pogut importar fitxers %3$d.</string>
+    <string name="library_import_mods_error">Les modificacions seleccionades no s\'han pogut importar.</string>
+    <string name="battly_whats_new_action_start">Exploreu 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Les respostes d\'inici de sessió han de coincidir amb una sol·licitud pendent, caducar al cap de poc temps i només es poden acceptar una vegada.</string>
+    <string name="battly_whats_new_compatibility_title">Inici de sessió Discord més segur</string>
+    <string name="battly_whats_new_controllers_desc">Compartir una carpeta ja no permet l\'accés a altres carpetes fora del permís que vau concedir.</string>
+    <string name="battly_whats_new_controllers_title">Compartició de fitxers protegida</string>
+    <string name="battly_whats_new_desc">Instal·lació de modpack més segura, intercanvi de fitxers i autorització de connectors externs.</string>
+    <string name="battly_whats_new_instances_desc">Els continguts de l\'arxiu i els fitxers descarregats romanen dins de la seva instància assignada, sense modificar altres instàncies.</string>
+    <string name="battly_whats_new_instances_title">Instal·lació de modpack protegida</string>
+    <string name="battly_whats_new_recovery_desc">Les analítiques d\'ús s\'activen quan s\'inicia Battly, excepte en mode fora de línia. Les notes de la versió i els missatges del connector s\'han traduït.</string>
+    <string name="battly_whats_new_recovery_title">Estadístiques i traduccions</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 està llest</string>
+    <string name="battly_whats_new_worlds_desc">Els connectors externs necessiten autorització abans d\'utilitzar-los. Els connectors instal·lats anteriorment s\'han d\'autoritzar una vegada més.</string>
+    <string name="battly_whats_new_worlds_title">Els vostres permisos de connectors</string>
+    <string name="battly_appearance_title">Battly pells i capes</string>
+    <string name="battly_appearance_subtitle">Previsualitza i gestiona la teva aparença completa de Minecraft des del mòbil.</string>
+    <string name="battly_capes_title">Battly capes</string>
+    <string name="battly_capes_description">Trieu una capa oficial o pengeu la vostra amb Battly+. La capa activa es mostra a la vista prèvia 3D i dins de Minecraft.</string>
+    <string name="battly_capes_loading">S\'estan carregant les capes Battly...</string>
+    <string name="battly_capes_active">Capa activa</string>
+    <string name="battly_capes_none">Cap capa activa</string>
+    <string name="battly_capes_empty">No hi ha capes disponibles per a aquest compte.</string>
+    <string name="battly_capes_upload">Carrega la capa</string>
+    <string name="battly_capes_upload_plus">Carregueu amb Battly+</string>
+    <string name="battly_capes_plus_required">Les capes personalitzades estan disponibles amb Battly+. Encara podeu utilitzar les capes oficials.</string>
+    <string name="battly_capes_disable">Sense capa</string>
+    <string name="battly_capes_disabled">Cap discapacitat</string>
+    <string name="battly_capes_uploaded">Capa penjada i aplicada</string>
+    <string name="battly_capes_applied">Capa aplicada</string>
+    <string name="battly_capes_deleted">S\'ha suprimit la capa</string>
+    <string name="battly_capes_previewing">Cap de vista prèvia</string>
+    <string name="battly_capes_custom">Capa personalitzada</string>
+    <string name="battly_capes_official">Capa oficial</string>
+
+    <string name="battly_capes_unavailable">Les capes no estan disponibles temporalment. Les teves skins encara estan disponibles.</string>
+
+    <string name="native_plugins_bundled_category">Dependències de Android incloses amb Battly</string>
+    <string name="native_plugins_bundled_ready">Versió %1$s · A punt</string>
+
+    <string name="battly_whats_new_native_title">Les dependències natives continuen disponibles</string>
+    <string name="battly_whats_new_native_desc">Les biblioteques integrades funcionen automàticament. Els permisos per a connectors externs estan enllaçats a la identitat de signatura de l\'APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Activitat diària · Mòbil</string>
+    <string name="battly_stats_history_notice">Hora local quan es registra. La història comença amb aquesta actualització; els totals anteriors es mantenen per sota.</string>
+    <string name="battly_stats_history_unavailable">L\'historial diari encara no està disponible al servidor. Les vostres estadístiques totals es mostren a continuació.</string>
+    <string name="battly_stats_period_label">Període d\'activitat</string>
+    <string name="battly_stats_day_label">Data de l\'activitat</string>
+    <string name="battly_stats_period_days">Últims dies %1$d</string>
+    <string name="battly_stats_period_summary">Dies actius: %1$d · Minecraft: %2$s · Llançador: %3$s</string>
+    <string name="battly_stats_time_range">Primera activitat: %1$s · Última activitat: %2$s</string>
+    <string name="battly_stats_day_modes">Mons: %1$s · Servidors: %2$s (Battly Worlds: %3$s) · Menús del joc: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Llançador: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Totals de tots els temps · PC + mòbil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Llançador: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Obre el teclat automàticament</string>
+
+    <string name="native_plugins_trust_warning">Aquest connector extern pot executar codi natiu amb accés als fitxers i comptes Battly. Només permeteu connectors d\'una font de confiança. El permís està enllaçat amb la identitat de signatura de l\'APK.</string>
+    <string name="native_plugins_trust_action">Permet el connector</string>
+
+    <string name="peripheral_title">Teclat, ratolí i controlador</string>
+    <string name="peripheral_devices">Perifèrics connectats</string>
+    <string name="peripheral_no_devices">No s\'han detectat perifèrics externs</string>
+    <string name="peripheral_mouse">Ratolí físic</string>
+    <string name="peripheral_pc_preset">Aplica el valor predefinit del ratolí de l\'ordinador</string>
+    <string name="peripheral_pc_mode">Apuntació independent de la resolució</string>
+    <string name="peripheral_pc_mode_summary">Sensibilitat lineal constant independentment de la resolució del render. Battly no afegeix acceleració ni suavització. Android 8 o posterior.</string>
+    <string name="peripheral_mouse_x">Sensibilitat horitzontal</string>
+    <string name="peripheral_mouse_y">Sensibilitat vertical</string>
+    <string name="peripheral_invert_x">Inverteix l\'eix horitzontal</string>
+    <string name="peripheral_invert_y">Inverteix l\'eix vertical</string>
+    <string name="peripheral_mouse_test">Prova el calibratge del ratolí</string>
+    <string name="peripheral_keyboard">Teclat físic</string>
+    <string name="peripheral_bindings">Tecles de joc</string>
+    <string name="peripheral_binding_count">Enquadernacions %1$d. L\'escriptura del menú no canvia.</string>
+    <string name="peripheral_keyboard_test">Prova de tecles i combinacions</string>
+    <string name="peripheral_stick_linear">Apuntació del controlador lineal</string>
+    <string name="peripheral_stick_linear_summary">Resposta de pal proporcional en lloc de la corba quadràtica predeterminada. S\'aplica a l\'assignació del controlador Battly, no a les modificacions natives del controlador.</string>
+    <string name="peripheral_stick_sensitivity">Sensibilitat de la càmera del controlador</string>
+    <string name="peripheral_reset_test">Restablir la mesura</string>
+    <string name="peripheral_add_binding">Afegeix l\'enllaç de claus</string>
+    <string name="peripheral_source_key">Clau física</string>
+    <string name="peripheral_target_key">Envieu aquesta clau a Minecraft</string>
+    <string name="peripheral_press_key">Premeu i deixeu anar una tecla física. La selecció d\'un enllaç existent s\'elimina. Les tecles modificadores mantenen el seu comportament normal.</string>
+    <string name="peripheral_invalid_key">Trieu una tecla de teclat no modificadora. Les claus del sistema Android no es poden tornar a assignar.</string>
+    <string name="peripheral_mouse_ready">Feu clic a l\'àrea de prova per capturar el ratolí. Premeu Esc per alliberar-lo. Les mesures són moviment relatiu informat per Android, no DPI de maquinari.</string>
+    <string name="peripheral_keyboard_ready">Premeu tecles o combinacions del vostre teclat físic. Premeu Esc per tancar la prova.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nJoc X / Y: %3$s\nMostres: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nClau: %2$s · Escaneig: %3$d · Repetició: %4$d\nRetingut: %5$s</string>
 </resources>

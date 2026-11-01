@@ -258,6 +258,11 @@ public class LauncherPreferenceFragment extends PreferenceFragmentCompat
                 }
             }
         }
+        if (titleView != null && net.kdt.pojavlaunch.utils.NewFeatureBadge.isNewPreference(preference.getKey())) {
+            titleView.setSingleLine(false);
+            titleView.setText(net.kdt.pojavlaunch.utils.NewFeatureBadge.title(
+                    titleView.getContext(), preference.getTitle()));
+        }
         itemView.setLayoutParams(layoutParams);
     }
 

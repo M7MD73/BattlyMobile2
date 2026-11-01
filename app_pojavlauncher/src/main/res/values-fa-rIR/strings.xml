@@ -388,7 +388,7 @@
     <string name="crash_no_findings">هیچ الگوی خرابی شناخته شده ای در آخرین گزارش ها یافت نشد.</string>
     <string name="crash_recovery_applied">عملیات بازیابی تکمیل شد</string>
     <string name="crash_recovery_manual">این موضوع نیاز به تغییر دستی دارد. گزارش را برای جزئیات باز کنید.</string>
-    <string name="credits_version">نسخه 2.2.5</string>
+    <string name="credits_version">نسخه 2.2.9</string>
     <string name="ctrl_like_btn">مانند</string>
     <string name="ctrl_liked_added">به کنترل‌های پسندیده اضافه شد.</string>
     <string name="ctrl_liked_btn">پسندید</string>
@@ -449,8 +449,8 @@
     <string name="java_runtime_download_progress">دانلود Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">نصب Java 8</string>
     <string name="java_runtime_download_waiting">آماده سازی دانلود Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">موبایل 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">موبایل 2.2.9</string>
     <string name="launcher_status_battly">حساب Battly</string>
     <string name="launcher_status_battly_plus">حساب Battly+</string>
     <string name="library_analyze_mods">تحلیل کنید</string>
@@ -927,7 +927,7 @@
     <string name="installer_internal_fallback">نصب‌کننده پشتیبانی‌نشده، رابط کاربری قدیمی Java را باز می‌کند</string>
     <string name="installer_internal_running">در حال تجزیه و تحلیل نصب کننده…</string>
     <string name="installer_internal_success">%1$s مستقیماً در Battly نصب شده است</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         لانچر مبتنی بر PojavLauncher و Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;اعتبارها&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1363,4 +1363,107 @@
     <string name="search_world_download_error">ابرداده جهان دانلود نشد</string>
     <string name="world_install_button">جهان را نصب کنید</string>
     <string name="world_install_success">%1$s در این نمونه نصب شده است</string>
+
+    <string name="battly_whats_new_transition_desc">نمونه های شما در جای خود باقی می مانند. قبل از استفاده از افزونه های خارجی قابل اعتماد در تنظیمات مجوز دهید.</string>
+    <string name="download_action_import_mods_title">وارد کردن مدهای خارجی</string>
+    <string name="download_action_import_mods_subtitle">یک یا چند فایل jar. را انتخاب کنید و آنها را به نمونه انتخاب شده اضافه کنید.</string>
+    <string name="library_installed_show_more">نمایش %1$d بیشتر</string>
+    <string name="library_import_mods_replace_title">مودهای موجود را جایگزین کنید؟</string>
+    <string name="library_import_mods_replace_message">فایل‌های مود انتخابی %1$d از قبل در %2$s وجود دارد. Battly آنها را تنها پس از تأیید اعتبار فایل های جدید جایگزین می کند.</string>
+    <string name="library_import_mods_invalid">هیچ فایل مود معتبر «.jar» انتخاب نشد.</string>
+    <string name="library_import_mods_success">مودهای %1$d را به %2$s وارد کرد.</string>
+    <string name="library_import_mods_partial">مودهای %1$d وارد شده به %2$s · فایل‌های %3$d وارد نشد.</string>
+    <string name="library_import_mods_error">حالت‌های انتخابی وارد نشدند.</string>
+    <string name="battly_whats_new_action_start">کاوش 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">پاسخ‌های ورود به سیستم باید با یک درخواست معلق مطابقت داشته باشند، پس از مدت کوتاهی منقضی شوند و فقط یک بار قابل پذیرش هستند.</string>
+    <string name="battly_whats_new_compatibility_title">ورود امن تر Discord</string>
+    <string name="battly_whats_new_controllers_desc">اشتراک گذاری یک پوشه دیگر اجازه دسترسی به پوشه های دیگر را خارج از مجوزی که شما داده اید را نمی دهد.</string>
+    <string name="battly_whats_new_controllers_title">به اشتراک گذاری فایل محافظت شده</string>
+    <string name="battly_whats_new_desc">نصب ایمن‌تر modpack، اشتراک‌گذاری فایل و مجوز افزونه خارجی.</string>
+    <string name="battly_whats_new_instances_desc">محتویات بایگانی و فایل‌های دانلود شده بدون تغییر نمونه‌های دیگر، در داخل نمونه اختصاص داده شده خود باقی می‌مانند.</string>
+    <string name="battly_whats_new_instances_title">نصب modpack محافظت شده</string>
+    <string name="battly_whats_new_recovery_desc">تجزیه و تحلیل استفاده با شروع Battly فعال می شود، به جز در حالت آفلاین. یادداشت‌های انتشار و پیام‌های افزونه ترجمه شده‌اند.</string>
+    <string name="battly_whats_new_recovery_title">آمار و ترجمه</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 آماده است</string>
+    <string name="battly_whats_new_worlds_desc">افزونه های خارجی قبل از استفاده نیاز به مجوز دارند. افزونه های نصب شده قبلی باید یک بار دیگر مجوز بگیرند.</string>
+    <string name="battly_whats_new_worlds_title">مجوزهای افزونه شما</string>
+    <string name="battly_appearance_title">پوسته و شنل Battly</string>
+    <string name="battly_appearance_subtitle">ظاهر کامل Minecraft خود را از موبایل پیش نمایش و مدیریت کنید.</string>
+    <string name="battly_capes_title">شنل های Battly</string>
+    <string name="battly_capes_description">یک شنل رسمی انتخاب کنید یا خود را با Battly+ آپلود کنید. شنل فعال در پیش نمایش سه بعدی و در داخل Minecraft نشان داده شده است.</string>
+    <string name="battly_capes_loading">در حال بارگیری شنل های Battly...</string>
+    <string name="battly_capes_active">شنل فعال</string>
+    <string name="battly_capes_none">بدون شنل فعال</string>
+    <string name="battly_capes_empty">هیچ پوششی برای این حساب موجود نیست.</string>
+    <string name="battly_capes_upload">شنل آپلود کنید</string>
+    <string name="battly_capes_upload_plus">با Battly+ آپلود کنید</string>
+    <string name="battly_capes_plus_required">شنل های سفارشی با Battly+ در دسترس هستند. هنوز هم می توانید از شنل های رسمی استفاده کنید.</string>
+    <string name="battly_capes_disable">بدون شنل</string>
+    <string name="battly_capes_disabled">کیپ غیرفعال است</string>
+    <string name="battly_capes_uploaded">Cape آپلود و اعمال شد</string>
+    <string name="battly_capes_applied">کیپ اعمال شد</string>
+    <string name="battly_capes_deleted">کیپ حذف شد</string>
+    <string name="battly_capes_previewing">پیش نمایش شنل</string>
+    <string name="battly_capes_custom">شنل سفارشی</string>
+    <string name="battly_capes_official">شنل رسمی</string>
+
+    <string name="battly_capes_unavailable">کیپ ها به طور موقت در دسترس نیستند. پوسته های شما هنوز در دسترس هستند.</string>
+
+    <string name="native_plugins_bundled_category">وابستگی های Android در Battly گنجانده شده است</string>
+    <string name="native_plugins_bundled_ready">نسخه %1$s · آماده</string>
+
+    <string name="battly_whats_new_native_title">وابستگی های بومی همچنان در دسترس هستند</string>
+    <string name="battly_whats_new_native_desc">کتابخانه های داخلی به طور خودکار کار می کنند. مجوزهای افزونه های خارجی به هویت امضای APK مرتبط می شوند.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">فعالیت روزانه · موبایل</string>
+    <string name="battly_stats_history_notice">زمان محلی هنگام ثبت. تاریخ با این به روز رسانی شروع می شود. مجموع قبلی در زیر باقی می ماند.</string>
+    <string name="battly_stats_history_unavailable">تاریخچه روزانه هنوز روی سرور موجود نیست. آمار کل شما در زیر نشان داده شده است.</string>
+    <string name="battly_stats_period_label">دوره فعالیت</string>
+    <string name="battly_stats_day_label">تاریخ فعالیت</string>
+    <string name="battly_stats_period_days">آخرین روز %1$d</string>
+    <string name="battly_stats_period_summary">روزهای فعال: %1$d · Minecraft: %2$s · لانچر: %3$s</string>
+    <string name="battly_stats_time_range">اولین فعالیت: %1$s · آخرین فعالیت: %2$s</string>
+    <string name="battly_stats_day_modes">دنیاها: %1$s · سرورها: %2$s (Battly Worlds: %3$s) · منوهای بازی: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · لانچر: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">مجموع همه زمان ها · کامپیوتر + موبایل</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · لانچر: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">باز کردن خودکار صفحه‌کلید</string>
+
+    <string name="native_plugins_trust_warning">این افزونه خارجی می تواند کدهای بومی را با دسترسی به فایل ها و حساب های Battly اجرا کند. افزونه‌ها را فقط از منبعی مجاز کنید که به آن اعتماد دارید. مجوز به هویت امضای APK مرتبط است.</string>
+    <string name="native_plugins_trust_action">اجازه افزونه</string>
+
+    <string name="peripheral_title">صفحه کلید، ماوس و کنترلر</string>
+    <string name="peripheral_devices">لوازم جانبی متصل</string>
+    <string name="peripheral_no_devices">هیچ وسیله جانبی خارجی شناسایی نشد</string>
+    <string name="peripheral_mouse">ماوس فیزیکی</string>
+    <string name="peripheral_pc_preset">از پیش تنظیم ماوس رایانه شخصی استفاده کنید</string>
+    <string name="peripheral_pc_mode">هدف گذاری مستقل از رزولوشن</string>
+    <string name="peripheral_pc_mode_summary">حساسیت خطی ثابت بدون توجه به وضوح رندر. Battly هیچ شتاب یا صافی اضافه نمی کند. Android 8 یا بالاتر.</string>
+    <string name="peripheral_mouse_x">حساسیت افقی</string>
+    <string name="peripheral_mouse_y">حساسیت عمودی</string>
+    <string name="peripheral_invert_x">معکوس کردن محور افقی</string>
+    <string name="peripheral_invert_y">معکوس کردن محور عمودی</string>
+    <string name="peripheral_mouse_test">تست کالیبراسیون موس</string>
+    <string name="peripheral_keyboard">صفحه کلید فیزیکی</string>
+    <string name="peripheral_bindings">اتصالات کلید گیم پلی</string>
+    <string name="peripheral_binding_count">اتصالات %1$d. تایپ منو بدون تغییر است.</string>
+    <string name="peripheral_keyboard_test">تست کلیدها و ترکیبات</string>
+    <string name="peripheral_stick_linear">هدف گیری کنترلر خطی</string>
+    <string name="peripheral_stick_linear_summary">پاسخ چوب متناسب به جای منحنی درجه دوم پیش فرض. برای نگاشت کنترلر Battly اعمال می شود، نه حالت های کنترل کننده بومی.</string>
+    <string name="peripheral_stick_sensitivity">حساسیت دوربین کنترلر</string>
+    <string name="peripheral_reset_test">تنظیم مجدد اندازه گیری</string>
+    <string name="peripheral_add_binding">اتصال کلید را اضافه کنید</string>
+    <string name="peripheral_source_key">کلید فیزیکی</string>
+    <string name="peripheral_target_key">این کلید را به Minecraft ارسال کنید</string>
+    <string name="peripheral_press_key">یک کلید فیزیکی را فشار داده و رها کنید. انتخاب یک اتصال موجود آن را حذف می کند. کلیدهای اصلاح کننده رفتار عادی خود را حفظ می کنند.</string>
+    <string name="peripheral_invalid_key">یک کلید صفحه کلید غیر اصلاح کننده را انتخاب کنید. کلیدهای سیستم Android قابل تنظیم مجدد نیستند.</string>
+    <string name="peripheral_mouse_ready">روی ناحیه تست کلیک کنید تا ماوس را بگیرید. Escape را فشار دهید تا آزاد شود. اندازه‌گیری‌ها حرکت نسبی هستند که توسط Android گزارش می‌شوند، نه DPI سخت‌افزاری.</string>
+    <string name="peripheral_keyboard_ready">کلیدها یا ترکیبات روی صفحه کلید فیزیکی خود را فشار دهید. Escape را فشار دهید تا تست بسته شود.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nبازی X / Y: %3$s\nنمونه: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nکلید: %2$s · اسکن: %3$d · تکرار: %4$d\nنگهداری: %5$s</string>
 </resources>

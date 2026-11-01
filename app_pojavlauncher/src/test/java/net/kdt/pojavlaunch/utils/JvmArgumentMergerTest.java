@@ -9,6 +9,17 @@ import static org.junit.Assert.assertEquals;
 
 public class JvmArgumentMergerTest {
     @Test
+    public void headlessPropertyPrecedesMainClassAndDoesNotEatApplicationArguments() {
+        assertEquals(Arrays.asList("-Djava.awt.headless=true", "-cp", "game.jar", "Main", "--username", "test"),
+                JvmArgumentMerger.withLeadingJvmOption(Arrays.asList(
+                        "-Djava.awt.headless=false", "-cp", "game.jar", "Main", "--username", "test"),
+                        "-Djava.awt.headless=true"));
+        assertEquals(Arrays.asList("-Djava.awt.headless=true", "Main", "-Djava.awt.headless=game-value"),
+                JvmArgumentMerger.withLeadingJvmOption(Arrays.asList("Main", "-Djava.awt.headless=game-value"),
+                        "-Djava.awt.headless=true"));
+    }
+
+    @Test
     public void customSystemPropertyReplacesLaunchProperty() {
         List<String> result = JvmArgumentMerger.removeOverriddenJvmOptions(
                 Arrays.asList("-Dexample.mode=launch", "-Dkeep=true", "-cp", "game.jar", "Main"),

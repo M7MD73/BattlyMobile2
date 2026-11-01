@@ -208,7 +208,7 @@
     <string name="crash_no_findings">Сүүлийн логуудаас ямар ч мэдэгдэж буй гэмтлийн загвар олдсонгүй.</string>
     <string name="crash_recovery_applied">Сэргээх үйлдэл дууссан</string>
     <string name="crash_recovery_manual">Энэ асуудлыг гараар өөрчлөх шаардлагатай. Бүртгэлийг нээнэ үү.</string>
-    <string name="credits_version">Хувилбар 2.2.5</string>
+    <string name="credits_version">Хувилбар 2.2.9</string>
     <string name="ctrl_like_btn">Дуртай</string>
     <string name="ctrl_liked_added">Таалагдсан удирдлагад нэмсэн.</string>
     <string name="ctrl_liked_btn">Таалагдсан</string>
@@ -269,8 +269,8 @@
     <string name="java_runtime_download_progress">Татаж авч байна Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Java 8 суулгаж байна</string>
     <string name="java_runtime_download_waiting">Java 8 татаж авахыг бэлтгэж байна...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Гар утас 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Гар утас 2.2.9</string>
     <string name="launcher_status_battly">Battly данс</string>
     <string name="launcher_status_battly_plus">Battly+ бүртгэл</string>
     <string name="library_analyze_mods">Шинжилгээ хийх</string>
@@ -754,7 +754,7 @@
     <string name="installer_internal_fallback">Дэмжигдээгүй суулгагч, хуучин Java UI-г нээж байна</string>
     <string name="installer_internal_running">Суулгагчийг шинжилж байна...</string>
     <string name="installer_internal_success">%1$s шууд Battly дотор суулгасан</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         PojavLauncher болон Boardwalk дээр суурилсан эхлүүлэгч.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Зээл&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -798,7 +798,7 @@
     <string name="launcher_version_format">Хувилбар %1$s</string>
     <string name="launcher_version_unknown">Тодорхойгүй</string>
     <string name="launcher_versions_button">Хувилбарууд</string>
-    <string name="lazy_service_default_title">Battly Launcher Foreground Service</string>
+    <string name="lazy_service_default_title">Battly Launcher Урд талын үйлчилгээ</string>
     <string name="legacy_mixin_missing_message">Таны Forge 1.7.10 загваруудын нэг нь Sponge Mixin-г хүссэн боловч Mixin эсвэл UniMixins үйлчилгээ үзүүлэгч суулгаагүй байна. 1.7.10-д зориулсан UniMixins/Mixin-г суулгана уу эсвэл Minecraft-г эхлүүлэхийн өмнө тэр горимыг устгана уу.</string>
     <string name="legacy_mixin_missing_title">Хуучин Mixin хамаарал байхгүй байна</string>
     <string name="library_button_desc">Номын сан нээх</string>
@@ -1193,4 +1193,107 @@
     <string name="search_world_download_error">Дэлхийн мета өгөгдлийг татаж авч чадсангүй</string>
     <string name="world_install_button">Дэлхийг суулгах</string>
     <string name="world_install_success">Энэ жишээнд %1$s суулгасан</string>
+
+    <string name="battly_whats_new_transition_desc">Таны жишээнүүд хэвээр байна. Итгэмжлэгдсэн гадаад залгаасуудыг ашиглахаасаа өмнө "Тохиргоо" хэсэгт зөвшөөрөл олго.</string>
+    <string name="download_action_import_mods_title">Гадаад горимуудыг импортлох</string>
+    <string name="download_action_import_mods_subtitle">Нэг буюу хэд хэдэн `.jar` файлыг сонгоод сонгосон жишээнд нэмнэ үү.</string>
+    <string name="library_installed_show_more">%1$d илүү харуулах</string>
+    <string name="library_import_mods_replace_title">Одоо байгаа горимуудыг солих уу?</string>
+    <string name="library_import_mods_replace_message">%1$d сонгосон mod файлууд %2$s-д аль хэдийн байна. Battly шинэ файлуудыг баталгаажуулсны дараа тэдгээрийг солих болно.</string>
+    <string name="library_import_mods_invalid">Ямар ч хүчинтэй `.jar` mod файл сонгогдоогүй байна.</string>
+    <string name="library_import_mods_success">%1$d загваруудыг %2$s руу импортолсон.</string>
+    <string name="library_import_mods_partial">Импортолсон %1$d горимуудыг %2$s руу оруулах · %3$d файлуудыг импортлох боломжгүй.</string>
+    <string name="library_import_mods_error">Сонгосон горимуудыг импортлох боломжгүй.</string>
+    <string name="battly_whats_new_action_start">2.2.9-г судлах</string>
+    <string name="battly_whats_new_compatibility_desc">Нэвтрэх хариулт нь хүлээгдэж буй хүсэлттэй тохирч байх ёстой, богино хугацааны дараа хугацаа нь дуусах бөгөөд зөвхөн нэг удаа хүлээн авах боломжтой.</string>
+    <string name="battly_whats_new_compatibility_title">Илүү аюулгүй Discord нэвтрэлт</string>
+    <string name="battly_whats_new_controllers_desc">Нэг фолдерыг хуваалцах нь таны олгосон зөвшөөрлөөс гадуур бусад фолдерт хандах эрхгүй болсон.</string>
+    <string name="battly_whats_new_controllers_title">Хамгаалагдсан файл хуваалцах</string>
+    <string name="battly_whats_new_desc">Аюулгүй modpack суулгах, файл хуваалцах, гадаад залгаасын зөвшөөрөл.</string>
+    <string name="battly_whats_new_instances_desc">Архивын агуулга болон татаж авсан файлууд нь бусад тохиолдлуудад өөрчлөлт оруулахгүйгээр хуваарилагдсан инстанц дотор үлдэнэ.</string>
+    <string name="battly_whats_new_instances_title">Хамгаалагдсан modpack суулгац</string>
+    <string name="battly_whats_new_recovery_desc">Офлайн горимоос бусад тохиолдолд Battly эхлэх үед ашиглалтын аналитик идэвхждэг. Хувилбарын тэмдэглэл болон залгаасын мессежүүдийг орчуулсан.</string>
+    <string name="battly_whats_new_recovery_title">Статистик ба орчуулга</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 бэлэн боллоо</string>
+    <string name="battly_whats_new_worlds_desc">Гадаад залгаасуудыг ашиглахын өмнө зөвшөөрөл авах шаардлагатай. Өмнө нь суулгасан нэмэлт өргөтгөлүүдийг дахин нэг удаа зөвшөөрөх ёстой.</string>
+    <string name="battly_whats_new_worlds_title">Таны залгаасын зөвшөөрөл</string>
+    <string name="battly_appearance_title">Battly арьс, хошуу</string>
+    <string name="battly_appearance_subtitle">Мобайл төхөөрөмжөөс өөрийн бүрэн Minecraft төрхийг урьдчилан харж, удирд.</string>
+    <string name="battly_capes_title">Battly малгай</string>
+    <string name="battly_capes_description">Battly+ ашиглан албан ёсны нөмрөг сонгох эсвэл өөрөө байршуулна уу. Идэвхтэй нөмрөгийг 3D урьдчилан үзэх болон Minecraft дотор харуулав.</string>
+    <string name="battly_capes_loading">Battly нөмрөгийг ачаалж байна...</string>
+    <string name="battly_capes_active">Идэвхтэй малгай</string>
+    <string name="battly_capes_none">Идэвхтэй малгай байхгүй</string>
+    <string name="battly_capes_empty">Энэ бүртгэлд ямар ч нөмрөг байхгүй.</string>
+    <string name="battly_capes_upload">Бүрхүүлийг байршуулах</string>
+    <string name="battly_capes_upload_plus">Battly+ ашиглан байршуулна уу</string>
+    <string name="battly_capes_plus_required">Захиалгат нөмрөгийг Battly+ дээр авах боломжтой. Та албан ёсны нөмрөгийг ашиглаж болно.</string>
+    <string name="battly_capes_disable">Нөмрөггүй</string>
+    <string name="battly_capes_disabled">Кейп идэвхгүй болсон</string>
+    <string name="battly_capes_uploaded">Cape байршуулж, ашигласан</string>
+    <string name="battly_capes_applied">Бүрхүүлийг хэрэглэсэн</string>
+    <string name="battly_capes_deleted">Бүрхүүлийг устгасан</string>
+    <string name="battly_capes_previewing">Урьдчилан харж байна</string>
+    <string name="battly_capes_custom">Захиалгат нөмрөг</string>
+    <string name="battly_capes_official">Албан ёсны нөмрөг</string>
+
+    <string name="battly_capes_unavailable">Бүрхүүлийг түр хугацаагаар ашиглах боломжгүй. Таны арьс бэлэн хэвээр байна.</string>
+
+    <string name="native_plugins_bundled_category">Android хамаарал нь Battly-д багтсан</string>
+    <string name="native_plugins_bundled_ready">%1$s хувилбар · Бэлэн</string>
+
+    <string name="battly_whats_new_native_title">Төрөлхийн хамаарал боломжтой хэвээр байна</string>
+    <string name="battly_whats_new_native_desc">Суурилуулсан номын сангууд автоматаар ажилладаг. Гадаад залгаасуудын зөвшөөрлийг APK гарын үсэг зурах таниулбартай холбосон.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Өдөр тутмын үйл ажиллагаа · Гар утас</string>
+    <string name="battly_stats_history_notice">Бичлэг хийх үеийн орон нутгийн цаг. Энэхүү шинэчлэлтээс түүх эхэлдэг; өмнөх нийт дүн доор хэвээр байна.</string>
+    <string name="battly_stats_history_unavailable">Өдөр тутмын түүхийг сервер дээр хараахан ашиглах боломжгүй байна. Таны нийт статистикийг доор харуулав.</string>
+    <string name="battly_stats_period_label">Үйл ажиллагааны хугацаа</string>
+    <string name="battly_stats_day_label">Үйл ажиллагааны огноо</string>
+    <string name="battly_stats_period_days">Сүүлийн %1$d өдрүүд</string>
+    <string name="battly_stats_period_summary">Идэвхтэй өдрүүд: %1$d · Minecraft: %2$s · Эхлүүлэгч: %3$s</string>
+    <string name="battly_stats_time_range">Эхний үйлдэл: %1$s · Сүүлийн үйлдэл: %2$s</string>
+    <string name="battly_stats_day_modes">Worlds: %1$s · Серверүүд: %2$s (Battly Worlds: %3$s) · Тоглоомын цэс: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Эхлүүлэгч: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d с</string>
+    <string name="battly_stats_lifetime">Бүх цаг үеийн нийт дүн · PC + Mobile</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Эхлүүлэгч: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d ц</string>
+    <string name="automatic_game_keyboard_title">Гарыг автоматаар нээх</string>
+
+    <string name="native_plugins_trust_warning">Энэхүү гадаад залгаас нь Battly файлууд болон бүртгэлд хандах боломжтой эх кодыг ажиллуулж болно. Зөвхөн итгэдэг эх сурвалжийн залгаасуудыг зөвшөөрнө үү. Зөвшөөрөл нь APK гарын үсэгтэй холбоотой.</string>
+    <string name="native_plugins_trust_action">Plugin-г зөвшөөрөх</string>
+
+    <string name="peripheral_title">Гар, хулгана, хянагч</string>
+    <string name="peripheral_devices">Холбогдсон захын төхөөрөмжүүд</string>
+    <string name="peripheral_no_devices">Гадны нэмэлт төхөөрөмж илрээгүй</string>
+    <string name="peripheral_mouse">Физик хулгана</string>
+    <string name="peripheral_pc_preset">Компьютерийн хулганы урьдчилан тохируулгыг ашиглана уу</string>
+    <string name="peripheral_pc_mode">Шийдвэрлэлээс хараат бус зорилго</string>
+    <string name="peripheral_pc_mode_summary">Тогтмол шугаман мэдрэмж нь дүрсний нарийвчлалаас үл хамааран. Battly ямар ч хурдатгал эсвэл жигдрүүлэхгүй. Android 8 буюу түүнээс дээш.</string>
+    <string name="peripheral_mouse_x">Хэвтээ мэдрэмж</string>
+    <string name="peripheral_mouse_y">Босоо мэдрэмж</string>
+    <string name="peripheral_invert_x">Хэвтээ тэнхлэгийг эргүүлнэ</string>
+    <string name="peripheral_invert_y">Босоо тэнхлэгийг эргүүлэх</string>
+    <string name="peripheral_mouse_test">Хулганы тохируулгыг турших</string>
+    <string name="peripheral_keyboard">Физик гар</string>
+    <string name="peripheral_bindings">Тоглоомын гол холбоосууд</string>
+    <string name="peripheral_binding_count">%1$d холболтууд. Цэс бичих нь өөрчлөгдөөгүй.</string>
+    <string name="peripheral_keyboard_test">Туршилтын товчлуурууд болон хослолууд</string>
+    <string name="peripheral_stick_linear">Шугаман хянагч чиглүүлэх</string>
+    <string name="peripheral_stick_linear_summary">Өгөгдмөл квадрат муруйны оронд пропорциональ зөөгч хариу. Унадаг удирдлагын горимд бус, Battly хянагчийн зураглалд хамаарна.</string>
+    <string name="peripheral_stick_sensitivity">Удирдлагын камерын мэдрэмж</string>
+    <string name="peripheral_reset_test">Хэмжилтийг дахин тохируулах</string>
+    <string name="peripheral_add_binding">Түлхүүр холбох</string>
+    <string name="peripheral_source_key">Физик түлхүүр</string>
+    <string name="peripheral_target_key">Энэ түлхүүрийг Minecraft руу илгээнэ үү</string>
+    <string name="peripheral_press_key">Физик товчлуурыг дараад суллана. Одоо байгаа холболтыг сонгосноор үүнийг арилгана. Өөрчлөгч товчлуурууд нь хэвийн үйлдлээ хадгалдаг.</string>
+    <string name="peripheral_invalid_key">Өөрчлөгчгүй гарын товчлуурыг сонгоно уу. Android системийн түлхүүрүүдийг дахин тохируулах боломжгүй.</string>
+    <string name="peripheral_mouse_ready">Хулганыг авахын тулд туршилтын талбар дээр дарна уу. Үүнийг гаргахын тулд Escape товчийг дарна уу. Хэмжилтүүд нь Android-ийн мэдээлсэн харьцангуй хөдөлгөөн бөгөөд техник хангамжийн DPI биш юм.</string>
+    <string name="peripheral_keyboard_ready">Физик гар дээрх товчлуур эсвэл хослолыг дар. Туршилтыг хаахын тулд Escape товчийг дарна уу.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nТоглоом X / Y: %3$s\nЖишээ: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nТүлхүүр: %2$s · Скан хийх: %3$d · Давтах: %4$d\nХэвтээ: %5$s</string>
 </resources>

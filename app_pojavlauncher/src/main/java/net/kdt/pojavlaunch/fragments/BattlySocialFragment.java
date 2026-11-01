@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,8 @@ import net.kdt.pojavlaunch.battlysocial.BattlySocialManager;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsInvites;
 import net.kdt.pojavlaunch.battlyworlds.BattlyWorldsPreferences;
 import net.kdt.pojavlaunch.utils.BattlySkinApi;
+import net.kdt.pojavlaunch.utils.BattlyPlusManager;
+import net.kdt.pojavlaunch.value.MinecraftAccount;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -86,6 +91,11 @@ public class BattlySocialFragment extends Fragment {
         requestsTab = view.findViewById(R.id.social_tab_requests);
         searchTab = view.findViewById(R.id.social_tab_search);
         ImageButton refresh = view.findViewById(R.id.social_refresh);
+        ImageButton stats = view.findViewById(R.id.social_stats);
+        boolean newStats = net.kdt.pojavlaunch.utils.NewFeatureBadge.isCurrentRelease();
+        view.findViewById(R.id.social_stats_new_badge).setVisibility(newStats ? View.VISIBLE : View.GONE);
+        if (newStats) stats.setContentDescription(getString(R.string.battly_stats_title)
+                + ", " + getString(R.string.battly_new_badge));
         ImageButton searchSubmit = view.findViewById(R.id.social_search_submit);
         RecyclerView list = view.findViewById(R.id.social_list);
         list.setLayoutManager(new GridLayoutManager(requireContext(), 2));
@@ -93,6 +103,7 @@ public class BattlySocialFragment extends Fragment {
         updateSummary(0, 0, 0);
 
         refresh.setOnClickListener(v -> loadOverview(true));
+        stats.setOnClickListener(v -> showUsageStats());
         friendsTab.setOnClickListener(v -> setMode(Mode.FRIENDS));
         requestsTab.setOnClickListener(v -> setMode(Mode.REQUESTS));
         searchTab.setOnClickListener(v -> setMode(Mode.SEARCH));
@@ -241,15 +252,19 @@ public class BattlySocialFragment extends Fragment {
             image.setImageBitmap(cached);
             return;
         }
-        image.setImageResource(R.drawable.ic_battly_social);
+        image.setImageResource(R.drawable.ic_steve_face);
         PojavApplication.sExecutorService.execute(() -> {
             try {
                 Bitmap bitmap = BattlySkinApi.downloadFaceBitmap(username);
+                if (!MinecraftAccount.isUsableSkinFace(bitmap)) return;
                 avatarCache.put(username, bitmap);
                 Tools.runOnUiThread(() -> {
                     if (username.equals(image.getTag())) image.setImageBitmap(bitmap);
                 });
             } catch (Throwable ignored) {
+                Tools.runOnUiThread(() -> {
+                    if (username.equals(image.getTag())) image.setImageResource(R.drawable.ic_steve_face);
+                });
             }
         });
     }
@@ -401,6 +416,100 @@ public class BattlySocialFragment extends Fragment {
             return;
         }
         statusView.setText(R.string.battlyworlds_invite_no_room);
+    }
+
+    private void showUsageStats() {
+        if (!Tools.isValidString(BattlySocialApi.usageAccountToken(requireContext()))) {
+            Toast.makeText(requireContext(), R.string.battly_stats_account_required, Toast.LENGTH_LONG).show();
+            return;
+        }
+        View content = LayoutInflater.from(requireContext())
+                .inflate(R.layout.dialog_battly_usage_stats, null, false);
+        ProgressBar loadingView = content.findViewById(R.id.battly_stats_loading);
+        View statsContent = content.findViewById(R.id.battly_stats_content);
+        TextView errorView = content.findViewById(R.id.battly_stats_error);
+        AlertDialog dialog = Tools.createStyledDialogBuilder(requireContext())
+                .setView(content)
+                .setNegativeButton(android.R.string.ok, null)
+                .create();
+        dialog.setOnShowListener(ignored -> {
+            Window window = dialog.getWindow();
+            if (window == null) return;
+            int width = Math.round(getResources().getDisplayMetrics().widthPixels * 0.88f);
+            int height = Math.round(getResources().getDisplayMetrics().heightPixels * 0.88f);
+            window.setLayout(width, height);
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+        });
+        Tools.styleDialog(dialog);
+        dialog.show();
+
+        android.content.Context appContext = requireContext().getApplicationContext();
+        PojavApplication.sExecutorService.execute(() -> {
+            try {
+                BattlySocialApi.UsageStats stats = BattlySocialApi.fetchUsageStats(appContext);
+                Tools.runOnUiThread(() -> {
+                    if (!isAdded() || !dialog.isShowing()) return;
+                    loadingView.setVisibility(View.GONE);
+                    statsContent.setVisibility(View.VISIBLE);
+                    bindUsageStats(content, stats);
+                });
+            } catch (Throwable throwable) {
+                Tools.runOnUiThread(() -> {
+                    if (!isAdded() || !dialog.isShowing()) return;
+                    loadingView.setVisibility(View.GONE);
+                    errorView.setVisibility(View.VISIBLE);
+                    errorView.setText(throwable.getMessage());
+                });
+            }
+        });
+    }
+
+    private void bindUsageStats(View root, BattlySocialApi.UsageStats stats) {
+        new net.kdt.pojavlaunch.battlysocial.UsageHistoryPanel(root, stats.history).bind();
+        setText(root, R.id.battly_stats_total_game_value, formatDuration(stats.playedSeconds));
+        setText(root, R.id.battly_stats_total_game_detail,
+                getString(R.string.battly_stats_platform_split,
+                        formatDuration(stats.desktopPlayedSeconds),
+                        formatDuration(stats.mobilePlayedSeconds)));
+        setText(root, R.id.battly_stats_launcher_value, formatDuration(stats.launcherSeconds));
+        setText(root, R.id.battly_stats_sessions_value,
+                getString(R.string.battly_stats_sessions, stats.gameSessions));
+        setText(root, R.id.battly_stats_worlds_value, formatDuration(stats.worldSeconds));
+        setText(root, R.id.battly_stats_servers_value, formatDuration(stats.serverSeconds));
+        setText(root, R.id.battly_stats_worlds_network_value,
+                getString(R.string.battly_stats_worlds_network,
+                        formatDuration(stats.battlyWorldsSeconds)));
+        setText(root, R.id.battly_stats_top_servers_value, formatEntries(stats.topServers));
+        setText(root, R.id.battly_stats_top_worlds_value, formatEntries(stats.topWorlds));
+        setText(root, R.id.battly_stats_top_versions_value, formatEntries(stats.topVersions));
+    }
+
+    private void setText(View root, int id, String value) {
+        ((TextView) root.findViewById(id)).setText(value);
+    }
+
+    private String formatEntries(List<BattlySocialApi.UsageEntry> entries) {
+        if (entries == null || entries.isEmpty()) return getString(R.string.battly_stats_empty);
+        StringBuilder text = new StringBuilder();
+        int count = Math.min(5, entries.size());
+        for (int i = 0; i < count; i++) {
+            BattlySocialApi.UsageEntry entry = entries.get(i);
+            if (i > 0) text.append('\n');
+            text.append(getString(R.string.battly_stats_entry,
+                    TextUtils.isEmpty(entry.label) ? "-" : entry.label,
+                    formatDuration(entry.seconds), entry.sessions));
+        }
+        return text.toString();
+    }
+
+    private String formatDuration(long seconds) {
+        long safeSeconds = Math.max(0L, seconds);
+        long days = safeSeconds / 86400L;
+        long hours = (safeSeconds % 86400L) / 3600L;
+        long minutes = (safeSeconds % 3600L) / 60L;
+        if (days > 0) return getString(R.string.battly_stats_duration_days, days, hours);
+        if (hours > 0) return getString(R.string.battly_stats_duration_hours, hours, minutes);
+        return getString(R.string.battly_stats_duration_minutes, minutes);
     }
 
     private void acceptInvite(BattlySocialApi.Invite invite) {

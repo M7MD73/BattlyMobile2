@@ -13,7 +13,10 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import net.kdt.pojavlaunch.MinecraftGLSurface;
 import net.kdt.pojavlaunch.R;
+
+import org.libsdl.app.SDLActivity;
 
 /**
  * This class is intended for sending characters used in chat via the virtual keyboard
@@ -42,7 +45,7 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        disable();
+        if (!hasWindowFocus) disable();
     }
 
     /**
@@ -62,15 +65,42 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
      * Toggle on and off the soft keyboard, depending of the state
      */
     public void switchKeyboardState(){
-        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+        if (MinecraftGLSurface.isSdlInputBridgeEnabled()) {
+            if (SDLActivity.isSDLEditKeyboardActive()) {
+                SDLActivity.disableSDLEditKeyboard();
+            } else {
+                SDLActivity.enableSDLEditKeyboard();
+            }
+            return;
+        }
         // Allow, regardless of whether or not a hardware keyboard is declared
         if(hasFocus()){
             clear();
             disable();
         }else{
-            enable();
-            imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT);
+            showKeyboard();
         }
+    }
+
+    /** Idempotent opening: repeated game focus notifications must not toggle the editor off. */
+    public void showKeyboard() {
+        boolean alreadyFocused = isEnabled() && hasFocus();
+        enable();
+        post(() -> {
+            if (!isEnabled() || !hasWindowFocus()) return;
+            requestFocus();
+            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+            if (imm == null) return;
+            if (!alreadyFocused) imm.restartInput(this);
+            if (!imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)) {
+                postDelayed(() -> {
+                    if (isEnabled() && hasWindowFocus()) {
+                        requestFocus();
+                        imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT);
+                    }
+                }, 100L);
+            }
+        });
     }
 
 
@@ -92,14 +122,22 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
 
     /** Regain ability to exist, take focus and have some text being input */
     public void enable(){
+        if (MinecraftGLSurface.isSdlInputBridgeEnabled()) {
+            SDLActivity.enableSDLEditKeyboard();
+            return;
+        }
         setEnabled(true);
         setFocusable(true);
+        setFocusableInTouchMode(true);
         setVisibility(VISIBLE);
         requestFocus();
     }
 
     /** Lose ability to exist, take focus and have some text being input */
     public void disable(){
+        if (MinecraftGLSurface.isSdlInputBridgeEnabled()) {
+            SDLActivity.disableSDLEditKeyboard();
+        }
         clear();
         setVisibility(GONE);
         clearFocus();
@@ -109,7 +147,7 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
 
     /** Send the enter key. */
     private void sendEnter(){
-        mCharacterSender.sendEnter();
+        if (mCharacterSender != null) mCharacterSender.sendEnter();
         clear();
     }
 
@@ -127,7 +165,9 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
             sendEnter();
             clear();
             disable();
-            return false;
+            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+            if (imm != null) imm.hideSoftInputFromWindow(getWindowToken(), 0);
+            return true;
         });
         clear();
         disable();
@@ -151,9 +191,8 @@ public class TouchCharInput extends androidx.appcompat.widget.AppCompatEditText 
                     mCharacterSender.sendBackspace();
                 }
 
-                for(int i=start, count = 0; count < lengthAfter; ++i){
-                    mCharacterSender.sendChar(text.charAt(i));
-                    ++count;
+                if (lengthAfter > 0) {
+                    mCharacterSender.sendText(text.subSequence(start, start + lengthAfter));
                 }
             }
         }

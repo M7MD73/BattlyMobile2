@@ -6,6 +6,7 @@ import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.utils.DownloadUtils;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
 import net.kdt.pojavlaunch.utils.AdaptiveDownloadPolicy;
+import net.kdt.pojavlaunch.utils.SafeFilePaths;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,10 +44,11 @@ public class ModDownloader {
         this.mUseFileCount = useFileCount;
     }
 
-    public void submitDownload(int fileSize, String relativePath, @Nullable String downloadHash, String... url) {
+    public void submitDownload(int fileSize, String relativePath, @Nullable String downloadHash, String... url) throws IOException {
+        File destination = SafeFilePaths.resolveRelative(mDestinationDirectory, relativePath);
         if(mUseFileCount) mTotalSize += 1;
         else mTotalSize += fileSize;
-        mDownloadPool.execute(new DownloadTask(url, new File(mDestinationDirectory, relativePath), downloadHash));
+        mDownloadPool.execute(new DownloadTask(url, destination, downloadHash));
     }
 
     public void submitDownload(FileInfoProvider infoProvider) {
@@ -102,7 +104,7 @@ public class ModDownloader {
                 FileInfo fileInfo = mFileInfoProvider.getFileInfo();
                 if(fileInfo == null) return;
                 new DownloadTask(new String[]{fileInfo.url},
-                        new File(mDestinationDirectory, fileInfo.relativePath), fileInfo.sha1).run();
+                        SafeFilePaths.resolveRelative(mDestinationDirectory, fileInfo.relativePath), fileInfo.sha1).run();
             }catch (IOException e) {
                 downloadFailed(e);
             }
@@ -126,6 +128,7 @@ public class ModDownloader {
         public void run() {
             for(String sourceUrl : mDownloadUrls) {
                 try {
+                    SafeFilePaths.requireInside(mDestinationDirectory, mDestination);
                     DownloadUtils.ensureSha1(mDestination, mSha1, (Callable<Void>) () -> {
                         IOException exception = tryDownload(sourceUrl);
                         if(exception != null) {

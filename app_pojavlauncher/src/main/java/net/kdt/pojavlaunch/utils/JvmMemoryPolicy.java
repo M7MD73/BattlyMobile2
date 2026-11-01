@@ -23,4 +23,14 @@ public final class JvmMemoryPolicy {
         }
         return configuredHeapMb;
     }
+
+    public static boolean useLowMemoryWorkerLimits(boolean is32Bit, int javaVersion,
+                                                   int totalMemoryMb) {
+        return is32Bit && javaVersion >= 21 && totalMemoryMb > 0 && totalMemoryMb < 2500;
+    }
+
+    public static int activeProcessorCount(int availableProcessors, boolean lowMemoryWorkerLimits) {
+        int available = Math.max(1, availableProcessors);
+        return lowMemoryWorkerLimits ? Math.min(2, available) : available;
+    }
 }

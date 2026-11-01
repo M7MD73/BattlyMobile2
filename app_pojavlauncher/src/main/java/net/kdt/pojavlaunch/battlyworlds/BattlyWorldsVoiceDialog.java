@@ -76,6 +76,9 @@ final class BattlyWorldsVoiceDialog implements BattlyWorldsVoiceManager.Listener
         root.addView(overlaySettings, overlayParams);
         overlaySettings.setOnClickListener(v -> showOverlaySettings());
 
+        TextView report = action(R.string.battlyworlds_report, R.drawable.ic_social_join);
+        report.setOnClickListener(v -> BattlyWorldsModeration.chooseReport(activity));
+        root.addView(report);
         TextView membersTitle = text(R.string.battlyworlds_voice_participants, 14, true);
         membersTitle.setPadding(0, dp(14), 0, dp(6));
         root.addView(membersTitle);
@@ -198,6 +201,9 @@ final class BattlyWorldsVoiceDialog implements BattlyWorldsVoiceManager.Listener
             TextView name = text(0, 14, true);
             name.setText(member.username + (member.muted ? " · " + activity.getString(R.string.battlyworlds_voice_muted) : ""));
             memberInfo.addView(name);
+            TextView reportMember = text(R.string.battlyworlds_report,12,false);
+            reportMember.setMinHeight(dp(40));reportMember.setGravity(Gravity.CENTER_VERTICAL);
+            reportMember.setOnClickListener(v -> BattlyWorldsModeration.showReport(activity,member));memberInfo.addView(reportMember);
             LinearLayout volumeRow = new LinearLayout(activity);
             volumeRow.setGravity(Gravity.CENTER_VERTICAL);
             SeekBar volume = new SeekBar(activity);

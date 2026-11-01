@@ -33,4 +33,20 @@ public class JvmMemoryPolicyTest {
         assertEquals(96, JvmMemoryPolicy.initialHeapMb(96));
         assertEquals(128, JvmMemoryPolicy.initialHeapMb(512));
     }
+
+    @Test
+    public void modern32BitLowRamDevicesLimitConcurrentWorkers() {
+        boolean limited = JvmMemoryPolicy.useLowMemoryWorkerLimits(true, 21, 1794);
+
+        assertEquals(true, limited);
+        assertEquals(2, JvmMemoryPolicy.activeProcessorCount(4, limited));
+    }
+
+    @Test
+    public void workerLimitsDoNotAffect64BitDevices() {
+        boolean limited = JvmMemoryPolicy.useLowMemoryWorkerLimits(false, 21, 1794);
+
+        assertEquals(false, limited);
+        assertEquals(8, JvmMemoryPolicy.activeProcessorCount(8, limited));
+    }
 }

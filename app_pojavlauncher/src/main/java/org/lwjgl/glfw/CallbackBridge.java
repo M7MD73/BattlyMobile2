@@ -51,6 +51,8 @@ public class CallbackBridge {
     public static final int CLIPBOARD_COPY = 2000;
     public static final int CLIPBOARD_PASTE = 2001;
     public static final int CLIPBOARD_OPEN = 2002;
+    public static final int TEXT_INPUT_SHOW = 2003;
+    public static final int TEXT_INPUT_HIDE = 2004;
     
     public static volatile int windowWidth, windowHeight;
     public static volatile int physicalWidth, physicalHeight;
@@ -124,8 +126,13 @@ public class CallbackBridge {
         // Minecraft tries to type :TAB: as a character in chat, fails, and then ignores the key,
         // breaking the tab autofill function in old versions. (like 1.12.2, 1.8.9).
         if(isDown && !Character.isISOControl(keychar)) {
-            nativeSendCharMods(keychar,modifiers);
-            nativeSendChar(keychar);
+            if (MinecraftGLSurface.isSdlInputBridgeEnabled()
+                    && SDLActivity.isSDLTextInputActive()) {
+                SDLActivity.onNativeTextInput(String.valueOf(keychar));
+            } else {
+                nativeSendCharMods(keychar,modifiers);
+                nativeSendChar(keychar);
+            }
         }
     }
 
@@ -188,16 +195,7 @@ public class CallbackBridge {
     }
 
     private static int toAndroidMouseButton(int glfwButton) {
-        switch (glfwButton) {
-            case 0:
-                return MotionEvent.BUTTON_PRIMARY;
-            case 1:
-                return MotionEvent.BUTTON_SECONDARY;
-            case 2:
-                return MotionEvent.BUTTON_TERTIARY;
-            default:
-                return 0;
-        }
+        return net.kdt.pojavlaunch.customcontrols.mouse.PhysicalMouseButtons.toSdlAndroidButton(glfwButton);
     }
 
     private static void sendSdlMouse(int button, int action, float x, float y) {
@@ -270,6 +268,12 @@ public class CallbackBridge {
 
             case CLIPBOARD_OPEN:
                 MainActivity.openLink(copy);
+                return null;
+            case TEXT_INPUT_SHOW:
+                MainActivity.setGameTextInputActive(true);
+                return null;
+            case TEXT_INPUT_HIDE:
+                MainActivity.setGameTextInputActive(false);
                 return null;
             default: return null;
         }

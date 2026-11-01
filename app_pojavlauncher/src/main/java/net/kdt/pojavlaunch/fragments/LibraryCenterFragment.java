@@ -1,9 +1,14 @@
 package net.kdt.pojavlaunch.fragments;
 
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -24,6 +31,7 @@ import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.SearchFilters;
 import net.kdt.pojavlaunch.utils.ContentDependencyAnalyzer;
 import net.kdt.pojavlaunch.utils.InstalledContentIconLoader;
+import net.kdt.pojavlaunch.utils.LibraryContentRules;
 import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
 import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 
@@ -33,13 +41,16 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -47,6 +58,8 @@ import java.util.zip.ZipFile;
 
 public class LibraryCenterFragment extends Fragment {
     public static final String TAG = "LibraryCenterFragment";
+    private static final String STATE_SELECTED_PROFILE_KEY = "selected_profile_key";
+    private static final String STATE_PENDING_MOD_IMPORT_PROFILE_KEY = "pending_mod_import_profile_key";
     private static final Pattern JSON_NAME = Pattern.compile("\"(?:name|modid|id|title)\"\\s*:\\s*\"([^\"]+)\"");
     private static final Pattern JSON_VERSION = Pattern.compile("\"(?:version|mod_version)\"\\s*:\\s*\"([^\"]+)\"");
     private static final Pattern TOML_NAME = Pattern.compile("displayName\\s*=\\s*\"([^\"]+)\"");
@@ -56,7 +69,10 @@ public class LibraryCenterFragment extends Fragment {
     private Button mInstanceSelector;
     private MinecraftProfile mSelectedProfile;
     private String mSelectedProfileKey;
+    private String mPendingModImportProfileKey;
     private int mInstalledContentRequestId;
+    private final ActivityResultLauncher<String[]> mExternalModsPicker = registerForActivityResult(
+            new ActivityResultContracts.OpenMultipleDocuments(), this::onExternalModsPicked);
 
     public LibraryCenterFragment() {
         super(R.layout.fragment_library_center);
@@ -67,11 +83,17 @@ public class LibraryCenterFragment extends Fragment {
         mInstalledContentContainer = view.findViewById(R.id.library_installed_content_container);
         mInstanceSelector = view.findViewById(R.id.library_instance_selector);
         selectInitialProfile();
+        if (savedInstanceState != null) {
+            selectProfile(savedInstanceState.getString(STATE_SELECTED_PROFILE_KEY));
+            mPendingModImportProfileKey = savedInstanceState.getString(
+                    STATE_PENDING_MOD_IMPORT_PROFILE_KEY);
+        }
         mInstanceSelector.setOnClickListener(v -> showInstanceSelector());
         view.findViewById(R.id.download_panel_import_modpack)
                 .setOnClickListener(v -> ((LauncherActivity) requireActivity()).modpackImportLauncher.launch(null));
         view.findViewById(R.id.download_panel_browse_modpacks).setOnClickListener(v -> openSearch(SearchFilters.TYPE_MODPACK));
         view.findViewById(R.id.download_panel_browse_mods).setOnClickListener(v -> openSearch(SearchFilters.TYPE_MOD));
+        view.findViewById(R.id.download_panel_import_mods).setOnClickListener(v -> openExternalModsPicker());
         view.findViewById(R.id.download_panel_browse_resourcepacks).setOnClickListener(v -> openSearch(SearchFilters.TYPE_RESOURCEPACK));
         view.findViewById(R.id.download_panel_browse_shaders).setOnClickListener(v -> openSearch(SearchFilters.TYPE_SHADER));
         view.findViewById(R.id.download_panel_browse_datapacks).setOnClickListener(v -> openSearch(SearchFilters.TYPE_DATAPACK));
@@ -85,6 +107,13 @@ public class LibraryCenterFragment extends Fragment {
                         BattlyFileManagerFragment.TAG,
                         BattlyFileManagerFragment.createArguments(new File(Tools.DIR_GAME_HOME))));
         bindInstalledContent();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(STATE_SELECTED_PROFILE_KEY, mSelectedProfileKey);
+        outState.putString(STATE_PENDING_MOD_IMPORT_PROFILE_KEY, mPendingModImportProfileKey);
     }
 
     @Override
@@ -102,6 +131,169 @@ public class LibraryCenterFragment extends Fragment {
                 SearchModFragment.TAG,
                 SearchModFragment.createArguments(contentType)
         );
+    }
+
+    private void openExternalModsPicker() {
+        if (mSelectedProfile == null) selectInitialProfile();
+        if (mSelectedProfile == null) {
+            Toast.makeText(requireContext(), R.string.library_import_mods_error, Toast.LENGTH_LONG).show();
+            return;
+        }
+        mPendingModImportProfileKey = mSelectedProfileKey;
+        // Some Android document providers report JAR files as generic binary data.
+        // Use the broad picker and enforce the .jar extension and ZIP validation ourselves.
+        mExternalModsPicker.launch(new String[]{"*/*"});
+    }
+
+    private void onExternalModsPicked(List<Uri> uris) {
+        MinecraftProfile targetProfile = resolveProfile(mPendingModImportProfileKey);
+        mPendingModImportProfileKey = null;
+        if (targetProfile == null || uris == null || uris.isEmpty() || !isAdded()) {
+            Log.w(TAG, "External mod selection returned without a valid target profile");
+            return;
+        }
+
+        File targetDirectory = new File(Tools.getGameDirPath(targetProfile), "mods");
+        List<PendingModImport> pendingImports = buildPendingModImports(uris, targetDirectory);
+        if (pendingImports.isEmpty()) {
+            Toast.makeText(requireContext(), R.string.library_import_mods_invalid, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        int replacements = 0;
+        for (PendingModImport pendingImport : pendingImports) {
+            if (pendingImport.targetFile.isFile()) replacements++;
+        }
+        if (replacements == 0) {
+            importExternalMods(targetProfile, targetDirectory, pendingImports);
+            return;
+        }
+
+        int replacementCount = replacements;
+        AlertDialog dialog = Tools.createStyledDialogBuilder(requireContext())
+                .setTitle(R.string.library_import_mods_replace_title)
+                .setMessage(getString(R.string.library_import_mods_replace_message,
+                        replacementCount, profileLabel(targetProfile)))
+                .setPositiveButton(android.R.string.ok,
+                        (d, which) -> importExternalMods(targetProfile, targetDirectory, pendingImports))
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+        Tools.styleDialog(dialog);
+        dialog.show();
+    }
+
+    private List<PendingModImport> buildPendingModImports(List<Uri> uris, File targetDirectory) {
+        List<PendingModImport> pendingImports = new ArrayList<>();
+        Set<String> selectedNames = new HashSet<>();
+        for (Uri uri : uris) {
+            String sourceName = queryDisplayName(uri);
+            String fileName = LibraryContentRules.sanitizeImportedModName(sourceName);
+            if (!LibraryContentRules.isSupportedModFile(fileName)) {
+                Log.w(TAG, "Ignoring unsupported external mod: " + sourceName);
+                continue;
+            }
+            if (!selectedNames.add(fileName.toLowerCase(Locale.ROOT))) continue;
+            pendingImports.add(new PendingModImport(uri, new File(targetDirectory, fileName)));
+        }
+        return pendingImports;
+    }
+
+    private String queryDisplayName(Uri uri) {
+        ContentResolver resolver = requireContext().getContentResolver();
+        try (Cursor cursor = resolver.query(uri, new String[]{OpenableColumns.DISPLAY_NAME},
+                null, null, null)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                int nameColumn = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                if (nameColumn >= 0) return cursor.getString(nameColumn);
+            }
+        } catch (Exception exception) {
+            Log.w(TAG, "Unable to read the selected document name", exception);
+        }
+        return uri.getLastPathSegment();
+    }
+
+    private void importExternalMods(MinecraftProfile targetProfile, File targetDirectory,
+                                    List<PendingModImport> pendingImports) {
+        Toast.makeText(requireContext(), R.string.global_wait, Toast.LENGTH_SHORT).show();
+        ContentResolver resolver = requireContext().getContentResolver();
+        PojavApplication.sExecutorService.execute(() -> {
+            int imported = 0;
+            int failed = 0;
+            if (!targetDirectory.exists() && !targetDirectory.mkdirs()) {
+                Log.e(TAG, "Unable to create external mod directory: " + targetDirectory);
+                failed = pendingImports.size();
+            } else {
+                for (PendingModImport pendingImport : pendingImports) {
+                    try {
+                        importExternalMod(resolver, pendingImport);
+                        imported++;
+                    } catch (Exception exception) {
+                        Log.e(TAG, "Unable to import external mod into "
+                                + pendingImport.targetFile, exception);
+                        failed++;
+                    }
+                }
+            }
+            int importedCount = imported;
+            int failedCount = failed;
+            Tools.runOnUiThread(() -> {
+                if (!isAdded()) return;
+                String profileName = profileLabel(targetProfile);
+                int message = importedCount == 0
+                        ? R.string.library_import_mods_error
+                        : failedCount == 0
+                        ? R.string.library_import_mods_success
+                        : R.string.library_import_mods_partial;
+                String text = message == R.string.library_import_mods_error
+                        ? getString(message)
+                        : message == R.string.library_import_mods_success
+                        ? getString(message, importedCount, profileName)
+                        : getString(message, importedCount, profileName, failedCount);
+                Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show();
+                bindInstalledContent();
+            });
+        });
+    }
+
+    private void importExternalMod(ContentResolver resolver, PendingModImport pendingImport) throws IOException {
+        File parent = pendingImport.targetFile.getParentFile();
+        if (parent == null) throw new IOException("Missing mod directory");
+        File temporary = File.createTempFile(".battly-mod-", ".jar", parent);
+        File backup = new File(parent, "." + pendingImport.targetFile.getName() + ".battly-backup");
+        try {
+            try (InputStream input = resolver.openInputStream(pendingImport.uri);
+                 FileOutputStream output = new FileOutputStream(temporary)) {
+                if (input == null) throw new IOException("Unable to open selected mod");
+                byte[] buffer = new byte[32 * 1024];
+                int read;
+                while ((read = input.read(buffer)) != -1) output.write(buffer, 0, read);
+                output.getFD().sync();
+            }
+            validateJar(temporary);
+
+            if (backup.exists() && !backup.delete()) throw new IOException("Unable to clear backup");
+            if (pendingImport.targetFile.exists()
+                    && !pendingImport.targetFile.renameTo(backup)) {
+                throw new IOException("Unable to back up existing mod");
+            }
+            if (!temporary.renameTo(pendingImport.targetFile)) {
+                if (backup.exists()) backup.renameTo(pendingImport.targetFile);
+                throw new IOException("Unable to install selected mod");
+            }
+            if (backup.exists()) backup.delete();
+        } finally {
+            if (temporary.exists()) temporary.delete();
+            if (backup.exists() && !pendingImport.targetFile.exists()) {
+                backup.renameTo(pendingImport.targetFile);
+            }
+        }
+    }
+
+    private void validateJar(File file) throws IOException {
+        if (!file.isFile() || file.length() == 0L) throw new IOException("Empty mod file");
+        try (ZipFile zipFile = new ZipFile(file)) {
+            if (!zipFile.entries().hasMoreElements()) throw new IOException("Empty mod archive");
+        }
     }
 
     private void bindInstalledContent() {
@@ -207,22 +399,54 @@ public class LibraryCenterFragment extends Fragment {
             empty.setPadding(0, dp(10), 0, 0);
             card.addView(empty);
         } else {
-            int visibleCount = Math.min(section.entries.size(), 5);
-            for (int i = 0; i < visibleCount; i++) {
-                card.addView(createContentRow(section.entries.get(i)));
-            }
-            if (section.entries.size() > visibleCount) {
-                TextView more = new TextView(requireContext());
-                more.setText(getString(R.string.library_installed_more, section.entries.size() - visibleCount));
-                more.setTextColor(0xFF8DEEDC);
-                more.setTypeface(Typeface.DEFAULT_BOLD);
-                more.setTextSize(12);
-                more.setPadding(0, dp(8), 0, 0);
-                card.addView(more);
-            }
+            addPaginatedContentRows(card, section);
         }
 
         mInstalledContentContainer.addView(card);
+    }
+
+    private void addPaginatedContentRows(LinearLayout card, InstalledSection section) {
+        LinearLayout rows = new LinearLayout(requireContext());
+        rows.setOrientation(LinearLayout.VERTICAL);
+        card.addView(rows);
+
+        int[] visibleCount = {LibraryContentRules.nextVisibleCount(0, section.entries.size())};
+        appendContentRows(rows, section.entries, 0, visibleCount[0]);
+        if (visibleCount[0] >= section.entries.size()) return;
+
+        Button showMore = new Button(requireContext());
+        showMore.setAllCaps(false);
+        showMore.setTextColor(0xFF8DEEDC);
+        showMore.setTextSize(12);
+        showMore.setTypeface(Typeface.DEFAULT_BOLD);
+        showMore.setBackgroundResource(R.drawable.bg_battly_button_secondary);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(40));
+        params.setMargins(0, dp(10), 0, 0);
+        showMore.setLayoutParams(params);
+        updateShowMoreButton(showMore, visibleCount[0], section.entries.size());
+        showMore.setOnClickListener(v -> {
+            int previousCount = visibleCount[0];
+            visibleCount[0] = LibraryContentRules.nextVisibleCount(previousCount, section.entries.size());
+            appendContentRows(rows, section.entries, previousCount, visibleCount[0]);
+            if (visibleCount[0] >= section.entries.size()) {
+                showMore.setVisibility(View.GONE);
+            } else {
+                updateShowMoreButton(showMore, visibleCount[0], section.entries.size());
+            }
+        });
+        card.addView(showMore);
+    }
+
+    private void appendContentRows(LinearLayout container, List<ContentInfo> entries, int from, int to) {
+        for (int i = from; i < to; i++) {
+            container.addView(createContentRow(entries.get(i)));
+        }
+    }
+
+    private void updateShowMoreButton(Button button, int visibleCount, int totalCount) {
+        int nextCount = LibraryContentRules.nextVisibleCount(visibleCount, totalCount);
+        button.setText(getString(R.string.library_installed_show_more, nextCount - visibleCount));
     }
 
     private void analyzeMods(File directory) {
@@ -373,6 +597,20 @@ public class LibraryCenterFragment extends Fragment {
             }
         }
         updateInstanceSelectorLabel();
+    }
+
+    private void selectProfile(String profileKey) {
+        MinecraftProfile profile = resolveProfile(profileKey);
+        if (profile == null) return;
+        mSelectedProfileKey = profileKey;
+        mSelectedProfile = profile;
+        updateInstanceSelectorLabel();
+    }
+
+    private MinecraftProfile resolveProfile(String profileKey) {
+        if (!Tools.isValidString(profileKey)) return null;
+        LauncherProfiles.load();
+        return LauncherProfiles.mainProfileJson.profiles.get(profileKey);
     }
 
     private void showInstanceSelector() {
@@ -865,6 +1103,16 @@ public class LibraryCenterFragment extends Fragment {
             this.folderCount = folderCount;
             this.totalBytes = totalBytes;
             this.entries = entries;
+        }
+    }
+
+    private static class PendingModImport {
+        final Uri uri;
+        final File targetFile;
+
+        PendingModImport(Uri uri, File targetFile) {
+            this.uri = uri;
+            this.targetFile = targetFile;
         }
     }
 }

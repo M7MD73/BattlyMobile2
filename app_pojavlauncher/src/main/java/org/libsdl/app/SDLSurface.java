@@ -148,7 +148,10 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
 
         Log.v("SDL", "Window size: " + width + "x" + height);
         Log.v("SDL", "Device size: " + nDeviceWidth + "x" + nDeviceHeight);
-        SDLActivity.nativeSetScreenResolution(width, height, nDeviceWidth, nDeviceHeight, density, mDisplay.getRefreshRate());
+        float refreshRate = net.kdt.pojavlaunch.utils.DisplayRefreshRateUtils
+                .getMaximumSupportedRefreshRate(mDisplay);
+        SDLActivity.nativeSetScreenResolution(width, height, nDeviceWidth, nDeviceHeight,
+                density, refreshRate);
         SDLActivity.onNativeResize();
 
         // Prevent a screen distortion glitch,
@@ -212,17 +215,8 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
 
             SDLActivity.onNativeInsetsChanged(combined.left, combined.right, combined.top, combined.bottom);
 
-            if (insets.isVisible(WindowInsets.Type.ime())) {
-                if (!mKeyboardVisible) {
-                    mKeyboardVisible = true;
-                    SDLActivity.onNativeScreenKeyboardShown();
-                }
-            } else {
-                if (mKeyboardVisible) {
-                    mKeyboardVisible = false;
-                    SDLActivity.onNativeScreenKeyboardHidden();
-                }
-            }
+            mKeyboardVisible = insets.isVisible(WindowInsets.Type.ime());
+            SdlImeController.notifyVisibilityChanged(mKeyboardVisible);
         }
 
         // Pass these to any child views in case they need them

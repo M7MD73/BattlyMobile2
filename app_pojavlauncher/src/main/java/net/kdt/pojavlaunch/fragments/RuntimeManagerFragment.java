@@ -38,6 +38,13 @@ public class RuntimeManagerFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        // A runtime can finish installing while this screen is in the background.
+        if (adapter != null) adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = view.findViewById(R.id.runtime_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));

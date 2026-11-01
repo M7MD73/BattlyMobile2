@@ -55,6 +55,35 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/social_stats"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_battly_launcher_chip"
+            android:contentDescription="@string/battly_stats_title"
+            android:padding="11dp"
+            android:src="@drawable/ic_battly_stats_line" />
+        <TextView
+            android:id="@+id/social_stats_new_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="1dp"
+            android:background="@drawable/bg_battly_new_badge"
+            android:text="@string/battly_new_badge"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:textColor="#FF10221E"
+            android:importantForAccessibility="no" />
+        </LinearLayout>
+
         <ImageButton
             android:id="@+id/social_refresh"
             android:layout_width="44dp"

@@ -68,9 +68,10 @@ public class BattlyLoginFragment extends Fragment {
     private ActivityResultLauncher<Intent> mGoogleSignInLauncher;
     private ActivityResultLauncher<Intent> mGoogleAuthRecoveryLauncher;
     private Account mPendingGoogleAccount;
-    private String mDiscordNonce;
     private volatile ServerSocket mDiscordServer;
     private volatile boolean mDiscordLoginCompleted;
+    private final String mOAuthOwner = UUID.randomUUID().toString();
+    private final Runnable mOAuthListener = this::consumePendingOAuth;
 
     public BattlyLoginFragment() {
         super(R.layout.fragment_battly_login);
@@ -215,19 +216,6 @@ public class BattlyLoginFragment extends Fragment {
                         resolvedUuid = UUID.nameUUIDFromBytes(
                                 ("OfflinePlayer:" + resolvedUsername).getBytes(StandardCharsets.UTF_8)
                         ).toString();
-                    }
-
-                    // Persist token and username for marketplace use
-                    if (!resolvedToken.isEmpty()) {
-                        appContext.getSharedPreferences("battly_account", Context.MODE_PRIVATE)
-                                .edit()
-                                .putString("battly_token", resolvedToken)
-                                .putString("battly_username", resolvedUsername)
-                                .putString("battly_uuid", resolvedUuid)
-                                .apply();
-                        if (BattlyWorldsFeature.ENABLED) {
-                            BattlyWorldsInvites.registerDeviceToken(appContext);
-                        }
                     }
 
                     completeBattlyLogin(activity, appContext, resolvedUsername, resolvedToken.isEmpty() ? "battly" : resolvedToken,
@@ -380,28 +368,19 @@ public class BattlyLoginFragment extends Fragment {
                 mDiscordServer = server;
                 server.setSoTimeout(120000);
                 String nonce = UUID.randomUUID().toString().replace("-", "");
-                mDiscordNonce = nonce;
+                net.kdt.pojavlaunch.utils.BattlyOAuthSession.begin(appContext, "discord", nonce);
                 String url = BATTLY_DISCORD_LOGIN_URL
                         + "?launcher_port=" + server.getLocalPort()
                         + "&launcher_nonce=" + Uri.encode(nonce)
                         + "&launcher_deeplink=1";
                 runOnActivity(activity, () -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url))));
 
-                String token = waitForOAuthToken(server, "discord", nonce);
+                String token = waitForOAuthToken(appContext, server, "discord", nonce);
                 if (mDiscordLoginCompleted) return;
                 if (!Tools.isValidString(token)) {
                     throw new IllegalStateException("Discord login did not return a token");
                 }
-                JSONObject response = loginWithToken(token);
-                mDiscordLoginCompleted = true;
-                JSONObject data = response.optJSONObject("data");
-                String username = findString(data, "username", "name");
-                String uuid = findString(data, "uuid", "id", "profileId", "profile_id");
-                if (uuid.isEmpty()) {
-                    uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(StandardCharsets.UTF_8)).toString();
-                }
-                BattlyPlusManager.updateFromLoginResponse(appContext, username, response);
-                completeBattlyLogin(activity, appContext, username, token, uuid, token);
+                runOnActivity(activity, this::consumePendingOAuth);
             } catch (Exception e) {
                 if (mDiscordLoginCompleted) return;
                 Log.w(TAG, "Discord OAuth login failed", e);
@@ -418,7 +397,13 @@ public class BattlyLoginFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        net.kdt.pojavlaunch.utils.BattlyOAuthSession.setListener(mOAuthListener);
         consumePendingOAuth();
+    }
+
+    @Override public void onPause() {
+        net.kdt.pojavlaunch.utils.BattlyOAuthSession.clearListener(mOAuthListener);
+        super.onPause();
     }
 
     private void consumePendingOAuth() {
@@ -427,20 +412,10 @@ public class BattlyLoginFragment extends Fragment {
             return;
         }
         Context appContext = activity.getApplicationContext();
-        android.content.SharedPreferences prefs = appContext
-                .getSharedPreferences("battly_oauth", Context.MODE_PRIVATE);
-        String provider = prefs.getString("provider", "");
-        String token = prefs.getString("token", "");
-        String nonce = prefs.getString("nonce", "");
-        if (!"discord".equals(provider) || !Tools.isValidString(token)) {
-            return;
-        }
-        if (Tools.isValidString(mDiscordNonce) && !mDiscordNonce.equals(nonce)) {
-            return;
-        }
+        String token = net.kdt.pojavlaunch.utils.BattlyOAuthSession.claimToken(appContext, "discord", mOAuthOwner);
+        if (!Tools.isValidString(token)) return;
         mDiscordLoginCompleted = true;
         closeDiscordServer();
-        prefs.edit().clear().apply();
         if (mDiscordButton != null) {
             mDiscordButton.setEnabled(false);
         }
@@ -454,8 +429,21 @@ public class BattlyLoginFragment extends Fragment {
                     uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(StandardCharsets.UTF_8)).toString();
                 }
                 BattlyPlusManager.updateFromLoginResponse(appContext, username, response);
-                completeBattlyLogin(activity, appContext, username, token, uuid, token);
+                final String accountUuid = uuid;
+                runOnActivity(activity, () -> {
+                    if (!net.kdt.pojavlaunch.utils.BattlyOAuthSession.owns(mOAuthOwner)) return;
+                    net.kdt.pojavlaunch.utils.BattlyAccessManager.guardLogin(activity, username, token, () -> {
+                        if (!isAdded() || getView() == null
+                                || !net.kdt.pojavlaunch.utils.BattlyOAuthSession.owns(mOAuthOwner)) return;
+                        net.kdt.pojavlaunch.utils.BattlyOAuthSession.complete(appContext, mOAuthOwner);
+                        completeCheckedBattlyLogin(activity, appContext, username, token, accountUuid, token);
+                    }, () -> {
+                        // The access dialog retries the same transaction and callbacks.
+                        if (isAdded() && mDiscordButton != null) mDiscordButton.setEnabled(true);
+                    });
+                });
             } catch (Exception e) {
+                net.kdt.pojavlaunch.utils.BattlyOAuthSession.release(mOAuthOwner);
                 runOnActivity(activity, () -> {
                     if (mDiscordButton != null) {
                         mDiscordButton.setEnabled(true);
@@ -466,7 +454,7 @@ public class BattlyLoginFragment extends Fragment {
         }, "Battly Discord Deeplink Login").start();
     }
 
-    private String waitForOAuthToken(ServerSocket server, String provider, String nonce) throws Exception {
+    private String waitForOAuthToken(Context appContext, ServerSocket server, String provider, String nonce) throws Exception {
         String expectedPath = "/auth/" + provider;
         while (!mDiscordLoginCompleted) {
             try (Socket socket = server.accept()) {
@@ -485,8 +473,11 @@ public class BattlyLoginFragment extends Fragment {
                     continue;
                 }
                 String token = body.optString("token", "").trim();
-                writeHttpResponse(socket, token.isEmpty() ? 400 : 200,
-                        token.isEmpty() ? "{\"ok\":false}" : "{\"ok\":true}");
+                if (!net.kdt.pojavlaunch.utils.BattlyOAuthSession.accept(appContext, provider, token, nonce)) {
+                    writeHttpResponse(socket, 403, "{\"ok\":false}");
+                    continue;
+                }
+                writeHttpResponse(socket, 200, "{\"ok\":true}");
                 return token;
             } catch (SocketTimeoutException timeout) {
                 return "";
@@ -506,8 +497,11 @@ public class BattlyLoginFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        mDiscordLoginCompleted = true;
-        closeDiscordServer();
+        net.kdt.pojavlaunch.utils.BattlyOAuthSession.release(mOAuthOwner);
+        if (getActivity() == null || !getActivity().isChangingConfigurations()) {
+            mDiscordLoginCompleted = true;
+            closeDiscordServer();
+        }
         super.onDestroy();
     }
 
@@ -538,6 +532,17 @@ public class BattlyLoginFragment extends Fragment {
     }
 
     private void completeBattlyLogin(FragmentActivity activity, Context appContext, String username, String token, String uuid, String storedToken) {
+        net.kdt.pojavlaunch.utils.BattlyAccessManager.guardLogin(activity, username, storedToken,
+                () -> {
+                    if (isAdded() && getView() != null) {
+                        completeCheckedBattlyLogin(activity, appContext, username, token, uuid, storedToken);
+                    }
+                }, () -> {
+                    if (isAdded() && mLoginButton != null) mLoginButton.setEnabled(true);
+                });
+    }
+
+    private void completeCheckedBattlyLogin(FragmentActivity activity, Context appContext, String username, String token, String uuid, String storedToken) {
         if (!storedToken.isEmpty()) {
             appContext.getSharedPreferences("battly_account", Context.MODE_PRIVATE)
                     .edit()

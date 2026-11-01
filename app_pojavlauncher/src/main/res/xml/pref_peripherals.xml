@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference android:key="peripheralDevices" android:title="@string/peripheral_devices" android:icon="@drawable/ic_menu_custom_controls" />
+    <PreferenceCategory android:title="@string/peripheral_mouse">
+        <Preference android:key="peripheralPcPreset" android:title="@string/peripheral_pc_preset" android:icon="@drawable/ic_setting_mouse_speed" />
+        <androidx.preference.SwitchPreferenceCompat android:key="physicalMousePcMode" android:defaultValue="false"
+            android:title="@string/peripheral_pc_mode" android:summary="@string/peripheral_pc_mode_summary" />
+        <net.kdt.pojavlaunch.prefs.CustomSeekBarPreference android:key="physicalMouseSensitivityX" android:defaultValue="100"
+            android:title="@string/peripheral_mouse_x" app:min="10" android:max="400" app:seekBarIncrement="5" app:showSeekBarValue="true" />
+        <net.kdt.pojavlaunch.prefs.CustomSeekBarPreference android:key="physicalMouseSensitivityY" android:defaultValue="100"
+            android:title="@string/peripheral_mouse_y" app:min="10" android:max="400" app:seekBarIncrement="5" app:showSeekBarValue="true" />
+        <androidx.preference.SwitchPreferenceCompat android:key="physicalMouseInvertX" android:defaultValue="false" android:title="@string/peripheral_invert_x" />
+        <androidx.preference.SwitchPreferenceCompat android:key="physicalMouseInvertY" android:defaultValue="false" android:title="@string/peripheral_invert_y" />
+        <Preference android:key="peripheralMouseTest" android:title="@string/peripheral_mouse_test" android:icon="@drawable/ic_setting_pointer_scale" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/peripheral_keyboard">
+        <Preference android:key="peripheralKeyboardBindings" android:title="@string/peripheral_bindings" android:icon="@drawable/ic_menu_custom_controls" />
+        <Preference android:key="peripheralKeyboardTest" android:title="@string/peripheral_keyboard_test" android:icon="@drawable/ic_menu_custom_controls" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_category_controller_settings">
+        <androidx.preference.SwitchPreferenceCompat android:key="gamepadLinearCamera" android:defaultValue="false"
+            android:title="@string/peripheral_stick_linear" android:summary="@string/peripheral_stick_linear_summary" />
+        <net.kdt.pojavlaunch.prefs.CustomSeekBarPreference android:key="gamepadCameraSensitivity" android:defaultValue="100"
+            android:title="@string/peripheral_stick_sensitivity" app:min="25" android:max="300" app:seekBarIncrement="5" app:showSeekBarValue="true" />
+        <androidx.preference.SwitchPreferenceCompat android:key="gamepadCameraInvertX" android:defaultValue="false" android:title="@string/peripheral_invert_x" />
+        <androidx.preference.SwitchPreferenceCompat android:key="gamepadCameraInvertY" android:defaultValue="false" android:title="@string/peripheral_invert_y" />
+        <Preference android:title="@string/preference_remap_controller_title" android:summary="@string/preference_remap_controller_description"
+            android:fragment="net.kdt.pojavlaunch.fragments.GamepadMapperFragment" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -565,7 +565,7 @@
     <string name="crash_no_findings">Không tìm thấy mẫu sự cố nào trong các nhật ký mới nhất.</string>
     <string name="crash_recovery_applied">Hành động khôi phục đã hoàn tất</string>
     <string name="crash_recovery_manual">Vấn đề này cần phải thay đổi thủ công. Mở nhật ký để biết chi tiết.</string>
-    <string name="credits_version">Phiên bản 2.2.5</string>
+    <string name="credits_version">Phiên bản 2.2.9</string>
     <string name="ctrl_like_btn">Thích</string>
     <string name="ctrl_liked_added">Đã thêm vào các điều khiển đã thích.</string>
     <string name="ctrl_liked_btn">Đã thích</string>
@@ -626,8 +626,8 @@
     <string name="java_runtime_download_progress">Đang tải xuống Java %1$d (%2$.1f MB / %3$.1f MB)</string>
     <string name="java_runtime_download_title">Cài đặt Java 8</string>
     <string name="java_runtime_download_waiting">Đang chuẩn bị tải xuống Java 8...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Di động 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Di động 2.2.9</string>
     <string name="launcher_status_battly">Tài khoản Battly</string>
     <string name="launcher_status_battly_plus">Tài khoản Battly+</string>
     <string name="library_analyze_mods">Phân tích</string>
@@ -1097,7 +1097,7 @@
     <string name="installer_internal_fallback">Trình cài đặt không được hỗ trợ, mở giao diện người dùng Java cũ</string>
     <string name="installer_internal_running">Đang phân tích trình cài đặt…</string>
     <string name="installer_internal_success">%1$s được cài đặt trực tiếp bên trong Battly</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Trình khởi chạy dựa trên PojavLauncher và Boardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Tín dụng&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1506,4 +1506,107 @@
     <string name="search_world_download_error">Không thể tải xuống siêu dữ liệu thế giới</string>
     <string name="world_install_button">Thế giới cài đặt</string>
     <string name="world_install_success">%1$s được cài đặt vào phiên bản này</string>
+
+    <string name="battly_whats_new_transition_desc">Phiên bản của bạn vẫn được giữ nguyên. Cho phép các plugin bên ngoài đáng tin cậy trong Cài đặt trước khi sử dụng chúng.</string>
+    <string name="download_action_import_mods_title">Nhập mod bên ngoài</string>
+    <string name="download_action_import_mods_subtitle">Chọn một hoặc nhiều tệp `.jar` và thêm chúng vào phiên bản đã chọn.</string>
+    <string name="library_installed_show_more">Hiển thị thêm %1$d</string>
+    <string name="library_import_mods_replace_title">Thay thế các mod hiện có?</string>
+    <string name="library_import_mods_replace_message">Các tệp mod được chọn %1$d đã tồn tại trong %2$s. Battly sẽ chỉ thay thế chúng sau khi xác thực các tệp mới.</string>
+    <string name="library_import_mods_invalid">Không có tệp mod `.jar` hợp lệ nào được chọn.</string>
+    <string name="library_import_mods_success">Đã nhập mod %1$d vào %2$s.</string>
+    <string name="library_import_mods_partial">Đã nhập mod %1$d vào %2$s · Không thể nhập tệp %3$d.</string>
+    <string name="library_import_mods_error">Không thể nhập các mod đã chọn.</string>
+    <string name="battly_whats_new_action_start">Khám phá 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">Phản hồi đăng nhập phải khớp với yêu cầu đang chờ xử lý, hết hạn sau một thời gian ngắn và chỉ có thể được chấp nhận một lần.</string>
+    <string name="battly_whats_new_compatibility_title">Đăng nhập Discord an toàn hơn</string>
+    <string name="battly_whats_new_controllers_desc">Chia sẻ một thư mục không còn cho phép truy cập vào các thư mục khác ngoài quyền bạn đã cấp.</string>
+    <string name="battly_whats_new_controllers_title">Chia sẻ tập tin được bảo vệ</string>
+    <string name="battly_whats_new_desc">Cài đặt modpack, chia sẻ tệp và ủy quyền plugin bên ngoài an toàn hơn.</string>
+    <string name="battly_whats_new_instances_desc">Nội dung lưu trữ và tệp đã tải xuống vẫn nằm trong phiên bản được chỉ định mà không sửa đổi các phiên bản khác.</string>
+    <string name="battly_whats_new_instances_title">Cài đặt modpack được bảo vệ</string>
+    <string name="battly_whats_new_recovery_desc">Phân tích sử dụng kích hoạt khi Battly khởi động, ngoại trừ ở chế độ ngoại tuyến. Ghi chú phát hành và thông báo plugin đã được dịch.</string>
+    <string name="battly_whats_new_recovery_title">Thống kê và dịch thuật</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 đã sẵn sàng</string>
+    <string name="battly_whats_new_worlds_desc">Các plugin bên ngoài cần có sự cho phép trước khi sử dụng. Các plugin đã cài đặt trước đó phải được cấp phép lại một lần.</string>
+    <string name="battly_whats_new_worlds_title">Quyền plugin của bạn</string>
+    <string name="battly_appearance_title">Da và áo choàng Battly</string>
+    <string name="battly_appearance_subtitle">Xem trước và quản lý giao diện Minecraft hoàn chỉnh của bạn từ Thiết bị di động.</string>
+    <string name="battly_capes_title">Áo choàng Battly</string>
+    <string name="battly_capes_description">Chọn áo choàng chính thức hoặc tải lên áo choàng của riêng bạn bằng Battly+. Áo choàng hoạt động được hiển thị trong bản xem trước 3D và bên trong Minecraft.</string>
+    <string name="battly_capes_loading">Đang tải áo choàng Battly...</string>
+    <string name="battly_capes_active">Áo choàng năng động</string>
+    <string name="battly_capes_none">Không có áo choàng hoạt động</string>
+    <string name="battly_capes_empty">Không có áo choàng có sẵn cho tài khoản này.</string>
+    <string name="battly_capes_upload">Tải áo choàng lên</string>
+    <string name="battly_capes_upload_plus">Tải lên bằng Battly+</string>
+    <string name="battly_capes_plus_required">Áo choàng tùy chỉnh có sẵn với Battly+. Bạn vẫn có thể sử dụng áo choàng chính thức.</string>
+    <string name="battly_capes_disable">Không có áo choàng</string>
+    <string name="battly_capes_disabled">Mũi bị vô hiệu hóa</string>
+    <string name="battly_capes_uploaded">Cape đã tải lên và áp dụng</string>
+    <string name="battly_capes_applied">Cape áp dụng</string>
+    <string name="battly_capes_deleted">Mũi đã xóa</string>
+    <string name="battly_capes_previewing">Xem trước áo choàng</string>
+    <string name="battly_capes_custom">Áo choàng tùy chỉnh</string>
+    <string name="battly_capes_official">Áo choàng chính thức</string>
+
+    <string name="battly_capes_unavailable">Áo choàng tạm thời không có sẵn. Da của bạn vẫn có sẵn.</string>
+
+    <string name="native_plugins_bundled_category">Các phần phụ thuộc Android đi kèm với Battly</string>
+    <string name="native_plugins_bundled_ready">Phiên bản %1$s · Sẵn sàng</string>
+
+    <string name="battly_whats_new_native_title">Các phần phụ thuộc gốc vẫn có sẵn</string>
+    <string name="battly_whats_new_native_desc">Thư viện tích hợp hoạt động tự động. Quyền của các plugin bên ngoài được liên kết với danh tính ký APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Hoạt động hàng ngày · Di động</string>
+    <string name="battly_stats_history_notice">Giờ địa phương khi được ghi lại. Lịch sử bắt đầu với bản cập nhật này; tổng số trước đó vẫn ở mức dưới đây.</string>
+    <string name="battly_stats_history_unavailable">Lịch sử hàng ngày chưa có sẵn trên máy chủ. Tổng số thống kê của bạn được hiển thị dưới đây.</string>
+    <string name="battly_stats_period_label">Thời gian hoạt động</string>
+    <string name="battly_stats_day_label">Ngày hoạt động</string>
+    <string name="battly_stats_period_days">%1$d ngày qua</string>
+    <string name="battly_stats_period_summary">Ngày hoạt động: %1$d · Minecraft: %2$s · Trình khởi chạy: %3$s</string>
+    <string name="battly_stats_time_range">Hoạt động đầu tiên: %1$s · Hoạt động cuối cùng: %2$s</string>
+    <string name="battly_stats_day_modes">Thế giới: %1$s · Máy chủ: %2$s (Battly Worlds: %3$s) · Menu trò chơi: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Trình khởi chạy: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Tổng số mọi thời đại · PC + Di động</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Trình khởi chạy: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Tự động mở bàn phím</string>
+
+    <string name="native_plugins_trust_warning">Plugin bên ngoài này có thể chạy mã gốc với quyền truy cập vào các tệp và tài khoản Battly. Chỉ cho phép plugin từ nguồn mà bạn tin cậy. Quyền được liên kết với danh tính ký APK.</string>
+    <string name="native_plugins_trust_action">Cho phép plugin</string>
+
+    <string name="peripheral_title">Bàn phím, chuột và bộ điều khiển</string>
+    <string name="peripheral_devices">Thiết bị ngoại vi được kết nối</string>
+    <string name="peripheral_no_devices">Không phát hiện thấy thiết bị ngoại vi bên ngoài nào</string>
+    <string name="peripheral_mouse">Chuột vật lý</string>
+    <string name="peripheral_pc_preset">Áp dụng cài đặt trước chuột PC</string>
+    <string name="peripheral_pc_mode">Nhắm mục tiêu không phụ thuộc vào độ phân giải</string>
+    <string name="peripheral_pc_mode_summary">Độ nhạy tuyến tính không đổi bất kể độ phân giải kết xuất. Battly không bổ sung khả năng tăng tốc hoặc làm mượt. Android 8 trở lên.</string>
+    <string name="peripheral_mouse_x">Độ nhạy ngang</string>
+    <string name="peripheral_mouse_y">Độ nhạy dọc</string>
+    <string name="peripheral_invert_x">Đảo ngược trục ngang</string>
+    <string name="peripheral_invert_y">Đảo ngược trục dọc</string>
+    <string name="peripheral_mouse_test">Kiểm tra hiệu chuẩn chuột</string>
+    <string name="peripheral_keyboard">Bàn phím vật lý</string>
+    <string name="peripheral_bindings">Ràng buộc phím trò chơi</string>
+    <string name="peripheral_binding_count">Các ràng buộc %1$d. Cách gõ menu không thay đổi.</string>
+    <string name="peripheral_keyboard_test">Kiểm tra các phím và kết hợp</string>
+    <string name="peripheral_stick_linear">Mục tiêu của bộ điều khiển tuyến tính</string>
+    <string name="peripheral_stick_linear_summary">Phản hồi theo tỷ lệ thay vì đường cong bậc hai mặc định. Áp dụng cho ánh xạ bộ điều khiển Battly, không áp dụng cho các mod bộ điều khiển gốc.</string>
+    <string name="peripheral_stick_sensitivity">Bộ điều khiển độ nhạy của camera</string>
+    <string name="peripheral_reset_test">Đặt lại phép đo</string>
+    <string name="peripheral_add_binding">Thêm ràng buộc khóa</string>
+    <string name="peripheral_source_key">Phím vật lý</string>
+    <string name="peripheral_target_key">Gửi key này tới Minecraft</string>
+    <string name="peripheral_press_key">Nhấn và thả một phím vật lý. Việc chọn một ràng buộc hiện có sẽ loại bỏ nó. Các phím bổ trợ vẫn giữ hoạt động bình thường của chúng.</string>
+    <string name="peripheral_invalid_key">Chọn một phím bàn phím không sửa đổi. Không thể ánh xạ lại các khóa hệ thống Android.</string>
+    <string name="peripheral_mouse_ready">Bấm vào vùng kiểm tra để bắt chuột. Nhấn Escape để thả nó ra. Các phép đo là chuyển động tương đối được báo cáo bởi Android, không phải phần cứng.</string>
+    <string name="peripheral_keyboard_ready">Nhấn các phím hoặc tổ hợp trên bàn phím vật lý của bạn. Nhấn Escape để đóng bài kiểm tra.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nGame X / Y: %3$s\nCác mẫu: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKhóa: %2$s · Quét: %3$d · Lặp lại: %4$d\nĐược giữ: %5$s</string>
 </resources>

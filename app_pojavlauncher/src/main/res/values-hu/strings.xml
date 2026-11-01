@@ -550,7 +550,7 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="crash_no_findings">A legújabb naplókban nem található ismert összeomlási minta.</string>
     <string name="crash_recovery_applied">A helyreállítási művelet befejeződött</string>
     <string name="crash_recovery_manual">Ez a probléma manuális módosítást igényel. Nyissa meg a naplót a részletekért.</string>
-    <string name="credits_version">2.2.5-es verzió</string>
+    <string name="credits_version">2.2.9-es verzió</string>
     <string name="ctrl_like_btn">tetszik</string>
     <string name="ctrl_liked_added">Hozzáadva a kedvelt vezérlőkhöz.</string>
     <string name="ctrl_liked_btn">Tetszett</string>
@@ -611,8 +611,8 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="java_runtime_download_progress">A Java %1$d (%2$.1f MB / %3$.1f MB) letöltése</string>
     <string name="java_runtime_download_title">A Java 8 telepítése</string>
     <string name="java_runtime_download_waiting">A Java 8 letöltésének előkészítése...</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
-    <string name="launcher_mobile_badge">Mobil 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
+    <string name="launcher_mobile_badge">Mobil 2.2.9</string>
     <string name="launcher_status_battly">Battly fiók</string>
     <string name="launcher_status_battly_plus">Battly+ fiók</string>
     <string name="library_analyze_mods">Elemezze</string>
@@ -1082,7 +1082,7 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="installer_internal_fallback">Nem támogatott telepítő, amely megnyitja a régi Java felhasználói felületet</string>
     <string name="installer_internal_running">Telepítő elemzése…</string>
     <string name="installer_internal_success">A %1$s közvetlenül a Battly belsejébe telepítve</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Indító a PojavLauncher és a Boardwalk alapján.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;Jóváírások&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -1491,4 +1491,107 @@ mcl_indítás_letöltés_folyamatban"</string>
     <string name="search_world_download_error">Nem sikerült letölteni a világ metaadatait</string>
     <string name="world_install_button">Telepítse a világot</string>
     <string name="world_install_success">%1$s ebbe a példányba telepítve</string>
+
+    <string name="battly_whats_new_transition_desc">A példányai a helyükön maradnak. Használat előtt engedélyezze a megbízható külső beépülő modulokat a Beállításokban.</string>
+    <string name="download_action_import_mods_title">Külső modok importálása</string>
+    <string name="download_action_import_mods_subtitle">Válasszon ki egy vagy több ".jar" fájlt, és adja hozzá őket a kiválasztott példányhoz.</string>
+    <string name="library_installed_show_more">Mutasd a %1$d többet</string>
+    <string name="library_import_mods_replace_title">Lecseréli a meglévő modokat?</string>
+    <string name="library_import_mods_replace_message">A %1$d kiválasztott mod fájlok már léteznek a %2$s-ben. A Battly csak az új fájlok érvényesítése után cseréli le őket.</string>
+    <string name="library_import_mods_invalid">Nincsenek érvényes `.jar` mod-fájlok kiválasztva.</string>
+    <string name="library_import_mods_success">Importált %1$d modok a %2$s-be.</string>
+    <string name="library_import_mods_partial">A %2$s fájlba importált %1$d modok · A %3$d fájlokat nem lehetett importálni.</string>
+    <string name="library_import_mods_error">A kiválasztott modokat nem sikerült importálni.</string>
+    <string name="battly_whats_new_action_start">Fedezze fel a 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">A bejelentkezési válaszoknak meg kell egyeznie egy függőben lévő kéréssel, rövid időn belül le kell járniuk, és csak egyszer fogadhatók el.</string>
+    <string name="battly_whats_new_compatibility_title">Biztonságosabb Discord bejelentkezés</string>
+    <string name="battly_whats_new_controllers_desc">Egy mappa megosztása többé nem teszi lehetővé a hozzáférést a megadott engedélyeken kívüli többi mappához.</string>
+    <string name="battly_whats_new_controllers_title">Védett fájlmegosztás</string>
+    <string name="battly_whats_new_desc">Biztonságosabb modpack telepítés, fájlmegosztás és külső beépülő modul engedélyezése.</string>
+    <string name="battly_whats_new_instances_desc">Az archív tartalmak és a letöltött fájlok a hozzárendelt példányon belül maradnak anélkül, hogy más példányokat módosítanának.</string>
+    <string name="battly_whats_new_instances_title">Védett modpack telepítés</string>
+    <string name="battly_whats_new_recovery_desc">A használati elemzés a Battly indításakor aktiválódik, kivéve offline módban. A kiadási megjegyzések és a beépülő modulok üzenetei le lettek fordítva.</string>
+    <string name="battly_whats_new_recovery_title">Statisztikák és fordítások</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">A Battly 2.2.9 készen áll</string>
+    <string name="battly_whats_new_worlds_desc">A külső beépülő modulokat használat előtt engedélyeztetni kell. A korábban telepített bővítményeket ismét engedélyezni kell.</string>
+    <string name="battly_whats_new_worlds_title">Az Ön beépülő moduljának engedélyei</string>
+    <string name="battly_appearance_title">Battly bőrök és köpenyek</string>
+    <string name="battly_appearance_subtitle">Tekintse meg és kezelje a teljes Minecraft megjelenését a mobilról.</string>
+    <string name="battly_capes_title">Battly köpenyek</string>
+    <string name="battly_capes_description">Válasszon hivatalos köpenyt, vagy töltse fel a sajátját a Battly+ segítségével. Az aktív köpeny a 3D előnézetben és a Minecraft belsejében látható.</string>
+    <string name="battly_capes_loading">Battly köpenyek betöltése...</string>
+    <string name="battly_capes_active">Aktív köpeny</string>
+    <string name="battly_capes_none">Nincs aktív köpeny</string>
+    <string name="battly_capes_empty">Ehhez a fiókhoz nem érhető el köpeny.</string>
+    <string name="battly_capes_upload">Köpeny feltöltése</string>
+    <string name="battly_capes_upload_plus">Feltöltés a Battly+ segítségével</string>
+    <string name="battly_capes_plus_required">Egyedi köpenyek kaphatók a Battly+ típussal. Továbbra is használhatod a hivatalos köpenyt.</string>
+    <string name="battly_capes_disable">Nincs köpeny</string>
+    <string name="battly_capes_disabled">Cape letiltva</string>
+    <string name="battly_capes_uploaded">Cape feltöltve és alkalmazva</string>
+    <string name="battly_capes_applied">Cape alkalmazva</string>
+    <string name="battly_capes_deleted">Cape törölve</string>
+    <string name="battly_capes_previewing">Köpeny előnézete</string>
+    <string name="battly_capes_custom">Egyedi köpeny</string>
+    <string name="battly_capes_official">Hivatalos köpeny</string>
+
+    <string name="battly_capes_unavailable">A köpenyek átmenetileg nem elérhetők. A skinjei továbbra is elérhetők.</string>
+
+    <string name="native_plugins_bundled_category">A Android függőségeket a Battly tartalmazza</string>
+    <string name="native_plugins_bundled_ready">%1$s verzió · Kész</string>
+
+    <string name="battly_whats_new_native_title">A natív függőségek továbbra is elérhetők</string>
+    <string name="battly_whats_new_native_desc">A beépített könyvtárak automatikusan működnek. A külső beépülő modulok engedélyei az APK-aláíró identitáshoz vannak kapcsolva.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">Napi tevékenység · Mobil</string>
+    <string name="battly_stats_history_notice">Helyi idő rögzítéskor. Az előzmények ezzel a frissítéssel kezdődnek; a korábbi összegek alatta maradnak.</string>
+    <string name="battly_stats_history_unavailable">A napi előzmények még nem érhetők el a szerveren. A teljes statisztikája alább látható.</string>
+    <string name="battly_stats_period_label">Tevékenységi időszak</string>
+    <string name="battly_stats_day_label">Tevékenység dátuma</string>
+    <string name="battly_stats_period_days">Utolsó %1$d nap</string>
+    <string name="battly_stats_period_summary">Aktív napok: %1$d · Minecraft: %2$s · Indító: %3$s</string>
+    <string name="battly_stats_time_range">Első tevékenység: %1$s · Utolsó tevékenység: %2$s</string>
+    <string name="battly_stats_day_modes">Világok: %1$s · Szerverek: %2$s (Battly Worlds: %3$s) · Játékmenük: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · Indító: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d s</string>
+    <string name="battly_stats_lifetime">Minden idők összesített száma · PC + mobil</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · Indító: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d h</string>
+    <string name="automatic_game_keyboard_title">Billentyűzet automatikus megnyitása</string>
+
+    <string name="native_plugins_trust_warning">Ez a külső beépülő modul natív kódot futtathat a Battly fájlokhoz és fiókokhoz való hozzáféréssel. Csak megbízható forrásból származó beépülő modulokat engedélyezzen. Az engedély az APK-aláíró identitáshoz kapcsolódik.</string>
+    <string name="native_plugins_trust_action">Beépülő modul engedélyezése</string>
+
+    <string name="peripheral_title">Billentyűzet, egér és vezérlő</string>
+    <string name="peripheral_devices">Csatlakoztatott perifériák</string>
+    <string name="peripheral_no_devices">Nem észleltek külső perifériákat</string>
+    <string name="peripheral_mouse">Fizikai egér</string>
+    <string name="peripheral_pc_preset">Alkalmazza a számítógépes egér előre beállított beállítását</string>
+    <string name="peripheral_pc_mode">Felbontás-független célzás</string>
+    <string name="peripheral_pc_mode_summary">Állandó lineáris érzékenység a renderelési felbontástól függetlenül. A Battly nem ad gyorsítást vagy simítást. Android 8 vagy újabb.</string>
+    <string name="peripheral_mouse_x">Vízszintes érzékenység</string>
+    <string name="peripheral_mouse_y">Függőleges érzékenység</string>
+    <string name="peripheral_invert_x">Vízszintes tengely megfordítása</string>
+    <string name="peripheral_invert_y">A függőleges tengely megfordítása</string>
+    <string name="peripheral_mouse_test">Tesztelje az egér kalibrálását</string>
+    <string name="peripheral_keyboard">Fizikai billentyűzet</string>
+    <string name="peripheral_bindings">Játékmeneti kulcskötések</string>
+    <string name="peripheral_binding_count">%1$d kötések. A menü beírása változatlan.</string>
+    <string name="peripheral_keyboard_test">Tesztbillentyűk és kombinációk</string>
+    <string name="peripheral_stick_linear">Lineáris vezérlő célzás</string>
+    <string name="peripheral_stick_linear_summary">Arányos botválasz az alapértelmezett másodfokú görbe helyett. A Battly vezérlőleképezésre vonatkozik, nem a natív vezérlőmódokra.</string>
+    <string name="peripheral_stick_sensitivity">Vezérlő kamera érzékenysége</string>
+    <string name="peripheral_reset_test">Mérés visszaállítása</string>
+    <string name="peripheral_add_binding">Kulcskötés hozzáadása</string>
+    <string name="peripheral_source_key">Fizikai kulcs</string>
+    <string name="peripheral_target_key">Küldje el ezt a kulcsot a Minecraft címre</string>
+    <string name="peripheral_press_key">Nyomjon meg és engedjen fel egy fizikai gombot. Egy meglévő kötés kiválasztása eltávolítja azt. A módosító billentyűk megtartják normál működésüket.</string>
+    <string name="peripheral_invalid_key">Válasszon egy nem módosító billentyűzetbillentyűt. A Android rendszerkulcsok nem képezhetők újra.</string>
+    <string name="peripheral_mouse_ready">Kattintson a tesztterületre az egér rögzítéséhez. Nyomja meg az Escape gombot a feloldáshoz. A mérések a Android által jelentett relatív mozgások, nem a hardveres DPI.</string>
+    <string name="peripheral_keyboard_ready">Nyomja meg a fizikai billentyűzet billentyűit vagy kombinációit. Nyomja meg az Escape gombot a teszt bezárásához.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nJáték X / Y: %3$s\nMinták: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nKulcs: %2$s · Szkennelés: %3$d · Ismétlés: %4$d\nTartott: %5$s</string>
 </resources>

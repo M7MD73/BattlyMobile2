@@ -174,8 +174,11 @@ public class MinecraftDownloader {
                 new ThreadPoolExecutor(threadCount, threadCount, 500, TimeUnit.MILLISECONDS,
                         new LinkedBlockingQueue<>());
 
-        // I have tried pre-filling the queue directly instead of doing this, but it didn't work.
-        // What a shame.
+        // Longest jobs first prevents a large client/library JAR from being left behind after
+        // thousands of tiny assets have already pushed file-count progress to 99%.
+        mScheduledDownloadTasks.sort((left, right) -> Long.compare(
+                downloadPriority(right.mDownloadSize),
+                downloadPriority(left.mDownloadSize)));
         for(DownloaderTask scheduledTask : mScheduledDownloadTasks) downloaderPool.execute(scheduledTask);
         downloaderPool.shutdown();
 
@@ -190,6 +193,10 @@ public class MinecraftDownloader {
             if(thrownException != null) {
                 throw thrownException;
             } else {
+                // The last sampled update can be 99% even though every worker has finished.
+                // Publish the completed download state before copy/extraction work starts.
+                if (mUseFileCounter) reportProgressFileCounter(0d);
+                else reportProgressSizeCounter(0d);
                 ensureJarFileCopy();
                 extractNatives(versionName);
                 long elapsedMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - downloadStartedAt);
@@ -219,6 +226,11 @@ public class MinecraftDownloader {
         int progress = (int)((dlFileSize * 100L) / mTotalSize);
         ProgressLayout.setProgress(ProgressLayout.DOWNLOAD_MINECRAFT, progress,
                 R.string.newdl_downloading_game_files_size, dlSizeMegabytes, dlTotalMegabytes, speed);
+    }
+
+    static long downloadPriority(long declaredSize) {
+        // Unknown-size legacy libraries may be large, so start them before known small assets.
+        return declaredSize > 0 ? declaredSize : Long.MAX_VALUE;
     }
 
     private File createGameJsonPath(String versionId) {

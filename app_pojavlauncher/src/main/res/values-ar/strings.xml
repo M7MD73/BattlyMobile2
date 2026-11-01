@@ -690,7 +690,7 @@
     <string name="credits_primary_development">التطوير الرئيسي</string>
     <string name="credits_section_title">الاعتمادات</string>
     <string name="credits_unaffiliated">لا يرتبط هذا التطبيق بـ Minecraft أو Mojang أو Microsoft.</string>
-    <string name="credits_version">الإصدار 2.2.5</string>
+    <string name="credits_version">الإصدار 2.2.9</string>
     <string name="ctrl_applied_success">تم تطبيق التحكم "%1$s" بنجاح.</string>
     <string name="ctrl_apply_btn">تطبيق السيطرة</string>
     <string name="ctrl_apply_msg">هل تريد تنزيل وتطبيق "%1$s" كتخطيط التحكم الخاص بك؟</string>
@@ -876,7 +876,7 @@
     <string name="instance_storage_calculating">جارٍ حساب مساحة التخزين...</string>
     <string name="instance_use">استخدم</string>
     <string name="java_runtime_download_message">يقوم Battly بتنزيل Java 8 بعد الإعداد الأول بدلاً من شحنه داخل التطبيق. يؤدي هذا إلى تقليل حجم التطبيق وإعداد الإصدارات الأقدم من Minecraft.</string>
-    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.5&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+    <string name="launcher_credits_html">&lt;b&gt;Battly Launcher 2.2.9&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
         Launcher يعتمد على PojavLauncher وBoardwalk.&lt;br/&gt;&lt;br/&gt;
         &lt;b&gt;الائتمانات&lt;/b&gt;&lt;br/&gt;
         • Battly&lt;br/&gt;
@@ -887,11 +887,11 @@
         • GNU GPLv3 ومكونات الطرف الثالث المضمنة في المشروع.&lt;br/&gt;
         • OpenJDK، LWJGL، GL4ES، LTW، Apache Commons، exp4j والمزيد بموجب تراخيصهم الأصلية.&lt;br/&gt;&lt;br/&gt;
         لا يرتبط هذا التطبيق بـ Minecraft أو Mojang أو Microsoft.</string>
-    <string name="launcher_credits_title">Battly Launcher 2.2.5</string>
+    <string name="launcher_credits_title">Battly Launcher 2.2.9</string>
     <string name="launcher_download">تحميل</string>
     <string name="launcher_download_modpack">استيراد modpack</string>
     <string name="launcher_execute">العب</string>
-    <string name="launcher_mobile_badge">الجوال 2.2.5</string>
+    <string name="launcher_mobile_badge">الجوال 2.2.9</string>
     <string name="launcher_nav_back">ارجع</string>
     <string name="launcher_nav_home">العودة إلى المنزل</string>
     <string name="launcher_nav_workspace">مساحة العمل Battly</string>
@@ -1442,4 +1442,107 @@
     <string name="search_world_download_error">فشل تنزيل بيانات التعريف العالمية</string>
     <string name="world_install_button">تثبيت العالم</string>
     <string name="world_install_success">تم تثبيت %1$s في هذه الحالة</string>
+
+    <string name="battly_whats_new_transition_desc">تظل مثيلاتك في مكانها. قم بتخويل المكونات الإضافية الخارجية الموثوقة في الإعدادات قبل استخدامها.</string>
+    <string name="download_action_import_mods_title">استيراد تعديلات خارجية</string>
+    <string name="download_action_import_mods_subtitle">اختر واحدًا أو أكثر من ملفات `.jar` وأضفها إلى المثيل المحدد.</string>
+    <string name="library_installed_show_more">أظهر %1$d المزيد</string>
+    <string name="library_import_mods_replace_title">هل تريد استبدال التعديلات الموجودة؟</string>
+    <string name="library_import_mods_replace_message">ملفات التعديل المحددة %1$d موجودة بالفعل في %2$s. لن يقوم Battly باستبدالها إلا بعد التحقق من صحة الملفات الجديدة.</string>
+    <string name="library_import_mods_invalid">لم يتم تحديد ملفات تعديل `.jar` صالحة.</string>
+    <string name="library_import_mods_success">تم تعديل %1$d إلى %2$s.</string>
+    <string name="library_import_mods_partial">تعديلات %1$d المستوردة إلى %2$s · لا يمكن استيراد ملفات %3$d.</string>
+    <string name="library_import_mods_error">لا يمكن استيراد التعديلات المحددة.</string>
+    <string name="battly_whats_new_action_start">اكتشف 2.2.9</string>
+    <string name="battly_whats_new_compatibility_desc">يجب أن تتطابق استجابات تسجيل الدخول مع طلب معلق، وتنتهي صلاحيتها بعد فترة قصيرة ولا يمكن قبولها إلا مرة واحدة.</string>
+    <string name="battly_whats_new_compatibility_title">تسجيل دخول أكثر أمانًا إلى Discord</string>
+    <string name="battly_whats_new_controllers_desc">لم تعد مشاركة مجلد واحد تسمح بالوصول إلى مجلدات أخرى خارج الإذن الذي منحته.</string>
+    <string name="battly_whats_new_controllers_title">مشاركة الملفات المحمية</string>
+    <string name="battly_whats_new_desc">تثبيت modpack أكثر أمانًا ومشاركة الملفات وترخيص المكونات الإضافية الخارجية.</string>
+    <string name="battly_whats_new_instances_desc">تظل محتويات الأرشيف والملفات التي تم تنزيلها داخل المثيلات المخصصة لها، دون تعديل المثيلات الأخرى.</string>
+    <string name="battly_whats_new_instances_title">تثبيت modpack المحمي</string>
+    <string name="battly_whats_new_recovery_desc">يتم تنشيط تحليلات الاستخدام عند بدء تشغيل Battly، باستثناء الوضع غير المتصل بالإنترنت. تمت ترجمة ملاحظات الإصدار ورسائل البرنامج المساعد.</string>
+    <string name="battly_whats_new_recovery_title">الإحصائيات والترجمات</string>
+    <string name="battly_whats_new_title">Battly Mobile 2.2.9</string>
+    <string name="battly_whats_new_transition_title">Battly 2.2.9 جاهز</string>
+    <string name="battly_whats_new_worlds_desc">تحتاج المكونات الإضافية الخارجية إلى إذن قبل الاستخدام. يجب أن تتم الموافقة على المكونات الإضافية المثبتة مسبقًا مرة أخرى.</string>
+    <string name="battly_whats_new_worlds_title">أذونات البرنامج المساعد الخاص بك</string>
+    <string name="battly_appearance_title">جلود ورؤوس Battly</string>
+    <string name="battly_appearance_subtitle">قم بمعاينة وإدارة مظهر Minecraft الكامل من الهاتف المحمول.</string>
+    <string name="battly_capes_title">الرؤوس Battly</string>
+    <string name="battly_capes_description">اختر عباءة رسمية أو قم بتحميل عباءتك الخاصة باستخدام Battly+. يظهر الرداء النشط في المعاينة ثلاثية الأبعاد وداخل Minecraft.</string>
+    <string name="battly_capes_loading">جارٍ تحميل الرؤوس Battly...</string>
+    <string name="battly_capes_active">الرأس النشط</string>
+    <string name="battly_capes_none">لا يوجد رأس نشط</string>
+    <string name="battly_capes_empty">لا توجد قبعات متاحة لهذا الحساب.</string>
+    <string name="battly_capes_upload">تحميل الرأس</string>
+    <string name="battly_capes_upload_plus">قم بالتحميل باستخدام Battly+</string>
+    <string name="battly_capes_plus_required">تتوفر الأغطية المخصصة مع Battly+. لا يزال بإمكانك استخدام الرؤوس الرسمية.</string>
+    <string name="battly_capes_disable">لا الرأس</string>
+    <string name="battly_capes_disabled">كيب معطل</string>
+    <string name="battly_capes_uploaded">كيب تم تحميلها وتطبيقها</string>
+    <string name="battly_capes_applied">تطبيق الرأس</string>
+    <string name="battly_capes_deleted">تم حذف الرأس</string>
+    <string name="battly_capes_previewing">معاينة الرأس</string>
+    <string name="battly_capes_custom">عباءة مخصصة</string>
+    <string name="battly_capes_official">الرأس الرسمي</string>
+
+    <string name="battly_capes_unavailable">الرؤوس غير متوفرة مؤقتا. جلودك لا تزال متاحة.</string>
+
+    <string name="native_plugins_bundled_category">تبعيات Android المضمنة في Battly</string>
+    <string name="native_plugins_bundled_ready">الإصدار %1$s · جاهز</string>
+
+    <string name="battly_whats_new_native_title">تظل التبعيات الأصلية متاحة</string>
+    <string name="battly_whats_new_native_desc">تعمل المكتبات المدمجة تلقائيًا. ترتبط أذونات المكونات الإضافية الخارجية بهوية توقيع APK.</string>
+
+    <string name="battly_stats_day_entry">%1$s · %2$s</string>
+    <string name="battly_stats_history_title">النشاط اليومي · الجوال</string>
+    <string name="battly_stats_history_notice">التوقيت المحلي عند التسجيل. يبدأ التاريخ بهذا التحديث؛ تبقى المجاميع السابقة أدناه.</string>
+    <string name="battly_stats_history_unavailable">التاريخ اليومي غير متوفر على الخادم بعد. إجمالي الإحصائيات الخاصة بك موضحة أدناه.</string>
+    <string name="battly_stats_period_label">فترة النشاط</string>
+    <string name="battly_stats_day_label">تاريخ النشاط</string>
+    <string name="battly_stats_period_days">آخر أيام %1$d</string>
+    <string name="battly_stats_period_summary">الأيام النشطة: %1$d · Minecraft: %2$s · المشغل: %3$s</string>
+    <string name="battly_stats_time_range">النشاط الأول: %1$s · النشاط الأخير: %2$s</string>
+    <string name="battly_stats_day_modes">العوالم: %1$s · الخوادم: %2$s (Battly Worlds: %3$s) · قوائم اللعبة: %4$s</string>
+    <string name="battly_stats_hour_entry">%1$s–%2$s · Minecraft: %3$s · المشغل: %4$s</string>
+    <string name="battly_stats_duration_seconds">%1$d ق</string>
+    <string name="battly_stats_lifetime">الإجماليات على الإطلاق · الكمبيوتر الشخصي + الهاتف المحمول</string>
+
+    <string name="battly_stats_chart_value">%1$s · Minecraft: %2$s · المشغل: %3$s</string>
+    <string name="battly_stats_chart_hours">%1$d ح</string>
+    <string name="automatic_game_keyboard_title">فتح لوحة المفاتيح تلقائيًا</string>
+
+    <string name="native_plugins_trust_warning">يمكن لهذا المكون الإضافي الخارجي تشغيل التعليمات البرمجية الأصلية مع إمكانية الوصول إلى ملفات وحسابات Battly. السماح فقط بالمكونات الإضافية من مصدر تثق به. يرتبط الإذن بهوية توقيع APK.</string>
+    <string name="native_plugins_trust_action">السماح للمكون الإضافي</string>
+
+    <string name="peripheral_title">لوحة المفاتيح والماوس وجهاز التحكم</string>
+    <string name="peripheral_devices">الأجهزة الطرفية المتصلة</string>
+    <string name="peripheral_no_devices">لم يتم اكتشاف أي أجهزة طرفية خارجية</string>
+    <string name="peripheral_mouse">الفأرة المادية</string>
+    <string name="peripheral_pc_preset">قم بتطبيق الإعداد المسبق لفأرة الكمبيوتر</string>
+    <string name="peripheral_pc_mode">هدف مستقل عن القرار</string>
+    <string name="peripheral_pc_mode_summary">حساسية خطية ثابتة بغض النظر عن دقة العرض. لا يضيف Battly أي تسريع أو تجانس. Android 8 أو الأحدث.</string>
+    <string name="peripheral_mouse_x">الحساسية الأفقية</string>
+    <string name="peripheral_mouse_y">الحساسية العمودية</string>
+    <string name="peripheral_invert_x">عكس المحور الأفقي</string>
+    <string name="peripheral_invert_y">عكس المحور العمودي</string>
+    <string name="peripheral_mouse_test">اختبار معايرة الماوس</string>
+    <string name="peripheral_keyboard">لوحة المفاتيح المادية</string>
+    <string name="peripheral_bindings">روابط مفاتيح اللعب</string>
+    <string name="peripheral_binding_count">روابط %1$d. كتابة القائمة لم تتغير.</string>
+    <string name="peripheral_keyboard_test">مفاتيح الاختبار والمجموعات</string>
+    <string name="peripheral_stick_linear">تهدف وحدة التحكم الخطية</string>
+    <string name="peripheral_stick_linear_summary">استجابة العصا المتناسبة بدلاً من المنحنى التربيعي الافتراضي. ينطبق على تعيين وحدة التحكم Battly، وليس على تعديلات وحدة التحكم الأصلية.</string>
+    <string name="peripheral_stick_sensitivity">حساسية كاميرا التحكم</string>
+    <string name="peripheral_reset_test">إعادة ضبط القياس</string>
+    <string name="peripheral_add_binding">إضافة ربط المفتاح</string>
+    <string name="peripheral_source_key">المفتاح المادي</string>
+    <string name="peripheral_target_key">أرسل هذا المفتاح إلى Minecraft</string>
+    <string name="peripheral_press_key">اضغط على المفتاح الفعلي وحرره. يؤدي تحديد رابط موجود إلى إزالته. تحافظ مفاتيح التعديل على سلوكها الطبيعي.</string>
+    <string name="peripheral_invalid_key">اختر مفتاح لوحة مفاتيح غير معدل. لا يمكن إعادة تعيين مفاتيح النظام Android.</string>
+    <string name="peripheral_mouse_ready">انقر فوق منطقة الاختبار لالتقاط الماوس. اضغط على Escape لتحريره. القياسات هي حركة نسبية تم الإبلاغ عنها بواسطة Android، وليست DPI للأجهزة.</string>
+    <string name="peripheral_keyboard_ready">اضغط على المفاتيح أو المجموعات الموجودة على لوحة المفاتيح الفعلية. اضغط على Escape لإغلاق الاختبار.</string>
+    <string name="peripheral_mouse_result">%1$s\nAndroid X / Y: %2$s\nاللعبة X / Y: %3$s\nالنماذج: %4$d</string>
+    <string name="peripheral_key_result">%1$s\nالمفتاح: %2$s · المسح الضوئي: %3$d · التكرار: %4$d\nالعقد: %5$s</string>
 </resources>

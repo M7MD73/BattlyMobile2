@@ -79,7 +79,6 @@ public class Gamepad implements GrabListener, GamepadHandler {
     private float mLastHorizontalValue = 0.0f;
     private float mLastVerticalValue = 0.0f;
 
-    private static final double MOUSE_MAX_ACCELERATION = 2f;
 
     private double mMouseMagnitude;
     private double mMouseAngle;
@@ -233,14 +232,15 @@ public class Gamepad implements GrabListener, GamepadHandler {
         long newFrameTime = System.nanoTime();
         if(mLastHorizontalValue != 0 || mLastVerticalValue != 0){
 
-            double acceleration = Math.pow(mMouseMagnitude, MOUSE_MAX_ACCELERATION);
-            if(acceleration > 1) acceleration = 1;
+            double acceleration = net.kdt.pojavlaunch.customcontrols.mouse.PeripheralMotion.stickMagnitude(
+                    mMouseMagnitude, isGrabbing && net.kdt.pojavlaunch.customcontrols.PeripheralInputSettings.linearStick);
 
             // Compute delta since last tick time
             float deltaX = (float) (Math.cos(mMouseAngle) * acceleration * mMouseSensitivity);
             float deltaY = (float) (Math.sin(mMouseAngle) * acceleration * mMouseSensitivity);
             newFrameTime = System.nanoTime();  // More accurate delta
-            float deltaTimeScale = ((newFrameTime - mLastFrameTime) / 16666666f); // Scale of 1 = 60Hz
+            float deltaTimeScale = Math.min(3f, Math.max(0f,
+                    (newFrameTime - mLastFrameTime) / 16666666f)); // Avoid camera jumps after a stalled frame.
             deltaX *= deltaTimeScale;
             deltaY *= deltaTimeScale;
 
