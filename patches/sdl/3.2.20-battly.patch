@@ -1,5 +1,5 @@
 diff --git a/src/core/android/SDL_android.c b/src/core/android/SDL_android.c
-index 59ea5574b..5fb9e2420 100644
+index 59ea5574b..2e16fff3f 100644
 --- a/src/core/android/SDL_android.c
 +++ b/src/core/android/SDL_android.c
 @@ -31,6 +31,9 @@
@@ -46,17 +46,169 @@ index 59ea5574b..5fb9e2420 100644
  // Activity initialization -- called before SDL_main() to initialize JNI bindings
  JNIEXPORT void JNICALL SDL_JAVA_INTERFACE(nativeSetupJNI)(JNIEnv *env, jclass cls)
  {
+@@ -1718,11 +1734,8 @@ ANativeWindow *Android_JNI_GetNativeWindow(void)
+ 
+ void Android_JNI_SetActivityTitle(const char *title)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-
+-    jstring jtitle = (*env)->NewStringUTF(env, title);
+-    (*env)->CallStaticBooleanMethod(env, mActivityClass, midSetActivityTitle, jtitle);
+-    (*env)->DeleteLocalRef(env, jtitle);
++    /* Android does not expose this desktop-style window title to the user. */
++    (void)title;
+ }
+ 
+ void Android_JNI_SetWindowStyle(bool fullscreen)
+@@ -3123,48 +3136,97 @@ void Android_JNI_GetManifestEnvironmentVariables(void)
+ 
+ int Android_JNI_CreateCustomCursor(SDL_Surface *surface, int hot_x, int hot_y)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-    int custom_cursor = 0;
+-    jintArray pixels;
+-    pixels = (*env)->NewIntArray(env, surface->w * surface->h);
+-    if (pixels) {
+-        (*env)->SetIntArrayRegion(env, pixels, 0, surface->w * surface->h, (int *)surface->pixels);
+-        custom_cursor = (*env)->CallStaticIntMethod(env, mActivityClass, midCreateCustomCursor, pixels, surface->w, surface->h, hot_x, hot_y);
+-        (*env)->DeleteLocalRef(env, pixels);
+-    } else {
+-        SDL_OutOfMemory();
+-    }
+-    return custom_cursor;
++    /*
++     * SDL cursor images are cosmetic in Battly: Android pointer capture hides
++     * the system pointer while Minecraft owns the mouse. Calling ART cursor
++     * APIs directly from Minecraft's embedded JVM thread is unsafe, so keep a
++     * synthetic cursor handle and leave pointer capture to the relative-mouse
++     * path below.
++     */
++    (void)surface;
++    (void)hot_x;
++    (void)hot_y;
++    return 1;
+ }
+ 
+ void Android_JNI_DestroyCustomCursor(int cursorID)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-    (*env)->CallStaticVoidMethod(env, mActivityClass, midDestroyCustomCursor, cursorID);
++    (void)cursorID;
+ }
+ 
+ bool Android_JNI_SetCustomCursor(int cursorID)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-    return (*env)->CallStaticBooleanMethod(env, mActivityClass, midSetCustomCursor, cursorID);
++    (void)cursorID;
++    return true;
+ }
+ 
+ bool Android_JNI_SetSystemCursor(int cursorID)
+ {
++    /*
++     * Minecraft 26.3 changes the SDL system cursor from its render thread when
++     * entering or leaving interactive screens. On some Android runtimes that
++     * JNI call can use an invalid thread-local JNIEnv and crash in
++     * CallStaticBooleanMethod. Android does not need desktop cursor-shape
++     * updates while the pointer is captured, so keep the current system icon
++     * and report success. Relative mouse mode and mouse events use separate
++     * paths and remain enabled.
++     */
++    (void)cursorID;
++    return true;
++}
++
++typedef struct AndroidRelativeMouseCall
++{
++    bool set_enabled;
++    bool enabled;
++    bool result;
++} AndroidRelativeMouseCall;
++
++static void *Android_JNI_RelativeMouseCall(void *userdata)
++{
++    AndroidRelativeMouseCall *call = (AndroidRelativeMouseCall *)userdata;
+     JNIEnv *env = Android_JNI_GetEnv();
+-    return (*env)->CallStaticBooleanMethod(env, mActivityClass, midSetSystemCursor, cursorID);
++
++    if (!env || !mActivityClass) {
++        call->result = false;
++        return NULL;
++    }
++
++    if (call->set_enabled) {
++        call->result = (*env)->CallStaticBooleanMethod(env, mActivityClass,
++                                                       midSetRelativeMouseEnabled,
++                                                       call->enabled ? JNI_TRUE : JNI_FALSE);
++    } else {
++        call->result = (*env)->CallStaticBooleanMethod(env, mActivityClass,
++                                                       midSupportsRelativeMouse);
++    }
++
++    if ((*env)->ExceptionCheck(env)) {
++        (*env)->ExceptionClear(env);
++        call->result = false;
++    }
++    return NULL;
++}
++
++static bool Android_JNI_RunRelativeMouseCall(bool set_enabled, bool enabled)
++{
++    AndroidRelativeMouseCall call = { set_enabled, enabled, false };
++    pthread_t thread;
++    if (pthread_create(&thread, NULL, Android_JNI_RelativeMouseCall, &call) != 0) {
++        return false;
++    }
++    pthread_join(thread, NULL);
++    return call.result;
+ }
+ 
+ bool Android_JNI_SupportsRelativeMouse(void)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-    return (*env)->CallStaticBooleanMethod(env, mActivityClass, midSupportsRelativeMouse);
++    return Android_JNI_RunRelativeMouseCall(false, false);
+ }
+ 
+ bool Android_JNI_SetRelativeMouseEnabled(bool enabled)
+ {
+-    JNIEnv *env = Android_JNI_GetEnv();
+-    return (*env)->CallStaticBooleanMethod(env, mActivityClass, midSetRelativeMouseEnabled, (enabled == 1));
++    return Android_JNI_RunRelativeMouseCall(true, enabled);
+ }
+ 
+ typedef struct NativePermissionRequestInfo
 diff --git a/src/video/android/SDL_androidgl.c b/src/video/android/SDL_androidgl.c
-index fb98d03a6..6b6c25321 100644
+index fb98d03a6..959d5c6ae 100644
 --- a/src/video/android/SDL_androidgl.c
 +++ b/src/video/android/SDL_androidgl.c
-@@ -36,8 +36,35 @@
+@@ -36,10 +36,62 @@
  
  #include <dlfcn.h>
  
 +static Uint64 battly_fps_window_start_ns;
 +static int battly_fps_window_frames;
 +static int battly_renderer_fps;
++
++static bool Android_GLES_ForceVSync(void)
++{
++    const char *force_vsync = SDL_getenv("FORCE_VSYNC");
++    const char *zink_vsync = SDL_getenv("POJAV_VSYNC_IN_ZINK");
++    return (force_vsync && SDL_strcasecmp(force_vsync, "true") == 0) ||
++           (zink_vsync && zink_vsync[0] != '\0' &&
++            SDL_strcasecmp(zink_vsync, "false") != 0 && SDL_strcmp(zink_vsync, "0") != 0);
++}
++
++bool Android_GLES_SetSwapInterval(SDL_VideoDevice *_this, int interval)
++{
++    return SDL_EGL_SetSwapInterval(_this, Android_GLES_ForceVSync() ? 1 : interval);
++}
++
++bool Android_GLES_GetSwapInterval(SDL_VideoDevice *_this, int *interval)
++{
++    return SDL_EGL_GetSwapInterval(_this, interval);
++}
 +
 +int Android_GLES_GetRendererFPS(void)
 +{
@@ -84,15 +236,31 @@ index fb98d03a6..6b6c25321 100644
 +        Android_MakeWindowCurrent(_this, window);
 +    }
      if (window && context) {
-         return SDL_EGL_MakeCurrent(_this, window->internal->egl_surface, context);
+-        return SDL_EGL_MakeCurrent(_this, window->internal->egl_surface, context);
++        if (!SDL_EGL_MakeCurrent(_this, window->internal->egl_surface, context)) {
++            return false;
++        }
++        if (!Android_GLES_SetSwapInterval(_this, _this->egl_data->egl_swapinterval)) {
++            SDL_LogWarn(SDL_LOG_CATEGORY_VIDEO, "Unable to restore swap interval: %s", SDL_GetError());
++        }
++        return true;
      } else {
-@@ -73,7 +100,16 @@ bool Android_GLES_SwapWindow(SDL_VideoDevice *_this, SDL_Window *window)
+         return SDL_EGL_MakeCurrent(_this, NULL, NULL);
+     }
+@@ -73,7 +125,23 @@ bool Android_GLES_SwapWindow(SDL_VideoDevice *_this, SDL_Window *window)
  
      /*_this->egl_data->eglWaitNative(EGL_CORE_NATIVE_ENGINE);
      _this->egl_data->eglWaitGL();*/
 +    if (window->internal->surface_changed) {
 +        SDL_GLContext current_context = SDL_GL_GetCurrentContext();
-+        SDL_EGL_MakeCurrent(_this, window->internal->egl_surface, (EGLContext)current_context);
++        if (!SDL_EGL_MakeCurrent(_this, window->internal->egl_surface, (EGLContext)current_context)) {
++            Android_UnlockActivityMutex();
++            return false;
++        }
++        // A replacement EGLSurface starts at interval 1, not the cached game setting.
++        if (!Android_GLES_SetSwapInterval(_this, _this->egl_data->egl_swapinterval)) {
++            SDL_LogWarn(SDL_LOG_CATEGORY_VIDEO, "Unable to restore swap interval: %s", SDL_GetError());
++        }
 +        window->internal->surface_changed = false;
 +    }
 +
@@ -104,17 +272,32 @@ index fb98d03a6..6b6c25321 100644
      Android_UnlockActivityMutex();
  
 diff --git a/src/video/android/SDL_androidgl.h b/src/video/android/SDL_androidgl.h
-index d287fca17..e5bd10477 100644
+index d287fca17..76da02609 100644
 --- a/src/video/android/SDL_androidgl.h
 +++ b/src/video/android/SDL_androidgl.h
-@@ -26,6 +26,7 @@
+@@ -26,6 +26,9 @@
  extern SDL_GLContext Android_GLES_CreateContext(SDL_VideoDevice *_this, SDL_Window *window);
  extern bool Android_GLES_MakeCurrent(SDL_VideoDevice *_this, SDL_Window *window, SDL_GLContext context);
  extern bool Android_GLES_SwapWindow(SDL_VideoDevice *_this, SDL_Window *window);
++extern bool Android_GLES_SetSwapInterval(SDL_VideoDevice *_this, int interval);
++extern bool Android_GLES_GetSwapInterval(SDL_VideoDevice *_this, int *interval);
 +extern int Android_GLES_GetRendererFPS(void);
  extern bool Android_GLES_LoadLibrary(SDL_VideoDevice *_this, const char *path);
  
  #endif // SDL_androidgl_h_
+diff --git a/src/video/android/SDL_androidvideo.c b/src/video/android/SDL_androidvideo.c
+index d868e6960..c56905357 100644
+--- a/src/video/android/SDL_androidvideo.c
++++ b/src/video/android/SDL_androidvideo.c
+@@ -49,8 +49,6 @@ static void Android_VideoQuit(SDL_VideoDevice *_this);
+ #include "../SDL_egl_c.h"
+ #define Android_GLES_GetProcAddress  SDL_EGL_GetProcAddressInternal
+ #define Android_GLES_UnloadLibrary   SDL_EGL_UnloadLibrary
+-#define Android_GLES_SetSwapInterval SDL_EGL_SetSwapInterval
+-#define Android_GLES_GetSwapInterval SDL_EGL_GetSwapInterval
+ #define Android_GLES_DestroyContext   SDL_EGL_DestroyContext
+ 
+ // Android driver bootstrap functions
 diff --git a/src/video/android/SDL_androidwindow.c b/src/video/android/SDL_androidwindow.c
 index 4652b5f6b..377e5840d 100644
 --- a/src/video/android/SDL_androidwindow.c

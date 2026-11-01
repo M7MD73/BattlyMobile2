@@ -8,6 +8,28 @@ plugins{
 
 def mobileGluesPatch = file('patches/mobileglues/2.0.0-battly.patch')
 def sdlPatch = file('patches/sdl/3.2.20-battly.patch')
+def ltwPatch = file('patches/ltw/battly.patch')
+
+tasks.register('applyLtwPatches') {
+    inputs.file(ltwPatch)
+    doLast {
+        File ltwDir = file('LTW')
+        def applied = exec {
+            workingDir ltwDir
+            commandLine 'git', 'apply', '--reverse', '--check', ltwPatch.absolutePath
+            ignoreExitValue true
+        }
+        if (applied.exitValue == 0) return
+        exec {
+            workingDir ltwDir
+            commandLine 'git', 'apply', '--check', ltwPatch.absolutePath
+        }
+        exec {
+            workingDir ltwDir
+            commandLine 'git', 'apply', ltwPatch.absolutePath
+        }
+    }
+}
 
 tasks.register('applyMobileGluesPatches') {
     inputs.file(mobileGluesPatch)
@@ -68,6 +90,12 @@ tasks.register('applySdlPatches') {
 }
 
 gradle.projectsEvaluated {
+    def ltwProject = findProject(':ltw')
+    if (ltwProject != null) {
+        ltwProject.tasks.matching { it.name == 'preBuild' }.configureEach {
+            dependsOn rootProject.tasks.named('applyLtwPatches')
+        }
+    }
     def mobileGluesProject = findProject(':MobileGlues')
     if (mobileGluesProject != null) {
         mobileGluesProject.tasks.matching { it.name == 'preBuild' }.configureEach {

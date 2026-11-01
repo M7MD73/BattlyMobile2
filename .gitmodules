@@ -12,3 +12,4 @@
 [submodule "LTW"]
 	path = LTW
 	url = https://github.com/MojoLauncher/LTW.git
+	ignore = dirty

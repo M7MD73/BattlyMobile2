@@ -82,6 +82,7 @@ app_pojavlauncher/src/main/assets/components/jre/
 /release-secrets/
 /.codex/
 /.codex-remote-attachments/
+/tools/security/
 /dist/
 /out/
 /items/
