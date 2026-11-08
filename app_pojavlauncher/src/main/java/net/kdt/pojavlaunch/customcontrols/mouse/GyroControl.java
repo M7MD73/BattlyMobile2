@@ -11,6 +11,7 @@ import android.view.Surface;
 import android.view.WindowManager;
 
 import net.kdt.pojavlaunch.GrabListener;
+import net.kdt.pojavlaunch.MinecraftGLSurface;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
 
 import org.lwjgl.glfw.CallbackBridge;
@@ -101,31 +102,41 @@ public class GyroControl implements SensorEventListener, GrabListener {
         mStoredY += yAverage * 1000 * LauncherPreferences.PREF_GYRO_SENSITIVITY;
 
         boolean updatePosition = false;
+        float deltaX = 0;
+        float deltaY = 0;
         float absX = Math.abs(mStoredX);
         float absY = Math.abs(mStoredY);
 
         if(absX + absY > MULTI_AXIS_LOW_PASS_THRESHOLD) {
-            CallbackBridge.mouseX -= ((mSwapXY ? mStoredY : mStoredX) * xFactor);
-            CallbackBridge.mouseY += ((mSwapXY ? mStoredX : mStoredY) * yFactor);
+            deltaX -= ((mSwapXY ? mStoredY : mStoredX) * xFactor);
+            deltaY += ((mSwapXY ? mStoredX : mStoredY) * yFactor);
             mStoredX = 0;
             mStoredY = 0;
             updatePosition = true;
         } else {
             if(Math.abs(mStoredX) > SINGLE_AXIS_LOW_PASS_THRESHOLD){
-                CallbackBridge.mouseX -= ((mSwapXY ? mStoredY : mStoredX) * xFactor);
+                deltaX -= ((mSwapXY ? mStoredY : mStoredX) * xFactor);
                 mStoredX = 0;
                 updatePosition = true;
             }
 
             if(Math.abs(mStoredY) > SINGLE_AXIS_LOW_PASS_THRESHOLD) {
-                CallbackBridge.mouseY += ((mSwapXY ? mStoredX : mStoredY) * yFactor);
+                deltaY += ((mSwapXY ? mStoredX : mStoredY) * yFactor);
                 mStoredY = 0;
                 updatePosition = true;
             }
         }
 
         if(updatePosition){
-            CallbackBridge.sendCursorPos(CallbackBridge.mouseX, CallbackBridge.mouseY);
+            if (MinecraftGLSurface.isSdlInputBridgeEnabled()) {
+                // Minecraft 26.3+ uses SDL relative mouse mode. Gyro movement
+                // must be sent as a relative delta, not an absolute cursor position.
+                CallbackBridge.sendCursorDelta(deltaX, deltaY);
+            } else {
+                CallbackBridge.mouseX += deltaX;
+                CallbackBridge.mouseY += deltaY;
+                CallbackBridge.sendCursorPos(CallbackBridge.mouseX, CallbackBridge.mouseY);
+            }
         }
     }
 
